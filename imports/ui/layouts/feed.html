@@ -1,7 +1,13 @@
 <template name="feed">
     <div class="grid grid-cols-5 m-10" id="feed">
-        {{#each getBubbles}}
-            {{> bubble this}}
+        {{#each feedItems}}
+            {{#if autoText}}
+                {{> bubble this}}
+            {{/if}}
+
+            {{#if sticker}}
+                {{> sticker this}}
+            {{/if}} 
         {{/each}}
     </div>
     
@@ -11,6 +17,7 @@
         {{> card}}
     </div> -->
 
-    <button onclick="addData()">ADD</button>
+    <button onclick="addData('autoText')">ADD BUBBLE</button>
+    <button onclick="addData('sticker')">ADD STICKER</button>
 
 </template>
