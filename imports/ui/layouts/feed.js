@@ -28,7 +28,9 @@ Template.feed.onRendered(function(){
 
 addData = function(type){
     // this function is used to add data to the local reactive Var, which is used to populate the feed.
+
     // we will need to get the data from the proper database next ("scenarios") rather than just inserting random stuff like we're doing now.
+
     tempArr = data.get() || []
     obj = {left:true, who:"Samuel", text:"BLABLABLABA."}
     obj[type] = true
