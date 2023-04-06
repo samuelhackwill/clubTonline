@@ -1,0 +1,11 @@
+<template name="bubble">
+    {{#if left}}
+    <div class="opacity-0 transition-all text-4xl basis-2/3 col-span-3 mb-5 p-5 bg-white rounded-3xl">
+        <p>{{text}}</p>
+    </div>
+        {{else}} 
+    <div class="opacity-0 transition-all text-4xl basis-2/3 col-span-3 col-end-[-1] mb-5 p-5 bg-white rounded-3xl">
+        <p>{{text}}</p>
+    </div>
+    {{/if}}
+</template>

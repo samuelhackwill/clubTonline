@@ -5,7 +5,8 @@ module.exports = {
     "./client/*.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }

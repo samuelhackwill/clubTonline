@@ -1,5 +1,14 @@
 <template name="feed">
-    <div class="h-100 w-100 overflow-hidden flex justify-center items-center h-screen">
-        {{> card}}
+    <div class="grid grid-cols-5 m-10" id="feed">
+        {{#each getBubbles}}
+            {{> bubble this}}
+        {{/each}}
     </div>
+    
+<!-- HARDCODED SHIT TO TRY THINGS OUT     -->
+
+    <!-- <div class="h-100 w-100 overflow-hidden flex justify-center items-center h-screen">
+        {{> card}}
+    </div> -->
+
 </template>
