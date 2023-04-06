@@ -20,7 +20,7 @@ Template.feed.onRendered(function(){
 
             setTimeout(function(){
                 next.parentNode.lastChild.style.opacity = 1
-            },0)
+            },30)
         }
     }
 })
