@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes:{
+        aura:{
+          '25%,75%':{transform:'translateX(50px)'}
+        }
+      }
     },
   },
   plugins: [],

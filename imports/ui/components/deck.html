@@ -1,0 +1,17 @@
+<template name="deck">
+    <div class="relative h-max col-span-full m-5 opacity-0" data-deckOfCards="true" id="deck">
+
+        <!-- halo -->
+        <div class="absolute aura h-[19rem] w-[16rem] transition-opacity duration-1000 delay-1000 opacity-0">
+        </div>
+        <div class="absolute aura h-[19rem] w-[16rem] transition-opacity duration-1000 delay-1000 opacity-0">
+        </div>
+        <div class="absolute aura h-[19rem] w-[16rem] transition-opacity duration-1000 delay-1000 opacity-0">
+        </div>
+       
+        <!-- cartes -->
+        
+        {{> card this}}
+    </div>
+
+</template>

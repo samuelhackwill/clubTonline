@@ -1,0 +1,96 @@
+/* Below is for the deck of cards, namely the stacking effect. */
+/* I could have done it by nesting the cards but hey fuck this. */
+
+.card:nth-of-type(1){
+    margin-left: .3rem;
+}
+.card:nth-of-type(2){
+    margin-left: .6rem;
+}
+.card:nth-of-type(3){
+    margin-left: .9rem;
+}
+.card:nth-of-type(4){
+    margin-left: 1.2rem;
+}
+.card:nth-of-type(5){
+    margin-left: 1.5rem;
+}
+.card:nth-of-type(6){
+    margin-left: 1.8rem;
+}
+.card:nth-of-type(7){
+    margin-left: 2.1rem;
+}
+.card:nth-of-type(8){
+    margin-left: 2.4rem;
+}
+.card:nth-of-type(9){
+    margin-left: 2.7rem;
+}
+.card:nth-of-type(10){
+    margin-left: 3rem;
+}
+.card:nth-of-type(11){
+    margin-left: 3.3rem;
+}
+.card:nth-of-type(12){
+    margin-left: 3.6rem;
+}
+.card:nth-of-type(12){
+    margin-left: 3.9rem;
+}
+.card:nth-of-type(13){
+    margin-left: 4.2rem;
+}
+.card:nth-of-type(14){
+    margin-left: 4.5rem;
+}
+.card:nth-of-type(15){
+    margin-left: 4.8rem;
+}
+.card:nth-of-type(16){
+    margin-left: 5.1rem;
+}
+.card:nth-of-type(17){
+    margin-left: 5.4rem;
+}
+.card:nth-of-type(18){
+    margin-left: 5.7rem;
+}
+
+/* for some reason, tailwind is crashing when i put this in the config file, so fuck this n°2! sorry tailwind */
+
+@keyframes aura {
+    25%,
+    75% {
+      border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+    }
+    50% {
+      border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%;
+      transform: rotate(0deg);
+    }
+    100%,0% {
+      transform: rotate(360deg);
+      border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+    }
+} 
+
+
+.aura{
+
+    background-color:blue;
+    animation: aura 30s infinite linear;
+    mix-blend-mode: multiply;
+    filter: blur(1vw); 
+}
+
+.aura:nth-child(2) {
+    animation-delay: -10s;
+}
+    
+.aura:nth-child(3) {
+    animation-direction: reverse;
+    animation-delay: -20s;
+}
+
