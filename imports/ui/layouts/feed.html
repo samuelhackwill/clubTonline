@@ -1,11 +1,15 @@
 <template name="feed">
 
-    <button onclick="addData({autoText:true, left:true, text:'BLABLABLABA.'})">ADD BUBBLE</button>
-    <button onclick="addData({sticker:true})">ADD STICKER</button>
-    <button onclick="addData({deck:true, cards:['zob', 'zib', 'zub']})">ADD DECK</button>
-
-    {{feedState}}
+    <div class="fixed bg-rose-300">
+        <p> DEBUG TOOLS </p>
+        <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({autoText:true, left:true, text:'BLABLABLABA.'})">ADD BUBBLE</button>
+        <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({sticker:true})">ADD STICKER</button>
+        <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({deck:true, cards:['zob', 'zib', 'zub']})">ADD DECK</button>
     
+        <p class="text-3xl">Status = {{feedState}}</p>
+    
+    </div>
+
     <div class="grid grid-cols-5 m-10" id="feed">
 
         <!-- the feed needs to know what kind of component to add to the feed based on what the data is. this feels kind of hacky, might want to make a proper helper, but also maybe not. -->

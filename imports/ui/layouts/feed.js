@@ -63,7 +63,10 @@ Template.feed.events({
     'click .card'(event) {
         // attach event listener to end of animation on the element
         // animate element
-        state.set("picking card")
+        state.set("animating card")
+
+        // addEventListener("animationend", (event) => {});
+
     }
 })
 

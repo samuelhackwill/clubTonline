@@ -7,9 +7,22 @@ module.exports = {
   theme: {
     extend: {
       keyframes:{
-        aura:{
-          '25%,75%':{transform:'translateX(50px)'}
+        auraKeys:{
+          "25%, 75%" : {
+            "border-radius" : "60% 40% 40% 60% / 60% 40% 60% 40%;"
+          },
+          "50%" : {
+            "border-radius" : "40% 60% 60% 40% / 40% 60% 40% 60%;",
+            "transform" : "rotate(0deg);"
+          },
+          "100%, 0%" : {
+            "transform" : "rotate(360deg);",
+            "border-radius": "60% 40% 40% 60% / 60% 40% 60% 40%;"
+          }
         }
+      },
+      animation:{
+        aura: 'auraKeys 30s infinite linear',
       }
     },
   },
