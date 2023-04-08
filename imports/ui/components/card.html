@@ -1,10 +1,10 @@
 <template name="card">
     {{#each cards}}
     <div class="card grid grid-cols-1 grid-rows-1  h-[30rem] w-[20rem] -mb-[29.6rem]  -translate-y-20  transition-[opacity,transform] [transform-style:preserve-3d] duration-500 opacity-0" tabindex="0">
-        <div class="col-[1/1] row-[1/1] [backface-visibility:hidden] flex items-center justify-center active:[bg-slate-200] rounded-2xl border-2 border-black bg-slate-400 cursor-pointer text-3xl">
+        <div class="col-[1/1] row-[1/1] [backface-visibility:hidden] flex items-center justify-center active:bg-red-200 touch:active:bg-red-600 rounded-2xl border-2 border-black bg-red-50 cursor-pointer text-3xl">
             <p>dos</p>
         </div>
-        <div class="col-[1/1] row-[1/1] [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center active:bg-slate-200 rounded-2xl border-2 border-black bg-white cursor-pointer text-4xl">
+        <div class="col-[1/1] row-[1/1] [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center rounded-2xl border-2 border-black bg-white cursor-pointer text-4xl">
             <p>contenu</p>
         </div>
     </div>

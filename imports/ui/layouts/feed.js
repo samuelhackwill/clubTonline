@@ -65,8 +65,12 @@ Template.feed.events({
         // animate element
         state.set("animating card")
 
-        // addEventListener("animationend", (event) => {});
-
+        document.getElementById("deck").lastElementChild.style.transform = "rotate(6deg) translateY(100vh)" 
+        
+        // animated.addEventListener("animationend", () => {
+        //   console.log("Animation ended");
+        // });
+        
     }
 })
 

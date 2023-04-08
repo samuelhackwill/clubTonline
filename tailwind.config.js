@@ -19,13 +19,25 @@ module.exports = {
             "transform" : "rotate(360deg);",
             "border-radius": "60% 40% 40% 60% / 60% 40% 60% 40%;"
           }
+        },
+        cardMoveKeys:{
+          "0%":{
+            "top":"0px",
+            "left":"0px"
+          },
+          "100%":{
+            "top":"50vh",
+            "left":"50vw",
+          }
         }
       },
       animation:{
         aura: 'auraKeys 30s infinite linear',
+        cardMove: 'carMoveKeys 3s infinite linear'
       }
     },
   },
   plugins: [],
+  safelist: ["animate-cardMove"]
 }
 
