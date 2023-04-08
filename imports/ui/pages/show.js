@@ -1,5 +1,4 @@
 import './show.html'
 import '../layouts/feed.js'
 
-Template.show.onCreated(function(){
-})
+export const data = new ReactiveVar()

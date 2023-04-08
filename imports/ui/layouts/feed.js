@@ -4,9 +4,14 @@ import '../components/bubble.js'
 import '../components/sticker.js'
 import '../components/deck.js'
 
-data = new ReactiveVar()
+import {data} from '../pages/show.js'
+const state = new ReactiveVar("chatting")
 
 Template.feed.helpers({
+    feedState(){
+        return state.get()
+    },
+
 	feedItems(){
         return data.get()
 	}
@@ -51,6 +56,14 @@ Template.feed.onRendered(function(){
             }
 
         }
+    }
+})
+
+Template.feed.events({
+    'click .card'(event) {
+        // attach event listener to end of animation on the element
+        // animate element
+        state.set("picking card")
     }
 })
 
