@@ -20,6 +20,7 @@ Template.feed.helpers({
 // This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manally tell blaze to add nodes.
 
 // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
+
 Template.feed.onRendered(function(){
     document.getElementById("feed")._uihooks = {
         insertElement: (node, next) => {
@@ -41,6 +42,7 @@ Template.feed.onRendered(function(){
     
                 cardFadeInAnimation = setInterval(function(){
                     if(cardIndex >= howManyCards){
+                        updateScroll()
                         clearInterval(cardFadeInAnimation)
                         allAuras = document.getElementsByClassName("aura")
                         for (let index = 0; index < allAuras.length; index++) {
@@ -63,13 +65,17 @@ Template.feed.events({
     'click .card'(event) {
         // attach event listener to end of animation on the element
         // animate element
-        state.set("animating card")
+        state.set("card moving offscreen")
 
-        document.getElementById("deck").lastElementChild.style.transform = "rotate(6deg) translateY(100vh)" 
+        elem = document.getElementById("deck").lastElementChild
+        elem.style.transform = "rotate(6deg) rotateY(180deg) translateY(100vh)" 
         
-        // animated.addEventListener("animationend", () => {
-        //   console.log("Animation ended");
-        // });
+        elem.addEventListener("transitionend", () => {
+          console.log("transition ended");
+          state.set("card is offscreen")
+          cardFullScreener()
+          removeCardFromFeed()
+        });
         
     }
 })
@@ -86,5 +92,18 @@ addData = function(obj){
 
 updateScroll = function(){
     var element = document.getElementById("feed");
-    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    element.scrollTop = element.scrollHeight;
+}
+
+removeCardFromFeed = function(){
+    tempData = data.get()
+    tempData[tempData.length-1].cards.pop()
+    data.set(tempData)
+}
+
+cardFullScreener = function(){
+    allCards = document.getElementsByClassName("card") || []
+    theCard = allCards[allCards.length-1]
+
+    document.getElementById("__blaze-root").appendChild(theCard)
 }

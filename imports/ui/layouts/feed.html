@@ -1,8 +1,9 @@
 <template name="feed">
 
-    <div class="fixed bg-rose-300">
+    <div class="fixed bg-rose-300 right-0 top-0">
         <p> DEBUG TOOLS </p>
         <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({autoText:true, left:true, text:'BLABLABLABA.'})">ADD BUBBLE</button>
+        <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({autoText:true, left:true, text:'Bonjour c moa mathilde je suis contente babababa cliquez partout svp merci voici mes collègues samluel et thomas yeuhsi.'})">ADD BIG BUBBLE</button>
         <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({sticker:true})">ADD STICKER</button>
         <button class="bg-blue-500 text-3xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onclick="addData({deck:true, cards:['zob', 'zib', 'zub']})">ADD DECK</button>
     
@@ -10,10 +11,9 @@
     
     </div>
 
-    <div class="grid grid-cols-5 m-10" id="feed">
+    <div class="h-full pb-20 flex flex-grow-0 w-8/12 flex-col m-10 overflow-scroll" id="feed">
 
         <!-- the feed needs to know what kind of component to add to the feed based on what the data is. this feels kind of hacky, might want to make a proper helper, but also maybe not. -->
-
         {{#each feedItems}}
             {{#if autoText}}
                 {{> bubble this}}
