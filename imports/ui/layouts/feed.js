@@ -74,7 +74,7 @@ Template.feed.events({
           console.log("transition ended");
           state.set("card is offscreen")
           cardFullScreener()
-          removeCardFromFeed()
+        //   removeCardFromFeed()
         });
         
     }
@@ -101,9 +101,29 @@ removeCardFromFeed = function(){
     data.set(tempData)
 }
 
+// we need a function to remove the card from its parents (to get rid of unwanted transforms & al) and to display it almost at full screen.
 cardFullScreener = function(){
+    // get last card
     allCards = document.getElementsByClassName("card") || []
     theCard = allCards[allCards.length-1]
+    
+    // place the card in the middle of the div and make it bigger
+    theCard.style.transform = "translate(-50%, -50%) rotateY(180deg)"
+    theCard.style.width = "88vw"
+    theCard.style.left = "50%"
+    theCard.style.top = "50%"
 
-    document.getElementById("__blaze-root").appendChild(theCard)
+    // append node and bring everyting on screen
+    offscreenContainer = document.getElementById("offscreen")
+    offscreenContainer.appendChild(theCard)
+    offscreenContainer.style.transform = "translateY(-100vh)"
+
+    offscreenContainer.addEventListener("transitionend", () => {
+        console.log("transition ended");
+        state.set("card is fullscreen")
+      });
+
+
+    // make the feed invisible
+    document.getElementById("feed").style.opacity = "0"
 }
