@@ -59,23 +59,6 @@ Template.feed.onRendered(function () {
   };
 });
 
-Template.feed.events({
-  "click .card"(event) {
-    // attach event listener to end of animation on the element
-    // animate element
-    state.set("card moving offscreen");
-
-    elem = document.getElementById("deck").lastElementChild;
-    elem.style.transform = "rotate(6deg) rotateY(180deg) translateY(100vh)";
-
-    elem.addEventListener("transitionend", () => {
-      console.log("transition ended");
-      state.set("card is offscreen");
-      cardFullScreener();
-      //   removeCardFromFeed()
-    });
-  },
-});
 
 addData = function (obj) {
   // this function is used to add data to the local reactive Var, which is used to populate the feed.
@@ -118,7 +101,6 @@ cardFullScreener = function () {
   offscreenContainer.style.transform = "translateY(-100vh)";
 
   offscreenContainer.addEventListener("transitionend", () => {
-    console.log("transition ended");
     state.set("card is fullscreen");
   });
 
