@@ -1,60 +1,60 @@
 /* Below is for the deck of cards, namely the stacking effect. */
 /* I could have done it by nesting the cards but hey fuck this. */
 
-#deck > .card:nth-of-type(1){
-    margin-left: .3rem;
+#deck > .card:nth-of-type(1) {
+  margin-left: 0.3rem;
 }
-#deck > .card:nth-of-type(2){
-    margin-left: .6rem;
+#deck > .card:nth-of-type(2) {
+  margin-left: 0.6rem;
 }
-#deck > .card:nth-of-type(3){
-    margin-left: .9rem;
+#deck > .card:nth-of-type(3) {
+  margin-left: 0.9rem;
 }
-#deck > .card:nth-of-type(4){
-    margin-left: 1.2rem;
+#deck > .card:nth-of-type(4) {
+  margin-left: 1.2rem;
 }
-#deck > .card:nth-of-type(5){
-    margin-left: 1.5rem;
+#deck > .card:nth-of-type(5) {
+  margin-left: 1.5rem;
 }
-#deck > .card:nth-of-type(6){
-    margin-left: 1.8rem;
+#deck > .card:nth-of-type(6) {
+  margin-left: 1.8rem;
 }
-#deck > .card:nth-of-type(7){
-    margin-left: 2.1rem;
+#deck > .card:nth-of-type(7) {
+  margin-left: 2.1rem;
 }
-#deck > .card:nth-of-type(8){
-    margin-left: 2.4rem;
+#deck > .card:nth-of-type(8) {
+  margin-left: 2.4rem;
 }
-#deck > .card:nth-of-type(9){
-    margin-left: 2.7rem;
+#deck > .card:nth-of-type(9) {
+  margin-left: 2.7rem;
 }
-#deck > .card:nth-of-type(10){
-    margin-left: 3rem;
+#deck > .card:nth-of-type(10) {
+  margin-left: 3rem;
 }
-#deck > .card:nth-of-type(11){
-    margin-left: 3.3rem;
+#deck > .card:nth-of-type(11) {
+  margin-left: 3.3rem;
 }
-#deck > .card:nth-of-type(12){
-    margin-left: 3.6rem;
+#deck > .card:nth-of-type(12) {
+  margin-left: 3.6rem;
 }
-#deck > .card:nth-of-type(12){
-    margin-left: 3.9rem;
+#deck > .card:nth-of-type(12) {
+  margin-left: 3.9rem;
 }
-#deck > .card:nth-of-type(13){
-    margin-left: 4.2rem;
+#deck > .card:nth-of-type(13) {
+  margin-left: 4.2rem;
 }
-#deck > .card:nth-of-type(14){
-    margin-left: 4.5rem;
+#deck > .card:nth-of-type(14) {
+  margin-left: 4.5rem;
 }
-#deck > .card:nth-of-type(15){
-    margin-left: 4.8rem;
+#deck > .card:nth-of-type(15) {
+  margin-left: 4.8rem;
 }
-#deck > .card:nth-of-type(16){
-    margin-left: 5.1rem;
+#deck > .card:nth-of-type(16) {
+  margin-left: 5.1rem;
 }
-#deck > .card:nth-of-type(17){
-    margin-left: 5.4rem;
+#deck > .card:nth-of-type(17) {
+  margin-left: 5.4rem;
 }
-#deck > .card:nth-of-type(18){
-    margin-left: 5.7rem;
+#deck > .card:nth-of-type(18) {
+  margin-left: 5.7rem;
 }

@@ -1,1 +1,1 @@
-import './sticker.html'
+import "./sticker.html";

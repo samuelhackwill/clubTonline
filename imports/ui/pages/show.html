@@ -1,6 +1,11 @@
 <template name="show">
-    <body class="bg-yellow-100 h-screen relative overflow-hidden overscroll-none transition-all">
-        {{> feed}}
-        <div class="absolute h-full w-full top-full transition-transform" id="offscreen"></div>
-    </body>
+  <body
+    class="relative h-screen overflow-hidden overscroll-none bg-yellow-100 transition-all"
+  >
+    {{> feed}}
+    <div
+      class="absolute top-full h-full w-full transition-transform"
+      id="offscreen"
+    ></div>
+  </body>
 </template>
