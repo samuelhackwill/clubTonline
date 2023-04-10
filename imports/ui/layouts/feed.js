@@ -59,7 +59,6 @@ Template.feed.onRendered(function () {
   };
 });
 
-
 addData = function (obj) {
   // this function is used to add data to the local reactive Var, which is used to populate the feed.
 
