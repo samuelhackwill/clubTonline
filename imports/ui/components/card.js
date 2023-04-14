@@ -64,6 +64,9 @@ confirmCard = function (t) {
 
   theCard.addEventListener("transitionend", function(){
     console.log(this.style.display = "none")
+    offscreenContainer = document.getElementById("offscreen")
+    offscreenContainer.style.transform = "translateY(100%)"
+    offscreenContainer.innerHTML = ""
     state.set("reading...")
   });
 
