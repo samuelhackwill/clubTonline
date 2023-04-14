@@ -1,13 +1,15 @@
 <template name="bubble">
   {{#if left}}
   <div
-    class="col-span-3 mb-5 basis-[content] rounded-3xl bg-white p-5 text-5xl opacity-0 transition-all duration-500"
+    class="col-span-3 mb-5 basis-[content] rounded-3xl bg-white p-5 text-5xl opacity-0 transition-all duration-500"     
+    data-bubble="true"
   >
     <p>{{text}}</p>
   </div>
   {{else}}
   <div
     class="col-span-3 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-5xl opacity-0 transition-all duration-500"
+    data-bubble="true"
   >
     <p>{{text}}</p>
   </div>

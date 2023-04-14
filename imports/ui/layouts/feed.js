@@ -16,6 +16,7 @@ Template.feed.helpers({
   },
 
   feedItems() {
+    console.log(dataFeed.get())
     return dataFeed.get();
   },
 });
@@ -23,11 +24,16 @@ Template.feed.helpers({
 // This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
 
 // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
+Template.feed.onCreated(function(){
+  console.log(dataFridge.get())
+})
+
 
 Template.feed.onRendered(function () {
+  
   document.getElementById("feed")._uihooks = {
     insertElement: (node, next) => {
-      // console.log("DOM INSERTION DETECTED", "NODE ", node, "NEXT ", next.parentNode)
+      console.log("DOM INSERTION DETECTED", "NODE ", node, "NEXT ", next.parentNode)
 
       next.parentNode.appendChild(node);
 
@@ -60,7 +66,50 @@ Template.feed.onRendered(function () {
       }
     },
   };
+
+  index = 0;
+
+  setTimeout(() => {
+    // this is to welcome peeps in the feed! a bot speaks basically.
+    displayIntro()
+  }, 100);
+
 });
+
+displayIntro = function(){
+
+  tempFeed = dataFeed.get() || [];
+
+  // find the intro in the fridge. For the example we're using mathilde's intro here.
+  let result = dataFridge.get().filter(obj => {
+    return obj.name === "bot-mathilde-1"
+  })
+
+  // find what we've already displayed of the intro and or stop
+  if(index < result[0].text.length){
+    const element = {}
+    element.autoText = true
+    element.text = result[0].text[index];
+    tempFeed.push(element)
+    dataFeed.set(tempFeed);   
+    
+    index ++
+
+    setTimeout(() => {
+      // this is to welcome peeps in the feed! a bot speaks basically.
+      displayIntro()
+    }, 1000);
+
+  }else{
+    let result = dataFridge.get().filter(obj => {
+      return obj.name === "deck-intro"
+    })
+    console.log("all text from intro already pushed to feed", result)
+    tempFeed.push(result[0])
+    dataFeed.set(tempFeed);   
+    return
+  }
+}
 
 addData = function (obj) {
   // this function is used to add data to the local reactive Var, which is used to populate the feed.

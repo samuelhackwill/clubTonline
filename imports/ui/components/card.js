@@ -58,7 +58,7 @@ pickCard = function (t) {
 };
 
 confirmCard = function (t) {
-  state.set("Card clicked, returning to feed...");
+  state.set("CARD CLICKED, returning to feed...");
   console.log(t.target.parentElement);
   t.target.parentElement.removeEventListener("touchend", cardUntouched);
   t.target.parentElement.removeEventListener("touchstart", cardTouched);
