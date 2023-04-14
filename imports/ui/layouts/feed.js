@@ -3,8 +3,11 @@ import "./feed.html";
 import "../components/bubble.js";
 import "../components/sticker.js";
 import "../components/deck.js";
+import "../components/card.js";
 
-import { data } from "../pages/show.js";
+import { dataFridge } from "../pages/show.js";
+import { dataFeed } from "../pages/show.js";
+
 export const state = new ReactiveVar("reading");
 
 Template.feed.helpers({
@@ -13,11 +16,11 @@ Template.feed.helpers({
   },
 
   feedItems() {
-    return data.get();
+    return dataFeed.get();
   },
 });
 
-// This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manally tell blaze to add nodes.
+// This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
 
 // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
 
@@ -64,9 +67,9 @@ addData = function (obj) {
 
   // we will need to get the data from the proper database next ("scenarios") rather than just inserting random stuff like we're doing now.
 
-  tempFeed = data.get() || [];
+  tempFeed = dataFeed.get() || [];
   tempFeed.push(obj);
-  data.set(tempFeed);
+  dataFeed.set(tempFeed);
 };
 
 updateScroll = function () {
@@ -75,10 +78,16 @@ updateScroll = function () {
 };
 
 removeCardFromFeed = function () {
-  tempData = data.get();
+  tempData = dataFeed.get();
   tempData[tempData.length - 1].cards.pop();
-  data.set(tempData);
+  dataFeed.set(tempData);
 };
+
+removeDeckFromFeed = function(){
+  tempData = dataFeed.get();
+  var check = tempData.some(obj => obj.hasOwnProperty("deck"));
+  console.log(check)
+}
 
 // we need a function to remove the card from its parents (to get rid of unwanted transforms & al) and to display it almost at full screen.
 cardFullScreener = function () {
@@ -104,5 +113,10 @@ cardFullScreener = function () {
   });
 
   // make the feed invisible
-  document.getElementById("feed").style.opacity = "0";
+  feed = document.getElementById("feed")
+  feed.style.opacity = "0";
+  feed.addEventListener("transitionend", removeDeckFromFeed)
+
+  // remove deck from feed when animation finished
+
 };

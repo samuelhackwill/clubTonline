@@ -34,8 +34,22 @@
     id="feed"
   >
     <!-- the feed needs to know what kind of component to add to the feed based on what the data is. this feels kind of hacky, might want to make a proper helper, but also maybe not. -->
-    {{#each feedItems}} {{#if autoText}} {{> bubble this}} {{/if}} {{#if
-    sticker}} {{> sticker this}} {{/if}} {{#if deck}} {{> deck this}} {{/if}}
+    {{#each feedItems}} 
+      {{#if autoText}} 
+        {{> bubble this}}
+      {{/if}} 
+      
+      {{#if sticker}} 
+        {{> sticker this}} 
+      {{/if}} 
+
+      {{#if deck}} 
+        {{> deck this}} 
+      {{/if}}
+
+      {{#if card}}
+        {{> card this}}
+      {{/if}}
     {{/each}}
   </div>
 

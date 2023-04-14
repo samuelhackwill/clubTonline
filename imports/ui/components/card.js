@@ -23,14 +23,6 @@ Template.card.helpers({
   cardData() {
     return this;
   },
-
-  zob() {
-    // if(state.get() == "CARD CLICKED"){
-    //   return "bg-red-600"
-    // }else{
-    //   return "bg-blue-400"
-    // }
-  },
 });
 
 cardTouched = function (t) {
@@ -66,9 +58,13 @@ pickCard = function (t) {
 };
 
 confirmCard = function (t) {
-  state.set("CARD CLICKED");
+  state.set("Card clicked, returning to feed...");
   console.log(t.target.parentElement);
   t.target.parentElement.removeEventListener("touchend", cardUntouched);
   t.target.parentElement.removeEventListener("touchstart", cardTouched);
+  t.target.parentElement.removeEventListener("transitionend", function(){
+    console.log("ZOB")
+  });
+
   t.target.style.backgroundColor = "#FDF2F2";
 };
