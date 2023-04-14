@@ -22,7 +22,7 @@ Template.card.onRendered(function () {
 Template.card.helpers({
   cardData() {
     return this;
-  },
+  }
 });
 
 cardTouched = function (t) {
@@ -53,18 +53,24 @@ pickCard = function (t) {
   elem.addEventListener("transitionend", () => {
     state.set("card is offscreen");
     cardFullScreener();
-    //   removeCardFromFeed()
-  });
+  },{ once: true });
 };
 
 confirmCard = function (t) {
   state.set("CARD CLICKED, returning to feed...");
-  console.log(t.target.parentElement);
-  t.target.parentElement.removeEventListener("touchend", cardUntouched);
-  t.target.parentElement.removeEventListener("touchstart", cardTouched);
-  t.target.parentElement.removeEventListener("transitionend", function(){
-    console.log("ZOB")
+  theCard = t.target.parentElement
+  theCard.removeEventListener("touchend", cardUntouched);
+  theCard.removeEventListener("touchstart", cardTouched);
+
+  theCard.addEventListener("transitionend", function(){
+    console.log(this.style.display = "none")
+    state.set("reading...")
   });
+
+  theCard.style.opacity = "0"
+
+  
+  document.getElementById("feed").style.opacity="1"
 
   t.target.style.backgroundColor = "#FDF2F2";
 };

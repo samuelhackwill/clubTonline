@@ -16,7 +16,7 @@ Template.feed.helpers({
   },
 
   feedItems() {
-    console.log(dataFeed.get())
+    console.log("getting new data, miam! ", dataFeed.get())
     return dataFeed.get();
   },
 });
@@ -43,6 +43,7 @@ Template.feed.onRendered(function () {
       }, 30);
 
       // deck of cards have a special behaviour : it has nested hidden elements which need to be animated individually
+
       if (node.getAttribute("data-deckOfCards")) {
         cards = node.children;
         howManyCards = cards.length;
@@ -63,6 +64,23 @@ Template.feed.onRendered(function () {
           document.getElementById("deck").children[cardIndex].style.opacity = 1;
           cardIndex++;
         }, 250);
+      }
+
+      // individual cards have to be heavily Css-modified to look different than when they are displayed in full screen. Also we have to modify the css of nested elements in the node, so carefull if you modify the html structure of the component.
+
+      if(node.getAttribute("id") == "theCard"){
+        paragraph = node.children[1].children[0]||undefined
+        if (!paragraph) {
+          console.log("ERROR! check the html structure of card component", node)
+        }
+        paragraph.classList.remove("text-6xl")
+        paragraph.classList.remove("p-24")
+        paragraph.classList.add("text-2xl")
+        paragraph.classList.add("p-6")
+
+        // we could add a bit of randomness here to make it nicer.
+
+        node.style.transform = "rotateY(180deg) translate(-50%, 30px) rotate(-2deg)"
       }
     },
   };
@@ -98,7 +116,7 @@ displayIntro = function(){
     setTimeout(() => {
       // this is to welcome peeps in the feed! a bot speaks basically.
       displayIntro()
-    }, 1000);
+    }, 200);
 
   }else{
     let result = dataFridge.get().filter(obj => {
@@ -126,17 +144,32 @@ updateScroll = function () {
   element.scrollTop = element.scrollHeight;
 };
 
-removeCardFromFeed = function () {
-  tempData = dataFeed.get();
-  tempData[tempData.length - 1].cards.pop();
+keepLastCardInFeed = function (lastCard) {
+  console.log("lastCard", lastCard)
+  obj = {}
+  obj.card = true
+  obj.cards = [lastCard]
+
+  tempData = dataFeed.get()
+  tempData.push(obj)
+
+  
   dataFeed.set(tempData);
+  console.log("after card insert ", tempData)
 };
 
 removeDeckFromFeed = function(){
   tempData = dataFeed.get();
-  var check = tempData.some(obj => obj.hasOwnProperty("deck"));
-  console.log(check)
-}
+
+  var index = tempData.findIndex(function(obj) {
+    return obj.hasOwnProperty("deck")
+  });
+
+  removedDeck = tempData.splice(index, 1)  
+  dataFeed.set(tempData)
+  
+  keepLastCardInFeed(removedDeck[0].cards.pop())
+  }
 
 // we need a function to remove the card from its parents (to get rid of unwanted transforms & al) and to display it almost at full screen.
 cardFullScreener = function () {
@@ -159,13 +192,12 @@ cardFullScreener = function () {
 
   offscreenContainer.addEventListener("transitionend", () => {
     state.set("card is fullscreen");
-  });
+    // pffhffhfh this is to get rid of the "dos" which is visible on the transition when we click on the card.
+    document.getElementById("offscreen").children[0].children[0].innerHTML = "" 
+  }, {once:true});
 
   // make the feed invisible
   feed = document.getElementById("feed")
   feed.style.opacity = "0";
-  feed.addEventListener("transitionend", removeDeckFromFeed)
-
-  // remove deck from feed when animation finished
-
+  feed.addEventListener("transitionend", removeDeckFromFeed,{once:true})
 };
