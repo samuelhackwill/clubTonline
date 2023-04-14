@@ -97,7 +97,7 @@ cardFullScreener = function () {
   // append node and bring everyting on screen
   offscreenContainer = document.getElementById("offscreen");
   offscreenContainer.appendChild(theCard);
-  offscreenContainer.style.transform = "translateY(-100vh)";
+  offscreenContainer.style.transform = "translateY(-100%)";
 
   offscreenContainer.addEventListener("transitionend", () => {
     state.set("card is fullscreen");
