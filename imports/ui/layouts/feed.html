@@ -1,5 +1,6 @@
 <template name="feed">
-  <div class="fixed right-0 top-0 w-6/12 bg-rose-300 opacity-80">
+ 
+  <div class="fixed right-0 top-0 w-6/12 bg-rose-300 opacity-80 hidden">
     <p>DEBUG TOOLS</p>
     <!-- <button
       class="rounded-full bg-blue-500 px-4 py-2 text-3xl font-bold text-white hover:bg-blue-700"
@@ -29,8 +30,9 @@
     <p class="text-3xl">Status = {{feedState}}</p>
   </div>
 
+
   <div
-    class="m-10 flex h-full w-8/12 flex-grow-0 flex-col overflow-scroll pb-20 transition-all"
+    class="m-10 flex h-full w-full gap-x-3 flex-wrap items-start content-start flex-col overflow-scroll transition-all"
     id="feed"
   >
     <!-- the feed needs to know what kind of component to add to the feed based on what the data is. this feels kind of hacky, might want to make a proper helper, but also maybe not. -->

@@ -1,4 +1,5 @@
 import { Meteor } from "meteor/meteor";
+import "../../API/mailing/server/publications.js";
 
 // import '/imports/api/answers/server/publications.js'
 // import '/imports/api/decks/server/publications.js'

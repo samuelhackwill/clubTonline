@@ -5,7 +5,7 @@ import "../components/sticker.js";
 import "../components/deck.js";
 import "../components/card.js";
 
-import { dataFridge } from "../pages/show.js";
+import { dataFridge } from "../pages/home.js";
 import { dataFeed } from "../pages/show.js";
 
 export const state = new ReactiveVar("reading");
@@ -16,7 +16,7 @@ Template.feed.helpers({
   },
 
   feedItems() {
-    console.log("getting new data, miam! ", dataFeed.get())
+    // console.log("getting new data, miam! ", dataFeed.get())
     return dataFeed.get();
   },
 });
@@ -33,7 +33,7 @@ Template.feed.onRendered(function () {
   
   document.getElementById("feed")._uihooks = {
     insertElement: (node, next) => {
-      console.log("DOM INSERTION DETECTED", "NODE ", node, "NEXT ", next.parentNode)
+      //console.log("DOM INSERTION DETECTED", "NODE ", node, "NEXT ", next.parentNode)
 
       next.parentNode.appendChild(node);
 
@@ -107,6 +107,7 @@ displayIntro = function(){
   if(index < result[0].text.length){
     const element = {}
     element.autoText = true
+    element.onlyText = true
     element.text = result[0].text[index];
     tempFeed.push(element)
     dataFeed.set(tempFeed);   
@@ -116,15 +117,43 @@ displayIntro = function(){
     setTimeout(() => {
       // this is to welcome peeps in the feed! a bot speaks basically.
       displayIntro()
-    }, 200);
+    }, 50);
 
   }else{
-    let result = dataFridge.get().filter(obj => {
-      return obj.name === "deck-intro"
+    // let result = dataFridge.get().filter(obj => {
+    //   return obj.name === "deck-intro"
+    // })
+    // console.log("all text from intro already pushed to feed", result)
+    // tempFeed.push(result[0])
+    // dataFeed.set(tempFeed);   
+    let form = dataFridge.get().filter(obj => {
+      return obj.name === "mailForm"
+    }) 
+
+    const element1 = {}
+    element1.autoText = true
+    element1.form = true
+    tempFeed.push(element1)
+    
+
+    let link = dataFridge.get().filter(obj => {
+      return obj.name === "linkNoFuturs"
     })
-    console.log("all text from intro already pushed to feed", result)
-    tempFeed.push(result[0])
-    dataFeed.set(tempFeed);   
+
+    const element2 = {}
+    element2.autoText = true
+    element2.link = true
+    tempFeed.push(element2)
+
+    dataFeed.set(tempFeed);  
+
+    setTimeout(() => {
+      showAllFeedFuckThisShit = document.getElementById("feed").children
+      for (let x = 0; x < showAllFeedFuckThisShit.length; x++) {
+        showAllFeedFuckThisShit[x].style.opacity=1
+      }      
+    }, 10);
+
     return
   }
 }
