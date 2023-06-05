@@ -1,16 +1,16 @@
 @font-face {
     font-family: "Pressuru";
-    src: url("../fonts/pressuru.woff2") format("woff2");
+    src: url("/fonts/pressuru.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Gochi";
-    src: url("../fonts/GochiHand-Regular.woff2") format("woff");
+    src: url("/fonts/GochiHand-Regular.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Credible";
-    src: url("../fonts/Crédible-Regular.woff") format("woff");
+    src: url("/fonts/Credible-Regular.woff") format("woff");
 }
 
 :root {

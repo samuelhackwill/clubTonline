@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Signature";
   /* src: url("../fonts/BarokahSignatureRegular-PK15Z.woff2") format("woff2"); */
-  src: url("../fonts/AAutoSignature-1GD9j.woff2") format("woff2");
+  src: url("/fonts/AAutoSignature-1GD9j.woff2") format("woff2");
 }
 
 :root {

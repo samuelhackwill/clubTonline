@@ -34,108 +34,14 @@ Template.karaoke.onRendered(function() {
 		}
 	}
 
-	// ------------ APRÈS LA PRÉPARATION POUR QUE LES ÉlÉMENTS HTML SOIENT BIEN PRÉSENTS
-	const INSTRU = document.getElementById("instru");
-	const SLIDES = document.querySelectorAll(".sing");
-	const frameRate = 10; // 10 millisecondes entre chaque check de frame
-
-	// ------------------------ ANIMATIONS ------------------------ //
-	// ------------ CLIGNOTE
-	const clignoteOptions = {
-		iteration: 1,
-		fill: "both",
-		duration: 40, // en millisecondes
-		easing: "linear",
-	};
-
-	// ------------ BEAT
-	const tailleAnim = [
-		{ transform: "scale(1)" },
-		{ transform: "scale(1.1)", offset: 0.05 },
-		{ transform: "scale(1)" },
-	];
-
-	const tailleOptions = {
-		iteration: 1,
-		fill: "forwards",
-		duration: 1100, // en millisecondes
-		easing: "linear",
-	};
-
-	// ------------ TRIPLEBASS
-	const tripleBassAnim = [
-		{ transform: "scale(1)" },
-		{ transform: "scale(1.04)", offset: 0.02 },
-		{ transform: "scale(1)", offset: 0.13 },
-		{ transform: "scale(1.06)", offset: 0.18 },
-		{ transform: "scale(1)", offset: 0.3 },
-		{ transform: "scale(1.12)", offset: 0.35 },
-		{ transform: "scale(1)" },
-	];
-
-	const tripleBassOptions = {
-		iteration: 1,
-		fill: "forwards",
-		duration: 1480, // en millisecondes
-		easing: "linear",
-	};
-
-	// ------------ caisseClaire
-	const caisseClaireAnim = [
-		{ transform: "rotate(-3deg)" },
-		{ transform: "rotate(0)" },
-	];
-
-	const caisseClaireOptions = {
-		iteration: 1,
-		fill: "none",
-		duration: 100, // en millisecondes
-		easing: "linear",
-	};
-
-	// ------------ enchaine
-	const enchaineAnim = [
-		{ opacity: 0 },
-		{ opacity: 1, offset: 0.01 },
-		{ opacity: 1, offset: 0.6 },
-		{ opacity: 0 },
-	];
-
-	const enchaineOptions = {
-		iteration: 1,
-		fill: "both",
-		duration: 800, // en millisecondes
-		easing: "linear",
-	};
-
-	// ------------ moto
-	const motoAnim = [
-		{ transform: "translateX(0) rotate(-15deg)" },
-		{ transform: "translateX(26) rotate(-40deg)", offset: 0.16 },
-		{ transform: "translateX(33vw) rotate(-35deg)", offset: 0.23 },
-		{ transform: "translateX(35vw) rotate(-60deg)", offset: 0.25 },
-		{ transform: "translateX(40vw) rotate(-45deg)", offset: 0.30 },
-		{ transform: "translateX(50vw) rotate(-70deg)", offset: 0.40 },
-		{ transform: "translateX(55vw) rotate(-50deg)", offset: 0.45 },
-		{ transform: "translateX(60vw) rotate(-60deg)", offset: 0.50 },
-		{ transform: "translateX(65vw) rotate(-55deg)", offset: 0.55 },
-		{ transform: "translateX(80vw) rotate(-70deg)", offset: 0.70 },
-		{ transform: "translateX(85vw) rotate(-55)", offset: 0.75 },
-		{ transform: "translateX(130vw) rotate(-25deg)" }
-	];
-
-	const motoOptions = {
-		iteration: 1,
-		fill: "both",
-		duration: 1000 * 3.781, // en millisecondes
-		easing: "ease-out",
-	};
-
 })
 
 
 // FUNCTIONS ------------------------------------------------
 karaoke_startAnimation = function() {
+	const frameRate = 10; // 10 millisecondes entre chaque check de frame
+	const INSTRU = document.getElementById("instru");
+
 	INSTRU.play();
 
 	document.querySelector("main").style.transform = "scale(1)";
@@ -204,6 +110,7 @@ karaoke_startAnimation = function() {
 }
 
 karaoke_createAnimation = function(slide) {
+
 	switch (slide.id) {
 		case "titre":
 			console.log("titre");
@@ -328,11 +235,32 @@ emptySlide = function(slide, milliseconds) {
 }
 
 enchaine = function(el) {
+	// ------------ enchaine
+	const enchaineAnim = [
+		{ opacity: 0 },
+		{ opacity: 1, offset: 0.01 },
+		{ opacity: 1, offset: 0.6 },
+		{ opacity: 0 },
+	];
+
+	const enchaineOptions = {
+		iteration: 1,
+		fill: "both",
+		duration: 800, // en millisecondes
+		easing: "linear",
+	};
+
 	el.animate(enchaineAnim, enchaineOptions);
 }
 
 clignote = function() {
-	// console.log("---------> CLIGNOTE");
+	// ------------ CLIGNOTE
+	const clignoteOptions = {
+		iteration: 1,
+		fill: "both",
+		duration: 40, // en millisecondes
+		easing: "linear",
+	};
 
 	const visible = document.querySelector(".sing");
 
@@ -359,21 +287,89 @@ clignote = function() {
 }
 
 simpleBass = function() {
+	// ------------ BEAT
+	const simpleBassAnim = [
+		{ transform: "scale(1)" },
+		{ transform: "scale(1.1)", offset: 0.05 },
+		{ transform: "scale(1)" },
+	];
+
+	const simpleBassOptions = {
+		iteration: 1,
+		fill: "forwards",
+		duration: 1100, // en millisecondes
+		easing: "linear",
+	};
+
 	const visible = document.querySelector(".sing");
-	visible.animate(tailleAnim, tailleOptions);
+	visible.animate(simpleBassAnim, simpleBassOptions);
 }
 
 tripleBass = function() {
+	// ------------ TRIPLEBASS
+	const tripleBassAnim = [
+		{ transform: "scale(1)" },
+		{ transform: "scale(1.04)", offset: 0.02 },
+		{ transform: "scale(1)", offset: 0.13 },
+		{ transform: "scale(1.06)", offset: 0.18 },
+		{ transform: "scale(1)", offset: 0.3 },
+		{ transform: "scale(1.12)", offset: 0.35 },
+		{ transform: "scale(1)" },
+	];
+
+	const tripleBassOptions = {
+		iteration: 1,
+		fill: "forwards",
+		duration: 1480, // en millisecondes
+		easing: "linear",
+	};
+
 	const visible = document.querySelector(".sing");
 	visible.animate(tripleBassAnim, tripleBassOptions);
 }
 
 caisseClaire = function() {
+	// ------------ caisseClaire
+	const caisseClaireAnim = [
+		{ transform: "rotate(-3deg)" },
+		{ transform: "rotate(0)" },
+	];
+
+	const caisseClaireOptions = {
+		iteration: 1,
+		fill: "none",
+		duration: 100, // en millisecondes
+		easing: "linear",
+	};
+
 	const visible = document.querySelector(".sing");
 	visible.animate(caisseClaireAnim, caisseClaireOptions);
 }
 
 moto = function() {
+	// ------------ moto
+	const motoAnim = [
+		{ transform: "translateX(0) rotate(-15deg)" },
+		{ transform: "translateX(26) rotate(-40deg)", offset: 0.16 },
+		{ transform: "translateX(33vw) rotate(-35deg)", offset: 0.23 },
+		{ transform: "translateX(35vw) rotate(-60deg)", offset: 0.25 },
+		{ transform: "translateX(40vw) rotate(-45deg)", offset: 0.30 },
+		{ transform: "translateX(50vw) rotate(-70deg)", offset: 0.40 },
+		{ transform: "translateX(55vw) rotate(-50deg)", offset: 0.45 },
+		{ transform: "translateX(60vw) rotate(-60deg)", offset: 0.50 },
+		{ transform: "translateX(65vw) rotate(-55deg)", offset: 0.55 },
+		{ transform: "translateX(80vw) rotate(-70deg)", offset: 0.70 },
+		{ transform: "translateX(85vw) rotate(-55)", offset: 0.75 },
+		{ transform: "translateX(130vw) rotate(-25deg)" }
+	];
+
+	const motoOptions = {
+		iteration: 1,
+		fill: "both",
+		duration: 1000 * 3.781, // en millisecondes
+		easing: "ease-out",
+	};
+
 	const motoEl = document.getElementById("moto");
 	motoEl.animate(motoAnim, motoOptions);
 }
