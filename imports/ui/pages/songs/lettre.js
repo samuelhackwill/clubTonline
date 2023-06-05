@@ -23,8 +23,6 @@ Template.lettre.onRendered(function(){
     const ville = document.getElementById("lieu");
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
-    const textes = document.getElementsByClassName("type");
-
     // Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
     const right = document.getElementsByClassName("droite");
     for (let el of right) {
@@ -39,7 +37,7 @@ Template.lettre.onRendered(function(){
 
 
 // FUNCTIONS ------------------------------------------------------------
-function overflow(element) {
+overflow = function(element) {
     if (element.scrollHeight > element.clientHeight) {
         return element.scrollHeight - element.clientHeight
     } else {
@@ -47,16 +45,17 @@ function overflow(element) {
     }
 }
 
-function randomNumber(min, max) {
+randomNumber = function(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function imprimer() {
+imprimer = function() {
     console.log("Ça part à l'impression");
     window.print();
 }
 
-function startAnimation() {
+startAnimation = function() {
+    const textes = document.getElementsByClassName("type");
     document.getElementById("page").style.color = "black";
 
     const lol = document.getElementById("ceparti");
