@@ -1,0 +1,198 @@
+@font-face {
+  font-family: "Signature";
+  /* src: url("../fonts/BarokahSignatureRegular-PK15Z.woff2") format("woff2"); */
+  src: url("../fonts/AAutoSignature-1GD9j.woff2") format("woff2");
+}
+
+:root {
+  --background: lightgray;
+  --foreground: black;
+
+  /* ça marche pour 30deg, flemme de chercher après */
+  --rotation: 30deg;
+
+  --transition-time: .6s;
+  --font-size: 11;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin-top: 4em;
+  background: var(--background);
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+article {
+  --radius: 0;
+  --page-width: min(900px, 90vw);
+  --page-height: calc(var(--page-width) * 297 / 210);
+
+  color: transparent;
+  /* color: black; */
+
+  width: var(--page-width);
+  height: var(--page-height);
+  font-size: calc(25.4 / 297 / (72 / var(--font-size)) * var(--page-height));
+  aspect-ratio: 210/297;
+
+  margin: 0 auto;
+  perspective: 2500px;
+  backface-visibility: hidden;
+
+  transition: transform var(--transition-time);
+  transform-style: preserve-3d;
+}
+
+article > div {
+    position: relative;
+  padding: 0 8em;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: white;
+  height: calc(100% / 3);
+
+  transition: all var(--transition-time) ease;
+  transform-origin: top;
+}
+
+p {
+  text-indent: 2em;
+}
+
+ul {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+/* ----------------------------------------- */
+#part1 {
+  justify-content: start;
+  padding-top: 9em;
+  position: relative;
+  z-index: 2;
+  transform-origin: bottom;
+
+  box-shadow: inset rgba(0, 0, 0, 0.3) 0 0 10em,
+    rgba(0, 0, 0, 0.4) 0 -.4em 1em;
+}
+
+#part1 > * + * {
+  margin-top: 1em;
+}
+
+#part2 {
+  gap: 1em;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 10em, rgba(0,0,0,.2) 0 0 1em;
+}
+
+#part2 p:first-child {
+  margin-top: 1em;
+}
+
+.overlay::after {
+  position: absolute;
+  background: gray;
+  content: " ";
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-time);
+}
+
+#part3 {
+  gap: 8em;
+  justify-content: start;
+  box-shadow: inset rgba(0,0,0,.3) 0 0 10em, rgba(0,0,0,.4) 0 .4em 1em
+}
+
+#part3 p:first-child {
+  margin-top: 1em;
+}
+
+/* HOVER -------------------------------------------------- */
+
+article:hover #part1 {
+  transform: rotateX(var(--rotation));
+  box-shadow: inset rgba(0,0,0,.5) 0 0 10em, rgba(0,0,0,.1) 0 -2em 1em;
+}
+
+article:hover #part2 {
+  transform: rotateX(calc(-2 * var(--rotation)));
+  box-shadow: inset rgba(0,0,0,.4) 0 8em 10em;
+}
+
+article:hover .overlay::after {
+  opacity: 1;
+  mix-blend-mode: multiply;
+}
+
+article:hover #part3 {
+  transform: translate3d(
+      0,
+      calc(-2 * sin(150deg) * var(--radius)),
+      calc(2 * cos(150deg) * var(--radius))
+    )
+    rotateX(var(--rotation));
+  transform-origin: top;
+  box-shadow: inset rgba(0,0,0,.4) 0 8em 10em;
+}
+
+.droite {
+  text-align: left;
+  margin-left: auto;
+  width: fit-content;
+}
+
+.adresse > p,
+.adresse > li {
+  text-indent: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#objet {
+  text-indent: 0;
+  margin-top: 4em;
+  margin-bottom: 1em;
+}
+
+#ministere,
+#signature {
+  text-align: right;
+}
+
+#signature {
+  font-family: "Signature";
+  font-size: 1.8em;
+
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+#signature:hover {
+  transform: scaleX(1);
+}
+
+button {
+  position: fixed;
+  top: 3rem;
+  left: 3rem;
+  padding: 0.2em 0.5em;
+  font-size: 2em;
+  transition: opacity 1s;
+  opacity: 1;
+  cursor: pointer;
+}
+
+#imprimer {
+  opacity: 0;
+  display: none;
+}

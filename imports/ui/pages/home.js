@@ -14,7 +14,7 @@ const waitingData = [
         "Si vous voulez être tenu au courant de l'ouverture du guichet en ligne, vous pouvez vous inscrire ci-dessous :",
     ]},
     {autoText:true, name:"mailForm", form:true},
-    {autoText:true, name:"linkNoFuturs", link:true}
+    {autoText:true, name:"linkNoFuturs", link:true},
 ]
 
 export const dataFridge = new ReactiveVar(waitingData);
