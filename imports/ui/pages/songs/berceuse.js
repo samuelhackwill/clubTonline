@@ -86,7 +86,7 @@ defilementTexte = function() {
 	document.querySelector("#left .text-wrapper").animate(keyframes, optionsLeft);
 }
 
-startAnimation = function() {
+berceuse_startAnimation = function() {
 	document.getElementById("ceparti").style.display = "none";
 
 	setTimeout(eteintLumiere, 1000);

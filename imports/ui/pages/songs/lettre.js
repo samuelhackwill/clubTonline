@@ -22,8 +22,6 @@ Template.lettre.onRendered(function() {
     const ville = document.getElementById("lieu");
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
-    const textes = document.getElementsByClassName("type");
-
     // Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
     const right = document.getElementsByClassName("droite");
     for (let el of right) {
@@ -33,8 +31,6 @@ Template.lettre.onRendered(function() {
     // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
     const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
     document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
-
-    const INSTRU = document.getElementById("typing-sound");
 
 })
 
@@ -56,7 +52,8 @@ imprimer = function() {
     window.print();
 }
 
-startAnimation = function() {
+lettre_startAnimation = function() {
+    const INSTRU = document.getElementById("typing-sound");
     document.getElementById("page").style.color = "black";
     INSTRU.play();
 
@@ -66,6 +63,8 @@ startAnimation = function() {
     const delay = 40;
     setTimeout(() => { lol.style.display = "none" }, delay);
 
+
+    const textes = document.getElementsByClassName("type");
     let j = 1;
     for (let el of textes) {
         let contenu = el.innerText;
@@ -93,5 +92,4 @@ startAnimation = function() {
         setTimeout(() => imprimer.style.opacity = "1", delay);
     }, (delay + 1) * j);
 
-}
 }
