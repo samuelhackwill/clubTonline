@@ -67,17 +67,17 @@ Template.berceuse.onRendered(function(){
 })
 
 // FONCTIONS --------------------------------------------------
-function fermePorte() {
+fermePorte = function() {
 	console.log("PORTE");
 	document.getElementById("porte").classList.add("fermed");
 }
 
-function eteintLumiere() {
+eteintLumiere = function() {
 	console.log("LUMIERE");
 	document.querySelector("main").classList.add("nuit");
 }
 
-function defilementTexte() {
+defilementTexte = function() {
 	console.log("DEFILEMENT");
 
 	document.querySelector("#right .text-wrapper").animate(keyframes, options);
@@ -87,7 +87,7 @@ function defilementTexte() {
 	document.querySelector("#left .text-wrapper").animate(keyframes, optionsLeft);
 }
 
-function startAnimation() {
+startAnimation = function() {
 	document.getElementById("ceparti").style.display = "none";
 
 	setTimeout(eteintLumiere, 1000);
