@@ -76,7 +76,7 @@ Template.karaoke.onRendered(function(){
 
 
 // FUNCTIONS ------------------------------------------------
-function startAnimation() {
+karaoke_startAnimation = function() {
 	INSTRU.play();
 
 	setTimeout(simpleBass, 400);
@@ -107,12 +107,12 @@ function startAnimation() {
 			}
 
 			slide.classList.add("sing");
-			createAnimation(slide);
+			karaoke_createAnimation(slide);
 		}
 	}, frameRate);
 }
 
-function createAnimation(slide) {
+karaoke_createAnimation = function(slide) {
 	switch (slide.id) {
 		case "couplet1":
 			console.log("couplet1");
@@ -126,13 +126,13 @@ function createAnimation(slide) {
 	}
 }
 
-function displayAfter(elem, milliseconds) {
+displayAfter = function(elem, milliseconds) {
 	setTimeout(() => {
 		elem.style.opacity = "1";
 	}, milliseconds);
 }
 
-function emptySlide(slide, milliseconds) {
+emptySlide = function(slide, milliseconds) {
 	setTimeout(() => {
 		for (let el of slide.children) {
 			el.style.display = "none";
@@ -140,7 +140,7 @@ function emptySlide(slide, milliseconds) {
 	}, milliseconds);
 }
 
-function clignote() {
+clignote = function() {
 	const visible = document.querySelector("#slides > div");
 	visible.animate(clignoteAnim, clignoteOptions);
 
@@ -152,19 +152,19 @@ function clignote() {
 	}
 }
 
-function simpleBass() {
+simpleBass = function() {
 	const visible = document.querySelector("#slides > div");
 	visible.animate(tailleAnim, tailleOptions);
 }
 
 
-function tripleBass() {
+tripleBass = function() {
 	const visible = document.querySelector("#slides > div");
 	visible.animate(tripleBassAnim, tripleBassOptions);
 }
 
 
-function caisseClaire() {
+caisseClaire = function() {
 	const visible = document.querySelector("#slides > div");
 	visible.animate(caisseClaireAnim, caisseClaireOptions);
 }
