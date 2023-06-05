@@ -1,5 +1,80 @@
 import "./karaoke.html"
 
+// METEOR ------------------------------------------------
+Template.karaoke.onCreated(function(){
+    // we need to add the css file dynamicaly cause we don't want to mess up
+    // our namespace ou quoi.
+    var fileref = document.createElement("link")
+    fileref.setAttribute("rel", "stylesheet")
+    fileref.setAttribute("type", "text/css")
+    fileref.setAttribute("href", "karaoke.css")
+    document.getElementsByTagName("head")[0].appendChild(fileref)
+})
+
+Template.karaoke.onRendered(function(){
+	// ------------ APRÈS LA PRÉPARATION POUR QUE LES ÉlÉMENTS HTML SOIENT BIEN PRÉSENTS
+	const INSTRU = document.getElementById("instru");
+	const frameRate = 10; // 10 millisecondes entre chaque check de frame
+
+
+	// ------------------------ ANIMATIONS ------------------------ //
+	// ------------ CLIGNOTE
+	const clignoteAnim = [{ opacity: 0 }, { opacity: 1 }];
+	const clignoteOptions = {
+		iteration: 1,
+		fill: "forwards",
+		duration: 100, // en millisecondes
+		easing: "linear",
+	};
+
+	// ------------ BEAT
+	const tailleAnim = [
+		{ transform: "scale(1)" },
+		{ transform: "scale(1.15)", offset: 0.05 },
+		{ transform: "scale(1)" },
+	];
+
+	const tailleOptions = {
+		iteration: 1,
+		fill: "forwards",
+		duration: 1100, // en millisecondes
+		easing: "linear",
+	};
+
+
+	// ------------ TRIPLEBASS
+	const tripleBassAnim = [
+		{ transform: "scale(1)" },
+		{ transform: "scale(1.04)", offset: 0.02 },
+		{ transform: "scale(1)", offset: 0.13 },
+		{ transform: "scale(1.06)", offset: 0.18 },
+		{ transform: "scale(1)", offset: 0.3 },
+		{ transform: "scale(1.12)", offset: 0.35 },
+		{ transform: "scale(1)" },
+	];
+
+	const tripleBassOptions = {
+		iteration: 1,
+		fill: "forwards",
+		duration: 1480, // en millisecondes
+		easing: "linear",
+	};
+
+	// ------------ caisseClaire
+	const caisseClaireAnim = [
+		{ transform: "rotate(-3deg)" },
+		{ transform: "rotate(0)" },
+	];
+
+	const caisseClaireOptions = {
+		iteration: 1,
+		fill: "none",
+		duration: 100, // en millisecondes
+		easing: "linear",
+	};
+})
+
+
 // FUNCTIONS ------------------------------------------------
 function startAnimation() {
 	INSTRU.play();
@@ -93,76 +168,3 @@ function caisseClaire() {
 	const visible = document.querySelector("#slides > div");
 	visible.animate(caisseClaireAnim, caisseClaireOptions);
 }
-
-
-// ------------ APRÈS LA PRÉPARATION POUR QUE LES ÉlÉMENTS HTML SOIENT BIEN PRÉSENTS
-const INSTRU = document.getElementById("instru");
-const frameRate = 10; // 10 millisecondes entre chaque check de frame
-
-
-// ------------------------ ANIMATIONS ------------------------ //
-// ------------ CLIGNOTE
-const clignoteAnim = [{ opacity: 0 }, { opacity: 1 }];
-const clignoteOptions = {
-	iteration: 1,
-	fill: "forwards",
-	duration: 100, // en millisecondes
-	easing: "linear",
-};
-
-// ------------ BEAT
-const tailleAnim = [
-	{ transform: "scale(1)" },
-	{ transform: "scale(1.15)", offset: 0.05 },
-	{ transform: "scale(1)" },
-];
-
-const tailleOptions = {
-	iteration: 1,
-	fill: "forwards",
-	duration: 1100, // en millisecondes
-	easing: "linear",
-};
-
-
-// ------------ TRIPLEBASS
-const tripleBassAnim = [
-	{ transform: "scale(1)" },
-	{ transform: "scale(1.04)", offset: 0.02 },
-	{ transform: "scale(1)", offset: 0.13 },
-	{ transform: "scale(1.06)", offset: 0.18 },
-	{ transform: "scale(1)", offset: 0.3 },
-	{ transform: "scale(1.12)", offset: 0.35 },
-	{ transform: "scale(1)" },
-];
-
-const tripleBassOptions = {
-	iteration: 1,
-	fill: "forwards",
-	duration: 1480, // en millisecondes
-	easing: "linear",
-};
-
-// ------------ caisseClaire
-const caisseClaireAnim = [
-	{ transform: "rotate(-3deg)" },
-	{ transform: "rotate(0)" },
-];
-
-const caisseClaireOptions = {
-	iteration: 1,
-	fill: "none",
-	duration: 100, // en millisecondes
-	easing: "linear",
-};
-
-// METEOR ------------------------------------------------
-Template.karaoke.onCreated(function(){
-    // we need to add the css file dynamicaly cause we don't want to mess up
-    // our namespace ou quoi.
-    var fileref = document.createElement("link")
-    fileref.setAttribute("rel", "stylesheet")
-    fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", "karaoke.css")
-    document.getElementsByTagName("head")[0].appendChild(fileref)
-})

@@ -1,26 +1,42 @@
 import "./lettre.html"
 
-// DECLARATIONS ------------------------------------------------------------
-let today = new Date();
-const dd = String(today.getDate()).padStart(2, "0");
-const mm = String(today.getMonth() + 1).padStart(2, "0");
-const yyyy = today.getFullYear();
-today = `${dd}/${mm}/${yyyy}`;
+// METEOR ------------------------------------------------------------
+Template.lettre.onCreated(function(){
+    // we need to add the css file dynamicaly cause we don't want to mess up
+    // our namespace ou quoi.
+    var fileref = document.createElement("link")
+    fileref.setAttribute("rel", "stylesheet")
+    fileref.setAttribute("type", "text/css")
+    fileref.setAttribute("href", "lettre.css")
+    document.getElementsByTagName("head")[0].appendChild(fileref)
+})
 
-const ville = document.getElementById("lieu");
-ville.innerHTML = `${ville.innerHTML}, le ${today}`;
+Template.lettre.onRendered(function(){
 
-const textes = document.getElementsByClassName("type");
+    // DECLARATIONS ------------------------------------------------------------
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    today = `${dd}/${mm}/${yyyy}`;
 
-// Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
-const right = document.getElementsByClassName("droite");
-for (let el of right) {
-    el.style.width = `${el.getBoundingClientRect().width}px`;
-}
+    const ville = document.getElementById("lieu");
+    ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
-// Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
-const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
-document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+    const textes = document.getElementsByClassName("type");
+
+    // Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
+    const right = document.getElementsByClassName("droite");
+    for (let el of right) {
+        el.style.width = `${el.getBoundingClientRect().width}px`;
+    }
+
+    // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
+    const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
+    document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+
+})
+
 
 // FUNCTIONS ------------------------------------------------------------
 function overflow(element) {
@@ -70,14 +86,3 @@ function startAnimation() {
         setTimeout(() => imprimer.style.opacity = "1", 50);
     }, 51 * j);
 }
-
-// METEOR ------------------------------------------------------------
-Template.lettre.onCreated(function(){
-    // we need to add the css file dynamicaly cause we don't want to mess up
-    // our namespace ou quoi.
-    var fileref = document.createElement("link")
-    fileref.setAttribute("rel", "stylesheet")
-    fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", "lettre.css")
-    document.getElementsByTagName("head")[0].appendChild(fileref)
-})

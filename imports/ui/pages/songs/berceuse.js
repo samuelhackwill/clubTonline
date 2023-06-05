@@ -1,55 +1,70 @@
 import "./berceuse.html"
 
-// CALCULS DES TIMINGS --------------------------------------------------
-const profondeurPiece = parseFloat(
-	window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
-);
-const vw1 = parseFloat(document.documentElement.clientWidth / 100);
+// METEOR --------------------------------------------------
 
-// Duration in seconds
-const DURATION = 1000 * 100; // secondes
+Template.berceuse.onCreated(function(){
+    // we need to add the css file dynamicaly cause we don't want to mess up
+    // our namespace ou quoi.
+    var fileref = document.createElement("link")
+    fileref.setAttribute("rel", "stylesheet")
+    fileref.setAttribute("type", "text/css")
+    fileref.setAttribute("href", "berceuse.css")
+    document.getElementsByTagName("head")[0].appendChild(fileref)
+})
 
-const BANDEAU = document.querySelector("#left .text-wrapper");
-const bandeauWidth = parseFloat(
-	getComputedStyle(BANDEAU).getPropertyValue("width")
-);
+Template.berceuse.onRendered(function(){
 
-const distanceCote = profondeurPiece * vw1 + bandeauWidth;
-const distanceCentre = 100 * vw1 + bandeauWidth;
+	// CALCULS DES TIMINGS --------------------------------------------------
+	const profondeurPiece = parseFloat(
+		window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
+	);
+	const vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
-const durationCentre = (distanceCentre * DURATION) / distanceCote;
+	// Duration in seconds
+	const DURATION = 1000 * 100; // secondes
 
-const VITESSE = distanceCote / DURATION; // En pixels par seconde
-const delayCentre = (profondeurPiece * vw1) / VITESSE;
-const delayCote = (100 * vw1) / VITESSE;
+	const BANDEAU = document.querySelector("#left .text-wrapper");
+	const bandeauWidth = parseFloat(
+		getComputedStyle(BANDEAU).getPropertyValue("width")
+	);
 
-const options = {
-	iterations: 1,
-	fill: "both",
-	duration: DURATION,
-	easing: "linear",
-};
+	const distanceCote = profondeurPiece * vw1 + bandeauWidth;
+	const distanceCentre = 100 * vw1 + bandeauWidth;
 
-let optionsCenter = JSON.parse(JSON.stringify(options));
-optionsCenter.delay = delayCentre;
-optionsCenter.duration = durationCentre;
+	const durationCentre = (distanceCentre * DURATION) / distanceCote;
 
-let optionsLeft = JSON.parse(JSON.stringify(options));
-optionsLeft.delay = delayCentre + delayCote;
+	const VITESSE = distanceCote / DURATION; // En pixels par seconde
+	const delayCentre = (profondeurPiece * vw1) / VITESSE;
+	const delayCote = (100 * vw1) / VITESSE;
 
-const keyframes = [
-	{ transform: "translate3d(0, 0, 0)", opacity: 0 },
-	{ opacity: 1, offset: 0.01 },
-	{ opacity: 1, offset: 0.99 },
-	{ transform: `translate3d(-${distanceCote}px, 0, 0)`, opacity: 0 },
-];
+	const options = {
+		iterations: 1,
+		fill: "both",
+		duration: DURATION,
+		easing: "linear",
+	};
 
-const keyframesCentre = [
-	{ transform: "translate3d(0, 0, 0)", opacity: 0 },
-	{ opacity: 1, offset: 0.01 },
-	{ opacity: 1, offset: 0.99 },
-	{ transform: `translate3d(-${distanceCentre}px, 0, 0)`, opacity: 0 },
-];
+	let optionsCenter = JSON.parse(JSON.stringify(options));
+	optionsCenter.delay = delayCentre;
+	optionsCenter.duration = durationCentre;
+
+	let optionsLeft = JSON.parse(JSON.stringify(options));
+	optionsLeft.delay = delayCentre + delayCote;
+
+	const keyframes = [
+		{ transform: "translate3d(0, 0, 0)", opacity: 0 },
+		{ opacity: 1, offset: 0.01 },
+		{ opacity: 1, offset: 0.99 },
+		{ transform: `translate3d(-${distanceCote}px, 0, 0)`, opacity: 0 },
+	];
+
+	const keyframesCentre = [
+		{ transform: "translate3d(0, 0, 0)", opacity: 0 },
+		{ opacity: 1, offset: 0.01 },
+		{ opacity: 1, offset: 0.99 },
+		{ transform: `translate3d(-${distanceCentre}px, 0, 0)`, opacity: 0 },
+	];
+})
 
 // FONCTIONS --------------------------------------------------
 function fermePorte() {
@@ -90,16 +105,4 @@ function startAnimation() {
 }
 
 // startAnimation();
-eteintLumiere();
-
-// METEOR --------------------------------------------------
-
-Template.berceuse.onCreated(function(){
-    // we need to add the css file dynamicaly cause we don't want to mess up
-    // our namespace ou quoi.
-    var fileref = document.createElement("link")
-    fileref.setAttribute("rel", "stylesheet")
-    fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", "berceuse.css")
-    document.getElementsByTagName("head")[0].appendChild(fileref)
-})
+// eteintLumiere();
