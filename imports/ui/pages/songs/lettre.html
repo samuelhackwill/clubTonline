@@ -1,3 +1,83 @@
 <template name="lettre">
-    coucou c'est moi la lettre
+    <nav>
+        <a href="index.html">(INDEX)</a>
+        <a href="berceuse.html">→BERÇEUSE</a>
+        <a href="lettre.html">→LETTRE</a>
+        <a href="karaoke.html">→KARAOKE</a>
+    </nav>
+
+    <article id="page">
+        <div id="part1">
+            <li class="type droite" id="lieu">"Houffalize"</li>
+
+            <div class="adresse">
+                <li class="type">"micheldu36"</li>
+                <li class="type">"Houffalize"</li>
+                <li class="type">BELGIQUE</li>
+            </div>
+
+            <div class="adresse droite">
+                <li class="type">SPF Emploi, Travail et Concertation sociale</li>
+                <li class="type">Rue Ernest Blerotstraat 1</li>
+                <li class="type">1070 Bruxelles / Brussel</li>
+                <li class="type">BELGIQUE</li>
+            </div>
+
+            <p class="type" id="objet">Objet&thinsp;: "le titre de la lettre"</p>
+        </div>
+
+        <div id="part2" class="overlay">
+            <p class="type">Cher Monsieur Pierre-Yves Demargne,</p>
+
+            <p class="type">
+                C’est avec un grand respect que je m’adresse à vous par la présente
+                afin de vous soumettre mes idées pour améliorer la situation de
+                l'emploi en Belgique.
+            </p>
+
+            <p class="type">Voici mes propositions :</p>
+
+            <p class="type proposition">
+                1. c'est plutôt une phrase. voilà une très longue phrase de quelqu'un
+                qui écrit beaucoup là voilà plein de texte sous forme de phrase.
+            </p>
+
+            <p class="type proposition">
+                2. en voici une autre que l'on peut considérer unanimement comme une
+                "pépite"en voici une autre que l'on peut considérer unanimement comme
+                une "pépite"..en voici une autre que l'on peut considérer unanimement
+                comme une "pépite".
+            </p>
+
+            <p class="type proposition">
+                3. celle-là est visiblement vraiment plus longue, comme ça on a
+                l'impression que c'est un paragraphe et pas juste une idée balancée
+                comme ça. Un peu de sérieux bla bla bla.celle-là est visiblement
+                vraiment plus longue, comme ça on a l'impression que c'est un
+                paragraphe et pas juste une idée balancée comme ça. Un peu de sérieux
+                bla bla bla.celle-là est visiblement vraiment plus longue.
+            </p>
+
+            <p class="type proposition">
+                4. pas d'inspi mais la voipas d'inspi mais la voipas d'inspi mais la
+                voipas d'inspi mais la voipas d'inspi mais la voipas d'inspi mais la
+                voipas d'inspi mais la voipas d'inspi mais la voici pas d'inspi mais
+                la voici
+            </p>
+        </div>
+
+        <div id="part3">
+            <p class="type">
+                Dans l’espoir d’obtenir une suite favorable de votre part, je vous
+                prie d’agréer, Monsieur le Ministre, l’expression de ma considération
+                la plus distinguée.
+            </p>
+
+            <p class="droite" id="signature">"micheldu36"</p>
+        </div>
+    </article>
+
+    <button id="imprimer" onClick="imprimer()">IMPRIMER</button>
+    <button id="ceparti" onclick="startAnimation()">CÉPARTI</button>
+
 </template>

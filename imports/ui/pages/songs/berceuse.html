@@ -1,3 +1,99 @@
 <template name="berceuse">
-    <p> coucou c'est moi la berçeuse </p>
+    <nav>
+    <a href="index.html">(INDEX)</a>
+    <a href="berceuse.html">→BERÇEUSE</a>
+    <a href="lettre.html">→LETTRE</a>
+    <a href="karaoke.html">→KARAOKE</a>
+</nav>
+
+    <section id="controls">
+        <button id="lumiere" onclick="eteintLumiere()">lumiere</button>
+        <button id="ferme-porte" onclick="fermePorte()">porte</button>
+        <button id="defilement" onclick="defilementTexte()">défilement</button>
+    </section>
+
+    <h1>{ "Titre chanson" }</h1>
+
+    <main>
+        <div id="ceiling" class="murs"></div>
+        <div id="floor" class="murs"></div>
+
+        <div id="left" class="murs">
+            <div class="text-wrapper">
+                <p>Ça va aller</p>
+                <p>Respirez un grand coup</p>
+
+                <p>"Voici une première phrase douce"</p>
+
+                <p>"Et maintenant une autre phrase douce, mais un peu plus longue"</p>
+
+                <p>Laissez vous porter par la douce musique</p>
+                <p>On est bien là, non ?</p>
+
+                <p>"En voilà une 3e qui rime"</p>
+
+                <p>
+                    "Pour arriver finalement à une autre phrase rimant avec la
+                    précédente"
+                </p>
+
+                <p>Fais dodo, "audrey1180"</p>
+            </div>
+        </div>
+
+        <div id="right" class="murs">
+            <div id="ouverture"></div>
+            <div id="porte">
+                <div id="poignee"></div>
+            </div>
+
+            <div class="text-wrapper">
+                <p>Ça va aller</p>
+                <p>Respirez un grand coup</p>
+
+                <p>"Voici une première phrase douce"</p>
+
+                <p>"Et maintenant une autre phrase douce, mais un peu plus longue"</p>
+
+                <p>Laissez vous porter par la douce musique</p>
+                <p>On est bien là, non ?</p>
+
+                <p>"En voilà une 3e qui rime"</p>
+
+                <p>
+                    "Pour arriver finalement à une autre phrase rimant avec la
+                    précédente"
+                </p>
+
+                <p>Fais dodo, "audrey1180"</p>
+            </div>
+        </div>
+
+        <div id="center" class="murs">
+            <div class="text-wrapper">
+                <p>Ça va aller</p>
+                <p>Respirez un grand coup</p>
+
+                <p>"Voici une première phrase douce"</p>
+
+                <p>"Et maintenant une autre phrase douce, mais un peu plus longue"</p>
+
+                <p>Laissez vous porter par la douce musique</p>
+                <p>On est bien là, non ?</p>
+
+                <p>"En voilà une 3e qui rime"</p>
+
+                <p>
+                    "Pour arriver finalement à une autre phrase rimant avec la
+                    précédente"
+                </p>
+
+                <p>Fais dodo, "audrey1180"</p>
+            </div>
+        </div>
+    </main>
+    <div id="nuit"></div>
+
+    <button id="ceparti" onclick="startAnimation()">CÉPARTI</button>
+
 </template>
