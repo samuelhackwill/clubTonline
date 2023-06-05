@@ -1,10 +1,10 @@
 <template name="berceuse">
     <nav>
-    <a href="index.html">(INDEX)</a>
-    <a href="berceuse.html">→BERÇEUSE</a>
-    <a href="lettre.html">→LETTRE</a>
-    <a href="karaoke.html">→KARAOKE</a>
-</nav>
+        <a href="index.html">(INDEX)</a>
+        <a href="berceuse.html">→BERÇEUSE</a>
+        <a href="lettre.html">→LETTRE</a>
+        <a href="karaoke.html">→KARAOKE</a>
+    </nav>
 
     <section id="controls">
         <button id="lumiere" onclick="eteintLumiere()">lumiere</button>
@@ -20,24 +20,72 @@
 
         <div id="left" class="murs">
             <div class="text-wrapper">
-                <p>Ça va aller</p>
-                <p>Respirez un grand coup</p>
+                <span class="encouragements">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                    <span class="etoile abso">☾</span>
+                    Ça va aller
+                    <span class="etoile">★</span>
+                    <span class="etoile abso">★</span>
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>"Voici une première phrase douce"</p>
+                <span class="encouragements">
+                    <span class="etoile">☁</span>
+                    Respirez un grand coup
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                </span>
 
-                <p>"Et maintenant une autre phrase douce, mais un peu plus longue"</p>
+                <span class="douces">
+                    <span class="etoile">☄</span>
+                    "Voici une première phrase douce"
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>Laissez vous porter par la douce musique</p>
-                <p>On est bien là, non ?</p>
+                <span class="douces">
+                    <span class="etoile">☄</span>
+                    "Et maintenant une autre phrase douce, mais un peu plus longue"
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>"En voilà une 3e qui rime"</p>
+                <span class="encouragements">
+                    <span class="etoile">☁</span>
+                    Laissez vous porter par la douce musique
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                    <span class="etoile">☁</span>
+                </span>
 
-                <p>
+                <span class="encouragements">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
+                    On est bien là, non ?
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
+
+                <span class="rimes">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
+                    "En voilà une 3e qui rime"
+                    <span class="etoile">★</span>
+                    <span class="etoile">★</span>
+                    <span class="etoile">☁</span>
+                </span>
+
+                <span class="rimes">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
                     "Pour arriver finalement à une autre phrase rimant avec la
                     précédente"
-                </p>
-
-                <p>Fais dodo, "audrey1180"</p>
+                    <span class="etoile">★</span>
+                    <span class="etoile">★</span>
+                    <span class="etoile">☁</span>
+                </span>
             </div>
         </div>
 
@@ -48,52 +96,147 @@
             </div>
 
             <div class="text-wrapper">
-                <p>Ça va aller</p>
-                <p>Respirez un grand coup</p>
+                <span class="encouragements">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                    <span class="etoile abso">☾</span>
+                    Ça va aller
+                    <span class="etoile">★</span>
+                    <span class="etoile abso">★</span>
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>"Voici une première phrase douce"</p>
+                <span class="encouragements">
+                    <span class="etoile">☁</span>
+                    Respirez un grand coup
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                </span>
 
-                <p>"Et maintenant une autre phrase douce, mais un peu plus longue"</p>
+                <span class="douces">
+                    <span class="etoile">☄</span>
+                    "Voici une première phrase douce"
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>Laissez vous porter par la douce musique</p>
-                <p>On est bien là, non ?</p>
+                <span class="douces">
+                    <span class="etoile">☄</span>
+                    "Et maintenant une autre phrase douce, mais un peu plus longue"
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>"En voilà une 3e qui rime"</p>
+                <span class="encouragements">
+                    <span class="etoile">☁</span>
+                    Laissez vous porter par la douce musique
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                    <span class="etoile">☁</span>
+                </span>
 
-                <p>
+                <span class="encouragements">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
+                    On est bien là, non ?
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
+
+                <span class="rimes">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
+                    "En voilà une 3e qui rime"
+                    <span class="etoile">★</span>
+                    <span class="etoile">★</span>
+                    <span class="etoile">☁</span>
+                </span>
+
+                <span class="rimes">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
                     "Pour arriver finalement à une autre phrase rimant avec la
                     précédente"
-                </p>
-
-                <p>Fais dodo, "audrey1180"</p>
+                    <span class="etoile">★</span>
+                    <span class="etoile">★</span>
+                    <span class="etoile">☁</span>
+                </span>
             </div>
         </div>
 
         <div id="center" class="murs">
             <div class="text-wrapper">
-                <p>Ça va aller</p>
-                <p>Respirez un grand coup</p>
+                <span class="encouragements">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                    <span class="etoile abso">☾</span>
+                    Ça va aller
+                    <span class="etoile">★</span>
+                    <span class="etoile abso">★</span>
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>"Voici une première phrase douce"</p>
+                <span class="encouragements">
+                    <span class="etoile">☁</span>
+                    Respirez un grand coup
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                </span>
 
-                <p>"Et maintenant une autre phrase douce, mais un peu plus longue"</p>
+                <span class="douces">
+                    <span class="etoile">☄</span>
+                    "Voici une première phrase douce"
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>Laissez vous porter par la douce musique</p>
-                <p>On est bien là, non ?</p>
+                <span class="douces">
+                    <span class="etoile">☄</span>
+                    "Et maintenant une autre phrase douce, mais un peu plus longue"
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
 
-                <p>"En voilà une 3e qui rime"</p>
+                <span class="encouragements">
+                    <span class="etoile">☁</span>
+                    Laissez vous porter par la douce musique
+                    <span class="etoile">★</span>
+                    <span class="etoile">☾</span>
+                    <span class="etoile">☁</span>
+                </span>
 
-                <p>
+                <span class="encouragements">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
+                    On est bien là, non ?
+                    <span class="etoile">☁</span>
+                    <span class="etoile">★</span>
+                </span>
+
+                <span class="rimes">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
+                    "En voilà une 3e qui rime"
+                    <span class="etoile">★</span>
+                    <span class="etoile">★</span>
+                    <span class="etoile">☁</span>
+                </span>
+
+                <span class="rimes">
+                    <span class="etoile">★</span>
+                    <span class="etoile">☄</span>
                     "Pour arriver finalement à une autre phrase rimant avec la
                     précédente"
-                </p>
-
-                <p>Fais dodo, "audrey1180"</p>
+                    <span class="etoile">★</span>
+                    <span class="etoile">★</span>
+                    <span class="etoile">☁</span>
+                </span>
             </div>
         </div>
     </main>
     <div id="nuit"></div>
 
     <button id="ceparti" onclick="berceuse_startAnimation()">CÉPARTI</button>
-
 </template>

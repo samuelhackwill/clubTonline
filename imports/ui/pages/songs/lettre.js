@@ -1,7 +1,7 @@
 import "./lettre.html"
 
 // METEOR ------------------------------------------------------------
-Template.lettre.onCreated(function(){
+Template.lettre.onCreated(function() {
     // we need to add the css file dynamicaly cause we don't want to mess up
     // our namespace ou quoi.
     var fileref = document.createElement("link")
@@ -11,8 +11,7 @@ Template.lettre.onCreated(function(){
     document.getElementsByTagName("head")[0].appendChild(fileref)
 })
 
-Template.lettre.onRendered(function(){
-
+Template.lettre.onRendered(function() {
     // DECLARATIONS ------------------------------------------------------------
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, "0");
@@ -22,6 +21,8 @@ Template.lettre.onRendered(function(){
 
     const ville = document.getElementById("lieu");
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
+
+    const textes = document.getElementsByClassName("type");
 
     // Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
     const right = document.getElementsByClassName("droite");
@@ -33,10 +34,11 @@ Template.lettre.onRendered(function(){
     const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
     document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
 
+    const INSTRU = document.getElementById("typing-sound");
+
 })
 
-
-// FUNCTIONS ------------------------------------------------------------
+// FUNCTIONS ------------------------------------------------
 overflow = function(element) {
     if (element.scrollHeight > element.clientHeight) {
         return element.scrollHeight - element.clientHeight
@@ -55,12 +57,14 @@ imprimer = function() {
 }
 
 startAnimation = function() {
-    const textes = document.getElementsByClassName("type");
     document.getElementById("page").style.color = "black";
+    INSTRU.play();
 
     const lol = document.getElementById("ceparti");
     lol.style.opacity = "0";
-    setTimeout(() => { lol.style.display = "none" }, 50);
+
+    const delay = 40;
+    setTimeout(() => { lol.style.display = "none" }, delay);
 
     let j = 1;
     for (let el of textes) {
@@ -68,20 +72,26 @@ startAnimation = function() {
         el.innerHTML = " ";
         for (let i = 0; i < contenu.length; i++) {
             // const delay = randomNumber(-10, 20);
-            const delay = 0;
-            setTimeout(() => { el.innerHTML += contenu.charAt(i) }, (50 * j) + delay);
+            const offset = 0;
+            setTimeout(() => { el.innerHTML += contenu.charAt(i) }, (delay * j) + offset);
+
             j++;
         }
     }
 
     const imprimer = document.getElementById("imprimer");
     const signature = document.getElementById("signature");
-    setTimeout(function() {
 
+    // Pause de l'INSTRU
+    setTimeout(() => { INSTRU.pause() }, delay * j);
+
+    setTimeout(function() {
         // signature.style.transform = "scaleX(1)";
         signature.style.opacity = "1";
 
         imprimer.style.display = "block";
-        setTimeout(() => imprimer.style.opacity = "1", 50);
-    }, 51 * j);
+        setTimeout(() => imprimer.style.opacity = "1", delay);
+    }, (delay + 1) * j);
+
+}
 }

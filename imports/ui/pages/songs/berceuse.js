@@ -2,18 +2,17 @@ import "./berceuse.html"
 
 // METEOR --------------------------------------------------
 
-Template.berceuse.onCreated(function(){
-    // we need to add the css file dynamicaly cause we don't want to mess up
-    // our namespace ou quoi.
-    var fileref = document.createElement("link")
-    fileref.setAttribute("rel", "stylesheet")
-    fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", "berceuse.css")
-    document.getElementsByTagName("head")[0].appendChild(fileref)
+Template.berceuse.onCreated(function() {
+	// we need to add the css file dynamicaly cause we don't want to mess up
+	// our namespace ou quoi.
+	var fileref = document.createElement("link")
+	fileref.setAttribute("rel", "stylesheet")
+	fileref.setAttribute("type", "text/css")
+	fileref.setAttribute("href", "berceuse.css")
+	document.getElementsByTagName("head")[0].appendChild(fileref)
 })
 
-Template.berceuse.onRendered(function(){
-
+Template.berceuse.onRendered(function() {
 	// CALCULS DES TIMINGS --------------------------------------------------
 	const profondeurPiece = parseFloat(
 		window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
@@ -103,6 +102,3 @@ startAnimation = function() {
 		delayCentre + delayCote + DURATION + 1000
 	);
 }
-
-// startAnimation();
-// eteintLumiere();

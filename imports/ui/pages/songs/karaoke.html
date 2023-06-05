@@ -7,21 +7,92 @@
     </nav>
 
     <main>
+        <p id="moto">MOTO</p>
+
         <section id="slides">
-            <div id="couplet1" class="sing" data-slide="0.0">
+            <div id="titre" data-slide="2">
+                <h1 id="chanson">"C'est le titre de la chanson"</h1>
+                <p id="par">par</p>
+                <h2 id="nom">"caro"</h2>
+            </div>
+
+            <div id="intro" data-slide="7.9">
+                <p>Je viens de "dans ma chambre"</p>
+                <p>Représente</p>
+            </div>
+
+            <div id="couplet1" data-slide="16">
                 <p>
                     "phrase longue, longue plainte avec plusieurs mots les uns à la
                     suite des autres finalement. on peut voir ça comme un paragraphe,
                     donc il y a des lignes de texte et il y en a plusieurs"
                 </p>
+
+                <p class="enchaine">
+                    <span>ouais</span>
+                    <span>ouais</span>
+                    <span>ouais</span>
+                </p>
+            </div>
+
+            <div id="couplet2" data-slide="20"></div>
+
+            <div id="refrain" class="refrain" data-slide="23.9">
+                <p>"refrain ouais ouais ouais c'est le refrain"</p>
+
+                <p class="enchaine">
+                    <span>le refrain</span>
+                    <span>le refrain</span>
+                </p>
+
+                <p id="x2">(×2)</p>
+            </div>
+
+            <div id="bruitTravail" data-slide="30.9">
+                <p>Le travail ça fait <span>"cliquetis"</span></p>
+
+                <p class="enchaine">
+                    <span>"cliquetis"</span>
+                    <span>"cliquetis"</span>
+                </p>
+
+                <p><span>Ouais,</span> le travail ça fait <span>"cliquetis"</span></p>
+            </div>
+
+            <div id="refrain2" class="refrain" data-slide="36.3">
+                <p>"refrain ouais ouais ouais c'est le refrain"</p>
+
+                <p class="enchaine">
+                    <span>le refrain</span>
+                    <span>le refrain</span>
+                </p>
+            </div>
+
+            <div id="conclusion" data-slide="41.4">
+                <p>"il faut bien terminer par quelque chose"</p>
+
+                <p class="enchaine">
+                    <span>"C'est le titre de la chanson"</span>
+                </p>
+            </div>
+
+            <div id="outro1" data-slide="44.4">
+                <p>Et ouais mon gars</p>
+                <p>C'était "caro"</p>
+            </div>
+
+            <div id="outro2" data-slide="48.5">
+                <p>Bientôt la mixtape</p>
+                <p>Vous êtes pas prêts</p>
             </div>
         </section>
+
+        <!-- fin du del vers ~47.6 -->
     </main>
 
     <aside id="progress"></aside>
 
     <audio id="instru" preload="auto" controls>
-        <!-- <source src="static/sounds/clignote.mp3" type="audio/mpeg" /> -->
         <source src="static/sounds/instru-raccourci.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
