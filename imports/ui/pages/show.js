@@ -13,6 +13,8 @@ const whateverData = [
     }
 ]
 
-export const dataFridge = new ReactiveVar(whateverData);
-export const dataFeed = new ReactiveVar();
-
+Template.show.helpers({
+    showData() {
+      return whateverData;
+    },
+});
