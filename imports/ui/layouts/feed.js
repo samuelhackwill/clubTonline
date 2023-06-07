@@ -6,6 +6,7 @@ import "../components/blockingBubble.js";
 const dataFeed = new ReactiveVar();
 const dataFridge = new ReactiveVar();
 export const state = new ReactiveVar("gettingMoreElements");
+export let feedIndex = new ReactiveVar(0);
 
 Template.feed.helpers({
   feedState() {
@@ -14,6 +15,11 @@ Template.feed.helpers({
 
   feedItems() {
     return dataFeed.get();
+  },
+
+  isDebugMode(){
+    // only show debug tools when we are working locally
+    return window.location.host=="localhost:3000"
   }
 });
 
@@ -34,7 +40,6 @@ Template.feed.onRendered(function () {
     },
   };
 
-  index = 0;
 
   setTimeout(() => {
     // this is to welcome peeps in the feed! a bot speaks basically.
@@ -47,22 +52,27 @@ addNextItem = function(){
   // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
   // or to initialize an empty tempFeed to prevent errors.
   tempFeed = dataFeed.get() || [];
+  tempFeedIndex = feedIndex.get()
 
-  let nextItem = dataFridge.get()[index]
-  
-    if (nextItem == undefined || nextItem.type!=="SB"){
-      console.log(tempFeed)
-      state.set("waitingForUserAction")
-      return
-    }else{
-      setTimeout(() => {
-        addNextItem()
-      }, 50);
-    }
+  let nextItem = dataFridge.get()[tempFeedIndex]
+
+  if (nextItem == undefined) {
+    state.set("waitingForUserAction")
+    // we are returning here because we don't want to add an empty object to the feed.
+    return
+  }
+  if (nextItem.type!=="SB"){
+    state.set("waitingForUserAction")
+    // we're not returning here because we do want to add blocking items before stoping the loop.
+  }else{
+    setTimeout(() => {
+      addNextItem()
+    }, 50);
+  }
 
   tempFeed.push(nextItem)
   dataFeed.set(tempFeed)
-  index ++
+  feedIndex.set(tempFeedIndex+=1)
 }
 
 addData = function (obj) {
