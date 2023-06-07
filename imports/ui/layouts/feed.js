@@ -1,9 +1,6 @@
 import "./feed.html";
 
 import "../components/bubble.js";
-import "../components/sticker.js";
-import "../components/deck.js";
-import "../components/card.js";
 
 import { dataFridge } from "../pages/home.js";
 import { dataFeed } from "../pages/show.js";
