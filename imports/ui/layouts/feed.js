@@ -16,7 +16,6 @@ Template.feed.helpers({
   },
 
   feedItems() {
-    // console.log("getting new data, miam! ", dataFeed.get())
     return dataFeed.get();
   },
 });
@@ -25,7 +24,6 @@ Template.feed.helpers({
 
 // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
 Template.feed.onCreated(function(){
-  console.log(dataFridge.get())
 })
 
 
@@ -95,6 +93,7 @@ Template.feed.onRendered(function () {
 });
 
 displayIntro = function(){
+  console.log("display intro, ", index)
 
   tempFeed = dataFeed.get() || [];
 
