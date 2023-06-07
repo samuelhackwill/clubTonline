@@ -1,6 +1,7 @@
 import "./feed.html";
 
-import "../components/bubble.js";
+import "../components/staticBubble.js";
+import "../components/blockingBubble.js";
 
 import { dataFridge } from "../pages/home.js";
 import { dataFeed } from "../pages/show.js";
@@ -18,6 +19,7 @@ Template.feed.helpers({
 });
 
 Template.feed.onRendered(function () {
+  console.log(this)
   
   // This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
   // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
@@ -29,7 +31,6 @@ Template.feed.onRendered(function () {
 
       setTimeout(function () {
         next.parentNode.lastChild.style.opacity = 1;
-        updateScroll();
       }, 30);
     },
   };
@@ -44,6 +45,9 @@ Template.feed.onRendered(function () {
 });
 
 displayIntro = function(){
+  // so this function needs refactoring : the wanted behaviour would be to display all the next items
+  // until we bump into a blocking item, i.e. an item which is waiting for a user action.
+  
   console.log("display intro, ", index)
 
   tempFeed = dataFeed.get() || [];
