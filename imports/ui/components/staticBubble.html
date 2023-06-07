@@ -1,4 +1,4 @@
-<template name="bubble">
+<template name="staticBubble">
   {{#if form}}
   <div
     class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 "
@@ -41,7 +41,7 @@
 
   {{#if onlyText}}
   <div
-    class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 last:mr-100"
+    class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 last:bg-purple-300"
     data-bubble="true"
   >
     <p>{{text}}</p>

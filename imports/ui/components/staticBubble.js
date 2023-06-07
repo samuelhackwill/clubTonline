@@ -1,11 +1,11 @@
-import "./bubble.html";
+import "./staticBubble.html";
 import {Mailing} from "../../API/mailing/mailing.js"
 
-Template.bubble.onCreated(function () {
+Template.staticBubble.onCreated(function () {
     // console.log(this);
   });
   
-Template.bubble.events({
+Template.staticBubble.events({
   'submit .subscribe'(event) {
     // Prevent default browser form submit
     event.preventDefault();

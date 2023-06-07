@@ -1,11 +1,7 @@
 <template name="show">
-  <body
-    class="relative h-screen h-[-webkit-fill-available] overscroll-none overflow-hidden bg-yellow-100 transition-all"
-  >
-    {{> feed}}
-    <div
-      class="absolute top-full h-full w-full transition-transform"
-      id="offscreen"
-    ></div>
-  </body>
+  <div class="m-x-5 h-[95vh]">
+      
+    {{> feed dataFridge}}
+    
+  </div>
 </template>
