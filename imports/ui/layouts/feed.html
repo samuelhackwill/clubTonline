@@ -37,20 +37,8 @@
   >
     <!-- the feed needs to know what kind of component to add to the feed based on what the data is. this feels kind of hacky, might want to make a proper helper, but also maybe not. -->
     {{#each feedItems}} 
-      {{#if autoText}} 
-        {{> bubble this}}
-      {{/if}} 
-      
-      {{#if sticker}} 
-        {{> sticker this}} 
-      {{/if}} 
+      {{> bubble this}}
     {{/each}}
 
   </div>
-
-  <!-- HARDCODED SHIT TO TRY THINGS OUT     -->
-
-  <!-- <div class="h-100 w-100 overflow-hidden flex justify-center items-center h-screen">
-        {{> card}}
-    </div> -->
 </template>

@@ -14,18 +14,13 @@ Template.feed.helpers({
 
   feedItems() {
     return dataFeed.get();
-  },
+  }
 });
-
-// This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
-
-// see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
-Template.feed.onCreated(function(){
-})
-
 
 Template.feed.onRendered(function () {
   
+  // This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
+  // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
   document.getElementById("feed")._uihooks = {
     insertElement: (node, next) => {
       //console.log("DOM INSERTION DETECTED", "NODE ", node, "NEXT ", next.parentNode)
@@ -36,47 +31,6 @@ Template.feed.onRendered(function () {
         next.parentNode.lastChild.style.opacity = 1;
         updateScroll();
       }, 30);
-
-      // deck of cards have a special behaviour : it has nested hidden elements which need to be animated individually
-
-      if (node.getAttribute("data-deckOfCards")) {
-        cards = node.children;
-        howManyCards = cards.length;
-        cardIndex = 0;
-
-        cardFadeInAnimation = setInterval(function () {
-          if (cardIndex >= howManyCards) {
-            updateScroll();
-            clearInterval(cardFadeInAnimation);
-            allAuras = document.getElementsByClassName("aura");
-            for (let index = 0; index < allAuras.length; index++) {
-              allAuras[index].style.opacity = 1;
-            }
-            return;
-          }
-          document.getElementById("deck").children[cardIndex].style.transform =
-            "translateY(0px)";
-          document.getElementById("deck").children[cardIndex].style.opacity = 1;
-          cardIndex++;
-        }, 250);
-      }
-
-      // individual cards have to be heavily Css-modified to look different than when they are displayed in full screen. Also we have to modify the css of nested elements in the node, so carefull if you modify the html structure of the component.
-
-      if(node.getAttribute("id") == "theCard"){
-        paragraph = node.children[1].children[0]||undefined
-        if (!paragraph) {
-          console.log("ERROR! check the html structure of card component", node)
-        }
-        paragraph.classList.remove("text-6xl")
-        paragraph.classList.remove("p-24")
-        paragraph.classList.add("text-2xl")
-        paragraph.classList.add("p-6")
-
-        // we could add a bit of randomness here to make it nicer.
-
-        node.style.transform = "rotateY(180deg) translate(-50%, 30px) rotate(-2deg)"
-      }
     },
   };
 
