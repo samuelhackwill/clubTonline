@@ -2,7 +2,6 @@ import "./staticBubble.html";
 import {Mailing} from "../../API/mailing/mailing.js"
 
 Template.staticBubble.onCreated(function () {
-    // console.log(this);
   });
   
 Template.staticBubble.events({

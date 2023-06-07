@@ -17,4 +17,8 @@ const waitingData = [
     {name:"linkNoFuturs", link:true}
 ]
 
-export const dataFridge = new ReactiveVar(waitingData);
+Template.home.helpers({
+    homeData() {
+      return waitingData;
+    },
+});

@@ -3,9 +3,8 @@ import "./feed.html";
 import "../components/staticBubble.js";
 import "../components/blockingBubble.js";
 
-import { dataFridge } from "../pages/home.js";
-import { dataFeed } from "../pages/show.js";
-
+const dataFeed = new ReactiveVar();
+const dataFridge = new ReactiveVar();
 export const state = new ReactiveVar("reading");
 
 Template.feed.helpers({
@@ -19,7 +18,7 @@ Template.feed.helpers({
 });
 
 Template.feed.onRendered(function () {
-  console.log(this)
+  dataFridge.set(this.data)
   
   // This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
   // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
@@ -39,17 +38,19 @@ Template.feed.onRendered(function () {
 
   setTimeout(() => {
     // this is to welcome peeps in the feed! a bot speaks basically.
-    displayIntro()
+    addNextItem()
   }, 100);
 
 });
 
-displayIntro = function(){
+addNextItem = function(){
   // so this function needs refactoring : the wanted behaviour would be to display all the next items
   // until we bump into a blocking item, i.e. an item which is waiting for a user action.
   
   console.log("display intro, ", index)
 
+  // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
+  // or to initialize an empty tempFeed to prevent errors.
   tempFeed = dataFeed.get() || [];
 
   // find the intro in the fridge. For the example we're using mathilde's intro here.
@@ -70,7 +71,7 @@ displayIntro = function(){
 
     setTimeout(() => {
       // this is to welcome peeps in the feed! a bot speaks basically.
-      displayIntro()
+      addNextItem()
     }, 50);
 
   }else{
