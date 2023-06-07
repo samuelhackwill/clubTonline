@@ -20,3 +20,21 @@ Template.staticBubble.events({
     document.getElementById("subscriptionButton").classList.remove("bg-purple-500", "hover:bg-purple-400")
   }
 })
+
+Template.staticBubble.helpers({
+  isSubscribe(){
+    if (this.name != undefined && this.name == "mailForm") {
+      return true
+    }
+  },
+  isLink(){
+    if (this.name != undefined && this.name == "linkNoFuturs") {
+      return true
+    }
+  },
+  isTextOnly(){
+    if (this.name == undefined) {
+      return true
+    }
+  },
+})

@@ -1,16 +1,15 @@
 import "./show.html";
 import "../layouts/feed.js";
 
+// SB : static bubble
+// ---BB--- : blocking bubble. on a mis des tirets du six pour plus de visibilité que ça bloque la progression et tout.
+
 const whateverData = [
-    {left:true, name:"bot-mathilde-1" ,text:
-        [
-        "bonjour c'est mathilde voici la première bulle",
-        "voilà je vais vous tirer les cartes attention vous êtes prêtes?",
-        "voici un gros bloc de texte for no reason.nvoici un gros bloc de texte for no reason. voici un gros bloc de texte for no reason. voici un gros bloc de texte for no reason. voici un gros bloc de texte for no reason. voici un gros bloc de texte for no reason.",
-        "blablabalb labal balb alb lab lablbalb alba oui le tirage de cartes yehsu hodh oauhd oqsud ouqshd oqush djndf qjlknefz ljfnqdslfj nqflj nezqfljqnsdf lqenz fljqsdnf oqeznflqjsdnf laezjfnljn jdlsfn",
-        "dljf nld fjnqdkj fnqsdkj fnsdqfkjn dsqkj fnqlj nfdsljdsfn"
-        ]
-    }
+    {type:"SB" ,text:"bonjour c'est mathilde voici la première bulle"},
+    {type:"SB" ,text:"bonjour c'est mathilde voici la deuxième bulle"},
+    {type:"SB" ,text:"he ouais."},
+    {type:"---BB---" ,text:"THIS IS BLOCKING!"},
+    {type:"SB" ,text:"this is hidden until we have user interaction."},
 ]
 
 Template.show.helpers({

@@ -5,7 +5,7 @@ import "../components/blockingBubble.js";
 
 const dataFeed = new ReactiveVar();
 const dataFridge = new ReactiveVar();
-export const state = new ReactiveVar("reading");
+export const state = new ReactiveVar("gettingMoreElements");
 
 Template.feed.helpers({
   feedState() {
@@ -44,73 +44,25 @@ Template.feed.onRendered(function () {
 });
 
 addNextItem = function(){
-  // so this function needs refactoring : the wanted behaviour would be to display all the next items
-  // until we bump into a blocking item, i.e. an item which is waiting for a user action.
-  
-  console.log("display intro, ", index)
-
   // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
   // or to initialize an empty tempFeed to prevent errors.
   tempFeed = dataFeed.get() || [];
 
-  // find the intro in the fridge. For the example we're using mathilde's intro here.
-  let result = dataFridge.get().filter(obj => {
-    return obj.name === "bot-mathilde-1"
-  })
+  let nextItem = dataFridge.get()[index]
+  
+    if (nextItem == undefined || nextItem.type!=="SB"){
+      console.log(tempFeed)
+      state.set("waitingForUserAction")
+      return
+    }else{
+      setTimeout(() => {
+        addNextItem()
+      }, 50);
+    }
 
-  // find what we've already displayed of the intro and or stop
-  if(index < result[0].text.length){
-    const element = {}
-    element.autoText = true
-    element.onlyText = true
-    element.text = result[0].text[index];
-    tempFeed.push(element)
-    dataFeed.set(tempFeed);   
-    
-    index ++
-
-    setTimeout(() => {
-      // this is to welcome peeps in the feed! a bot speaks basically.
-      addNextItem()
-    }, 50);
-
-  }else{
-    // let result = dataFridge.get().filter(obj => {
-    //   return obj.name === "deck-intro"
-    // })
-    // console.log("all text from intro already pushed to feed", result)
-    // tempFeed.push(result[0])
-    // dataFeed.set(tempFeed);   
-    let form = dataFridge.get().filter(obj => {
-      return obj.name === "mailForm"
-    }) 
-
-    const element1 = {}
-    element1.autoText = true
-    element1.form = true
-    tempFeed.push(element1)
-    
-
-    let link = dataFridge.get().filter(obj => {
-      return obj.name === "linkNoFuturs"
-    })
-
-    const element2 = {}
-    element2.autoText = true
-    element2.link = true
-    tempFeed.push(element2)
-
-    dataFeed.set(tempFeed);  
-
-    setTimeout(() => {
-      showAllFeedFuckThisShit = document.getElementById("feed").children
-      for (let x = 0; x < showAllFeedFuckThisShit.length; x++) {
-        showAllFeedFuckThisShit[x].style.opacity=1
-      }      
-    }, 10);
-
-    return
-  }
+  tempFeed.push(nextItem)
+  dataFeed.set(tempFeed)
+  index ++
 }
 
 addData = function (obj) {
