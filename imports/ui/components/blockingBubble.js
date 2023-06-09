@@ -17,8 +17,14 @@ Template.blockingBubble.helpers({
 
 Template.blockingBubble.events({
     'click .play'(event) {
+      if (event.target.dataset.clicked) {
+        return
+      }else{
         state.set("gettingMoreElements")
         addNextItem()
+        event.target.dataset.clicked="true"
+        event.target.classList.add("bg-gray-400", "pointer-events-none")
+      }
     },
 
     'click .card'(event){
