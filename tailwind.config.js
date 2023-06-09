@@ -34,6 +34,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-3d')
+  ],
   safelist: ["animate-cardMove"],
 };
