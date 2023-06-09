@@ -8,10 +8,10 @@ const whateverData = [
     {type:"SB", text:"bonjour c'est mathilde voici la première bulle"},
     {type:"SB", text:"bonjour c'est mathilde voici la deuxième bulle"},
     {type:"SB", text:"he ouais."},
-    {type:"---BB---", name:"action", label:"gimme more"},
+    {type:"---BB---", name:"play", label:"play"},
     {type:"SB", text:"this is hidden until we have user interaction."},
     {type:"SB", text:"this is also hidden until we have user interaction."},
-    {type:"---BB---", name:"action", label:"encore"},
+    {type:"---BB---", name:"card.tutoie", label:"Est ce qu'on se tutoie, ou alors est-ce qu'on se vouvoie?"},
     {type:"SB", text:"ok you got the idea."}
 ]
 

@@ -1,8 +1,19 @@
 <template name="blockingBubble">
-    {{#if isAction}}
+    {{#if isPlay}}
       <div class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 flex items-center justify-center">
-        <button class="action shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+        <button class="play shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
           {{label}} 
+        </button>
+      </div>
+    {{/if}}
+
+    {{#if isCard}}
+      <div class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 flex items-center justify-center">
+        <div class="opacity-50 py-2 px-4">
+          blabalblablablalb
+        </div>
+        <button class="card absolute opacity-80 shadow bg-blue-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+          front
         </button>
       </div>
     {{/if}}

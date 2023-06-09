@@ -3,16 +3,20 @@ import "./blockingBubble.html";
 import {state} from "../layouts/feed.js"
 
 Template.blockingBubble.helpers({
-    isAction(){
-      if (this.name != undefined && this.name == "action") {
+    isPlay(){
+      if (this.name != undefined && this.name.startsWith("play")) {
+        return true
+      }
+    },
+    isCard(){
+      if (this.name != undefined && this.name.startsWith("card")) {
         return true
       }
     },
 })
 
 Template.blockingBubble.events({
-    'click .action'(event) {
-        console.log("action!")
+    'click .play'(event) {
         state.set("gettingMoreElements")
         addNextItem()
     }  
