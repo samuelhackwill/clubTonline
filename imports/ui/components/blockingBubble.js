@@ -19,5 +19,10 @@ Template.blockingBubble.events({
     'click .play'(event) {
         state.set("gettingMoreElements")
         addNextItem()
-    }  
+    },
+
+    'click .card'(event){
+      event.target.parentElement.classList.add("rotate-x-180")
+      event.target.classList.add("opacity-0")
+    }
 })
