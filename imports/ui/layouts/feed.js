@@ -23,13 +23,13 @@ Template.feed.helpers({
   },
 });
 
-Template.feed.onCreated(function(){
-  // because of the strategy we use to display bubbles (a grid which overflows to the right), we can't use margins or 
+Template.feed.onCreated(function () {
+  // because of the strategy we use to display bubbles (a grid which overflows to the right), we can't use margins or
   // other stuff to make some space on the right side of a column of bubbles. We have to use an invisible bumper element
   // which needs to always be present in the dataFeed.
-  tempFeed = [{ type: "SB", name:"bumper" }]
-  dataFeed.set(tempFeed)
-})
+  tempFeed = [{ type: "SB", name: "bumper" }];
+  dataFeed.set(tempFeed);
+});
 
 Template.feed.onRendered(function () {
   // the data fridge contains all the data necessary for the game (cards, text, etc).
@@ -44,13 +44,12 @@ Template.feed.onRendered(function () {
   // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
   document.getElementById("feed")._uihooks = {
     insertElement: (node, next) => {
-
       // the bumper needs to ALWAYS be at the end of the feed.
       if (node.id == "bumper") {
         setTimeout(function () {
           next.parentNode.appendChild(node);
-        },0)
-        return
+        }, 0);
+        return;
       }
 
       next.parentNode.appendChild(node);
@@ -69,30 +68,30 @@ addNextItem = function () {
   // or to initialize an empty tempFeed to prevent errors.
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
-  
+
   let nextItem = dataFridge.get()[tempFeedIndex];
-  
+
   if (nextItem == undefined) {
     state.set("waitingForUserAction");
     // we are returning here because we don't want to add an empty object to the feed.
-    beforeBumperIndex = tempFeed.length-1
-    tempFeed.splice(beforeBumperIndex, 0, nextItem)
+    beforeBumperIndex = tempFeed.length - 1;
+    tempFeed.splice(beforeBumperIndex, 0, nextItem);
     dataFeed.set(tempFeed);
     feedIndex.set((tempFeedIndex += 1));
-    // but we do want the bumper.  
+    // but we do want the bumper.
     return;
   }
   if (nextItem.type != "SB") {
     state.set("waitingForUserAction");
     // we're not returning here because we do want to add blocking items before stoping the loop.
-  } else {    
+  } else {
     setTimeout(() => {
       addNextItem();
     }, 50);
   }
 
-  beforeBumperIndex = tempFeed.length-1
-  tempFeed.splice(beforeBumperIndex, 0, nextItem)
+  beforeBumperIndex = tempFeed.length - 1;
+  tempFeed.splice(beforeBumperIndex, 0, nextItem);
   dataFeed.set(tempFeed);
   feedIndex.set((tempFeedIndex += 1));
 };

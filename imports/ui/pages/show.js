@@ -7,9 +7,18 @@ import "../layouts/feed.js";
 const whateverData = [
   { type: "SB", text: "bonjour c'est mathilde voici la première bulle" },
   { type: "SB", text: "bonjour c'est mathilde voici la deuxième bulle" },
-  { type: "SB", text: "bonjour c'est mathilde voici la troisième bulle, qui va être un peu plus grande parce que j'ai plein de choses à vous dire. Par exemple, hier j'ai mangé une soupe de cresson et c'était franchement pas mal." },
-  { type: "SB", text: "après je voulais aussi vous dire que je travaille avec deux developpeurs vraiment talentueux, ils s'appellent samuel et thomas." },
-  { type: "SB", text: "en plus d'être extrèmement bons il sont aussi très sympa." },
+  {
+    type: "SB",
+    text: "bonjour c'est mathilde voici la troisième bulle, qui va être un peu plus grande parce que j'ai plein de choses à vous dire. Par exemple, hier j'ai mangé une soupe de cresson et c'était franchement pas mal.",
+  },
+  {
+    type: "SB",
+    text: "après je voulais aussi vous dire que je travaille avec deux developpeurs vraiment talentueux, ils s'appellent samuel et thomas.",
+  },
+  {
+    type: "SB",
+    text: "en plus d'être extrèmement bons il sont aussi très sympa.",
+  },
   { type: "SB", text: "et beaux." },
   { type: "SB", text: "ouais." },
   { type: "SB", text: "ouais." },
