@@ -3,3 +3,4 @@ node_modules/
 .deploy/*
 .meteor/local/*
 .git
+./ui/pages/songs/.

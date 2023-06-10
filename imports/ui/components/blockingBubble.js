@@ -24,6 +24,7 @@ Template.blockingBubble.events({
       addNextItem();
       event.target.dataset.clicked = "true";
       event.target.classList.add("bg-gray-400", "pointer-events-none");
+      event.target.classList.remove("bg-purple-500");
     }
   },
 
