@@ -43,7 +43,6 @@ Template.feed.onRendered(function () {
       next.parentNode.appendChild(node);
 
       setTimeout(function () {
-        console.log(feedIndex.get())
         next.parentNode.lastChild.style.opacity = 1;
       }, 30);
     },

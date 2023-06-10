@@ -36,12 +36,12 @@ Template.staticBubble.helpers({
     }
   },
   isTextOnly() {
-    if (this.name == undefined) {
+    if (this.name == undefined && this.text != undefined) {
       return true;
     }
   },
   isBumper() {
-    if (this.type == "bumper") {
+    if (this.type === "bumper") {
       return true;
     }
   },
