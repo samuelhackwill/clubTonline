@@ -1,5 +1,17 @@
 {
-  "devDependencies": {},
+  "name": "clubTonline",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "format": "npx prettier --write .",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0"
+  },
   "dependencies": {
     "@babel/runtime": "^7.22.5",
     "autoprefixer": "^10.4.14",

@@ -1,3 +1,3 @@
-import { Mongo } from 'meteor/mongo';
+import { Mongo } from "meteor/mongo";
 
-export const Mailing = new Mongo.Collection('mailing');
+export const Mailing = new Mongo.Collection("mailing");

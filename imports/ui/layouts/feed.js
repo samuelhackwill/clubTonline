@@ -17,15 +17,15 @@ Template.feed.helpers({
     return dataFeed.get();
   },
 
-  isDebugMode(){
+  isDebugMode() {
     // only show debug tools when we are working locally
-    return window.location.host=="localhost:3000"
-  }
+    return window.location.host == "localhost:3000";
+  },
 });
 
 Template.feed.onRendered(function () {
-  dataFridge.set(this.data)
-  
+  dataFridge.set(this.data);
+
   // This is a hook used to animate insertions in the feed. It replaces normal behaviour by blaze, so you also have to manually tell blaze to add nodes.
   // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
   document.getElementById("feed")._uihooks = {
@@ -40,40 +40,38 @@ Template.feed.onRendered(function () {
     },
   };
 
-
   setTimeout(() => {
     // this is to welcome peeps in the feed! a bot speaks basically.
-    addNextItem()
+    addNextItem();
   }, 100);
-
 });
 
-addNextItem = function(){
+addNextItem = function () {
   // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
   // or to initialize an empty tempFeed to prevent errors.
   tempFeed = dataFeed.get() || [];
-  tempFeedIndex = feedIndex.get()
+  tempFeedIndex = feedIndex.get();
 
-  let nextItem = dataFridge.get()[tempFeedIndex]
+  let nextItem = dataFridge.get()[tempFeedIndex];
 
   if (nextItem == undefined) {
-    state.set("waitingForUserAction")
+    state.set("waitingForUserAction");
     // we are returning here because we don't want to add an empty object to the feed.
-    return
+    return;
   }
-  if (nextItem.type!=="SB"){
-    state.set("waitingForUserAction")
+  if (nextItem.type !== "SB") {
+    state.set("waitingForUserAction");
     // we're not returning here because we do want to add blocking items before stoping the loop.
-  }else{
+  } else {
     setTimeout(() => {
-      addNextItem()
+      addNextItem();
     }, 50);
   }
 
-  tempFeed.push(nextItem)
-  dataFeed.set(tempFeed)
-  feedIndex.set(tempFeedIndex+=1)
-}
+  tempFeed.push(nextItem);
+  dataFeed.set(tempFeed);
+  feedIndex.set((tempFeedIndex += 1));
+};
 
 addData = function (obj) {
   // this function is used to add data to the local reactive Var, which is used to populate the feed.
