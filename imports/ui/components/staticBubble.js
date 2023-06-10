@@ -40,4 +40,9 @@ Template.staticBubble.helpers({
       return true;
     }
   },
+  isBumper() {
+    if (this.type == "bumper") {
+      return true;
+    }
+  },
 });

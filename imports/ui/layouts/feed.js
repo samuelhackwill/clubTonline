@@ -3,7 +3,7 @@ import "./feed.html";
 import "../components/staticBubble.js";
 import "../components/blockingBubble.js";
 
-const dataFeed = new ReactiveVar();
+dataFeed = new ReactiveVar();
 const dataFridge = new ReactiveVar();
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
@@ -23,6 +23,14 @@ Template.feed.helpers({
   },
 });
 
+Template.feed.onCreated(function(){
+  // because of the strategy we use to display bubbles (a grid which overflows to the right), we can't use margins or 
+  // other stuff to make some space on the right side of a column of bubbles. We have to use an invisible bumper element
+  // which needs to always be present in the dataFeed.
+  tempFeed = [{ type: "bumper" }]
+  dataFeed.set(tempFeed)
+})
+
 Template.feed.onRendered(function () {
   dataFridge.set(this.data);
 
@@ -35,6 +43,7 @@ Template.feed.onRendered(function () {
       next.parentNode.appendChild(node);
 
       setTimeout(function () {
+        console.log(feedIndex.get())
         next.parentNode.lastChild.style.opacity = 1;
       }, 30);
     },
@@ -68,7 +77,9 @@ addNextItem = function () {
     }, 50);
   }
 
-  tempFeed.push(nextItem);
+  beforeBumperIndex = tempFeed.length-1
+  // tempFeed.splice(beforeBumperIndex, 0, nextItem)
+  tempFeed.push(nextItem)
   dataFeed.set(tempFeed);
   feedIndex.set((tempFeedIndex += 1));
 };
