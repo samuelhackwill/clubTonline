@@ -3,9 +3,7 @@
     class="m-10 flex h-full flex-col flex-wrap content-start items-start gap-x-3 transition-all"
     id="feed"
   >
-    {{#each feedItems}} 
-        {{> blockingBubble this}}
-        {{> staticBubble this}}
+    {{#each feedItems}} {{> blockingBubble this}} {{> staticBubble this}}
     {{/each}}
   </div>
 
