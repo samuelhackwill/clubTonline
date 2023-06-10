@@ -73,30 +73,24 @@ addNextItem = function () {
   let nextItem = dataFridge.get()[tempFeedIndex];
   
   if (nextItem == undefined) {
-    console.log("WE ARRIVED AT THE END OF TIMES")
     state.set("waitingForUserAction");
     // we are returning here because we don't want to add an empty object to the feed.
     beforeBumperIndex = tempFeed.length-1
-    console.log("before bumper index ", beforeBumperIndex, " arr ", dataFeed.get())
     tempFeed.splice(beforeBumperIndex, 0, nextItem)
     dataFeed.set(tempFeed);
     feedIndex.set((tempFeedIndex += 1));
     // but we do want the bumper.  
     return;
   }
-  console.log("add next item", nextItem.type)
   if (nextItem.type != "SB") {
-    console.log("HUH WHATS THAT, a blocking bubble or the bumper?")
     state.set("waitingForUserAction");
     // we're not returning here because we do want to add blocking items before stoping the loop.
   } else {    
     setTimeout(() => {
-      console.log("adding stuff timeout")
       addNextItem();
     }, 50);
   }
 
-  console.log("adding stuff here")
   beforeBumperIndex = tempFeed.length-1
   tempFeed.splice(beforeBumperIndex, 0, nextItem)
   dataFeed.set(tempFeed);
