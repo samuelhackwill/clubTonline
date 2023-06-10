@@ -21,13 +21,21 @@ Template.feed.helpers({
     // only show debug tools when we are working locally
     return window.location.host == "localhost:3000";
   },
+
+  isStaticBubble(){
+    if (this.type == "SB") {
+      return true
+    }else{
+      return false
+    }
+  }
 });
 
 Template.feed.onCreated(function(){
   // because of the strategy we use to display bubbles (a grid which overflows to the right), we can't use margins or 
   // other stuff to make some space on the right side of a column of bubbles. We have to use an invisible bumper element
   // which needs to always be present in the dataFeed.
-  tempFeed = [{ type: "bumper" }]
+  tempFeed = [{ type: "SB", name:"bumper" }]
   dataFeed.set(tempFeed)
 })
 
@@ -76,11 +84,13 @@ addNextItem = function () {
     }, 50);
   }
 
+  // tempFeed.push(nextItem);
   beforeBumperIndex = tempFeed.length-1
-  // tempFeed.splice(beforeBumperIndex, 0, nextItem)
-  tempFeed.push(nextItem)
+  tempFeed.splice(beforeBumperIndex, 0, nextItem)
   dataFeed.set(tempFeed);
   feedIndex.set((tempFeedIndex += 1));
+
+  console.log("adding ", nextItem, " now.")
 };
 
 addData = function (obj) {
