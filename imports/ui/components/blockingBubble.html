@@ -1,20 +1,25 @@
 <template name="blockingBubble">
-    {{#if isPlay}}
-      <div class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 flex items-center justify-center">
-        <button class="play shadow select-none bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
-          {{label}} 
-        </button>
-      </div>
-    {{/if}}
-
-    {{#if isCard}}
-      <div class="col-span-3 w-1/4 col-end-[-1] mb-5 basis-[content] rounded-xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 flex flex-col relative justify-center items-center" id={{name}}>
-        <div class="flex-1 relative rotate-x-180 py-2 px-4 text-center">
-          Est ce qu'on se tutoie ou alors on se vouvoie?
-        </div>
-        <button class="card absolute w-full h-full shadow bg-white hover:bg-purple-400 focus:shadow-outline focus:outline-none text-black py-2 px-4 rounded-xl transition-opacity delay-[150ms]">
-          front
-        </button>
-      </div>
-    {{/if}}
+  {{#if isPlay}}
+  <div
+    class="col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <button
+      class="play focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 font-bold text-white shadow hover:bg-purple-400 focus:outline-none"
+    >
+      {{label}}
+    </button>
+  </div>
+  {{/if}} {{#if isCard}}
+  <div
+    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+    id="{{name}}"
+  >
+    <div class="relative flex-1 px-4 py-2 text-center rotate-x-180">
+      Est ce qu'on se tutoie ou alors on se vouvoie?
+    </div>
+    <button
+      class="card focus:shadow-outline absolute h-full w-full rounded-lg bg-white px-4 py-2 text-black shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
+    ></button>
+  </div>
+  {{/if}}
 </template>
