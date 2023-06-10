@@ -98,10 +98,43 @@ addNextItem = function () {
 
 addData = function (obj) {
   // this function is used to add data to the local reactive Var, which is used to populate the feed.
-
   // we will need to get the data from the proper database next ("scenarios") rather than just inserting random stuff like we're doing now.
 
   tempFeed = dataFeed.get() || [];
   tempFeed.push(obj);
   dataFeed.set(tempFeed);
 };
+
+addForm = function(questionName){
+  tempFeed = dataFeed.get() || [];
+  tempFeedIndex = feedIndex.get();
+  console.log(tempFeed, tempFeedIndex)
+
+  _name = questionName.replace(/.+\./i, "")
+
+  nextItem = {type:"---BB---", name:"form."+_name}
+
+  console.log(nextItem)
+
+  beforeBumperIndex = tempFeed.length - 1;
+  tempFeed.splice(beforeBumperIndex, 0, nextItem);
+  dataFeed.set(tempFeed);
+  console.log(tempFeed)
+}
+
+preventSafariScroll = function(){
+  // this is a hack to prevent safari from auto-scrolling to the center of the page for no reason when
+  // we click on play.
+  if (isSafari()) {
+    positionBeforeClick = window.scrollX;
+    window.addEventListener(
+      "scroll",
+      function safariScroll(e) {
+        e.preventDefault();
+        window.scrollTo(positionBeforeClick, 0);
+        window.removeEventListener("scroll", safariScroll, true);
+      },
+      true
+    );
+  }
+}
