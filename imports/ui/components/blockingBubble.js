@@ -13,25 +13,16 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
+  isForm(){
+    if (this.name != undefined && this.name.startsWith("form")) {
+      return true;
+    }
+  }
 });
 
 Template.blockingBubble.events({
   "click .play"(event) {
-    // this is a hack to prevent safari from auto-scrolling to the center of the page for no reason when
-    // we click on play.
-    if (isSafari()) {
-      positionBeforeClick = window.scrollX;
-      window.addEventListener(
-        "scroll",
-        function safariScroll(e) {
-          e.preventDefault();
-          window.scrollTo(positionBeforeClick, 0);
-          window.removeEventListener("scroll", safariScroll, true);
-        },
-        true
-      );
-    }
-
+    preventSafariScroll()
     if (event.target.dataset.clicked) {
       return;
     } else {
@@ -44,8 +35,10 @@ Template.blockingBubble.events({
   },
 
   "click .card"(event) {
+    preventSafariScroll()
     event.target.parentElement.classList.add("rotate-x-180");
     event.target.classList.add("opacity-0");
+    addForm(event.target.id)
   },
 });
 
