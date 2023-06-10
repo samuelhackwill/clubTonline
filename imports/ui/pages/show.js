@@ -48,7 +48,10 @@ const whateverData = [
     label: "Est ce qu'on se tutoie, ou alors est-ce qu'on se vouvoie?",
   },
   { type: "SB", text: "ok super ben écoutez je vais vous vouvoyer hein." },
-  { type: "SB", text: "ou alors vous tutoyuer en fait c'est pas encore implémenté hihi." },
+  {
+    type: "SB",
+    text: "ou alors vous tutoyuer en fait c'est pas encore implémenté hihi.",
+  },
 ];
 
 Template.show.helpers({

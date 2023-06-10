@@ -2,7 +2,7 @@ import "./blockingBubble.html";
 
 import { state } from "../layouts/feed.js";
 
-_event = ""
+_event = "";
 
 Template.blockingBubble.helpers({
   isPlay() {
@@ -15,19 +15,19 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  isForm(){
+  isForm() {
     if (this.name != undefined && this.name.startsWith("form")) {
       return true;
     }
   },
-  getAnswer(t){
+  getAnswer(t) {
     // console.log(t)
-  }
+  },
 });
 
 Template.blockingBubble.events({
   "click .play"(event) {
-    preventSafariScroll()
+    preventSafariScroll();
     if (event.target.dataset.clicked) {
       return;
     } else {
@@ -40,31 +40,44 @@ Template.blockingBubble.events({
   },
 
   "click .card"(event) {
-    preventSafariScroll()
-    event.target.parentElement.classList.add("rotate-x-180",  "pointer-events-none");
+    preventSafariScroll();
+    event.target.parentElement.classList.add(
+      "rotate-x-180",
+      "pointer-events-none"
+    );
     event.target.classList.add("opacity-0");
-    addForm(event.target.id)
+    addForm(event.target.id);
   },
 
-  "submit .answer"(event){
+  "submit .answer"(event) {
     event.preventDefault();
 
-    _event = event
+    _event = event;
 
     input = event.currentTarget[0];
 
     // Meteor.call("insertMail", input.value);
 
-    event.target.parentElement.parentElement.firstElementChild.innerHTML = input.value
-    
-    console.log("rotate this guy ", event.target.parentElement.parentElement)
-    console.log("show this guy ", event.target.parentElement.parentElement.firstElementChild)
+    event.target.parentElement.parentElement.firstElementChild.innerHTML =
+      input.value;
 
-    event.target.parentElement.parentElement.classList.add("rotate-x-0", "bg-purple-200");
+    console.log("rotate this guy ", event.target.parentElement.parentElement);
+    console.log(
+      "show this guy ",
+      event.target.parentElement.parentElement.firstElementChild
+    );
+
+    event.target.parentElement.parentElement.classList.add(
+      "rotate-x-0",
+      "bg-purple-200"
+    );
     event.target.parentElement.classList.add("opacity-0");
-    event.target.parentElement.parentElement.firstElementChild.classList.add("pointer-events-none");
-    event.target.parentElement.parentElement.firstElementChild.classList.remove("opacity-0");
-
+    event.target.parentElement.parentElement.firstElementChild.classList.add(
+      "pointer-events-none"
+    );
+    event.target.parentElement.parentElement.firstElementChild.classList.remove(
+      "opacity-0"
+    );
 
     // Clear form
     // document.getElementById("inline-mail").value = "";
@@ -75,7 +88,7 @@ Template.blockingBubble.events({
     // document
     //   .getElementById("subscriptionButton")
     //   .classList.remove("bg-purple-500", "hover:bg-purple-400");
-  }
+  },
 });
 
 isSafari = function () {

@@ -105,20 +105,20 @@ addData = function (obj) {
   dataFeed.set(tempFeed);
 };
 
-addForm = function(questionName){
+addForm = function (questionName) {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
-  _name = questionName.replace(/.+\./i, "")
+  _name = questionName.replace(/.+\./i, "");
 
-  nextItem = {type:"---BB---", name:"form."+_name}
+  nextItem = { type: "---BB---", name: "form." + _name };
 
   beforeBumperIndex = tempFeed.length - 1;
   tempFeed.splice(beforeBumperIndex, 0, nextItem);
   dataFeed.set(tempFeed);
-}
+};
 
-preventSafariScroll = function(){
+preventSafariScroll = function () {
   // this is a hack to prevent safari from auto-scrolling to the center of the page for no reason when
   // we click on play.
   if (isSafari()) {
@@ -133,4 +133,4 @@ preventSafariScroll = function(){
       true
     );
   }
-}
+};
