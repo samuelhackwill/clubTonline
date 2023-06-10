@@ -4,11 +4,8 @@
     id="feed"
   >
     {{#each feedItems}} 
-      {{#if isStaticBubble}}
-        {{> staticBubble this}}
-      {{else}}
         {{> blockingBubble this}}
-      {{/if}}
+        {{> staticBubble this}}
     {{/each}}
   </div>
 
