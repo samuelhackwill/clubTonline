@@ -108,18 +108,14 @@ addData = function (obj) {
 addForm = function(questionName){
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
-  console.log(tempFeed, tempFeedIndex)
 
   _name = questionName.replace(/.+\./i, "")
 
   nextItem = {type:"---BB---", name:"form."+_name}
 
-  console.log(nextItem)
-
   beforeBumperIndex = tempFeed.length - 1;
   tempFeed.splice(beforeBumperIndex, 0, nextItem);
   dataFeed.set(tempFeed);
-  console.log(tempFeed)
 }
 
 preventSafariScroll = function(){
