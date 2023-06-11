@@ -1,68 +1,50 @@
 import "./show.html";
 import "../layouts/feed.js";
 
-// SB : static bubble
-// ---BB--- : blocking bubble. on a mis des tirets du six pour plus de visibilité que ça bloque la progression et tout.
+// "SB" : static bubble. required attr : "text"
+// "---BB---" : blocking bubble. optionnal attrs : "name"(qcm.<name>/card.<name>), "label", "qcmOptions"
 
 const whateverData = [
-  { type: "SB", text: "bonjour c'est mathilde voici la première bulle" },
-  { type: "SB", text: "bonjour c'est mathilde voici la deuxième bulle" },
+  { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
+  { type: "SB", text: "Qui que vous soyez, vous êtes la bonne personne." },
   {
     type: "SB",
-    text: "bonjour c'est mathilde voici la troisième bulle, qui va être un peu plus grande parce que j'ai plein de choses à vous dire. Par exemple, hier j'ai mangé une soupe de cresson et c'était franchement pas mal.",
+    text: "Et nous aussi, derrière votre écran, nous sommes la bonne personne.",
   },
   {
     type: "SB",
-    text: "voilà et j'ai aussi mangé une tartine, miam",
+    text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
   },
   {
     type: "SB",
-    text: "j'avais mis du beurre dessus.",
+    text: "Nous n’allons pas nous voir, ni nous entendre, simplement nous parler. Installez-vous confortablement et si possible ouvrez cette page sur un ordinateur",
   },
-  { type: "SB", text: "ok." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "SB", text: "ouais." },
-  { type: "---BB---", name: "play", label: "play" },
-  { type: "SB", text: "this is hidden until we have user interaction." },
-  { type: "SB", text: "this is also hidden until we have user interaction." },
   {
-    type: "---BB---",
-    name: "card.tutoie",
-    label: "Est ce qu'on se tutoie, ou alors est-ce qu'on se vouvoie?",
+    type: "SB",
+    text: "car les gsm c’est l’enfer sur terre.",
   },
   {
     type: "---BB---",
-    name: "card.countryCrisp",
-    label: "Est ceq ue vous mangez des countri crisp le matin??",
+    name: "qcm.tutoie",
+    label: "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
+    qcmOptions : ["le vouvoiement c'est bien", "call me tu", "tiens et pourquoi pas les deux?"]
+  },
+  { type: "SB", text: "Ok c'est bien noté." },
+  {
+    type: "---BB---",
+    name: "qcm.tutoie",
+    label: "Alors, dites-nous, de quelle humeur êtes-vous aujourd'hui?",
+    qcmOptions : ["d’humeur à vraiment crier sur les toits avec un mégaphone", "plutôt d’humeur à la douceur et à aller me promener en forêt sans prévoir d’heure de retour ?", "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi"]
   },
   {
     type: "---BB---",
-    name: "qcm.countryCrisp",
-    label: "et si vous deviez choisir entre vos goûts préférés de countri crisp ça serait quoi??",
-    qcmOptions : ["goût mégôt", "goût carton", "fraise", "en fait j'ai pas vraiment de goût préféré, moi ce que j'aime dans le vie c'est l'imprévu, l'infra-mince des quaker oats en quelque sorte vous voyez ce que je veux dire?"]
+    name: "card.test",
+    label: "Tiens et regardez voir ça c'est une question test pour voir à quoi ça ressemble.",
   },
-  { type: "SB", text: "ok super ben écoutez je vais vous vouvoyer hein." },
-  {
-    type: "SB",
-    text: "ou alors vous tutoyuer en fait c'est pas encore implémenté hihi.",
-  },
+  { type: "SB", text: "ok super c'est fini!" },
+  { type: "---BB---", name: "play", label: "ah bon?" },
+  { type: "SB", text: "oui." },
+  { type: "SB", name: "sticker" },
 ];
 
 Template.show.helpers({
