@@ -13,13 +13,13 @@ const whateverData = [
   },
   {
     type: "SB",
-    text: "après je voulais aussi vous dire que je travaille avec deux developpeurs vraiment talentueux, ils s'appellent samuel et thomas.",
+    text: "voilà et j'ai aussi mangé une tartine, miam",
   },
   {
     type: "SB",
-    text: "en plus d'être extrèmement bons il sont aussi très sympa.",
+    text: "j'avais mis du beurre dessus.",
   },
-  { type: "SB", text: "et beaux." },
+  { type: "SB", text: "ok." },
   { type: "SB", text: "ouais." },
   { type: "SB", text: "ouais." },
   { type: "SB", text: "ouais." },
@@ -50,13 +50,13 @@ const whateverData = [
   {
     type: "---BB---",
     name: "card.countryCrisp",
-    label: "Est ceq ue vous mangez des coutri crisp le matin??",
+    label: "Est ceq ue vous mangez des countri crisp le matin??",
   },
   {
     type: "---BB---",
     name: "qcm.countryCrisp",
-    label: "et si vous deviez choisir entre vos goûts préférés de coutri crisp ça serait quoi??",
-    qcmOptions : ["goût caca", "goût pipi", "fraise", "en fait j'ai pas vraiment de goût préféré, moi ce que j'aime dans le vie c'est l'imprévu, l'infra-mince des quaker oats en quelque sorte vous voyez ce que je veux dire?"]
+    label: "et si vous deviez choisir entre vos goûts préférés de countri crisp ça serait quoi??",
+    qcmOptions : ["goût mégôt", "goût carton", "fraise", "en fait j'ai pas vraiment de goût préféré, moi ce que j'aime dans le vie c'est l'imprévu, l'infra-mince des quaker oats en quelque sorte vous voyez ce que je veux dire?"]
   },
   { type: "SB", text: "ok super ben écoutez je vais vous vouvoyer hein." },
   {
