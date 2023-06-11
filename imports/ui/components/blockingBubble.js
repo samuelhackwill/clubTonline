@@ -56,38 +56,28 @@ Template.blockingBubble.events({
 
     input = event.currentTarget[0];
 
-    // Meteor.call("insertMail", input.value);
-
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
       input.value;
 
-    console.log("rotate this guy ", event.target.parentElement.parentElement);
-    console.log(
-      "show this guy ",
-      event.target.parentElement.parentElement.firstElementChild
+    event.target.classList.add("pointer-events-none");
+
+    // rotate the bubble container and change bg
+    event.target.parentElement.parentElement.classList.add("bg-purple-200");
+    event.target.parentElement.parentElement.classList.remove(
+      "rotate-x-180",
+      "bg-white"
     );
 
-    event.target.parentElement.parentElement.classList.add(
-      "rotate-x-0",
-      "bg-purple-200"
-    );
+    // hide the form container
     event.target.parentElement.classList.add("opacity-0");
+
+    // show the card's back (with the answer)
     event.target.parentElement.parentElement.firstElementChild.classList.add(
       "pointer-events-none"
     );
     event.target.parentElement.parentElement.firstElementChild.classList.remove(
       "opacity-0"
     );
-
-    // Clear form
-    // document.getElementById("inline-mail").value = "";
-    // document.getElementById("subscriptionButton").innerHTML = "Inscription OK!";
-    // document
-    //   .getElementById("subscriptionButton")
-    //   .classList.add("bg-green-500", "hover:bg-green-400");
-    // document
-    //   .getElementById("subscriptionButton")
-    //   .classList.remove("bg-purple-500", "hover:bg-purple-400");
   },
 });
 
