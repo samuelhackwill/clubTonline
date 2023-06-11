@@ -61,11 +61,11 @@
   {{/if}}
   {{#if isQcmForm}}
     <div
-    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
     >
     {{#each qcmOptions}}
     <button
-    class="focus:shadow-outline flex rounded bg-purple-500 mb-3 px-4 py-2 font-bold text-white shadow hover:bg-purple-400 focus:outline-none" id="{{name}}"
+    class="qcmOption focus:shadow-outline flex rounded bg-purple-500 mb-1 px-4 py-2 font-bold text-left text-white shadow hover:bg-purple-400 focus:outline-none" id="{{name}}"
     >
       {{this}}
     </button>

@@ -2,8 +2,6 @@ import "./blockingBubble.html";
 
 import { state } from "../layouts/feed.js";
 
-_event = "";
-
 Template.blockingBubble.helpers({
   isPlay() {
     if (this.name != undefined && this.name.startsWith("play")) {
@@ -48,20 +46,35 @@ Template.blockingBubble.helpers({
 
 Template.blockingBubble.events({
   "click .play"(event) {
-    preventSafariScroll();
+    preventSafariScroll()
     if (event.target.dataset.clicked) {
       return;
     } else {
       state.set("gettingMoreElements");
       addNextItem();
       event.target.dataset.clicked = "true";
-      event.target.classList.add("bg-gray-400", "pointer-events-none");
+      event.target.classList.add("bg-gray-200", "pointer-events-none");
       event.target.classList.remove("bg-purple-500");
     }
+    return
+  },
+
+  "click .qcmOption"(event){
+    preventSafariScroll()
+    allButtons = event.target.parentElement.children
+    for (let index = 0; index < allButtons.length; index++) {
+      allButtons[index].classList.remove("bg-purple-500");
+      allButtons[index].classList.add("bg-gray-200", "pointer-events-none");
+    }
+    event.target.classList.add("bg-purple-200", "text-black");
+    event.target.classList.remove("font-bold", "text-white");
+
+    state.set("gettingMoreElements");
+    addNextItem();    
   },
 
   "click .card"(event) {
-    preventSafariScroll();
+    preventSafariScroll()
     event.target.parentElement.classList.add(
       "rotate-x-180",
       "pointer-events-none"
@@ -76,10 +89,8 @@ Template.blockingBubble.events({
   },
 
   "submit .answer"(event) {
+    preventSafariScroll()
     event.preventDefault();
-
-    _event = event;
-
     input = event.currentTarget[0];
 
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
