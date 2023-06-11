@@ -42,7 +42,7 @@ Template.feed.onRendered(function () {
       next.parentNode.appendChild(node);
       setTimeout(function () {
         next.parentNode.lastChild.style.opacity = 1;
-      }, 30);
+      }, 0);
     },
   };
 });

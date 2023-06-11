@@ -39,10 +39,5 @@ Template.staticBubble.helpers({
     if (this.name == undefined && this.text != undefined) {
       return true;
     }
-  },
-  isBumper() {
-    if (this.name == "bumper") {
-      return true;
-    }
-  },
+  }
 });
