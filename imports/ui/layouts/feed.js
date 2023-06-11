@@ -44,7 +44,8 @@ Template.feed.onRendered(function () {
   // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
   document.getElementById("feed")._uihooks = {
     insertElement: (node, next) => {
-      // the bumper needs to ALWAYS be at the end of the feed.
+      // the bumper needs to ALWAYS be at the end of the feed. we used to have problems where 
+      // it got added before a bubble, and it messed up the whole layout.
       if (node.id == "bumper") {
         setTimeout(function () {
           next.parentNode.appendChild(node);
@@ -66,13 +67,15 @@ Template.feed.onRendered(function () {
 addNextItem = function () {
   // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
   // or to initialize an empty tempFeed to prevent errors.
+  preventSafariScroll();
+
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
   let nextItem = dataFridge.get()[tempFeedIndex];
 
   if (nextItem == undefined) {
-    state.set("waitingForUserAction");
+    state.set("finished");
     // we are returning here because we don't want to add an empty object to the feed.
     beforeBumperIndex = tempFeed.length - 1;
     tempFeed.splice(beforeBumperIndex, 0, nextItem);
