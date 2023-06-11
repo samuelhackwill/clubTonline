@@ -21,13 +21,16 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
+  isQcmForm() {
+    if (this.name != undefined && this.name.startsWith("qcmForm")) {
+      return true;
+    }
+  },
   getQcmOptions(){
     if (this.qcmOptions == undefined) {
       return
     }
     
-    console.log(this.qcmOptions)
-
     _qcmOptions = this.qcmOptions
     rawHTML = {}
 
@@ -66,7 +69,7 @@ Template.blockingBubble.events({
     event.target.classList.add("opacity-0");
 
     if(event.target.id.startsWith("qcm")){
-      addQcm(event.target.id, );
+      addQcm(event.target.id, event.target.dataset);
     }else{
       addForm(event.target.id);
     }

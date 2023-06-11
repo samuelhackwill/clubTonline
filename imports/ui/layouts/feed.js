@@ -121,6 +121,27 @@ addForm = function (questionName) {
   dataFeed.set(tempFeed);
 };
 
+addQcm = function (questionName, qcmOptions){
+  tempQcmOpts = []
+
+  for (var prop in qcmOptions) {
+    if (Object.prototype.hasOwnProperty.call(qcmOptions, prop)) {
+      tempQcmOpts.push(qcmOptions[prop])
+    }
+  }
+
+  tempFeed = dataFeed.get() || [];
+  tempFeedIndex = feedIndex.get();
+
+  _name = questionName.replace(/.+\./i, "");
+
+  nextItem = { type: "---BB---", name: "qcmForm." + _name, qcmOptions: tempQcmOpts};
+
+  beforeBumperIndex = tempFeed.length - 1;
+  tempFeed.splice(beforeBumperIndex, 0, nextItem);
+  dataFeed.set(tempFeed);
+}
+
 preventSafariScroll = function () {
   // this is a hack to prevent safari from auto-scrolling to the center of the page for no reason when
   // we click on play.
