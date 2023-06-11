@@ -47,6 +47,16 @@ const whateverData = [
     name: "card.tutoie",
     label: "Est ce qu'on se tutoie, ou alors est-ce qu'on se vouvoie?",
   },
+  {
+    type: "---BB---",
+    name: "card.countryCrisp",
+    label: "Est ceq ue vous mangez des coutri crisp le matin??",
+  },
+  {
+    type: "---BB---",
+    name: "card.countryGout",
+    label: "et si vous deviez choisir entre vos goûts préférés de coutri crisp ça serait quoi??",
+  },
   { type: "SB", text: "ok super ben écoutez je vais vous vouvoyer hein." },
   {
     type: "SB",

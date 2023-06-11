@@ -78,6 +78,10 @@ Template.blockingBubble.events({
     event.target.parentElement.parentElement.firstElementChild.classList.remove(
       "opacity-0"
     );
+
+    state.set("gettingMoreElements");
+    addNextItem();
+
   },
 });
 
