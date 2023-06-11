@@ -54,8 +54,9 @@ const whateverData = [
   },
   {
     type: "---BB---",
-    name: "card.countryGout",
+    name: "qcm.countryCrisp",
     label: "et si vous deviez choisir entre vos goûts préférés de coutri crisp ça serait quoi??",
+    qcmOptions : ["goût caca", "goût pipi", "fraise", "en fait j'ai pas vraiment de goût préféré, moi ce que j'aime dans le vie c'est l'imprévu, l'infra-mince des quaker oats en quelque sorte vous voyez ce que je veux dire?"]
   },
   { type: "SB", text: "ok super ben écoutez je vais vous vouvoyer hein." },
   {

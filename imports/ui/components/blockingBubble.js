@@ -11,7 +11,8 @@ Template.blockingBubble.helpers({
     }
   },
   isCard() {
-    if (this.name != undefined && this.name.startsWith("card")) {
+    // cards can be of several types (card, qcm).
+    if (this.name != undefined && (this.name.startsWith("card")||this.name.startsWith("qcm"))) {
       return true;
     }
   },
@@ -19,6 +20,23 @@ Template.blockingBubble.helpers({
     if (this.name != undefined && this.name.startsWith("form")) {
       return true;
     }
+  },
+  getQcmOptions(){
+    if (this.qcmOptions == undefined) {
+      return
+    }
+    
+    console.log(this.qcmOptions)
+
+    _qcmOptions = this.qcmOptions
+    rawHTML = {}
+
+    for (let index = 0; index < _qcmOptions.length; index++) {
+      attribute = "data-qcm-"+index
+      rawHTML[attribute] = _qcmOptions[index]
+    }
+
+    return rawHTML
   },
   getAnswer(t) {
     // console.log(t)
@@ -46,7 +64,12 @@ Template.blockingBubble.events({
       "pointer-events-none"
     );
     event.target.classList.add("opacity-0");
-    addForm(event.target.id);
+
+    if(event.target.id.startsWith("qcm")){
+      addQcm(event.target.id, );
+    }else{
+      addForm(event.target.id);
+    }
   },
 
   "submit .answer"(event) {
