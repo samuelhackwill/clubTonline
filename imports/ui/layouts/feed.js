@@ -24,11 +24,6 @@ Template.feed.helpers({
 });
 
 Template.feed.onCreated(function () {
-  // because of the strategy we use to display bubbles (a grid which overflows to the right), we can't use margins or
-  // other stuff to make some space on the right side of a column of bubbles. We have to use an invisible bumper element
-  // which needs to always be present in the dataFeed.
-  tempFeed = [{ type: "SB", name: "bumper" }];
-  dataFeed.set(tempFeed);
 });
 
 Template.feed.onRendered(function () {
@@ -44,21 +39,9 @@ Template.feed.onRendered(function () {
   // see : https://forums.meteor.com/t/smooth-fade-in-fade-out-transitions-for-blaze-and-reactivevars/53242/5
   document.getElementById("feed")._uihooks = {
     insertElement: (node, next) => {
-      // the bumper needs to ALWAYS be at the end of the feed. we used to have problems where 
-      // it got added before a bubble, and it messed up the whole layout.
-      if (node.id == "bumper") {
-        setTimeout(function () {
-          next.parentNode.appendChild(node);
-        }, 0);
-        return;
-      }
-
       next.parentNode.appendChild(node);
-
-      // after adding the node, we change the opacity to have a nice animation.
-      // lastchild is always bumper though, so we need to get the previous sibling.
       setTimeout(function () {
-        next.parentNode.lastChild.previousSibling.style.opacity = 1;
+        next.parentNode.lastChild.style.opacity = 1;
       }, 30);
     },
   };
@@ -67,7 +50,6 @@ Template.feed.onRendered(function () {
 addNextItem = function () {
   // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
   // or to initialize an empty tempFeed to prevent errors.
-  preventSafariScroll();
 
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
@@ -76,12 +58,6 @@ addNextItem = function () {
 
   if (nextItem == undefined) {
     state.set("finished");
-    // we are returning here because we don't want to add an empty object to the feed.
-    beforeBumperIndex = tempFeed.length - 1;
-    tempFeed.splice(beforeBumperIndex, 0, nextItem);
-    dataFeed.set(tempFeed);
-    feedIndex.set((tempFeedIndex += 1));
-    // but we do want the bumper.
     return;
   }
   if (nextItem.type != "SB") {
@@ -93,8 +69,7 @@ addNextItem = function () {
     }, 50);
   }
 
-  beforeBumperIndex = tempFeed.length - 1;
-  tempFeed.splice(beforeBumperIndex, 0, nextItem);
+  tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
   feedIndex.set((tempFeedIndex += 1));
 };
@@ -116,8 +91,7 @@ addForm = function (questionName) {
 
   nextItem = { type: "---BB---", name: "form." + _name };
 
-  beforeBumperIndex = tempFeed.length - 1;
-  tempFeed.splice(beforeBumperIndex, 0, nextItem);
+  tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
 
@@ -137,24 +111,6 @@ addQcm = function (questionName, qcmOptions){
 
   nextItem = { type: "---BB---", name: "qcmForm." + _name, qcmOptions: tempQcmOpts};
 
-  beforeBumperIndex = tempFeed.length - 1;
-  tempFeed.splice(beforeBumperIndex, 0, nextItem);
+  tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 }
-
-preventSafariScroll = function () {
-  // this is a hack to prevent safari from auto-scrolling to the center of the page for no reason when
-  // we click on play.
-  if (isSafari()) {
-    positionBeforeClick = window.scrollX;
-    window.addEventListener(
-      "scroll",
-      function safariScroll(e) {
-        e.preventDefault();
-        window.scrollTo(positionBeforeClick, 0);
-        window.removeEventListener("scroll", safariScroll, true);
-      },
-      true
-    );
-  }
-};
