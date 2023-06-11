@@ -46,7 +46,6 @@ Template.blockingBubble.helpers({
 
 Template.blockingBubble.events({
   "click .play"(event) {
-    preventSafariScroll()
     if (event.target.dataset.clicked) {
       return;
     } else {
@@ -60,7 +59,6 @@ Template.blockingBubble.events({
   },
 
   "click .qcmOption"(event){
-    preventSafariScroll()
     allButtons = event.target.parentElement.children
     for (let index = 0; index < allButtons.length; index++) {
       allButtons[index].classList.remove("bg-purple-500");
@@ -74,7 +72,6 @@ Template.blockingBubble.events({
   },
 
   "click .card"(event) {
-    preventSafariScroll()
     event.target.parentElement.classList.add(
       "rotate-x-180",
       "pointer-events-none"
@@ -89,7 +86,6 @@ Template.blockingBubble.events({
   },
 
   "submit .answer"(event) {
-    preventSafariScroll()
     event.preventDefault();
     input = event.currentTarget[0];
 
@@ -122,6 +118,6 @@ Template.blockingBubble.events({
   },
 });
 
-isSafari = function () {
-  return /safari/gim.test(navigator.userAgent);
-};
+// isSafari = function () {
+//   return /safari/gim.test(navigator.userAgent);
+// };
