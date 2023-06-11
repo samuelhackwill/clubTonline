@@ -32,6 +32,11 @@ module.exports = {
         aura: "auraKeys 30s infinite linear",
         cardMove: "carMoveKeys 3s infinite linear",
       },
+      colors: {
+        "yellow-clubT": '#fef9c3',
+        "contrasting": "purple-400",
+        "faded": "purple-200",
+        }    
     },
   },
   plugins: [require("tailwindcss-3d")],

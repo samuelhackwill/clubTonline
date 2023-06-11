@@ -35,9 +35,14 @@ Template.staticBubble.helpers({
       return true;
     }
   },
+  isSticker() {
+    if (this.name != undefined && this.name == "sticker") {
+      return true;
+    }
+  },
   isTextOnly() {
     if (this.name == undefined && this.text != undefined) {
       return true;
     }
-  }
+  },
 });
