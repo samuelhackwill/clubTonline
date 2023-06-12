@@ -34,9 +34,13 @@ module.exports = {
       },
       colors: {
         "yellow-clubT": '#fef9c3',
+        "yellow2-clubT": '#d4d0a3',
         "contrasting": "purple-400",
         "faded": "purple-200",
-        }    
+      },
+      backgroundImage: {
+        'logo-clubT': "url('/img/logo_xs.png')",
+      },
     },
   },
   plugins: [require("tailwindcss-3d")],

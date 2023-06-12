@@ -20,8 +20,21 @@ Template.feed.helpers({
   isDebugMode() {
     // only show debug tools when we are working locally
     return window.location.host == "localhost:3000";
-  },
+  }
 });
+
+Template.feed.events({
+  "click #footer"(){
+    footer = document.getElementById("footer")
+    if (footer.classList.contains("translate-y-[-25vh]")) {
+      footer.classList.remove("translate-y-[-25vh]")
+      footer.dataset.clicked = true
+    }else{
+      footer.classList.add("translate-y-[-25vh]")
+      footer.dataset.clicked = false
+    }
+  }
+})
 
 Template.feed.onCreated(function () {
 });

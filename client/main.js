@@ -15,6 +15,8 @@ function replaceYScrollWithXScroll() {
       // directionnal scroll which is much better than our hacky side scroll.
       isTouchPad = event.wheelDeltaY ? event.wheelDeltaY === -3 * event.deltaY : event.deltaMode === 0
       if (isTouchPad) {
+        // apparently this is also triggered by maj+scroll.
+        console.log("isTouchPad ", isTouchPad, " removing event listener to keep the nice native scroll.")
         document.removeEventListener('wheel', wheel, { passive: false });
         return
       }
