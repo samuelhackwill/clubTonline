@@ -10,6 +10,15 @@ function replaceYScrollWithXScroll() {
     let lastTimestamp = 0;
   
     function wheel(event) {
+
+      // we want to return straight away if we detect a touch pad to keep the native 
+      // directionnal scroll which is much better than our hacky side scroll.
+      isTouchPad = event.wheelDeltaY ? event.wheelDeltaY === -3 * event.deltaY : event.deltaMode === 0
+      if (isTouchPad) {
+        document.removeEventListener('wheel', wheel, { passive: false });
+        return
+      }
+      
       const timestamp = performance.now();
       const delta = Math.sign(event.deltaY);
   
