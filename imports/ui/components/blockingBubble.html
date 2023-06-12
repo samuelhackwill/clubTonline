@@ -19,7 +19,7 @@
     </div>
     <button
       class="cardButton focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 px-4 py-2 text-black shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
-      id="{{name}}" {{getQcmOptions}}
+      id="{{name}}" {{getQcmOptions}} data-size="{{size}}"
     ></button>
   </div>
   {{/if}} {{#if isForm}}
@@ -38,10 +38,12 @@
       <form class="answer w-full max-w-sm">
         <div class="mb-6 md:flex md:items-center">
           <textarea
+            {{getFormSize true}}
             class="w-full appearance-none rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 leading-tight text-gray-700 focus:border-purple-500 focus:bg-white focus:outline-none"
             id="inline-mail"
             type="text"
             placeholder="hmm laissez-moi réfléchir un moment"
+            maxlength="{{getFormSize}}"
           ></textarea>
         </div>
         <div class="md:flex md:items-center">

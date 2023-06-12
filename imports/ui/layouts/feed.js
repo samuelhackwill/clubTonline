@@ -83,13 +83,15 @@ addData = function (obj) {
   dataFeed.set(tempFeed);
 };
 
-addForm = function (questionName) {
+addForm = function (questionName, formSize) {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
+  _formSize = formSize.size || "m"
+
   _name = questionName.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "form." + _name };
+  nextItem = { type: "---BB---", name: "form." + _name, size:_formSize};
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);

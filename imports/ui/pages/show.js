@@ -39,7 +39,20 @@ const whateverData = [
   {
     type: "---BB---",
     name: "card.test",
-    label: "Tiens et regardez voir ça c'est une question test pour voir à quoi ça ressemble.",
+    size: "s",
+    label: "Tiens et regardez voir ça c'est une question petite pour voir à quoi ça ressemble.",
+  },
+  {
+    type: "---BB---",
+    name: "card.test",
+    size: "m",
+    label: "Tiens et regardez voir ça c'est une question moyenne pour voir à quoi ça ressemble.",
+  },
+  {
+    type: "---BB---",
+    name: "card.test",
+    size: "l",
+    label: "Tiens et regardez voir ça c'est une question grande pour voir à quoi ça ressemble.",
   },
   { type: "SB", text: "ok super c'est fini!" },
   { type: "---BB---", name: "play", label: "ah bon?" },
