@@ -32,25 +32,25 @@ const whateverData = [
   { type: "SB", text: "Ok c'est bien noté." },
   {
     type: "---BB---",
-    name: "qcm.tutoie",
+    name: "qcm.humeur",
     label: "Alors, dites-nous, de quelle humeur êtes-vous aujourd'hui?",
     qcmOptions : ["d’humeur à vraiment crier sur les toits avec un mégaphone", "plutôt d’humeur à la douceur et à aller me promener en forêt sans prévoir d’heure de retour ?", "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi"]
   },
   {
     type: "---BB---",
-    name: "card.test",
+    name: "card.test1",
     size: "s",
     label: "Tiens et regardez voir ça c'est une question petite pour voir à quoi ça ressemble.",
   },
   {
     type: "---BB---",
-    name: "card.test",
+    name: "card.test2",
     size: "m",
     label: "Tiens et regardez voir ça c'est une question moyenne pour voir à quoi ça ressemble.",
   },
   {
     type: "---BB---",
-    name: "card.test",
+    name: "card.test3",
     size: "l",
     label: "Tiens et regardez voir ça c'est une question grande pour voir à quoi ça ressemble.",
   },
