@@ -4,7 +4,7 @@
     class="col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
     <button
-      class="play focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 font-bold text-white shadow hover:bg-purple-400 focus:outline-none"
+      class="play focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 text-white shadow hover:bg-purple-400 focus:outline-none"
       id="{{name}}"
     >
       {{label}}
@@ -12,13 +12,13 @@
   </div>
   {{/if}} {{#if isCard}}
   <div
-    class="relative col-span-3 col-end-[-1] flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+    class="card relative col-span-3 col-end-[-1] flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
     <div class="relative flex-1 px-4 py-2 rotate-x-180">
       {{label}}
     </div>
     <button
-      class="card focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 px-4 py-2 text-black shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
+      class="cardButton focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 px-4 py-2 text-black shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
       id="{{name}}" {{getQcmOptions}}
     ></button>
   </div>
@@ -48,7 +48,7 @@
           <div class="md:w-1/3"></div>
           <div class="items-center md:w-2/3">
             <button
-              class="focus:shadow-outline rounded bg-purple-500 px-4 py-2 font-bold text-white shadow hover:bg-purple-400 focus:outline-none"
+              class="focus:shadow-outline rounded bg-purple-500 px-4 py-2 text-white shadow hover:bg-purple-400 focus:outline-none"
               type="submit"
             >
               voilà
@@ -65,7 +65,7 @@
     >
     {{#each qcmOptions}}
     <button
-    class="qcmOption focus:shadow-outline flex rounded bg-purple-500 mb-1 px-4 py-2 font-bold text-left text-white shadow hover:bg-purple-400 focus:outline-none" id="{{name}}"
+    class="qcmOption focus:shadow-outline flex rounded bg-purple-500 mb-1 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none" id="{{name}}"
     >
       {{this}}
     </button>

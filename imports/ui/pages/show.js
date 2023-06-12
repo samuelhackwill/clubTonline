@@ -45,6 +45,16 @@ const whateverData = [
   { type: "---BB---", name: "play", label: "ah bon?" },
   { type: "SB", text: "oui." },
   { type: "SB", name: "sticker" },
+  { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
+  { type: "SB", text: "Qui que vous soyez, vous êtes la bonne personne." },
+  {
+    type: "SB",
+    text: "Et nous aussi, derrière votre écran, nous sommes la bonne personne.",
+  },
+  {
+    type: "SB",
+    text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
+  },
 ];
 
 Template.show.helpers({

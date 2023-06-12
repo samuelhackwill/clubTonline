@@ -65,13 +65,15 @@ Template.blockingBubble.events({
       allButtons[index].classList.add("bg-gray-200", "pointer-events-none");
     }
     event.target.classList.add("bg-purple-200", "text-black");
-    event.target.classList.remove("font-bold", "text-white");
+    event.target.classList.remove("text-white");
 
+    
     state.set("gettingMoreElements");
     addNextItem();    
+    fadeQuestion(event)
   },
 
-  "click .card"(event) {
+  "click .cardButton"(event) {
     event.target.parentElement.classList.add(
       "rotate-x-180",
       "pointer-events-none"
@@ -112,12 +114,19 @@ Template.blockingBubble.events({
       "opacity-0"
     );
 
+
     state.set("gettingMoreElements");
     addNextItem();
-
+    fadeQuestion(event);
   },
 });
 
-// isSafari = function () {
-//   return /safari/gim.test(navigator.userAgent);
-// };
+fadeQuestion = function(event){
+//  previousDiv = event.target.parentElement.previousElementSibling
+ allCards = document.getElementsByClassName("card")
+ previousCard = allCards[allCards.length-1]
+  if (previousCard) {
+    previousCard.classList.remove("bg-purple-200")
+    previousCard.classList.add("bg-white")
+  }
+}
