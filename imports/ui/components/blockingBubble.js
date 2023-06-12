@@ -39,6 +39,29 @@ Template.blockingBubble.helpers({
 
     return rawHTML
   },
+  getFormSize(isItRowAttr){
+    if (isItRowAttr) {
+      if (this.size == "s") {
+        return {'rows':'2'}
+      }
+      if (this.size == "m") {
+        return  {'rows':'5'}
+      }
+      if (this.size == "l") {
+        return  {'rows':'12'}
+      }      
+    }else{
+      if (this.size == "s") {
+        return '100'
+      }
+      if (this.size == "m") {
+        return '170'
+      }
+      if (this.size == "l") {
+        return '340'
+      }      
+    }
+  },
   getAnswer(t) {
     // console.log(t)
   },
@@ -83,13 +106,15 @@ Template.blockingBubble.events({
     if(event.target.id.startsWith("qcm")){
       addQcm(event.target.id, event.target.dataset);
     }else{
-      addForm(event.target.id);
+      addForm(event.target.id, event.target.dataset);
     }
   },
 
   "submit .answer"(event) {
     event.preventDefault();
     input = event.currentTarget[0];
+
+    console.log(input.value.length)
 
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
       input.value;
