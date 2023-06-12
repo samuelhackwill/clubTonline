@@ -144,6 +144,10 @@ Template.blockingBubble.events({
     addNextItem();
     fadeQuestion(event);
   },
+
+  // "wheel .card"(event){
+  //   console.log(event)
+  // }
 });
 
 fadeQuestion = function(event){
