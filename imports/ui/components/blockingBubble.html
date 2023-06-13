@@ -32,17 +32,18 @@
     <div
       class="absolute flex-1 px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms]"
     >
-      <!-- {{getAnswer this}} -->
     </div>
 
     <!-- face -->
+    {{#if answered}}
+    {{> dataBubble this}}
+    {{else}}
     <div class="transition-opacity delay-[150ms] rotate-x-180">
-      <form class="answer w-full max-w-sm">
+      <form class="answer w-full max-w-sm" id="{{name}}">
         <div class="mb-6 md:flex md:items-center">
           <textarea
             {{getFormSize true}}
             class="w-full appearance-none rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 leading-tight text-gray-700 focus:border-purple-500 focus:bg-white focus:outline-none"
-            id="inline-mail"
             type="text"
             placeholder="hmm laissez-moi réfléchir un moment"
             maxlength="{{getFormSize}}"
@@ -61,6 +62,7 @@
         </div>
       </form>
     </div>
+    {{/if}}  
   </div>
   {{/if}} 
   {{#if isQcmForm}}
