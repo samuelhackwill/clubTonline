@@ -20,23 +20,20 @@ Template.feed.helpers({
   isDebugMode() {
     // only show debug tools when we are working locally
     return window.location.host == "localhost:3000";
-  }
+  },
 });
 
 Template.feed.events({
-  "click #footer"(){
-    footer = document.getElementById("footer")
+  "click #footer"() {
+    footer = document.getElementById("footer");
     if (footer.classList.contains("translate-y-[-25vh]")) {
-      footer.classList.remove("translate-y-[-25vh]")
-      footer.dataset.clicked = true
-    }else{
-      footer.classList.add("translate-y-[-25vh]")
-      footer.dataset.clicked = false
+      footer.classList.remove("translate-y-[-25vh]");
+      footer.dataset.clicked = true;
+    } else {
+      footer.classList.add("translate-y-[-25vh]");
+      footer.dataset.clicked = false;
     }
-  }
-})
-
-Template.feed.onCreated(function () {
+  },
 });
 
 Template.feed.onRendered(function () {
@@ -100,22 +97,22 @@ addForm = function (questionName, formSize) {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
-  _formSize = formSize.size || "m"
+  _formSize = formSize.size || "m";
 
   _name = questionName.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "form." + _name, size:_formSize};
+  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
 
-addQcm = function (questionName, qcmOptions){
-  tempQcmOpts = []
+addQcm = function (questionName, qcmOptions) {
+  tempQcmOpts = [];
 
   for (var prop in qcmOptions) {
     if (Object.prototype.hasOwnProperty.call(qcmOptions, prop)) {
-      tempQcmOpts.push(qcmOptions[prop])
+      tempQcmOpts.push(qcmOptions[prop]);
     }
   }
 
@@ -124,8 +121,12 @@ addQcm = function (questionName, qcmOptions){
 
   _name = questionName.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "qcmForm." + _name, qcmOptions: tempQcmOpts};
+  nextItem = {
+    type: "---BB---",
+    name: "qcmForm." + _name,
+    qcmOptions: tempQcmOpts,
+  };
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
-}
+};
