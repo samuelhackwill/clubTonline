@@ -36,7 +36,8 @@
       </div>
     </form>
   </div>
-  {{/if}} {{#if isLink}}
+  {{/if}} 
+  {{#if isLink}}
   <div
     class="col-span-3 col-end-[-1] mb-5 w-1/4 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
@@ -50,17 +51,19 @@
       >nosfuturs.net</a
     >
   </div>
-  {{/if}} {{#if isTextOnly}}
+  {{/if}} 
+  {{#if isTextOnly}}
   <div
     class="col-span-3 col-end-[-1] mb-5 w-1/4 basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
     <p>{{text}}</p>
   </div>
-  {{/if}}{{#if isSticker}}
-    <div
-      class="relative col-span-3 col-end-[-1] mb-5 flex w-1/6 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
-    >
-      <img class="" src="/img/samuel.png">
-    </div>
+  {{/if}}
+  {{#if isSticker}}
+  <div
+    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/6 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <img class="" src="/img/samuel.png" />
+  </div>
   {{/if}}
 </template>

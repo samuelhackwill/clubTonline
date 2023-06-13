@@ -10,7 +10,11 @@ Template.blockingBubble.helpers({
   },
   isCard() {
     // card names can be something like that : "card.something" or "qcm.tutoiement". But also, some feed elements have a name like "qcmForm.tutoiement", so we need to tell the helper not to select these form elements.
-    if (this.name != undefined && (this.name.startsWith("card") || (this.name.startsWith("qcm")) && !this.name.startsWith("qcmForm"))) {
+    if (
+      this.name != undefined &&
+      (this.name.startsWith("card") ||
+        (this.name.startsWith("qcm") && !this.name.startsWith("qcmForm")))
+    ) {
       return true;
     }
   },
@@ -24,42 +28,42 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  getQcmOptions(){
+  getQcmOptions() {
     if (this.qcmOptions == undefined) {
-      return
+      return;
     }
-    
-    _qcmOptions = this.qcmOptions
-    rawHTML = {}
+
+    _qcmOptions = this.qcmOptions;
+    rawHTML = {};
 
     for (let index = 0; index < _qcmOptions.length; index++) {
-      attribute = "data-qcm-"+index
-      rawHTML[attribute] = _qcmOptions[index]
+      attribute = "data-qcm-" + index;
+      rawHTML[attribute] = _qcmOptions[index];
     }
 
-    return rawHTML
+    return rawHTML;
   },
-  getFormSize(isItRowAttr){
+  getFormSize(isItRowAttr) {
     if (isItRowAttr) {
       if (this.size == "s") {
-        return {'rows':'2'}
+        return { rows: "2" };
       }
       if (this.size == "m") {
-        return  {'rows':'5'}
+        return { rows: "5" };
       }
       if (this.size == "l") {
-        return  {'rows':'12'}
-      }      
-    }else{
+        return { rows: "12" };
+      }
+    } else {
       if (this.size == "s") {
-        return '100'
+        return "100";
       }
       if (this.size == "m") {
-        return '170'
+        return "170";
       }
       if (this.size == "l") {
-        return '340'
-      }      
+        return "340";
+      }
     }
   },
   getAnswer(t) {
@@ -78,11 +82,11 @@ Template.blockingBubble.events({
       event.target.classList.add("bg-gray-200", "pointer-events-none");
       event.target.classList.remove("bg-purple-500");
     }
-    return
+    return;
   },
 
-  "click .qcmOption"(event){
-    allButtons = event.target.parentElement.children
+  "click .qcmOption"(event) {
+    allButtons = event.target.parentElement.children;
     for (let index = 0; index < allButtons.length; index++) {
       allButtons[index].classList.remove("bg-purple-500");
       allButtons[index].classList.add("bg-gray-200", "pointer-events-none");
@@ -90,10 +94,9 @@ Template.blockingBubble.events({
     event.target.classList.add("bg-purple-200", "text-black");
     event.target.classList.remove("text-white");
 
-    
     state.set("gettingMoreElements");
-    addNextItem();    
-    fadeQuestion(event)
+    addNextItem();
+    fadeQuestion(event);
   },
 
   "click .cardButton"(event) {
@@ -103,9 +106,9 @@ Template.blockingBubble.events({
     );
     event.target.classList.add("opacity-0");
 
-    if(event.target.id.startsWith("qcm")){
+    if (event.target.id.startsWith("qcm")) {
       addQcm(event.target.id, event.target.dataset);
-    }else{
+    } else {
       addForm(event.target.id, event.target.dataset);
     }
   },
@@ -114,7 +117,7 @@ Template.blockingBubble.events({
     event.preventDefault();
     input = event.currentTarget[0];
 
-    console.log(input.value.length)
+    console.log(input.value.length);
 
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
       input.value;
@@ -139,7 +142,6 @@ Template.blockingBubble.events({
       "opacity-0"
     );
 
-
     state.set("gettingMoreElements");
     addNextItem();
     fadeQuestion(event);
@@ -150,12 +152,12 @@ Template.blockingBubble.events({
   // }
 });
 
-fadeQuestion = function(event){
-//  previousDiv = event.target.parentElement.previousElementSibling
- allCards = document.getElementsByClassName("card")
- previousCard = allCards[allCards.length-1]
+fadeQuestion = function (event) {
+  //  previousDiv = event.target.parentElement.previousElementSibling
+  allCards = document.getElementsByClassName("card");
+  previousCard = allCards[allCards.length - 1];
   if (previousCard) {
-    previousCard.classList.remove("bg-purple-200")
-    previousCard.classList.add("bg-white")
+    previousCard.classList.remove("bg-purple-200");
+    previousCard.classList.add("bg-white");
   }
-}
+};

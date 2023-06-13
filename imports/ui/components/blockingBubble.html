@@ -10,19 +10,21 @@
       {{label}}
     </button>
   </div>
-  {{/if}} {{#if isCard}}
+  {{/if}} 
+  {{#if isCard}}
   <div
     class="card relative col-span-3 col-end-[-1] flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
-    <div class="relative flex-1 px-4 py-2 rotate-x-180">
-      {{label}}
-    </div>
+    <div class="relative flex-1 px-4 py-2 rotate-x-180">{{label}}</div>
     <button
-      class="cardButton bg-blend-multiply bg-logo-clubT bg-no-repeat bg-center bg-[length:70px_40px] focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 px-4 py-2 text-black shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
-      id="{{name}}" {{getQcmOptions}} data-size="{{size}}"
+      class="cardButton focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 bg-logo-clubT bg-[length:70px_40px] bg-center bg-no-repeat px-4 py-2 text-black bg-blend-multiply shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
+      id="{{name}}"
+      {{getQcmOptions}}
+      data-size="{{size}}"
     ></button>
   </div>
-  {{/if}} {{#if isForm}}
+  {{/if}} 
+  {{#if isForm}}
   <div
     class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180"
   >
@@ -60,18 +62,19 @@
       </form>
     </div>
   </div>
-  {{/if}}
+  {{/if}} 
   {{#if isQcmForm}}
-    <div
+  <div
     class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
-    >
+  >
     {{#each qcmOptions}}
     <button
-    class="qcmOption focus:shadow-outline flex rounded bg-purple-500 mb-1 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none" id="{{name}}"
+      class="qcmOption focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
+      id="{{name}}"
     >
       {{this}}
     </button>
     {{/each}}
-   </div>
+  </div>
   {{/if}}
 </template>

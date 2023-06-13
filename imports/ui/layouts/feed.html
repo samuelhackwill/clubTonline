@@ -1,15 +1,18 @@
 <template name="feed">
   <div
-    class="after:w-1/3 after:h-full flex h-full flex-col flex-wrap content-start items-start gap-x-3 transition-all"
+    class="flex h-full flex-col flex-wrap content-start items-start gap-x-3 transition-all after:h-full after:w-1/3"
     id="feed"
   >
     {{#each feedItems}} {{> blockingBubble this}} {{> staticBubble this}}
     {{/each}}
   </div>
 
-  <div class="footer cursor-pointer flex flex-col h-[4vh] mt-[5vh] left-0 w-full fixed bg-yellow-clubT transition-all" id="footer">
-    <div class="ml-3 text-[2vh] w-max text-start hover:bg-purple-100">
-      <span class="">Club Travail, 2023.</span> 
+  <div
+    class="footer fixed left-0 mt-[5vh] flex h-[4vh] w-full cursor-pointer flex-col bg-yellow-clubT transition-all"
+    id="footer"
+  >
+    <div class="ml-3 w-max text-start text-[2vh] hover:bg-purple-100">
+      <span class="">Club Travail, 2023.</span>
       <!-- <img src="/img/logo_xs.png" class="h-[20px] w-[35px]"> -->
     </div>
   </div>
