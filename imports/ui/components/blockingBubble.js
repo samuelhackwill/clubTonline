@@ -1,6 +1,6 @@
 import "./blockingBubble.html";
 
-import { state } from "../layouts/feed.js";
+import { feedIndex, state } from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
   isPlay() {
@@ -17,6 +17,14 @@ Template.blockingBubble.helpers({
     ) {
       return true;
     }
+  },
+  isCardAnswered(){
+    if(this.name != undefined && this.name.startsWith("qcm") && this.answered != undefined){
+      console.log(true)
+    }else{
+      console.log(false)
+    }
+    return;
   },
   isForm() {
     if (this.name != undefined && this.name.startsWith("form")) {
@@ -117,8 +125,6 @@ Template.blockingBubble.events({
     event.preventDefault();
     input = event.currentTarget[0];
 
-    console.log(input.value.length);
-
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
       input.value;
 
@@ -145,11 +151,10 @@ Template.blockingBubble.events({
     state.set("gettingMoreElements");
     addNextItem();
     fadeQuestion(event);
+
+    getRandomQuestion(event.target.id)
   },
 
-  // "wheel .card"(event){
-  //   console.log(event)
-  // }
 });
 
 fadeQuestion = function (event) {

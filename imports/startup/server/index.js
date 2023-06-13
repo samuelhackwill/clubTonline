@@ -1,14 +1,10 @@
 import { Meteor } from "meteor/meteor";
 import "../../API/mailing/server/publications.js";
 
-// import '/imports/api/answers/server/publications.js'
-// import '/imports/api/decks/server/publications.js'
-// import '/imports/api/scenarios/server/publications.js'
-// import '/imports/api/songs/server/publications.js'
-// import '/imports/api/stats/server/publications.js'
+import '/imports/API/answers/server/publications.js'
 
 import "./fixtures.js";
 
 Meteor.startup(() => {
-  console.log("welcome to clubTonline!");
+  console.log("alors, pas encore fini ce site?");
 });

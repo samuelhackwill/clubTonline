@@ -2,11 +2,15 @@ import "./feed.html";
 
 import "../components/staticBubble.js";
 import "../components/blockingBubble.js";
+import "../components/dataBubble.js";
 
-const dataFeed = new ReactiveVar();
+dataFeed = new ReactiveVar();
 const dataFridge = new ReactiveVar();
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
+
+// data : the feed doesn't need to subscribe to answers, but the blocking bubbles do.
+// the feed needs to subscribe to scenarios.
 
 Template.feed.helpers({
   feedState() {
@@ -130,3 +134,32 @@ addQcm = function (questionName, qcmOptions) {
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
+
+getRandomQuestion = function(_name){
+  tempFeed = dataFeed.get() || [];
+  var result = tempFeed.filter(obj => {
+  return obj.name === _name
+  })
+
+  if (result.length >1) {
+    console.error("getRandomQuestion error, maybe form name duplicates in dataset?");
+  }
+
+  obj = result[0]
+
+  // setTimeout(() => {
+  //   // don't destroy the dom straight away, because we need to read
+  //   // obj height before.
+  //   console.log(this.obj)
+  //   this.obj.answered = true
+  // }, 500);
+
+  stabilizeHeight(obj)
+  obj.answered = true
+}
+
+stabilizeHeight = function(obj){
+  domObj = document.getElementById(obj.name)
+  console.log(domObj)
+  obj.minHeight = domObj.offsetHeight
+}
