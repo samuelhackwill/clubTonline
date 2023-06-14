@@ -97,37 +97,41 @@ addData = function (obj) {
   dataFeed.set(tempFeed);
 };
 
-addForm = function (questionName, formSize) {
-  tempFeed = dataFeed.get() || [];
-  tempFeedIndex = feedIndex.get();
+addForm = function (data) {
+  console.log(data)
+  // tempFeed = dataFeed.get() || [];
+  // tempFeedIndex = feedIndex.get();
 
-  _formSize = formSize.size || "m";
+  // _formSize = formSize.size || "m";
 
-  _name = questionName.replace(/.+\./i, "");
+  // _name = questionName.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
+  // nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
 
-  tempFeed.push(nextItem);
-  dataFeed.set(tempFeed);
+  // tempFeed.push(nextItem);
+  // dataFeed.set(tempFeed);
 };
 
-addQcm = function (questionName, qcmOptions) {
+addQcm = function (data) {
+  _name = data.name
+  delete data.name;
+  
   tempQcmOpts = [];
 
-  for (var prop in qcmOptions) {
-    if (Object.prototype.hasOwnProperty.call(qcmOptions, prop)) {
-      tempQcmOpts.push(qcmOptions[prop]);
+  for (var prop in data) {
+    if (Object.prototype.hasOwnProperty.call(data, prop)) {
+      tempQcmOpts.push(data[prop]);
     }
   }
 
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
-  _name = questionName.replace(/.+\./i, "");
+   __name = _name.replace(/.+\./i, "");
 
   nextItem = {
     type: "---BB---",
-    name: "qcmForm." + _name,
+    name: "qcmForm." + __name,
     qcmOptions: tempQcmOpts,
   };
 

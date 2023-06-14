@@ -111,10 +111,10 @@ Template.blockingBubble.events({
     );
     event.target.classList.add("opacity-0");
 
-    if (event.target.id.startsWith("qcm")) {
-      addQcm(event.target.id, event.target.dataset);
+    if (event.target.dataset.name.startsWith("qcm")) {
+      addQcm(event.target.dataset);
     } else {
-      addForm(event.target.id, event.target.dataset);
+      addForm(event.target.dataset);
     }
   },
 
@@ -156,47 +156,36 @@ Template.blockingBubble.events({
   "click .formCard"(event){
     
     console.log("clickckckc")
-    if(!document.getElementById("answersHolder").dataset.answered){return}
-
-    // bool = event.target.dataset.clicked
-    // bool = ! bool
-
-    // console.log(bool)
+    // if(!document.getElementById("answersHolder").dataset.answered){return}
     
-    if (bool) {
-      event.target.parentElement.classList.add(
-        "rotate-x-180"
-      );
-      playerAnswer = "firstElementChild"
-      archiveAnswer = "lastElementChild"
-      event.target.parentElement.classList.remove("bg-purple-200")
-      event.target.parentElement.classList.add(
-        "bg-indigo-200"
-      );  
-    }else{
-      event.target.parentElement.classList.remove(
-        "rotate-x-180"
-      );
-      playerAnswer = "lastElementChild"
-      archiveAnswer = "firstElementChild"
-      event.target.parentElement.classList.add("bg-purple-200")
-      event.target.parentElement.classList.remove(
-        "bg-indigo-200"
-        );  
-      }
+    // if (bool) {
+    //   event.target.parentElement.classList.add(
+    //     "rotate-x-180"
+    //   );
+    //   playerAnswer = "firstElementChild"
+    //   archiveAnswer = "lastElementChild"
+    //   event.target.parentElement.classList.remove("bg-purple-200")
+    //   event.target.parentElement.classList.add(
+    //     "bg-indigo-200"
+    //   );  
+    // }else{
+    //   event.target.parentElement.classList.remove(
+    //     "rotate-x-180"
+    //   );
+    //   playerAnswer = "lastElementChild"
+    //   archiveAnswer = "firstElementChild"
+    //   event.target.parentElement.classList.add("bg-purple-200")
+    //   event.target.parentElement.classList.remove(
+    //     "bg-indigo-200"
+    //     );  
+    //   }
       
-      // rotate the bubble container
-      
-      
-      // // hide the player's answer
-      event.target.parentElement[playerAnswer].classList.add("opacity-0");
-      event.target.parentElement[playerAnswer].classList.remove("opacity-1");
-
-    // show the other person's answer
-    event.target.parentElement[archiveAnswer].classList.add(
-      "opacity-1"
-    );
-    event.target.parentElement[archiveAnswer].classList.remove("opacity-0");    
+    //   event.target.parentElement[playerAnswer].classList.add("opacity-0");
+    //   event.target.parentElement[playerAnswer].classList.remove("opacity-1");
+    //   event.target.parentElement[archiveAnswer].classList.add(
+    //   "opacity-1"
+    // );
+    // event.target.parentElement[archiveAnswer].classList.remove("opacity-0");    
   } 
 
 });
