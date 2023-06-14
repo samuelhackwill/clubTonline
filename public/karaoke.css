@@ -38,30 +38,30 @@ main {
 		/* opacity 2s linear; */
 }
 
-h1 {
+#karaoke h1 {
     text-transform: uppercase;
 }
 
-h2 {
+#karaoke h2 {
     font-family: "Credible";
     /* font-family: "Gochi"; */
 }
 
-#instru {
+#karaoke #instru {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
 }
 
-#progress {
+#karaoke #progress {
     position: fixed;
     bottom: 1.5em;
     left: .5em;
     font-size: 2em;
 }
 
-#slides {
+#karaoke #slides {
     background: black;
     height: 100%;
     width: 100%;
@@ -69,7 +69,7 @@ h2 {
     gap: .5em;
 }
 
-#slides > div {
+#karaoke #slides > div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +80,7 @@ h2 {
 
 }
 
-.sing {
+#karaoke .sing {
     padding: 4rem;
     text-align: center;
     font-size: 5em;
@@ -94,17 +94,17 @@ h2 {
 }
 
 /* ---------- SLIDES ---------- */
-#par {
+#karaoke #par {
     font-size: .5em;
 }
 
-#nom {
+#karaoke #nom {
     font-size: 1.5em;
     word-wrap: anywhere;
 }
 
 /* ---------- ceparti ---------- */
-#ceparti {
+#karaoke #ceparti {
     position: absolute;
     top: 1em;
     right: .5em;

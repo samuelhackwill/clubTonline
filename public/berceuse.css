@@ -49,9 +49,11 @@ body {
 
 body {
   background: var(--couleur-nuit);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-section {
+#berceuse section {
   position: fixed;
   top: 2em;
   left: 2em;
@@ -60,7 +62,7 @@ section {
   z-index: 50;
 }
 
-h1 {
+#berceuse h1 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -72,7 +74,7 @@ h1 {
   display: none;
 }
 
-main {
+#berceuse main {
   background: none;
   perspective: 100vw;
   position: relative;
@@ -84,21 +86,21 @@ main {
   align-items: center;
 }
 
-.murs {
+#berceuse .murs {
   font-family: "Patrick", sans-serif;
   font-size: 1.3em;
   position: absolute;
   overflow: hidden;
 }
 
-#ceiling,
-#floor {
+#berceuse #ceiling,
+#berceuse #floor {
   height: var(--profondeur-piece);
   width: 100%;
 }
 
-#left,
-#right {
+#berceuse #left,
+#berceuse #right {
   height: 100%;
   width: var(--profondeur-piece);
   border-left: none;
@@ -108,7 +110,7 @@ main {
     0 0 0.5em var(--glow), 0 0 1em var(--glow), 0 0 2em var(--glow);
 }
 
-#ceiling {
+#berceuse #ceiling {
   background-image: radial-gradient(
     hsl(var(--murs), 60%, 60%),
     hsl(var(--murs), 40%, 40%)
@@ -118,14 +120,14 @@ main {
   top: 0;
 }
 
-#floor {
+#berceuse #floor {
   background-image: radial-gradient(hsl(31, 80%, 65%), hsl(31, 50%, 20%));
   transform-origin: bottom;
   transform: rotateX(var(--rotation));
   bottom: 0;
 }
 
-#center {
+#berceuse #center {
   background-image: linear-gradient(
     hsl(var(--murs), 70%, 60%),
     hsl(var(--murs), 70%, 60%)
@@ -136,7 +138,7 @@ main {
   text-shadow: 0 0 0.2em var(--glow), 0 0 0.3em var(--glow), 0 0 1em var(--glow);
 }
 
-#left {
+#berceuse #left {
   background-image: linear-gradient(
     hsl(var(--murs), 70%, 55%),
     hsl(var(--murs), 70%, 55%)
@@ -146,7 +148,7 @@ main {
   transform: rotateY(var(--rotation));
 }
 
-#right {
+#berceuse #right {
   background: linear-gradient(
     hsl(var(--murs), 70%, 55%),
     hsl(var(--murs), 70%, 55%)
@@ -157,7 +159,7 @@ main {
 }
 
 /* TEXTES ------------------------------------------------------------ */
-.text-wrapper {
+#berceuse .text-wrapper {
   height: 100%;
   position: absolute;
 
@@ -168,7 +170,7 @@ main {
   will-change: transform;
 }
 
-p {
+#berceuse p {
   color: var(--glow);
   font-size: 4em;
   white-space: nowrap;
@@ -203,7 +205,7 @@ p {
 
 
 /* -------------------- NUIT -------------------- */
-.nuit #ceiling {
+#berceuse .nuit #ceiling {
   background-image: radial-gradient(
       hsl(var(--murs), 60%, 60%) 20%,
       hsl(var(--murs), 60%, 40%)
@@ -212,14 +214,14 @@ p {
   background-blend-mode: multiply;
 }
 
-.nuit #floor {
+#berceuse .nuit #floor {
   background-image: radial-gradient(hsl(31, 80%, 65%) 1%, hsl(31, 50%, 20%)),
     linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
   background-blend-mode: overlay;
 }
 
-.nuit #left,
-.nuit #right {
+#berceuse .nuit #left,
+#berceuse .nuit #right {
   background-image: linear-gradient(
       hsl(var(--murs), 70%, 55%),
       hsl(var(--murs), 70%, 55%)
@@ -228,7 +230,7 @@ p {
   background-blend-mode: multiply;
 }
 
-.nuit #center {
+#berceuse .nuit #center {
   background-image: linear-gradient(
       hsl(var(--murs), 70%, 60%),
       hsl(var(--murs), 70%, 60%)
@@ -237,8 +239,8 @@ p {
   background-blend-mode: multiply;
 }
 
-#porte,
-#ouverture {
+#berceuse #porte,
+#berceuse #ouverture {
   height: 55%;
   width: 35%;
   position: absolute;
@@ -246,14 +248,14 @@ p {
   left: 65%;
 }
 
-#ouverture {
+#berceuse #ouverture {
   background: #0a0a0a;
   border: inset #444 10px;
   border-right-width: 5px;
   border-bottom: none;
 }
 
-#porte {
+#berceuse #porte {
   backface-visibility: hidden;
   transform-origin: left;
   background: #222222;
@@ -261,24 +263,24 @@ p {
   transition: transform 2s, background 2s;
 }
 
-#porte.fermed {
+#berceuse #porte.fermed {
   background: gray;
   transform: rotateY(0) !important;
 }
 
-.nuit #porte{
+#berceuse .nuit #porte{
   background: #222;
   background-image: linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
   background-blend-mode: multiply;
 }
 
-.nuit #porte.fermed {
+#berceuse .nuit #porte.fermed {
   background: var(--couleur-nuit);
   background-image: linear-gradient(gray, gray);
   background-blend-mode: multiply;
 }
 
-#poignee {
+#berceuse #poignee {
   border-radius: 50%;
   height: 1em;
   width: 1em;
@@ -288,7 +290,7 @@ p {
   right: 0.5em;
 }
 
-.nuit #poignee {
+#berceuse .nuit #poignee {
   background: none;
   background-image: radial-gradient(hsl(12, 30%, 35%), hsl(12, 30%, 15%)),
     linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
@@ -297,13 +299,13 @@ p {
 
 /* BOUTONS ------------------------------------------------------------ */
 
-section button {
+#berceuse section button {
   display: none;
   font-size: 1em;
   padding: 0.2em 0.5em;
 }
 
-#ceparti {
+#berceuse #ceparti {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -319,9 +321,9 @@ section button {
 
 @media screen and (max-width: 648px) {
 /* performance sur mobile (genre firefox) */
-  #left,
-  #center,
-  #right {
+  #berceuse #left,
+  #berceuse #center,
+  #berceuse #right {
     text-shadow: none;
   }
 

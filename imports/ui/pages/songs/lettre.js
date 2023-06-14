@@ -22,15 +22,12 @@ Template.lettre.onRendered(function() {
     const ville = document.getElementById("lieu");
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
-    // Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
-    const right = document.getElementsByClassName("droite");
-    for (let el of right) {
-        el.style.width = `${el.getBoundingClientRect().width}px`;
-    }
 
-    // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
-    const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
-    document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+    window.onload = function() {
+        // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
+        const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
+        document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+    }
 
 })
 
@@ -49,16 +46,22 @@ randomNumber = function(min, max) {
 
 imprimer = function() {
     console.log("Ça part à l'impression");
+    document.getElementById("imprimer").style.opacity = "0";
     window.print();
 }
 
 lettre_startAnimation = function() {
     document.getElementById("page").style.color = "black";
 
-    // document.getElementById("typing-sound").play();
+    // Forcer la largeur des éléments alignés à droite pour avoir l'air écrit plus naturellement
+    const right = document.getElementsByClassName("droite");
 
-    const instru = new Audio('/sounds/keyboard-propre.mp3');
-    instru.play();
+    for (let el of right) {
+        el.style.width = `${el.getBoundingClientRect().width}px`;
+    }
+
+    const INSTRU = document.getElementById("typing-sound");
+    INSTRU.play();
 
     const lol = document.getElementById("ceparti");
     lol.style.opacity = "0";

@@ -1,6 +1,10 @@
 @font-face {
+  font-family: "LiberationSans";
+  src: url("/fonts/LiberationSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Signature";
-  /* src: url("../fonts/BarokahSignatureRegular-PK15Z.woff2") format("woff2"); */
   src: url("/fonts/AAutoSignature-1GD9j.woff2") format("woff2");
 }
 
@@ -17,8 +21,10 @@ html {
 }
 
 body {
+  font-family: "LiberationSans", sans-serif;
   margin-top: 4em;
   background: var(--background);
+  line-height: 1;
 }
 
 ::selection {
@@ -26,7 +32,7 @@ body {
   color: var(--background);
 }
 
-article {
+#page {
   --radius: 0;
   --page-width: min(900px, 90vw);
   --page-height: calc(var(--page-width) * 297 / 210);
@@ -36,7 +42,7 @@ article {
 
   width: var(--page-width);
   height: var(--page-height);
-  font-size: calc(25.4 / 297 / (72 / var(--font-size)) * var(--page-height));
+  font-size: calc(25.4 / 297 / (72 / var(--font-size)) * var(--page-height)) !important;
   aspect-ratio: 210/297;
 
   margin: 0 auto;
@@ -47,9 +53,9 @@ article {
   transform-style: preserve-3d;
 }
 
-article > div {
+#page > div {
     position: relative;
-  padding: 0 8em;
+  padding: 0 7em;
   display: flex;
   flex-flow: column nowrap;
   background-color: white;
@@ -59,18 +65,18 @@ article > div {
   transform-origin: top;
 }
 
-p {
+#page p {
   text-indent: 2em;
 }
 
-ul {
+#page ul {
   list-style-type: decimal;
   list-style-position: inside;
 }
 
 /* ----------------------------------------- */
-#part1 {
-  justify-content: start;
+#page #part1 {
+  justify-content: start !important;
   padding-top: 9em;
   position: relative;
   z-index: 2;
@@ -80,20 +86,20 @@ ul {
     rgba(0, 0, 0, 0.4) 0 -.4em 1em;
 }
 
-#part1 > * + * {
+#page #part1 > * + * {
   margin-top: 1em;
 }
 
-#part2 {
+#page #part2 {
   gap: 1em;
   box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 10em, rgba(0,0,0,.2) 0 0 1em;
 }
 
-#part2 p:first-child {
+#page #part2 p:first-child {
   margin-top: 1em;
 }
 
-.overlay::after {
+#page .overlay::after {
   position: absolute;
   background: gray;
   content: " ";
@@ -102,34 +108,34 @@ ul {
   transition: opacity var(--transition-time);
 }
 
-#part3 {
+#page #part3 {
   gap: 8em;
   justify-content: start;
   box-shadow: inset rgba(0,0,0,.3) 0 0 10em, rgba(0,0,0,.4) 0 .4em 1em
 }
 
-#part3 p:first-child {
+#page #part3 p:first-child {
   margin-top: 1em;
 }
 
 /* HOVER -------------------------------------------------- */
 
-article:hover #part1 {
+#page:hover #part1 {
   transform: rotateX(var(--rotation));
   box-shadow: inset rgba(0,0,0,.5) 0 0 10em, rgba(0,0,0,.1) 0 -2em 1em;
 }
 
-article:hover #part2 {
+#page:hover #part2 {
   transform: rotateX(calc(-2 * var(--rotation)));
   box-shadow: inset rgba(0,0,0,.4) 0 8em 10em;
 }
 
-article:hover .overlay::after {
+#page:hover .overlay::after {
   opacity: 1;
   mix-blend-mode: multiply;
 }
 
-article:hover #part3 {
+#page:hover #part3 {
   transform: translate3d(
       0,
       calc(-2 * sin(150deg) * var(--radius)),
@@ -140,33 +146,33 @@ article:hover #part3 {
   box-shadow: inset rgba(0,0,0,.4) 0 8em 10em;
 }
 
-.droite {
+#page .droite {
   text-align: left;
   margin-left: auto;
   width: fit-content;
 }
 
-.adresse > p,
-.adresse > li {
+#page .adresse > p,
+#pag .adresse > li {
   text-indent: 0;
 }
 
-li {
+#page li {
   list-style: none;
 }
 
-#objet {
+#page #objet {
   text-indent: 0;
   margin-top: 4em;
   margin-bottom: 1em;
 }
 
-#ministere,
-#signature {
+#page #ministere,
+#page #signature {
   text-align: right;
 }
 
-#signature {
+#page #signature {
   font-family: "Signature";
   font-size: 1.8em;
 
@@ -174,7 +180,7 @@ li {
   opacity: 1;
 }
 
-#signature:hover {
+#page #signature:hover {
   transform: scaleX(1);
 }
 
