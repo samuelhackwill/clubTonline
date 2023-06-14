@@ -154,13 +154,12 @@ Template.blockingBubble.events({
 
 
   "click .formCard"(event){
-    console.log("click", event.target.dataset.name)
     
     card = document.getElementById("container."+event.target.dataset.name)
     // the formCard first holds a form object with which the user needs to interact, so 
     // we don't want to start animating the div before it's been transformed in a place to store
     // other player's answers
-    if(!card.dataset.answered){return}
+    if(!card || !card.dataset.answered){return}
     
     console.log(card.dataset.clicked)
 
