@@ -167,6 +167,7 @@ main {
 }
 
 #berceuse p {
+  border: solid lime 3px;
   color: var(--glow);
   font-size: calc(100vh / 8);
   white-space: nowrap;
@@ -254,11 +255,7 @@ main {
 }
 
 /* -------------------- NUIT -------------------- */
-#berceuse.nuit {
-  background: var(--couleur-nuit);
-}
-
-#berceuse.nuit #ceiling {
+.nuit #ceiling {
   background-image: radial-gradient(
       hsl(var(--murs), 60%, 60%) 20%,
       hsl(var(--murs), 60%, 40%)
@@ -267,14 +264,14 @@ main {
   background-blend-mode: multiply;
 }
 
-#berceuse.nuit #floor {
+.nuit #floor {
   background-image: radial-gradient(hsl(31, 80%, 65%) 1%, hsl(31, 50%, 20%)),
     linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
   background-blend-mode: overlay;
 }
 
-#berceuse.nuit #left,
-#berceuse.nuit #right {
+.nuit #left,
+.nuit #right {
   background-image: linear-gradient(
       hsl(var(--murs), 70%, 55%),
       hsl(var(--murs), 70%, 55%)
@@ -283,7 +280,7 @@ main {
   background-blend-mode: multiply;
 }
 
-#berceuse.nuit #center {
+.nuit #center {
   background-image: linear-gradient(
       hsl(var(--murs), 70%, 60%),
       hsl(var(--murs), 70%, 60%)
@@ -321,13 +318,13 @@ main {
   transform: rotateY(0) !important;
 }
 
-#berceuse.nuit #porte{
+.nuit #porte{
   background: #222;
   background-image: linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
   background-blend-mode: multiply;
 }
 
-#berceuse.nuit #porte.fermed {
+.nuit #porte.fermed {
   background: var(--couleur-nuit);
   background-image: linear-gradient(gray, gray);
   background-blend-mode: multiply;
@@ -343,7 +340,7 @@ main {
   right: 0.5em;
 }
 
-#berceuse.nuit #poignee {
+.nuit #poignee {
   background: none;
   background-image: radial-gradient(hsl(12, 30%, 35%), hsl(12, 30%, 15%)),
     linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
