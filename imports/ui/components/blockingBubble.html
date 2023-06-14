@@ -26,7 +26,7 @@
   {{/if}} 
   {{#if isForm}}
   <div
-    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180"
+    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180" id="container.{{name}}" data-name="{{name}}" data-clicked="false"
   >
     <!-- dos -->
     <div
@@ -72,7 +72,7 @@
     {{#each qcmOptions}}
     <button
       class="qcmOption focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
-      id="{{name}}"
+      data-name="{{name}}"
     >
       {{this}}
     </button>

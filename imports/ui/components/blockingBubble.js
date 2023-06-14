@@ -154,38 +154,50 @@ Template.blockingBubble.events({
 
 
   "click .formCard"(event){
+    console.log("click", event.target.dataset.name)
     
-    console.log("clickckckc")
-    // if(!document.getElementById("answersHolder").dataset.answered){return}
+    card = document.getElementById("container."+event.target.dataset.name)
+    // the formCard first holds a form object with which the user needs to interact, so 
+    // we don't want to start animating the div before it's been transformed in a place to store
+    // other player's answers
+    if(!card.dataset.answered){return}
     
-    // if (bool) {
-    //   event.target.parentElement.classList.add(
-    //     "rotate-x-180"
-    //   );
-    //   playerAnswer = "firstElementChild"
-    //   archiveAnswer = "lastElementChild"
-    //   event.target.parentElement.classList.remove("bg-purple-200")
-    //   event.target.parentElement.classList.add(
-    //     "bg-indigo-200"
-    //   );  
-    // }else{
-    //   event.target.parentElement.classList.remove(
-    //     "rotate-x-180"
-    //   );
-    //   playerAnswer = "lastElementChild"
-    //   archiveAnswer = "firstElementChild"
-    //   event.target.parentElement.classList.add("bg-purple-200")
-    //   event.target.parentElement.classList.remove(
-    //     "bg-indigo-200"
-    //     );  
-    //   }
-      
-    //   event.target.parentElement[playerAnswer].classList.add("opacity-0");
-    //   event.target.parentElement[playerAnswer].classList.remove("opacity-1");
-    //   event.target.parentElement[archiveAnswer].classList.add(
-    //   "opacity-1"
-    // );
-    // event.target.parentElement[archiveAnswer].classList.remove("opacity-0");    
+    console.log(card.dataset.clicked)
+
+    if (card.dataset.clicked=="false") {
+      card.classList.add(
+        "rotate-x-180"
+      );
+      card.classList.remove("bg-purple-200")
+      card.classList.add(
+        "bg-indigo-200"
+      );  
+      card.firstElementChild.classList.add("opacity-0");
+      card.firstElementChild.classList.remove("opacity-1");
+      card.lastElementChild.classList.add(
+      "opacity-1"
+      );
+      card.lastElementChild.classList.remove("opacity-0");    
+
+      card.dataset.clicked="true"
+    }else{
+      card.classList.remove(
+        "rotate-x-180"
+      );
+      card.classList.add("bg-purple-200")
+      card.classList.remove(
+        "bg-indigo-200"
+        );  
+        card.lastElementChild.classList.add("opacity-0");
+        card.lastElementChild.classList.remove("opacity-1");
+        card.firstElementChild.classList.add(
+        "opacity-1"
+        );
+        card.firstElementChild.classList.remove("opacity-0");    
+  
+
+        card.dataset.clicked="false"
+      }
   } 
 
 });
