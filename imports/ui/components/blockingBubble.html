@@ -26,7 +26,7 @@
   {{/if}} 
   {{#if isForm}}
   <div
-    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180"
+    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180"
   >
     <!-- dos -->
     <div
@@ -39,7 +39,7 @@
     {{> dataBubble this}}
     {{else}}
     <div class="transition-opacity delay-[150ms] rotate-x-180">
-      <form class="answer w-full max-w-sm" id="{{name}}">
+      <form class="form w-full max-w-sm" id="{{name}}">
         <div class="mb-6 md:flex md:items-center">
           <textarea
             {{getFormSize true}}
