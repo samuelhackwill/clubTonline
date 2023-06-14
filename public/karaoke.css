@@ -32,11 +32,11 @@ main {
 		opacity 2s linear;
 }
 
-h1 {
+#karaoke h1 {
     text-transform: uppercase;
 }
 
-h2 {
+#karaoke h2 {
     font-family: "Credible";
 }
 
@@ -45,14 +45,14 @@ p:not(.enchaine) {
     z-index: 5;
 }
 
-#instru {
+#karaoke #instru {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
 }
 
-#progress {
+#karaoke #progress {
     position: fixed;
     bottom: 1.5em;
     left: .5em;
@@ -132,7 +132,7 @@ audio {
 }
 
 /* ---------- ceparti ---------- */
-#ceparti {
+#karaoke #ceparti {
     position: absolute;
     top: 50%;
     left: 50%;

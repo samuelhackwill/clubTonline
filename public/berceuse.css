@@ -403,7 +403,7 @@ main {
 
 /* BOUTONS ------------------------------------------------------------ */
 
-section button {
+#berceuse section button {
   display: none;
   font-size: 1em;
   padding: 0.2em 0.5em;
