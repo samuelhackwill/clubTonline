@@ -13,56 +13,7 @@ Template.berceuse.onCreated(function() {
 })
 
 Template.berceuse.onRendered(function() {
-	// CALCULS DES TIMINGS --------------------------------------------------
-	const profondeurPiece = parseFloat(
-		window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
-	);
-	const vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
-	// Duration in seconds
-	const DURATION = 1000 * 100; // secondes
-
-	const BANDEAU = document.querySelector("#left .text-wrapper");
-	const bandeauWidth = parseFloat(
-		getComputedStyle(BANDEAU).getPropertyValue("width")
-	);
-
-	const distanceCote = profondeurPiece * vw1 + bandeauWidth;
-	const distanceCentre = 100 * vw1 + bandeauWidth;
-
-	const durationCentre = (distanceCentre * DURATION) / distanceCote;
-
-	const VITESSE = distanceCote / DURATION; // En pixels par seconde
-	const delayCentre = (profondeurPiece * vw1) / VITESSE;
-	const delayCote = (100 * vw1) / VITESSE;
-
-	const options = {
-		iterations: 1,
-		fill: "both",
-		duration: DURATION,
-		easing: "linear",
-	};
-
-	let optionsCenter = JSON.parse(JSON.stringify(options));
-	optionsCenter.delay = delayCentre;
-	optionsCenter.duration = durationCentre;
-
-	let optionsLeft = JSON.parse(JSON.stringify(options));
-	optionsLeft.delay = delayCentre + delayCote;
-
-	const keyframes = [
-		{ transform: "translate3d(0, 0, 0)", opacity: 0 },
-		{ opacity: 1, offset: 0.01 },
-		{ opacity: 1, offset: 0.99 },
-		{ transform: `translate3d(-${distanceCote}px, 0, 0)`, opacity: 0 },
-	];
-
-	const keyframesCentre = [
-		{ transform: "translate3d(0, 0, 0)", opacity: 0 },
-		{ opacity: 1, offset: 0.01 },
-		{ opacity: 1, offset: 0.99 },
-		{ transform: `translate3d(-${distanceCentre}px, 0, 0)`, opacity: 0 },
-	];
 })
 
 // FONCTIONS --------------------------------------------------
@@ -76,29 +27,95 @@ eteintLumiere = function() {
 	document.querySelector("main").classList.add("nuit");
 }
 
-defilementTexte = function() {
+defilementTexte = function(v, i) {
 	console.log("DEFILEMENT");
 
-	document.querySelector("#right .text-wrapper").animate(keyframes, options);
+	document.querySelectorAll("#right .text-wrapper p")[i].animate(v.keyframes, v.options);
 	document
-		.querySelector("#center .text-wrapper")
-		.animate(keyframesCentre, optionsCenter);
-	document.querySelector("#left .text-wrapper").animate(keyframes, optionsLeft);
+		.querySelectorAll("#center .text-wrapper p")[i]
+		.animate(v.keyframesCentre, v.optionsCenter);
+	document.querySelectorAll("#left .text-wrapper p")[i].animate(v.keyframes, v.optionsLeft);
+
 }
 
 berceuse_startAnimation = function() {
+
+		// CALCULS DES TIMINGS --------------------------------------------------
+		let a = {};
+
+		a.profondeurPiece = parseFloat(
+			window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
+		);
+
+		a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
+
+		// Duration in seconds
+		a.DURATION = 1000 * 5; // secondes
+
+		a.BANDEAU = document.querySelector("#left .text-wrapper");
+		a.bandeauWidth = parseFloat(
+			getComputedStyle(a.BANDEAU).getPropertyValue("width")
+		);
+
+		a.distanceCote = a.profondeurPiece * a.vw1 + a.bandeauWidth;
+		a.distanceCentre = 100 * a.vw1 + a.bandeauWidth;
+		a.durationCentre = (a.distanceCentre * a.DURATION) / a.distanceCote;
+		a.VITESSE = a.distanceCote / a.DURATION; // En pixels par seconde
+		a.delayCentre = (a.profondeurPiece * a.vw1) / a.VITESSE;
+		a.delayCote = (100 * a.vw1) / a.VITESSE;
+
+		// console.dir(a);
+
+		let v = {
+			right: document.getElementById("right"),
+			left: document.getElementById("left"),
+			center: document.getElementById("center")
+		}
+
+		v.options = {
+			iterations: 1,
+			fill: "both",
+			duration: a.DURATION,
+			easing: "linear",
+		};
+
+		v.optionsCenter = JSON.parse(JSON.stringify(v.options));
+		v.optionsCenter.delay = a.delayCentre;
+		v.optionsCenter.duration = a.durationCentre;
+
+		v.optionsLeft = JSON.parse(JSON.stringify(v.options));
+		v.optionsLeft.delay = a.delayCentre + a.delayCote;
+
+		v.keyframes = [
+			{ transform: "translate3d(0, 0, 0)", opacity: 0 },
+			{ opacity: 1, offset: 0.01 },
+			{ opacity: 1, offset: 0.99 },
+			{ transform: `translate3d(-${a.distanceCote}px, 0, 0)`, opacity: 0 },
+		];
+
+		v.keyframesCentre = [
+			{ transform: "translate3d(0, 0, 0)", opacity: 0 },
+			{ opacity: 1, offset: 0.01 },
+			{ opacity: 1, offset: 0.99 },
+			{ transform: `translate3d(-${a.distanceCentre}px, 0, 0)`, opacity: 0 },
+		];
+
 	document.getElementById("ceparti").style.display = "none";
 
-	setTimeout(eteintLumiere, 1000);
-	setTimeout(fermePorte, 3000);
+	// setTimeout(eteintLumiere, 1000);
+	// setTimeout(fermePorte, 3000);
+
 	setTimeout(() => {
 		document.querySelector("main").classList.add("visible");
-		defilementTexte();
-	}, 4000);
+		defilementTexte(v, 3);
+	}, 500);
+
 	// lancer la musique aussi
 	// setTimeout(musique, 5000);
-	const alors = setInterval(
-		defilementTexte,
-		delayCentre + delayCote + DURATION + 1000
-	);
+
+	// 	const alors = setInterval(
+	// 		defilementTexte,
+	// 		delayCentre + delayCote + DURATION + 1000
+	// 	);
+
 }

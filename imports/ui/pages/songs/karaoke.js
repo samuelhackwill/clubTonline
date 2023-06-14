@@ -9,13 +9,9 @@ Template.karaoke.onCreated(function() {
 	fileref.setAttribute("type", "text/css")
 	fileref.setAttribute("href", "karaoke.css")
 	document.getElementsByTagName("head")[0].appendChild(fileref)
-
-	console.log("maintenant c'est le onCreated");
 })
 
 Template.karaoke.onRendered(function() {
-	console.log("maintenant c'est le onRendered");
-
 	window.onload = function() {
 		// ------------ PRÉPARATION / VALIDATION
 		const couplet1 = document.getElementById("couplet1");

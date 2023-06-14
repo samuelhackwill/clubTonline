@@ -74,7 +74,7 @@ body {
   display: none;
 }
 
-#berceuse main {
+main {
   background: none;
   perspective: 100vw;
   position: relative;
@@ -159,53 +159,48 @@ body {
 }
 
 /* TEXTES ------------------------------------------------------------ */
+
 #berceuse .text-wrapper {
   height: 100%;
   position: absolute;
-
-  /* left: 100%; */
-  left: 0;
-
+  left: 100%;
   width: max-content;
   will-change: transform;
+
+  border: solid green 2px;
 }
 
 #berceuse p {
+  border: solid lime 3px;
   color: var(--glow);
   font-size: 4em;
   white-space: nowrap;
   position: relative;
   text-align: right;
-
   opacity: 1;
-  /* top: 25%; */
+
 }
 
-/* span:nth-of-type(2n) { */
-/*   top: 50%; */
-/*   padding-left: 10em; */
-/*   padding-right: 25em; */
-/* } */
-/**/
-/* span:nth-of-type(3n) { */
-/*   top: 75%; */
-/*   padding-left: 15em; */
-/*   padding-right: 15em; */
-/* } */
-/**/
-/* span:nth-of-type(5n) { */
-/*   top: 10%; */
-/*   padding-left: 10em; */
-/*   padding-right: 25em; */
-/* } */
-/**/
-/* .visible span { */
-/*   opacity: 1; */
-/* } */
+p:nth-of-type(2n) {
+  top: 1em;
+}
+
+p:nth-of-type(3n) {
+  top: 3em;
+}
+
+p:nth-of-type(5n) {
+  top: 6rem;
+}
+
+.visible p,
+.visible span {
+  opacity: 1;
+}
 
 
 /* -------------------- NUIT -------------------- */
-#berceuse .nuit #ceiling {
+.nuit #ceiling {
   background-image: radial-gradient(
       hsl(var(--murs), 60%, 60%) 20%,
       hsl(var(--murs), 60%, 40%)
@@ -214,14 +209,14 @@ body {
   background-blend-mode: multiply;
 }
 
-#berceuse .nuit #floor {
+.nuit #floor {
   background-image: radial-gradient(hsl(31, 80%, 65%) 1%, hsl(31, 50%, 20%)),
     linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
   background-blend-mode: overlay;
 }
 
-#berceuse .nuit #left,
-#berceuse .nuit #right {
+.nuit #left,
+.nuit #right {
   background-image: linear-gradient(
       hsl(var(--murs), 70%, 55%),
       hsl(var(--murs), 70%, 55%)
@@ -230,7 +225,7 @@ body {
   background-blend-mode: multiply;
 }
 
-#berceuse .nuit #center {
+.nuit #center {
   background-image: linear-gradient(
       hsl(var(--murs), 70%, 60%),
       hsl(var(--murs), 70%, 60%)
@@ -268,13 +263,13 @@ body {
   transform: rotateY(0) !important;
 }
 
-#berceuse .nuit #porte{
+.nuit #porte{
   background: #222;
   background-image: linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
   background-blend-mode: multiply;
 }
 
-#berceuse .nuit #porte.fermed {
+.nuit #porte.fermed {
   background: var(--couleur-nuit);
   background-image: linear-gradient(gray, gray);
   background-blend-mode: multiply;
@@ -290,7 +285,7 @@ body {
   right: 0.5em;
 }
 
-#berceuse .nuit #poignee {
+.nuit #poignee {
   background: none;
   background-image: radial-gradient(hsl(12, 30%, 35%), hsl(12, 30%, 15%)),
     linear-gradient(var(--couleur-nuit), var(--couleur-nuit));
@@ -299,13 +294,13 @@ body {
 
 /* BOUTONS ------------------------------------------------------------ */
 
-#berceuse section button {
+section button {
   display: none;
   font-size: 1em;
   padding: 0.2em 0.5em;
 }
 
-#berceuse #ceparti {
+#ceparti {
   position: fixed;
   top: 50%;
   left: 50%;
