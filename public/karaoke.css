@@ -23,7 +23,7 @@ body {
 
 main {
     font-family: "Pressuru";
-    /* background: var(--foreground); */
+    background: var(--foreground);
     height: 100%;
     width: 100%;
     transform: scale(0);
