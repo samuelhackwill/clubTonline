@@ -36,12 +36,14 @@ Template.karaoke.onRendered(function() {
 
 })
 
-
 // FUNCTIONS ------------------------------------------------
 karaoke_startAnimation = function() {
 	const frameRate = 10; // 10 millisecondes entre chaque check de frame
-	const INSTRU = document.getElementById("instru");
 
+	// Cacher le bouton "céparti" quand c'est parti
+	document.getElementById("ceparti").style.display = "none";
+
+	const INSTRU = document.getElementById("instru");
 	INSTRU.play();
 
 	document.querySelector("main").style.transform = "scale(1)";
