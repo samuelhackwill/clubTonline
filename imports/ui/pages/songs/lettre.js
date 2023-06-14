@@ -53,9 +53,12 @@ imprimer = function() {
 }
 
 lettre_startAnimation = function() {
-    const INSTRU = document.getElementById("typing-sound");
     document.getElementById("page").style.color = "black";
-    INSTRU.play();
+
+    // document.getElementById("typing-sound").play();
+
+    const instru = new Audio('/sounds/keyboard-propre.mp3');
+    instru.play();
 
     const lol = document.getElementById("ceparti");
     lol.style.opacity = "0";
@@ -70,8 +73,7 @@ lettre_startAnimation = function() {
         let contenu = el.innerText;
         el.innerHTML = " ";
         for (let i = 0; i < contenu.length; i++) {
-            // const delay = randomNumber(-10, 20);
-            const offset = 0;
+            const offset = randomNumber(-10, 20);
             setTimeout(() => { el.innerHTML += contenu.charAt(i) }, (delay * j) + offset);
 
             j++;

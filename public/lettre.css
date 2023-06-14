@@ -5,9 +5,6 @@
 }
 
 :root {
-  --background: lightgray;
-  --foreground: black;
-
   /* ça marche pour 30deg, flemme de chercher après */
   --rotation: 30deg;
 
