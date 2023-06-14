@@ -2,35 +2,43 @@ import "./karaoke.html"
 
 // METEOR ------------------------------------------------
 Template.karaoke.onCreated(function() {
-	// we need to add the css file dynamicaly cause we don't want to mess up
+	// we need to add the css file dynamically cause we don't want to mess up
 	// our namespace ou quoi.
 	var fileref = document.createElement("link")
 	fileref.setAttribute("rel", "stylesheet")
 	fileref.setAttribute("type", "text/css")
 	fileref.setAttribute("href", "karaoke.css")
 	document.getElementsByTagName("head")[0].appendChild(fileref)
+
+	console.log("maintenant c'est le onCreated");
 })
 
 Template.karaoke.onRendered(function() {
-	// ------------ PRÉPARATION / VALIDATION
+	console.log("maintenant c'est le onRendered");
 
-	const couplet1 = document.getElementById("couplet1");
-	const couplet2 = document.getElementById("couplet2");
-	const content = couplet1.children[0].innerHTML.split(" ");
+	window.onload = function() {
+		// ------------ PRÉPARATION / VALIDATION
+		const couplet1 = document.getElementById("couplet1");
+		const couplet2 = document.getElementById("couplet2");
+		const content = couplet1.children[0].innerHTML.split(" ");
+		console.log(content);
 
-	// Reset element couplet
-	couplet1.innerHTML = "";
 
-	const nombreMots = 10;
-	const divider = content.length / nombreMots;
+		// Reset element couplet
+		couplet1.innerHTML = "";
 
-	for (let i = 0; i <= Math.trunc(divider); i++) {
-		let el = document.createElement("p");
-		el.innerHTML = content.splice(0, nombreMots).join(" ");
-		if (i < Math.ceil(divider) / 2) {
-			couplet1.appendChild(el);
-		} else {
-			couplet2.appendChild(el);
+		const nombreMots = 10;
+		const divider = content.length / nombreMots;
+
+		for (let i = 0; i <= Math.trunc(divider); i++) {
+			let el = document.createElement("p");
+			el.innerHTML = content.splice(0, nombreMots).join(" ");
+
+			if (i < Math.ceil(divider) / 2) {
+				couplet1.appendChild(el);
+			} else {
+				couplet2.appendChild(el);
+			}
 		}
 	}
 
@@ -60,7 +68,7 @@ karaoke_startAnimation = function() {
 			caisseClaire();
 			counter++;
 		}, 2000);
-	}, 1000 * 14.907);
+	}, 1000 * 14.900);
 
 	// CLIGNOTE
 	const timestampsClignote = [15.4, 23.329, 31.26, 47.15];
@@ -271,7 +279,7 @@ clignote = function() {
 	for (const [i, delay] of delays.entries()) {
 		const downScale = 0.95;
 		const clignoteAnim = [
-			{ opacity: 1, transform: `scale(currentScale)` },
+			{ opacity: 1, transform: `scale(${currentScale})` },
 			{
 				opacity: 0,
 				transform: `scale(${1 * downScale ** (i + 1)})`,
@@ -352,7 +360,7 @@ moto = function() {
 	// ------------ moto
 	const motoAnim = [
 		{ transform: "translateX(0) rotate(-15deg)" },
-		{ transform: "translateX(26) rotate(-40deg)", offset: 0.16 },
+		{ transform: "translateX(26vw) rotate(-40deg)", offset: 0.16 },
 		{ transform: "translateX(33vw) rotate(-35deg)", offset: 0.23 },
 		{ transform: "translateX(35vw) rotate(-60deg)", offset: 0.25 },
 		{ transform: "translateX(40vw) rotate(-45deg)", offset: 0.30 },
@@ -361,7 +369,7 @@ moto = function() {
 		{ transform: "translateX(60vw) rotate(-60deg)", offset: 0.50 },
 		{ transform: "translateX(65vw) rotate(-55deg)", offset: 0.55 },
 		{ transform: "translateX(80vw) rotate(-70deg)", offset: 0.70 },
-		{ transform: "translateX(85vw) rotate(-55)", offset: 0.75 },
+		{ transform: "translateX(85vw) rotate(-55deg)", offset: 0.75 },
 		{ transform: "translateX(130vw) rotate(-25deg)" }
 	];
 
