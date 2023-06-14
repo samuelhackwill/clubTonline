@@ -99,27 +99,27 @@ addData = function (obj) {
 
 addForm = function (data) {
   console.log(data)
-  // tempFeed = dataFeed.get() || [];
-  // tempFeedIndex = feedIndex.get();
 
-  // _formSize = formSize.size || "m";
+  tempFeed = dataFeed.get() || [];
+  tempFeedIndex = feedIndex.get();
 
-  // _name = questionName.replace(/.+\./i, "");
+  _formSize = data.size || "m";
 
-  // nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
+  _name = data.name.replace(/.+\./i, "");
 
-  // tempFeed.push(nextItem);
-  // dataFeed.set(tempFeed);
+  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
+
+  tempFeed.push(nextItem);
+  dataFeed.set(tempFeed);
 };
 
 addQcm = function (data) {
   _name = data.name
-  delete data.name;
   
   tempQcmOpts = [];
 
   for (var prop in data) {
-    if (Object.prototype.hasOwnProperty.call(data, prop)) {
+    if (Object.prototype.hasOwnProperty.call(data, prop) && prop.startsWith("qcm")) {
       tempQcmOpts.push(data[prop]);
     }
   }
@@ -150,13 +150,6 @@ getRandomQuestion = function(_name){
   }
 
   obj = result[0]
-
-  // setTimeout(() => {
-  //   // don't destroy the dom straight away, because we need to read
-  //   // obj height before.
-  //   console.log(this.obj)
-  //   this.obj.answered = true
-  // }, 500);
 
   stabilizeHeight(obj)
   obj.answered = true
