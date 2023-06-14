@@ -8,6 +8,11 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
+  isEnd() {
+    if (this.name != undefined && this.name.startsWith("end")) {
+      return true;
+    }
+  },
   isCard() {
     // card names can be something like that : "card.something" or "qcm.tutoiement". But also, some feed elements have a name like "qcmForm.tutoiement", so we need to tell the helper not to select these form elements.
     if (
@@ -18,14 +23,6 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  isCardAnswered(){
-    if(this.name != undefined && this.name.startsWith("qcm") && this.answered != undefined){
-      console.log(true)
-    }else{
-      console.log(false)
-    }
-    return;
-  },
   isForm() {
     if (this.name != undefined && this.name.startsWith("form")) {
       return true;
@@ -35,6 +32,14 @@ Template.blockingBubble.helpers({
     if (this.name != undefined && this.name.startsWith("qcmForm")) {
       return true;
     }
+  },
+  isCardAnswered(){
+    if(this.name != undefined && this.name.startsWith("qcm") && this.answered != undefined){
+      console.log(true)
+    }else{
+      console.log(false)
+    }
+    return;
   },
   getQcmOptions() {
     if (this.qcmOptions == undefined) {
@@ -73,7 +78,7 @@ Template.blockingBubble.helpers({
         return "340";
       }
     }
-  }
+  },
 });
 
 Template.blockingBubble.events({
@@ -88,6 +93,17 @@ Template.blockingBubble.events({
       event.target.classList.remove("bg-purple-500");
     }
     return;
+  },
+
+  "click .end"(){
+    _songUUID = crypto.randomUUID()
+    data = {}
+    data.answers = {"phrase1":"pipi", "phrase2":"popo"}
+    data.scenario = "berceuse"
+
+    Meteor.call("makeSong", _songUUID, data, (error, result) =>{
+      console.log(error, result)
+    }) 
   },
 
   "click .qcmOption"(event) {

@@ -1,4 +1,17 @@
 <template name="blockingBubble">
+  {{#if isEnd}}
+  <div
+    class="col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <button
+      class="end focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 text-white shadow hover:bg-purple-400 focus:outline-none"
+      id="{{name}}"
+    >
+      {{label}}
+    </button>
+  </div>
+
+  {{/if}}
   {{#if isPlay}}
   <div
     class="col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"

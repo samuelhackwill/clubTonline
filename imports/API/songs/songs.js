@@ -25,12 +25,10 @@ schemas.Songs = new SimpleSchema({
     label: 'type of scenario : berceuse, rap ou lettre. used to know which song template to show',
   },
   answers: {
-    type: Array,
-    label: 'Array of objects containing all the data to display text or customize the songs',
-  },
-  'answers.$':{
     type: Object,
-    label: 'the objects are used to customize the songs.'
+    label: 'the answers object contains all the data to display text or customize the songs',
+    blackbox: true
+    // for the time being we don't know what the fields will be called, but next it will be interesting to validate this
   }
 });
 

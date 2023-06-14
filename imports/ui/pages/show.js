@@ -14,6 +14,11 @@ const whateverData = [
   {
     type: "SB",
     text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
+  },  
+  {
+    type: "---BB---",
+    name: "end",
+    label: "conclure"
   },
   {
     type: "SB",
@@ -80,6 +85,7 @@ const whateverData = [
     type: "SB",
     text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
   },
+
 ];
 
 Template.show.helpers({
