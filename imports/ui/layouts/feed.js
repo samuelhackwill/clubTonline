@@ -4,8 +4,11 @@ import "../components/staticBubble.js";
 import "../components/blockingBubble.js";
 import "../components/dataBubble.js";
 
+import { ReactiveDict } from 'meteor/reactive-dict'
+
 dataFeed = new ReactiveVar();
 dataFridge = []
+export const savedAnswers = new ReactiveDict();
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
 
@@ -97,7 +100,7 @@ addData = function (obj) {
   dataFeed.set(tempFeed);
 };
 
-addForm = function (data) {
+addForm = function (data, _save) {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
@@ -105,13 +108,14 @@ addForm = function (data) {
 
   _name = data.name.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
+  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize, save:_save};
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
 
-addQcm = function (data) {
+addQcm = function (data, _save) {
+  console.log(data)
   _name = data.name
   
   tempQcmOpts = [];
@@ -131,6 +135,7 @@ addQcm = function (data) {
     type: "---BB---",
     name: "qcmForm." + __name,
     qcmOptions: tempQcmOpts,
+    save: _save
   };
 
   tempFeed.push(nextItem);

@@ -1,7 +1,7 @@
 import "./blockingBubble.html";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-import { feedIndex, state } from "../layouts/feed.js";
+import { feedIndex, savedAnswers, state } from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
   isPlay() {
@@ -128,6 +128,12 @@ Template.blockingBubble.events({
     event.target.classList.add("bg-purple-200", "text-black");
     event.target.classList.remove("text-white");
 
+    // we need to put some answers on the side for consumption by the songs template.
+    // we could have made a db query also but storing the data locally is faster.
+    if (event.target.parentElement.dataset.save) {
+      savedAnswers.set(event.target.parentElement.dataset.name, event.target.innerHTML.trim()) 
+    }
+
     state.set("gettingMoreElements");
     addNextItem();
     fadeQuestion(event);
@@ -140,19 +146,21 @@ Template.blockingBubble.events({
     );
     event.target.classList.add("opacity-0");
 
+    save = event.target.dataset.save
+
     if (event.target.dataset.name.startsWith("qcm")) {
-      addQcm(event.target.dataset);
+      addQcm(event.target.dataset, save);
     } else {
-      addForm(event.target.dataset);
+      addForm(event.target.dataset, save);
     }
   },
 
   "submit .form"(event) {
     event.preventDefault();
-    input = event.currentTarget[0];
+    input = event.currentTarget[0].value.trim();
 
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
-      input.value;
+      input
 
     event.target.classList.add("pointer-events-none");
 
@@ -174,6 +182,12 @@ Template.blockingBubble.events({
     event.target.parentElement.parentElement.firstElementChild.classList.remove(
       "opacity-0"
     );
+
+    // we need to put some answers on the side for consumption by the songs template.
+    // we could have made a db query also but storing the data locally is faster.
+    if (event.target.parentElement.parentElement.dataset.save) {
+      savedAnswers.set(event.target.parentElement.parentElement.dataset.name, input) 
+    }
 
     state.set("gettingMoreElements");
     addNextItem();

@@ -24,9 +24,9 @@ const whateverData = [
     type: "SB",
     text: "car les gsm c’est l’enfer sur terre.",
   },
-  {
+  { // none of this element must ever be changed if we want the scenarioGetter to work.
     type: "---BB---",
-    name: "qcm.tutoie",
+    name: "qcm.tutoie", 
     label:
       "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
     qcmOptions: [
@@ -40,7 +40,7 @@ const whateverData = [
     name: "card.test1",
     size: "s",
     label:
-      "Tiens et regardez voir ça c'est une question petite pour voir à quoi ça ressemble.",
+      "Tiens et regardez voir ça c'est une question petite pour voir à quoi ça ressemble."
   },
 
   { type: "SB", text: "Ok c'est bien noté." },

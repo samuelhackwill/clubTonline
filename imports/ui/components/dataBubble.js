@@ -1,10 +1,28 @@
+import { savedAnswers } from "../layouts/feed";
 import "./dataBubble.html";
 
 Template.dataBubble.onCreated(function(){  
     this.loaded = new ReactiveVar(null);
 
+    _targetScenario = ""
+
     if (this.data.name == "fillTheFridge") {
-        Meteor.call("getScenario", "sc1.tu", (error, result) =>{
+
+        switch (savedAnswers.get("qcmForm.tutoie")) {
+            case "le vouvoiement c'est bien":
+                _targetScenario = "sc1_vous"
+                break;
+
+            case "call me tu":
+                _targetScenario = "sc1_tu"
+                break;
+        
+            default:
+                break;
+        }
+
+
+        Meteor.call("getScenario", _targetScenario, (error, result) =>{
             if (!error) {            
                 for (let index = 0; index < result.length; index++) {
                     dataFridge.push(result[index]);
