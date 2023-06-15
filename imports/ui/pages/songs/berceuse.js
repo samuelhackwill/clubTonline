@@ -101,7 +101,7 @@ berceuse_startAnimation = function() {
 
 	v.options = {
 		iterations: 1,
-		fill: "none",
+		fill: "both",
 		duration: a.DURATION,
 		easing: "linear",
 	};
@@ -147,7 +147,7 @@ berceuse_startAnimation = function() {
 	}).then(() => {
 		return new Promise(function(resolve, reject) {
 			setTimeout(() => {
-				document.querySelector("main").classList.add("visible");
+				// document.querySelector("main").classList.add("visible");
 				boucleDefilement(v);
 				document.getElementById("instru").play();
 				resolve("BOUCLE");
