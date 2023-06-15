@@ -20,23 +20,17 @@ FlowRouter.route("/", {
   },
 });
 
-FlowRouter.route("/berceuse", {
-  name: "berceuse",
-  action() {
-    this.render("berceuse");
-  },
-});
+FlowRouter.route('/song/:_uuid/', {
+  name: 'song',
+  action(params) {
+    // All passed parameters is available as Object:
+    console.log(params);
+    // { _id: 'article_id', slug: 'article-slug' }
 
-FlowRouter.route("/karaoke", {
-  name: "karaoke",
-  action() {
-    this.render("karaoke");
+    // Pass params to Template's context
+    // this.render('article', params);
   },
-});
-
-FlowRouter.route("/lettre", {
-  name: "lettre",
-  action() {
-    this.render("lettre");
-  },
+  waitOn(params) {
+    // return Meteor.subscribe('article', params._id);
+  }
 });
