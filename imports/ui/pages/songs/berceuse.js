@@ -18,18 +18,6 @@ Template.berceuse.onRendered(function() {
 })
 
 // FONCTIONS --------------------------------------------------
-fermePorte = function() {
-	// console.log("PORTE");
-	document.getElementById("porte").classList.add("fermed");
-
-	return "Porte fermée";
-}
-
-eteintLumiere = function() {
-	// console.log("LUMIERE");
-	document.querySelector("main").classList.add("nuit");
-}
-
 defilementTexte = function(v, phrases, i) {
 	phrases.right[i].animate(v.keyframes, v.options);
 	phrases.center[i].animate(v.keyframesCentre, v.optionsCenter);
@@ -102,7 +90,7 @@ berceuse_startAnimation = function() {
 
 	v.options = {
 		iterations: 1,
-		fill: "none",
+		fill: "both",
 		duration: a.DURATION,
 		easing: "linear",
 	};
@@ -132,7 +120,7 @@ berceuse_startAnimation = function() {
 
 	const prom = new Promise(function(resolve, reject) {
 		setTimeout(() => {
-			eteintLumiere();
+			document.querySelector("main").classList.toggle("nuit");
 			resolve("LUMIÈRE");
 		}, 1000);
 	})
@@ -140,7 +128,7 @@ berceuse_startAnimation = function() {
 	prom.then(() => {
 		return new Promise(function(resolve, reject) {
 			setTimeout(() => {
-				fermePorte();
+				document.getElementById("porte").classList.add("fermed");
 				resolve("PORTE");
 			}, 2000);
 		})
@@ -148,7 +136,7 @@ berceuse_startAnimation = function() {
 	}).then(() => {
 		return new Promise(function(resolve, reject) {
 			setTimeout(() => {
-				document.querySelector("main").classList.add("visible");
+				// document.querySelector("main").classList.add("visible");
 				boucleDefilement(v);
 				document.getElementById("instru").play();
 				resolve("BOUCLE");
