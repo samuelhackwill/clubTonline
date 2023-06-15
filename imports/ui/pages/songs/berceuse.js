@@ -19,47 +19,57 @@ Template.berceuse.onRendered(function() {
 
 // FONCTIONS --------------------------------------------------
 fermePorte = function() {
-	console.log("PORTE");
+	// console.log("PORTE");
 	document.getElementById("porte").classList.add("fermed");
+
+	return "Porte fermée";
 }
 
 eteintLumiere = function() {
-	console.log("LUMIERE");
+	// console.log("LUMIERE");
 	document.querySelector("main").classList.add("nuit");
 }
 
-defilementTexte = function(v, i) {
-
-	console.log(v.right.querySelectorAll("p[class^=para]")[i], i);
-
-	// v.right.querySelectorAll("p[class^=para]")[i].animate(v.keyframes, v.options);
-	// v.center.querySelectorAll("p[class^=para]")[i].animate(v.keyframesCentre, v.optionsCenter);
-	// v.left.querySelectorAll("p[class^=para]")[i].animate(v.keyframes, v.optionsLeft);
+defilementTexte = function(v, phrases, i) {
+	phrases.right[i].animate(v.keyframes, v.options);
+	phrases.center[i].animate(v.keyframesCentre, v.optionsCenter);
+	phrases.left[i].animate(v.keyframes, v.optionsLeft);
 
 	// PROMISE ANIMATION ONFINISHED (éventuellement)
 	// Promise.all(elem.getAnimations().map((animation) => animation.finished)).then(
 	//   () => elem.remove()
 	// );
 
+	console.log(i);
+
+	return Promise.all(phrases.right[i].getAnimations().map((animation) => animation.finished))
 }
 
 boucleDefilement = function(v) {
 	console.log("DEFILEMENT");
 
 	const phrases = {
-		right : v.right.querySelectorAll("p[class^=para]"),
-		center : v.center.querySelectorAll("p[class^=para]"),
-		left : v.left.querySelectorAll("p[class^=para]")
+		right: v.right.querySelectorAll("p[class^=para]"),
+		center: v.center.querySelectorAll("p[class^=para]"),
+		left: v.left.querySelectorAll("p[class^=para]")
 	}
 
-	for (let i; i < phrases.right.length; i++) {
-		setTimeout(() => { defilementTexte(v, i); }, 1000 * i);
-	}
+	defilementTexte(v, phrases, 0)
+		.then(anim => defilementTexte(v, phrases, 1))
+		.then(anim => defilementTexte(v, phrases, 2))
+		.then(anim => defilementTexte(v, phrases, 3))
+		.then(anim => defilementTexte(v, phrases, 4))
+		.then(anim => defilementTexte(v, phrases, 5))
+		.then(anim => defilementTexte(v, phrases, 6))
+		.then(anim => defilementTexte(v, phrases, 0))
+		.then(anim => {
+			instru.pause();
+		})
+		.catch(e => console.error(e, "J'ai déconné j'aurais pas dû"));
 
 }
 
 berceuse_startAnimation = function() {
-
 	// CALCULS DES TIMINGS --------------------------------------------------
 	let a = {};
 
@@ -92,7 +102,7 @@ berceuse_startAnimation = function() {
 
 	v.options = {
 		iterations: 1,
-		fill: "backwards",
+		fill: "none",
 		duration: a.DURATION,
 		easing: "linear",
 	};
@@ -120,25 +130,31 @@ berceuse_startAnimation = function() {
 
 	document.getElementById("ceparti").style.display = "none";
 
-	setTimeout(eteintLumiere, 1000);
-	setTimeout(fermePorte, 3000);
+	const prom = new Promise(function(resolve, reject) {
+		setTimeout(() => {
+			eteintLumiere();
+			resolve("LUMIÈRE");
+		}, 1000);
+	})
 
-	setTimeout(() => {
-		document.querySelector("main").classList.add("visible");
+	prom.then(() => {
+		return new Promise(function(resolve, reject) {
+			setTimeout(() => {
+				fermePorte();
+				resolve("PORTE");
+			}, 2000);
+		})
 
-		boucleDefilement(v);
+	}).then(() => {
+		return new Promise(function(resolve, reject) {
+			setTimeout(() => {
+				document.querySelector("main").classList.add("visible");
+				boucleDefilement(v);
+				document.getElementById("instru").play();
+				resolve("BOUCLE");
+			}, 1000);
+		})
 
-		a
-	}, 5000);
-
-	// lancer la musique aussi
-	setTimeout(() => {
-		document.getElementsById("instru").play();
-	}, 5000);
-
-	// 	const alors = setInterval(
-	// 		defilementTexte,
-	// 		delayCentre + delayCote + DURATION + 1000
-	// 	);
+	}).catch(err => console.log("OUPSI", err))
 
 }

@@ -163,34 +163,65 @@ main {
 #berceuse .text-wrapper {
   height: 100%;
   position: absolute;
+
   left: 100%;
+  /* left: 0; */
+
   width: max-content;
   will-change: transform;
 
   border: solid green 2px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  padding: 3rem 0;
+  line-height: .3;
 }
 
 #berceuse p {
-  border: solid lime 3px;
   color: var(--glow);
-  font-size: 4em;
+  font-size: calc(100vh / 7);
   white-space: nowrap;
   position: relative;
-  text-align: right;
+  text-align: left;
   opacity: 1;
   will-change: transform;
+  width: fit-content;
+
+  /* border: solid lime 3px; */
 }
 
-p:nth-of-type(2n) {
-  top: 1em;
+.short:nth-of-type(2n) {
+  padding-left: 40%;
 }
 
-p:nth-of-type(3n) {
-  top: 3em;
+.para1 {
+  grid-row:  3 / 3;
 }
 
-p:nth-of-type(5n) {
-  top: 6rem;
+.para2 {
+  grid-row:  1 / 1;
+}
+
+.para3 {
+  grid-row:  2 / 2;
+}
+
+.para4 {
+  grid-row:  4 / 4;
+}
+
+.para5 {
+  grid-row:  7 / 7;
+}
+
+.para6 {
+  grid-row:  5 / 5;
+}
+
+.para7 {
+  grid-row:  6 / 6;
 }
 
 .visible p,
