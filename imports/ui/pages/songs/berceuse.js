@@ -72,6 +72,9 @@ berceuse_startAnimation = function() {
 	// CALCULS DES TIMINGS --------------------------------------------------
 	let a = {};
 
+	// CALCULS DES TIMINGS --------------------------------------------------
+	let a = {};
+
 	a.profondeurPiece = parseFloat(
 		window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
 	);
@@ -101,7 +104,7 @@ berceuse_startAnimation = function() {
 
 	v.options = {
 		iterations: 1,
-		fill: "both",
+		fill: "backwards",
 		duration: a.DURATION,
 		easing: "linear",
 	};
