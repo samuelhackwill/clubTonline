@@ -20,6 +20,8 @@ Template.dataBubble.onCreated(function(){
             break;
         }
 
+        Meteor.subscribe('answers', {scenario : _targetScenario});
+        Answers = new Mongo.Collection('answers');
 
         switch (savedAnswers.get("qcmForm.tutoie")) {
             case "le vouvoiement c'est bien":
@@ -33,7 +35,6 @@ Template.dataBubble.onCreated(function(){
             default:
                 break;
         }
-
 
         Meteor.call("getScenario", _targetScenario, (error, result) =>{
             if (!error) {            
@@ -78,5 +79,8 @@ Template.dataBubble.helpers({
                 return "chargement ..."
             }
         }
+    },
+    getRandomAnswer(){
+        return Answers.findOne({question:this.name}).answer
     }
   })

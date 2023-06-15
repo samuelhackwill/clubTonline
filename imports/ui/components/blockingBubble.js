@@ -1,7 +1,7 @@
 import "./blockingBubble.html";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-import { feedIndex, savedAnswers, state } from "../layouts/feed.js";
+import { allAnswers, feedIndex, savedAnswers, state } from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
   isPlay() {
@@ -105,6 +105,12 @@ Template.blockingBubble.events({
       console.log(error, result)
     }) 
 
+    _scenario = _targetScenario.replace(/\_.+/i, "");
+
+    Meteor.call("insertAnswers", allAnswers.get(), _scenario, (error, result) =>{
+      console.log(error, result)
+    }) 
+
     event.target.classList.remove("bg-purple-500", "text-white", "hover:bg-purple-400")
     event.target.classList.add("bg-green-500", "text-black", "pointer-events-none")
     event.target.innerHTML = "chargement ..."
@@ -188,6 +194,12 @@ Template.blockingBubble.events({
     if (event.target.parentElement.parentElement.dataset.save) {
       savedAnswers.set(event.target.parentElement.parentElement.dataset.name, input) 
     }
+
+    // and we also need to keep all answers to populate the database at 
+    // the end of the experience.
+    _allAnswers = allAnswers.get()
+    _allAnswers.push({name:event.target.parentElement.parentElement.dataset.name, answer : input})
+    allAnswers.set(_allAnswers)
 
     state.set("gettingMoreElements");
     addNextItem();

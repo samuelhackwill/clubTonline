@@ -9,6 +9,7 @@ import { ReactiveDict } from 'meteor/reactive-dict'
 dataFeed = new ReactiveVar();
 dataFridge = []
 export const savedAnswers = new ReactiveDict();
+export const allAnswers = new ReactiveVar([]);
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
 _targetScenario = ""
