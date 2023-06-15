@@ -34,14 +34,6 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  isCardAnswered(){
-    if(this.name != undefined && this.name.startsWith("qcm") && this.answered != undefined){
-      console.log(true)
-    }else{
-      console.log(false)
-    }
-    return;
-  },
   getQcmOptions() {
     if (this.qcmOptions == undefined) {
       return;

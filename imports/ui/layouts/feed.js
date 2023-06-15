@@ -5,7 +5,7 @@ import "../components/blockingBubble.js";
 import "../components/dataBubble.js";
 
 dataFeed = new ReactiveVar();
-const dataFridge = new ReactiveVar();
+let dataFridge = []
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
 
@@ -42,7 +42,7 @@ Template.feed.events({
 
 Template.feed.onRendered(function () {
   // the data fridge contains all the data necessary for the game (cards, text, etc).
-  dataFridge.set(this.data);
+  dataFridge = this.data;
 
   // initiate the first bubbles here!
   setTimeout(() => {
@@ -68,7 +68,7 @@ addNextItem = function () {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
-  let nextItem = dataFridge.get()[tempFeedIndex];
+  let nextItem = dataFridge[tempFeedIndex];
 
   if (nextItem == undefined) {
     state.set("finished");

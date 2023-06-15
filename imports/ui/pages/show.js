@@ -16,11 +16,6 @@ const whateverData = [
     text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
   },  
   {
-    type: "---BB---",
-    name: "end",
-    label: "conclure"
-  },
-  {
     type: "SB",
     text: "Nous n’allons pas nous voir, ni nous entendre, simplement nous parler. Installez-vous confortablement et si possible ouvrez cette page sur un ordinateur",
   },
@@ -35,8 +30,7 @@ const whateverData = [
       "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
     qcmOptions: [
       "le vouvoiement c'est bien",
-      "call me tu",
-      "tiens et pourquoi pas les deux?",
+      "call me tu"
     ],
   },
   { type: "SB", text: "Ok c'est bien noté." },
@@ -50,6 +44,7 @@ const whateverData = [
       "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi",
     ],
   },
+  { type: "SB", text: "Ok c'est bien noté." },
   {
     type: "---BB---",
     name: "card.test1",
@@ -75,17 +70,19 @@ const whateverData = [
   { type: "---BB---", name: "play", label: "ah bon?" },
   { type: "SB", text: "oui." },
   { type: "SB", name: "sticker" },
-  { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
-  { type: "SB", text: "Qui que vous soyez, vous êtes la bonne personne." },
   {
     type: "SB",
-    text: "Et nous aussi, derrière votre écran, nous sommes la bonne personne.",
+    text: "bon ben maintenant on va aller voir la chanson.",
   },
   {
     type: "SB",
-    text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
+    text: "ready or not here we come",
   },
-
+  {
+    type: "---BB---",
+    name: "end",
+    label: "conclure"
+  }
 ];
 
 Template.show.helpers({

@@ -7,3 +7,14 @@ Template.dataBubble.onCreated(function(){
         //   this.subscribe('todos.inList');
     });
   })
+
+Template.dataBubble.helpers({
+    isSpy(){
+        if (this.answered == true) {
+            return true
+        }else{
+            return false
+        }
+    }
+
+  })
