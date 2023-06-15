@@ -5,7 +5,7 @@ import "../components/blockingBubble.js";
 import "../components/dataBubble.js";
 
 dataFeed = new ReactiveVar();
-let dataFridge = []
+dataFridge = []
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
 
@@ -98,8 +98,6 @@ addData = function (obj) {
 };
 
 addForm = function (data) {
-  console.log(data)
-
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
@@ -157,6 +155,5 @@ getRandomQuestion = function(_name){
 
 stabilizeHeight = function(obj){
   domObj = document.getElementById(obj.name)
-  console.log(domObj)
   obj.minHeight = domObj.offsetHeight
 }

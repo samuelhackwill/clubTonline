@@ -1,19 +1,26 @@
 import "./dataBubble.html";
 
 Template.dataBubble.onCreated(function(){  
-    if (this.data?.name == "fillTheFridge") {
-        console.log("get scenario!")
-        // Meteor.call("getScenario", "sc.berceuse.tu", (error, result) =>{
-        //     console.log(error, result)
-        //   })       
+    this.loaded = new ReactiveVar(null);
 
+    if (this.data.name == "fillTheFridge") {
+        Meteor.call("getScenario", "sc1.tu", (error, result) =>{
+            if (!error) {            
+                for (let index = 0; index < result.length; index++) {
+                    dataFridge.push(result[index]);
+                }
+                this.loaded.set(true)
+                addNextItem()
+
+            }else{
+                
+                this.loaded.set(false)
+            }
+
+        })
     }
-    this.autorun(() => {
-        // maybe ONLY subscribe to answers in the proper scenario to avoid also subscribing to all the documents qui concernent d'autres questions?
-
-        //   this.subscribe('todos.inList');
-    });
-  })
+    
+})  
 
 Template.dataBubble.helpers({
     isSpy(){
@@ -28,6 +35,17 @@ Template.dataBubble.helpers({
             return true
         }else{
             return false
+        }
+    },
+    isLoading(){
+        if (Template.instance().loaded.get() == false) {
+            return "il y a eu une erreur pendant le chargement :("
+        }else{
+            if (Template.instance().loaded.get() == true) {
+                return "ok, c'est noté!"
+            }else{
+                return "chargement ..."
+            }
         }
     }
   })
