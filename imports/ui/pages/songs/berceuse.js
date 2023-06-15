@@ -72,9 +72,6 @@ berceuse_startAnimation = function() {
 	// CALCULS DES TIMINGS --------------------------------------------------
 	let a = {};
 
-	// CALCULS DES TIMINGS --------------------------------------------------
-	let a = {};
-
 	a.profondeurPiece = parseFloat(
 		window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
 	);
@@ -104,7 +101,7 @@ berceuse_startAnimation = function() {
 
 	v.options = {
 		iterations: 1,
-		fill: "backwards",
+		fill: "none",
 		duration: a.DURATION,
 		easing: "linear",
 	};
@@ -150,7 +147,7 @@ berceuse_startAnimation = function() {
 	}).then(() => {
 		return new Promise(function(resolve, reject) {
 			setTimeout(() => {
-				// document.querySelector("main").classList.add("visible");
+				document.querySelector("main").classList.add("visible");
 				boucleDefilement(v);
 				document.getElementById("instru").play();
 				resolve("BOUCLE");
