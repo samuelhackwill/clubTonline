@@ -14,6 +14,13 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
+  isFillTheFridge(){
+    if (this.name == "fillTheFridge") {
+        return true
+    }else{
+        return false
+    }
+  },
   isCard() {
     // card names can be something like that : "card.something" or "qcm.tutoiement". But also, some feed elements have a name like "qcmForm.tutoiement", so we need to tell the helper not to select these form elements.
     if (

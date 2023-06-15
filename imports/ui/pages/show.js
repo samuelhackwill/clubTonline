@@ -3,6 +3,7 @@ import "../layouts/feed.js";
 
 // "SB" : static bubble. required attr : "text"
 // "---BB---" : blocking bubble. optionnal attrs : "name"(qcm.<name>/card.<name>), "label", "qcmOptions"
+// data bubbles are a sub-category of blocking bubbles. i guess
 
 const whateverData = [
   { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
@@ -33,6 +34,14 @@ const whateverData = [
       "call me tu"
     ],
   },
+  {
+    type: "---BB---",
+    name: "card.test1",
+    size: "s",
+    label:
+      "Tiens et regardez voir ça c'est une question petite pour voir à quoi ça ressemble.",
+  },
+
   { type: "SB", text: "Ok c'est bien noté." },
   {
     type: "---BB---",
@@ -44,7 +53,11 @@ const whateverData = [
       "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi",
     ],
   },
-  { type: "SB", text: "Ok c'est bien noté." },
+  {
+    type: "---BB---",
+    name: "fillTheFridge",
+    label: "chargement..."
+  },
   {
     type: "---BB---",
     name: "card.test1",
