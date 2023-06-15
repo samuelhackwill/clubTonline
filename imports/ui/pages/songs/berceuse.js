@@ -13,6 +13,7 @@ Template.berceuse.onCreated(function() {
 })
 
 Template.berceuse.onRendered(function() {
+	this.test = "coucou je teste les scopes";
 
 })
 
@@ -28,90 +29,112 @@ eteintLumiere = function() {
 }
 
 defilementTexte = function(v, i) {
+
+	console.log(v.right.querySelectorAll("p[class^=para]")[i], i);
+
+	// v.right.querySelectorAll("p[class^=para]")[i].animate(v.keyframes, v.options);
+	// v.center.querySelectorAll("p[class^=para]")[i].animate(v.keyframesCentre, v.optionsCenter);
+	// v.left.querySelectorAll("p[class^=para]")[i].animate(v.keyframes, v.optionsLeft);
+
+	// PROMISE ANIMATION ONFINISHED (éventuellement)
+	// Promise.all(elem.getAnimations().map((animation) => animation.finished)).then(
+	//   () => elem.remove()
+	// );
+
+}
+
+boucleDefilement = function(v) {
 	console.log("DEFILEMENT");
 
-	document.querySelectorAll("#right .text-wrapper p")[i].animate(v.keyframes, v.options);
-	document
-		.querySelectorAll("#center .text-wrapper p")[i]
-		.animate(v.keyframesCentre, v.optionsCenter);
-	document.querySelectorAll("#left .text-wrapper p")[i].animate(v.keyframes, v.optionsLeft);
+	const phrases = {
+		right : v.right.querySelectorAll("p[class^=para]"),
+		center : v.center.querySelectorAll("p[class^=para]"),
+		left : v.left.querySelectorAll("p[class^=para]")
+	}
+
+	for (let i; i < phrases.right.length; i++) {
+		setTimeout(() => { defilementTexte(v, i); }, 1000 * i);
+	}
 
 }
 
 berceuse_startAnimation = function() {
 
-		// CALCULS DES TIMINGS --------------------------------------------------
-		let a = {};
+	// CALCULS DES TIMINGS --------------------------------------------------
+	let a = {};
 
-		a.profondeurPiece = parseFloat(
-			window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
-		);
+	a.profondeurPiece = parseFloat(
+		window.getComputedStyle(document.body).getPropertyValue("--profondeur-piece")
+	);
 
-		a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
+	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
-		// Duration in seconds
-		a.DURATION = 1000 * 5; // secondes
+	// Duration in seconds
+	a.DURATION = 1000 * 5; // secondes
 
-		a.BANDEAU = document.querySelector("#left .text-wrapper");
-		a.bandeauWidth = parseFloat(
-			getComputedStyle(a.BANDEAU).getPropertyValue("width")
-		);
+	a.BANDEAU = document.querySelector("#left .text-wrapper");
+	a.bandeauWidth = parseFloat(
+		getComputedStyle(a.BANDEAU).getPropertyValue("width")
+	);
 
-		a.distanceCote = a.profondeurPiece * a.vw1 + a.bandeauWidth;
-		a.distanceCentre = 100 * a.vw1 + a.bandeauWidth;
-		a.durationCentre = (a.distanceCentre * a.DURATION) / a.distanceCote;
-		a.VITESSE = a.distanceCote / a.DURATION; // En pixels par seconde
-		a.delayCentre = (a.profondeurPiece * a.vw1) / a.VITESSE;
-		a.delayCote = (100 * a.vw1) / a.VITESSE;
+	a.distanceCote = a.profondeurPiece * a.vw1 + a.bandeauWidth;
+	a.distanceCentre = 100 * a.vw1 + a.bandeauWidth;
+	a.durationCentre = (a.distanceCentre * a.DURATION) / a.distanceCote;
+	a.VITESSE = a.distanceCote / a.DURATION; // En pixels par seconde
+	a.delayCentre = (a.profondeurPiece * a.vw1) / a.VITESSE;
+	a.delayCote = (100 * a.vw1) / a.VITESSE;
 
-		// console.dir(a);
+	let v = {
+		left: document.getElementById("left"),
+		center: document.getElementById("center"),
+		right: document.getElementById("right")
+	}
 
-		let v = {
-			right: document.getElementById("right"),
-			left: document.getElementById("left"),
-			center: document.getElementById("center")
-		}
+	v.options = {
+		iterations: 1,
+		fill: "backwards",
+		duration: a.DURATION,
+		easing: "linear",
+	};
 
-		v.options = {
-			iterations: 1,
-			fill: "both",
-			duration: a.DURATION,
-			easing: "linear",
-		};
+	v.optionsCenter = JSON.parse(JSON.stringify(v.options));
+	v.optionsCenter.delay = a.delayCentre;
+	v.optionsCenter.duration = a.durationCentre;
 
-		v.optionsCenter = JSON.parse(JSON.stringify(v.options));
-		v.optionsCenter.delay = a.delayCentre;
-		v.optionsCenter.duration = a.durationCentre;
+	v.optionsLeft = JSON.parse(JSON.stringify(v.options));
+	v.optionsLeft.delay = a.delayCentre + a.delayCote;
 
-		v.optionsLeft = JSON.parse(JSON.stringify(v.options));
-		v.optionsLeft.delay = a.delayCentre + a.delayCote;
+	v.keyframes = [
+		{ transform: "translate3d(0, 0, 0)", opacity: 0 },
+		{ opacity: 1, offset: 0.01 },
+		{ opacity: 1, offset: 0.99 },
+		{ transform: `translate3d(-${a.distanceCote}px, 0, 0)`, opacity: 0 },
+	];
 
-		v.keyframes = [
-			{ transform: "translate3d(0, 0, 0)", opacity: 0 },
-			{ opacity: 1, offset: 0.01 },
-			{ opacity: 1, offset: 0.99 },
-			{ transform: `translate3d(-${a.distanceCote}px, 0, 0)`, opacity: 0 },
-		];
-
-		v.keyframesCentre = [
-			{ transform: "translate3d(0, 0, 0)", opacity: 0 },
-			{ opacity: 1, offset: 0.01 },
-			{ opacity: 1, offset: 0.99 },
-			{ transform: `translate3d(-${a.distanceCentre}px, 0, 0)`, opacity: 0 },
-		];
+	v.keyframesCentre = [
+		{ transform: "translate3d(0, 0, 0)", opacity: 0 },
+		{ opacity: 1, offset: 0.01 },
+		{ opacity: 1, offset: 0.99 },
+		{ transform: `translate3d(-${a.distanceCentre}px, 0, 0)`, opacity: 0 },
+	];
 
 	document.getElementById("ceparti").style.display = "none";
 
-	// setTimeout(eteintLumiere, 1000);
-	// setTimeout(fermePorte, 3000);
+	setTimeout(eteintLumiere, 1000);
+	setTimeout(fermePorte, 3000);
 
 	setTimeout(() => {
 		document.querySelector("main").classList.add("visible");
-		defilementTexte(v, 3);
-	}, 500);
+
+		boucleDefilement(v);
+
+		a
+	}, 5000);
 
 	// lancer la musique aussi
-	// setTimeout(musique, 5000);
+	setTimeout(() => {
+		document.getElementsById("instru").play();
+	}, 5000);
 
 	// 	const alors = setInterval(
 	// 		defilementTexte,
