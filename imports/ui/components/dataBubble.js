@@ -4,17 +4,30 @@ import "./dataBubble.html";
 Template.dataBubble.onCreated(function(){  
     this.loaded = new ReactiveVar(null);
 
-    _targetScenario = ""
-
     if (this.data.name == "fillTheFridge") {
+
+        switch (savedAnswers.get("qcmForm.humeur")) {
+            case "d’humeur à vraiment crier sur les toits avec un mégaphone":
+                _targetScenario = _targetScenario + "rap"
+                break;
+
+            case "plutôt d’humeur à la douceur et à aller me promener en forêt sans prévoir d’heure de retour ?":
+                _targetScenario = _targetScenario + "berceuse"
+                break;
+
+            case "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi":
+            _targetScenario = _targetScenario + "lettre"
+            break;
+        }
+
 
         switch (savedAnswers.get("qcmForm.tutoie")) {
             case "le vouvoiement c'est bien":
-                _targetScenario = "sc1_vous"
+                _targetScenario = _targetScenario + "_vous"
                 break;
 
             case "call me tu":
-                _targetScenario = "sc1_tu"
+                _targetScenario = _targetScenario + "_tu"
                 break;
         
             default:

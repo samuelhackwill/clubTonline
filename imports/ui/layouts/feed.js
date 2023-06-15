@@ -11,6 +11,8 @@ dataFridge = []
 export const savedAnswers = new ReactiveDict();
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
+_targetScenario = ""
+
 
 // data : the feed doesn't need to subscribe to answers, but the blocking bubbles do.
 // the feed needs to subscribe to scenarios.

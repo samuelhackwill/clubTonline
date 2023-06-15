@@ -98,15 +98,15 @@ Template.blockingBubble.events({
   "click .end"(event){
     this._songUUID = crypto.randomUUID()
     data = {}
-    data.answers = {"phrase1":"pipi", "phrase2":"popo"}
-    data.scenario = "berceuse"
+    data.answers = savedAnswers.all()
+    data.scenario = savedAnswers.get("qcmForm.humeur")
 
     Meteor.call("makeSong", this._songUUID, data, (error, result) =>{
       console.log(error, result)
     }) 
 
-    event.target.classList.remove("bg-purple-400", "text-white", "hover:bg-purple-400")
-    event.target.classList.add("bg-green-400", "text-black", "pointer-events-none")
+    event.target.classList.remove("bg-purple-500", "text-white", "hover:bg-purple-400")
+    event.target.classList.add("bg-green-500", "text-black", "pointer-events-none")
     event.target.innerHTML = "chargement ..."
 
     setTimeout(() => {
