@@ -81,6 +81,7 @@ Template.dataBubble.helpers({
         }
     },
     getRandomAnswer(){
+        console.log(Answers.find({}).fetch())
         return Answers.findOne({question:this.name}).answer
     }
   })
