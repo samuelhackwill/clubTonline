@@ -157,11 +157,11 @@ main {
   width: max-content;
   will-change: transform;
 
-  border: solid green 2px;
+  /* border: solid green 2px; */
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 1fr);
   padding: 3rem 0;
   line-height: .3;
 }
@@ -177,7 +177,7 @@ main {
   width: fit-content;
 
   opacity: 0;
-  border: solid lime 3px;
+  /* border: solid lime 3px; */
 }
 
 .short:nth-of-type(2n) {
@@ -226,32 +226,33 @@ main {
 }
 
 .para2 {
-  grid-row:  1 / 1;
-}
-
-.para3 {
   grid-row:  2 / 2;
 }
 
+.para3 {
+  grid-row:  3 / 3;
+}
+
 .para4 {
-  grid-row:  4 / 4;
-}
-
-.para5 {
-  grid-row:  7 / 7;
-}
-
-.para6 {
   grid-row:  5 / 5;
 }
 
-.para7 {
+.para5 {
+  grid-row:  8 / 8;
+}
+
+.para6 {
   grid-row:  6 / 6;
 }
 
-.text-wrapper span {
-  position: absolute;
+.para7 {
+  grid-row:  7 / 7;
 }
+
+.text-wrapper span {
+  display: none;
+}
+
 /* -------------------- NUIT -------------------- */
 #berceuse.nuit {
   background: var(--couleur-nuit);
@@ -368,7 +369,7 @@ section button {
   opacity: 1;
   cursor: pointer;
 
-  display: none;
+  /* display: none; */
 }
 
 @media screen and (max-width: 648px) {
