@@ -120,7 +120,7 @@ Template.blockingBubble.events({
     }, 500);
 
     setTimeout(() => {
-      FlowRouter.go('song', { _uuid: this._songUUID });
+      FlowRouter.go('song', { _uuid: this._songUUID}, {scenario : "berceuse" });
     }, 1000);
 
   },

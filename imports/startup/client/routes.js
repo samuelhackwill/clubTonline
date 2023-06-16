@@ -22,15 +22,14 @@ FlowRouter.route("/", {
 
 FlowRouter.route('/song/:_uuid/', {
   name: 'song',
-  action(params) {
+  action(params, queryParams) {
     // All passed parameters is available as Object:
-    console.log(params);
+    console.log(params, queryParams);
     // { _id: 'article_id', slug: 'article-slug' }
 
     // Pass params to Template's context
-    // this.render('article', params);
   },
-  waitOn(params) {
-    // return Meteor.subscribe('article', params._id);
+  waitOn(params, queryParams) {
+    this.render(queryParams.scenario);
   }
 });
