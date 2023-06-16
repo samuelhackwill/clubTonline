@@ -76,7 +76,7 @@ lettre_startAnimation = function() {
     const lol = document.getElementById("ceparti");
     lol.style.opacity = "0";
 
-    const delay = 40;
+    const delay = 30;
     setTimeout(() => { lol.style.display = "none" }, delay);
 
 

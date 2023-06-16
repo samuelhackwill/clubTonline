@@ -79,7 +79,7 @@ berceuse_startAnimation = function() {
 	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
 	// Duration in seconds
-	a.DURATION = 1000 * 5; // secondes
+	a.DURATION = 1000 * 15; // secondes
 
 	a.BANDEAU = document.querySelector("#left .text-wrapper");
 	a.bandeauWidth = parseFloat(
