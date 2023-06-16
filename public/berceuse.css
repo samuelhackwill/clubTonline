@@ -409,7 +409,8 @@ section button {
   padding: 0.2em 0.5em;
 }
 
-#ceparti {
+#ceparti,
+.retour-maison {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -421,6 +422,10 @@ section button {
   cursor: pointer;
 
   /* display: none; */
+}
+
+.retour-maison {
+  display: none;
 }
 
 @media screen and (max-width: 648px) {

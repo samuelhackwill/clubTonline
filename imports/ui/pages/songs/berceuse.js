@@ -63,6 +63,9 @@ boucleDefilement = function(v) {
 		.then(anim => defilementTexte(v, phrases, 0))
 		.then(anim => {
 			instru.pause();
+			// afficher bouton retour
+			document.querySelector(".retour-maison").style.display = "block";
+
 		})
 		.catch(e => console.error(e, "J'ai déconné j'aurais pas dû"));
 
@@ -79,7 +82,7 @@ berceuse_startAnimation = function() {
 	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
 	// Duration in seconds
-	a.DURATION = 1000 * 15; // secondes
+	a.DURATION = 1000 * 1; // secondes
 
 	a.BANDEAU = document.querySelector("#left .text-wrapper");
 	a.bandeauWidth = parseFloat(
