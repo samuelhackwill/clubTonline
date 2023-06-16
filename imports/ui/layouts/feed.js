@@ -4,10 +4,16 @@ import "../components/staticBubble.js";
 import "../components/blockingBubble.js";
 import "../components/dataBubble.js";
 
+import { ReactiveDict } from 'meteor/reactive-dict'
+
 dataFeed = new ReactiveVar();
-const dataFridge = new ReactiveVar();
+dataFridge = []
+export const savedAnswers = new ReactiveDict();
+export const allAnswers = new ReactiveVar([]);
 export const state = new ReactiveVar("gettingMoreElements");
 export let feedIndex = new ReactiveVar(0);
+_targetScenario = ""
+
 
 // data : the feed doesn't need to subscribe to answers, but the blocking bubbles do.
 // the feed needs to subscribe to scenarios.
@@ -42,7 +48,7 @@ Template.feed.events({
 
 Template.feed.onRendered(function () {
   // the data fridge contains all the data necessary for the game (cards, text, etc).
-  dataFridge.set(this.data);
+  dataFridge = this.data;
 
   // initiate the first bubbles here!
   setTimeout(() => {
@@ -68,7 +74,7 @@ addNextItem = function () {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
-  let nextItem = dataFridge.get()[tempFeedIndex];
+  let nextItem = dataFridge[tempFeedIndex];
 
   if (nextItem == undefined) {
     state.set("finished");
@@ -97,9 +103,7 @@ addData = function (obj) {
   dataFeed.set(tempFeed);
 };
 
-addForm = function (data) {
-  console.log(data)
-
+addForm = function (data, _save) {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
@@ -107,13 +111,14 @@ addForm = function (data) {
 
   _name = data.name.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize };
+  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize, save:_save};
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
 
-addQcm = function (data) {
+addQcm = function (data, _save) {
+  console.log(data)
   _name = data.name
   
   tempQcmOpts = [];
@@ -133,6 +138,7 @@ addQcm = function (data) {
     type: "---BB---",
     name: "qcmForm." + __name,
     qcmOptions: tempQcmOpts,
+    save: _save
   };
 
   tempFeed.push(nextItem);
@@ -157,6 +163,5 @@ getRandomQuestion = function(_name){
 
 stabilizeHeight = function(obj){
   domObj = document.getElementById(obj.name)
-  console.log(domObj)
   obj.minHeight = domObj.offsetHeight
 }

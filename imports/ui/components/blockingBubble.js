@@ -1,11 +1,24 @@
 import "./blockingBubble.html";
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-import { feedIndex, state } from "../layouts/feed.js";
+import { allAnswers, feedIndex, savedAnswers, state } from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
   isPlay() {
     if (this.name != undefined && this.name.startsWith("play")) {
       return true;
+    }
+  },
+  isEnd() {
+    if (this.name != undefined && this.name.startsWith("end")) {
+      return true;
+    }
+  },
+  isFillTheFridge(){
+    if (this.name == "fillTheFridge") {
+        return true
+    }else{
+        return false
     }
   },
   isCard() {
@@ -17,14 +30,6 @@ Template.blockingBubble.helpers({
     ) {
       return true;
     }
-  },
-  isCardAnswered(){
-    if(this.name != undefined && this.name.startsWith("qcm") && this.answered != undefined){
-      console.log(true)
-    }else{
-      console.log(false)
-    }
-    return;
   },
   isForm() {
     if (this.name != undefined && this.name.startsWith("form")) {
@@ -73,7 +78,7 @@ Template.blockingBubble.helpers({
         return "340";
       }
     }
-  }
+  },
 });
 
 Template.blockingBubble.events({
@@ -90,6 +95,36 @@ Template.blockingBubble.events({
     return;
   },
 
+  "click .end"(event){
+    this._songUUID = crypto.randomUUID()
+    data = {}
+    data.answers = savedAnswers.all()
+    data.scenario = savedAnswers.get("qcmForm.humeur")
+
+    Meteor.call("makeSong", this._songUUID, data, (error, result) =>{
+      console.log(error, result)
+    }) 
+
+    _scenario = _targetScenario.replace(/\_.+/i, "");
+
+    Meteor.call("insertAnswers", allAnswers.get(), _scenario, (error, result) =>{
+      console.log(error, result)
+    }) 
+
+    event.target.classList.remove("bg-purple-500", "text-white", "hover:bg-purple-400")
+    event.target.classList.add("bg-green-500", "text-black", "pointer-events-none")
+    event.target.innerHTML = "chargement ..."
+
+    setTimeout(() => {
+      document.getElementById("feed").classList.add("opacity-0")
+    }, 500);
+
+    setTimeout(() => {
+      FlowRouter.go('song', { _uuid: this._songUUID });
+    }, 1000);
+
+  },
+
   "click .qcmOption"(event) {
     allButtons = event.target.parentElement.children;
     for (let index = 0; index < allButtons.length; index++) {
@@ -98,6 +133,12 @@ Template.blockingBubble.events({
     }
     event.target.classList.add("bg-purple-200", "text-black");
     event.target.classList.remove("text-white");
+
+    // we need to put some answers on the side for consumption by the songs template.
+    // we could have made a db query also but storing the data locally is faster.
+    if (event.target.parentElement.dataset.save) {
+      savedAnswers.set(event.target.parentElement.dataset.name, event.target.innerHTML.trim()) 
+    }
 
     state.set("gettingMoreElements");
     addNextItem();
@@ -111,19 +152,21 @@ Template.blockingBubble.events({
     );
     event.target.classList.add("opacity-0");
 
+    save = event.target.dataset.save
+
     if (event.target.dataset.name.startsWith("qcm")) {
-      addQcm(event.target.dataset);
+      addQcm(event.target.dataset, save);
     } else {
-      addForm(event.target.dataset);
+      addForm(event.target.dataset, save);
     }
   },
 
   "submit .form"(event) {
     event.preventDefault();
-    input = event.currentTarget[0];
+    input = event.currentTarget[0].value.trim();
 
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
-      input.value;
+      input
 
     event.target.classList.add("pointer-events-none");
 
@@ -146,6 +189,18 @@ Template.blockingBubble.events({
       "opacity-0"
     );
 
+    // we need to put some answers on the side for consumption by the songs template.
+    // we could have made a db query also but storing the data locally is faster.
+    if (event.target.parentElement.parentElement.dataset.save) {
+      savedAnswers.set(event.target.parentElement.parentElement.dataset.name, input) 
+    }
+
+    // and we also need to keep all answers to populate the database at 
+    // the end of the experience.
+    _allAnswers = allAnswers.get()
+    _allAnswers.push({name:event.target.parentElement.parentElement.dataset.name, answer : input})
+    allAnswers.set(_allAnswers)
+
     state.set("gettingMoreElements");
     addNextItem();
     fadeQuestion(event);
@@ -154,13 +209,12 @@ Template.blockingBubble.events({
 
 
   "click .formCard"(event){
-    console.log("click", event.target.dataset.name)
     
     card = document.getElementById("container."+event.target.dataset.name)
     // the formCard first holds a form object with which the user needs to interact, so 
     // we don't want to start animating the div before it's been transformed in a place to store
     // other player's answers
-    if(!card.dataset.answered){return}
+    if(!card || !card.dataset.answered){return}
     
     console.log(card.dataset.clicked)
 

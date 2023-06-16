@@ -1,4 +1,17 @@
 <template name="blockingBubble">
+  {{#if isEnd}}
+  <div
+    class="col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <button
+      class="end focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 text-white shadow hover:bg-purple-400 focus:outline-none"
+      id="{{name}}"
+    >
+      {{label}}
+    </button>
+  </div>
+
+  {{/if}}
   {{#if isPlay}}
   <div
     class="col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
@@ -21,16 +34,17 @@
       {{getQcmOptions}}
       data-size="{{size}}"
       data-name="{{name}}"
+      data-save="{{save}}"
     ></button>
   </div>
   {{/if}} 
   {{#if isForm}}
   <div
-    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180" id="container.{{name}}" data-name="{{name}}" data-clicked="false"
+    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180" id="container.{{name}}" data-name="{{name}}" data-clicked="false" data-save="{{save}}"
   >
     <!-- dos -->
     <div
-      class="absolute flex-1 px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms]"
+      class="absolute cursor-pointer flex-1 px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms]"
     >
     </div>
 
@@ -39,7 +53,8 @@
     {{> dataBubble this}}
     {{else}}
     <div class="transition-opacity delay-[150ms] rotate-x-180">
-      <form class="form w-full max-w-sm" id="{{name}}">
+      <form class="form w-full max-w-sm" id="{{name}}"
+      >
         <div class="mb-6 md:flex md:items-center">
           <textarea
             {{getFormSize true}}
@@ -67,16 +82,18 @@
   {{/if}} 
   {{#if isQcmForm}}
   <div
-    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+    class="relative col-span-3 col-end-[-1] mb-5 flex w-1/4 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500" data-save="{{save}}" data-name="{{name}}"
   >
     {{#each qcmOptions}}
     <button
       class="qcmOption focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
-      data-name="{{name}}"
     >
       {{this}}
     </button>
     {{/each}}
   </div>
+  {{/if}}
+  {{#if isFillTheFridge}}
+    {{> dataBubble this}}
   {{/if}}
 </template>
