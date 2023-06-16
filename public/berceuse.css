@@ -152,7 +152,7 @@ main {
   position: relative;
 
   left: 100%;
-  left: 0;
+  /* left: 0; */
 
   width: max-content;
   will-change: transform;
@@ -186,7 +186,43 @@ main {
 
 .para1 {
   grid-row:  3 / 3;
-  opacity: 1 !important;
+  /* opacity: 1 !important; */
+}
+
+.para1 span:nth-of-type(1) {
+  left: 70%;
+  bottom: 270%;
+}
+
+.para1 span:nth-of-type(2) {
+  left: 20%;
+  top: 250%;
+  transform: scale(2);
+}
+
+.para1 span:nth-of-type(3) {
+  left: 300%;
+  bottom: 180%;
+  transform: scale(3);;
+}
+
+.para1 span:nth-of-type(4) {
+  left: 200%;
+  top: 50%;
+  transform: scale(3);;
+}
+
+.para1 span:nth-of-type(5) {
+  top: 100%;
+  left: 110%;
+}
+
+.para1 span + span {
+  padding-left: 5%;
+}
+
+.para1 span:nth-of-type(6) {
+  top: -300%;
 }
 
 .para2 {
