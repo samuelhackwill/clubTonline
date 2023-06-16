@@ -53,7 +53,7 @@ body {
 }
 
 #page > div {
-    position: relative;
+  position: relative;
   padding: 0 7em;
   display: flex;
   flex-flow: column nowrap;
@@ -197,4 +197,29 @@ button {
 #imprimer {
   opacity: 0;
   display: none;
+}
+
+.retour-maison {
+  top: 4em;
+}
+
+@media print {
+  html,
+  body,
+  main {
+    padding: 0;
+    background: white !important;
+  }
+
+ #page #part1,
+ #page #part2,
+ #page #part3 {
+    box-shadow: none;
+    background: white !important;
+  }
+
+  button {
+    display: none !important;
+  }
+
 }

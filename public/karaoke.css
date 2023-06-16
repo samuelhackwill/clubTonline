@@ -126,6 +126,11 @@ p:not(.enchaine) {
     opacity: 0;
 }
 
+#progress,
+audio {
+    display: none;
+}
+
 /* ---------- ceparti ---------- */
 #ceparti {
     position: absolute;
