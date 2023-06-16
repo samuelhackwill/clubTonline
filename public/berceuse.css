@@ -226,26 +226,22 @@ main {
 }
 
 .para2 {
-  grid-row:  1 / 1;
-}
-
-.para3 {
   grid-row:  2 / 2;
 }
 
+.para3 {
+  grid-row:  3 / 3;
+}
+
 .para4 {
-  grid-row:  4 / 4;
-}
-
-.para5 {
-  grid-row:  7 / 7;
-}
-
-.para6 {
   grid-row:  5 / 5;
 }
 
-.para7 {
+.para5 {
+  grid-row:  8 / 8;
+}
+
+.para6 {
   grid-row:  6 / 6;
 }
 
