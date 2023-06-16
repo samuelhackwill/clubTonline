@@ -94,7 +94,14 @@ lettre_startAnimation = function() {
         signature.style.opacity = "1";
 
         imprimer.style.display = "block";
-        setTimeout(() => imprimer.style.opacity = "1", delay);
+        setTimeout(() => {
+            imprimer.style.opacity = "1"
+        }, delay);
+
+        setTimeout(() => {
+            document.querySelector(".retour-maison").style.opacity = "1";
+        }, delay + 1000);
+
     }, (delay + 1) * j);
 
 }

@@ -200,6 +200,7 @@ button {
 }
 
 .retour-maison {
+  opacity: 0;
   top: 4em;
 }
 
