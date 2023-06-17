@@ -79,6 +79,7 @@ export const berceuse_tu = [
   },
   {          
     type: "---BB---",
+    save: true,
     name: "card.berceuse_retient",
     size: "s",
     label:
@@ -143,6 +144,7 @@ export const berceuse_tu = [
   },
   {
     type: "---BB---",
+    save: true,
     name: "card.berceuse_mieuxDormir",
     size: "s",
     label:
@@ -177,5 +179,4 @@ export const berceuse_tu = [
     label:
     "conclure",
   },
-
 ]
