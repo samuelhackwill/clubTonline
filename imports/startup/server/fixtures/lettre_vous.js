@@ -1,12 +1,12 @@
 export const lettre_vous = [    
     {
       type: "SB",
-      label:
+      text:
         "hello, je suis Thomas, ton conseiller du club travail pour aujourd’hui.",
     },
     {
       type: "SB",
-      label:
+      text:
         "Je vous parle depuis mon bureau qui se trouve au 7ème étage d’un immeuble au Sud-Est de Bruxelles. Il fait chaud et ça sent presque le citron.",
     },
     {          
@@ -14,11 +14,11 @@ export const lettre_vous = [
       name: "card.lettre_où",
       size: "s",
       label:
-      "Pouvez-vous me dire où voous vous trouvez toi-même ?",
+      "Pouvez-vous me dire où vous vous trouvez vous-même ?",
   },
   {
     type: "SB",
-    label:
+    text:
       "Ok, ça permet de se faire une idée. Je n’ai pas l’impression que nous soyons au même endroit en tout cas.",
   },
   {          
@@ -44,7 +44,7 @@ export const lettre_vous = [
 },
 {
     type: "SB",
-    label:
+    text:
       "Prenez une minute pour expliquer à vos deux pieds là où vous auriez aimé qu’ils vous emmènent. Prenez votre temps, je vous attends.",
   },
 {

@@ -1,12 +1,12 @@
 export const lettre_tu = [    
     {
       type: "SB",
-      label:
+      text:
         "hello, je suis Thomas, ton conseiller du club travail pour aujourd’hui.",
     },
     {
       type: "SB",
-      label:
+      text:
         "Je te parle depuis mon bureau qui se trouve au 7ème étage d’un immeuble au Sud-Est de Bruxelles. Il fait chaud et ça sent presque le citron.",
     },
     {          
@@ -18,7 +18,7 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    label:
+    text:
       "Ok, ça permet de se faire une idée. Je n’ai pas l’impression que nous soyons au même endroit en tout cas.",
   },
   {          
@@ -44,7 +44,7 @@ export const lettre_tu = [
 },
 {
     type: "SB",
-    label:
+    text:
       "Prends une minute pour expliquer à tes deux pieds là où tu aurais aimé qu’ils t’emmènent. Prends ton temps, je t’attends.",
   },
 {

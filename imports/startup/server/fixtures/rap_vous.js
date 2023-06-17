@@ -10,7 +10,7 @@ export const rap_vous = [
       "je le confesse, ça m'est déjà arrivé d'avoir envie de crier sur les toits avec un mégaphone quand j'écrivais du code pour ce site web",
   },
   {          
-    type: "SS",
+    type: "SB",
     text:
     "Je vous parle depuis le co-working space d’une galerie commerciale en plein centre de Lille. Il fait bon la clim’ et ça sent presque le coca-cola.",
   },

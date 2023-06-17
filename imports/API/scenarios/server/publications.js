@@ -1,100 +1,30 @@
 import { Meteor } from "meteor/meteor";
 import { Scenarios } from "../scenarios.js";
 
+// fixtures
+import {berceuse_tu} from "../../../startup/server/fixtures/berceuse_tu.js"
+import {berceuse_vous} from "../../../startup/server/fixtures/berceuse_vous.js"
+import {lettre_tu} from "../../../startup/server/fixtures/lettre_tu.js"
+import {lettre_vous} from "../../../startup/server/fixtures/lettre_vous.js"
+import {rap_tu} from "../../../startup/server/fixtures/rap_tu.js"
+import {rap_vous} from "../../../startup/server/fixtures/rap_vous.js"
+
+const data = {}
+data.berceuse_tu = berceuse_tu
+data.berceuse_vous = berceuse_vous
+data.lettre_tu = lettre_tu
+data.lettre_vous = lettre_vous
+data.rap_tu = rap_tu
+data.rap_vous = rap_vous
+
 Meteor.publish("scenarios", function () {
   return Scenarios.find({});
 });
 
 Meteor.methods({
     async getScenario(_targetScenario){
-
-
-      data = {
-        berceuse_tu : [    {
-            type: "---BB---",
-            name: "card.test1",
-            size: "s",
-            label:
-              "Tiens et regarde voir ça c'est une question petite pour voir à quoi ça ressemble.",
-          },
-          {
-            type: "---BB---",
-            name: "card.test2",
-            size: "m",
-            label:
-              "Tiens et regarde voir ça c'est une question moyenne pour voir à quoi ça ressemble.",
-          },
-          {
-            type: "---BB---",
-            name: "card.test3",
-            size: "l",
-            label:
-              "Tiens et regarde voir ça c'est une question grande pour voir à quoi ça ressemble.",
-          },
-          { type: "SB", text: "ok super c'est fini!" },
-          { type: "---BB---", name: "play", label: "ah bon?" },
-          { type: "SB", text: "oui." },
-          { type: "SB", name: "sticker" },
-          {
-            type: "SB",
-            text: "bon ben maintenant on va aller voir la chanson.",
-          },
-          {
-            type: "SB",
-            text: "ready or not here we come",
-          },
-          {
-            type: "---BB---",
-            name: "end",
-            label: "conclure"
-          }
-        
-      ],
-      berceuse_vous : [   {
-          type: "---BB---",
-          name: "card.test1",
-          size: "s",
-          label:
-            "Tenez et regardez voir ça c'est une question petite pour voir à quoi ça ressemble.",
-        },
-        {
-          type: "---BB---",
-          name: "card.test2",
-          size: "m",
-          label:
-            "Tenez et regardez voir ça c'est une question moyenne pour voir à quoi ça ressemble.",
-        },
-        {
-          type: "---BB---",
-          name: "card.test3",
-          size: "l",
-          label:
-            "Tenez et regardez voir ça c'est une question grande pour voir à quoi ça ressemble.",
-        },
-        { type: "SB", text: "ok super c'est fini!" },
-        { type: "---BB---", name: "play", label: "ah bon?" },
-        { type: "SB", text: "oui." },
-        { type: "SB", name: "sticker" },
-        {
-          type: "SB",
-          text: "bon ben maintenant on va aller voir la chanson.",
-        },
-        {
-          type: "SB",
-          text: "ready or not here we come",
-        },
-        {
-          type: "---BB---",
-          name: "end",
-          label: "conclure"
-        }
-      ] 
-      }
-
-      fakeData = data[_targetScenario]
-    //   console.log(name)
-    //   Songs.findOne({name:name})
-    return fakeData
+      scenario = data[_targetScenario]
+    return scenario
     }
 });
   
