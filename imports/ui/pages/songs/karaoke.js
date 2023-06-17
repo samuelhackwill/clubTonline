@@ -1,7 +1,7 @@
 import "./karaoke.html"
 
 // METEOR ------------------------------------------------
-Template.karaoke.onCreated(function() {
+Template.rap.onCreated(function() {
 	// we need to add the css file dynamically cause we don't want to mess up
 	// our namespace ou quoi.
 	var fileref = document.createElement("link")
@@ -11,7 +11,7 @@ Template.karaoke.onCreated(function() {
 	document.getElementsByTagName("head")[0].appendChild(fileref)
 })
 
-Template.karaoke.onRendered(function() {
+Template.rap.onRendered(function() {
 	window.onload = function() {
 		// ------------ PRÉPARATION / VALIDATION
 		const couplet1 = document.getElementById("couplet1");
