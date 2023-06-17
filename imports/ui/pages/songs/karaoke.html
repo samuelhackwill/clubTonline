@@ -4,18 +4,21 @@
 
         <section id="slides">
             <div id="titre" data-slide="2">
-                <h1 id="chanson">"C'est le titre de la chanson"</h1>
+                <h1 id="chanson">"{{getString name="rap_titre"}}"</h1>
                 <p id="par">par</p>
-                <h2 id="nom">"caro"</h2>
+                <h2 id="nom">"{{getString name="rap_pseudo"}}"</h2>
             </div>
 
             <div id="intro" data-slide="7.9">
-                <p>Je viens de "dans ma chambre"</p>
+                <p>Je viens de {{getString name="rap_departement"}}</p>
                 <p>Représente</p>
             </div>
 
             <div id="couplet1" data-slide="16">
-                <p>"phrase longue, longue plainte avec plusieurs mots les uns à la suite des autres finalement. on peut voir ça comme un paragraphe, donc il y a des lignes de texte et il y en a plusieurs"</p>
+                <p>{{getString name="rap_rapportAuTravail"}}
+                    {{getString name="rap_colere"}}
+                    {{getString name="rap_colere2"}}
+                </p>
 
                 <p class="enchaine">
                     <span>ouais</span>
@@ -38,14 +41,14 @@
             </div>
 
             <div id="bruitTravail" data-slide="30.9">
-                <p>Le travail ça fait <span>"cliquetis"</span></p>
+                <p>Le travail ça fait <span>{{getString name="rap_bruit3"}}</span></p>
 
                 <p class="enchaine">
                     <span>"cliquetis"</span>
                     <span>"cliquetis"</span>
                 </p>
 
-                <p><span>Ouais,</span> le travail ça fait <span>"cliquetis"</span></p>
+                <p><span>Ouais,</span> le travail ça fait <span>{{getString name="rap_bruit3"}}</span></p>
             </div>
 
             <div id="refrain2" class="refrain" data-slide="36.3">
@@ -58,16 +61,16 @@
             </div>
 
             <div id="conclusion" data-slide="41.4">
-                <p>"il faut bien terminer par quelque chose"</p>
+                <p>{{getString name="rap_citation"}}</p>
 
                 <p class="enchaine">
-                    <span>"C'est le titre de la chanson"</span>
+                    <span>{{getString name="rap_titre"}}</span>
                 </p>
             </div>
 
             <div id="outro1" data-slide="44.4">
                 <p>Et ouais mon gars</p>
-                <p>C'était "caro"</p>
+                <p>C'était {{getString name="rap_pseudo"}}</p>
             </div>
 
             <div id="outro2" data-slide="48.5">
@@ -86,6 +89,6 @@
         Your browser does not support the audio element.
     </audio>
 
-    <button id="ceparti" onclick="karaoke_startAnimation()">CÉPARTI</button>
+    <button id="ceparti" onclick="karaoke_startAnimation()">GO</button>
 
 </template>

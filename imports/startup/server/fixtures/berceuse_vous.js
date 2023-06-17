@@ -25,14 +25,14 @@ export const berceuse_vous = [
 },
   {          
     type: "---BB---",
-    name: "card.berceuse_posture",
+    name: "card.berceuse_posture2",
     size: "s",
     label:
     "Est-ce que c’est la position dans laquelle vous vous trouvez au travail en général ?",
 },
   {          
     type: "---BB---",
-    name: "card.berceuse_posture",
+    name: "card.berceuse_posture3",
     size: "s",
     label:
     "Si vous pouviez changer de posture, ce serait laquelle ?",
@@ -51,7 +51,7 @@ export const berceuse_vous = [
 },
 {          
   type: "---BB---",
-  name: "card.berceuse_posture2",
+  name: "card.berceuse_posture4",
   size: "s",
   label:
   "Je me permets alors de vous reposer la question : si vous pouviez changer de posture, ce serait laquelle ?",

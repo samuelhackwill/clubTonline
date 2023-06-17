@@ -216,8 +216,6 @@ Template.blockingBubble.events({
     // other player's answers
     if(!card || !card.dataset.answered){return}
     
-    console.log(card.dataset.clicked)
-
     if (card.dataset.clicked=="false") {
       card.classList.add(
         "rotate-x-180"

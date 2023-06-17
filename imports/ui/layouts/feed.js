@@ -152,7 +152,7 @@ getRandomQuestion = function(_name){
   })
 
   if (result.length >1) {
-    console.error("getRandomQuestion error, maybe form name duplicates in dataset?");
+    console.error("getRandomQuestion error, maybe form name duplicates in dataset?", result);
   }
 
   obj = result[0]

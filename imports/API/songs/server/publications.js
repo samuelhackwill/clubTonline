@@ -1,8 +1,9 @@
 import { Meteor } from "meteor/meteor";
 import { Songs } from "../songs.js";
 
-Meteor.publish("songs", function () {
-  return Songs.find({});
+Meteor.publish("songs", function (_params) {
+  console.log("publishing song ", _params.uuid)
+  return Songs.find({uuid : _params.uuid});
 });
 
 Meteor.methods({

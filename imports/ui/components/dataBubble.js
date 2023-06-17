@@ -81,6 +81,10 @@ Template.dataBubble.helpers({
         }
     },
     getRandomAnswer(){
+        // allAnswers = Answers.findOne({question:this.name})
+        // var item = allAnswers[Math.floor(Math.random()*allAnswers.length)];
+        console.log(this.name)
+        console.log(Answers.findOne({question:this.name})._id)
         return Answers.findOne({question:this.name}).answer
     }
   })

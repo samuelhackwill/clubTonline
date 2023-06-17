@@ -1,4 +1,6 @@
 import "./karaoke.html"
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
+
 
 // METEOR ------------------------------------------------
 Template.rap.onCreated(function() {
@@ -7,8 +9,19 @@ Template.rap.onCreated(function() {
 	var fileref = document.createElement("link")
 	fileref.setAttribute("rel", "stylesheet")
 	fileref.setAttribute("type", "text/css")
-	fileref.setAttribute("href", "karaoke.css")
+	fileref.setAttribute("href", "/karaoke.css")
 	document.getElementsByTagName("head")[0].appendChild(fileref)
+
+	Meteor.subscribe('songs', {uuid : this.data.uuid});
+	Songs = new Mongo.Collection('songs');
+})
+
+Template.rap.helpers({
+	getString(option){
+		console.log(option.hash.name)
+		console.log(Songs.find({}).fetch())
+	}
+
 })
 
 Template.rap.onRendered(function() {

@@ -22,14 +22,9 @@ FlowRouter.route("/", {
 
 FlowRouter.route('/song/:_uuid/', {
   name: 'song',
-  action(params, queryParams) {
-    // All passed parameters is available as Object:
-    console.log(params, queryParams);
-    // { _id: 'article_id', slug: 'article-slug' }
-
-    // Pass params to Template's context
+  action(params) {
   },
   waitOn(params, queryParams) {
-    this.render(queryParams.scenario);
+    this.render(queryParams.scenario, {uuid: params._uuid});
   }
 });
