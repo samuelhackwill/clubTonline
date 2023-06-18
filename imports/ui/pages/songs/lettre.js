@@ -9,8 +9,13 @@ Template.lettre.onCreated(function() {
     fileref.setAttribute("type", "text/css")
     fileref.setAttribute("href", "lettre.css")
     document.getElementsByTagName("head")[0].appendChild(fileref)
-})
 
+
+	this.autorun(() => {
+		this.subscribe('songs', this.data.uuid);
+	  });
+	})
+    
 Template.lettre.onRendered(function() {
     // DECLARATIONS ------------------------------------------------------------
     let today = new Date();

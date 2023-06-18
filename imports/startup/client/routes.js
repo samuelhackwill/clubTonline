@@ -6,6 +6,8 @@ import "../../ui/pages/songs/berceuse.js";
 import "../../ui/pages/songs/karaoke.js";
 import "../../ui/pages/songs/lettre.js";
 
+import {Songs} from "../../API/songs/songs.js";
+
 FlowRouter.route("/show", {
   name: "show",
   action() {
@@ -22,9 +24,16 @@ FlowRouter.route("/", {
 
 FlowRouter.route('/song/:_uuid/', {
   name: 'song',
-  action(params) {
-  },
-  waitOn(params, queryParams) {
-    this.render(queryParams.scenario, {uuid: params._uuid});
-  }
+    action(params, queryParams, _song) {
+      // console.log(queryParams.scenario, params.uuid, _song)
+      this.render(queryParams.scenario, { uuid: params.uuid, data: _song });
+      // this.render(queryParams.scenario, {uuid: params.uuid, song:_song});
+    },
+    waitOn(params) {
+      console.log(params._uuid)
+      return Meteor.subscribe('songs', {uuid : params._uuid});
+    },
+    data(params, queryParams, qs) {
+      return _song = Songs.findOne()
+    }
 });

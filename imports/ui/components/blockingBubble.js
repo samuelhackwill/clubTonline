@@ -100,13 +100,13 @@ Template.blockingBubble.events({
     data = {}
     data.answers = savedAnswers.all()
     data.scenario = savedAnswers.get("qcmForm.humeur")
+    
+    _scenario = _targetScenario.replace(/\_.+/i, "");
+    
 
-    Meteor.call("makeSong", this._songUUID, data, (error, result) =>{
+    Meteor.call("makeSong", this._songUUID, data, _scenario, (error, result) =>{
       console.log(error, result)
     }) 
-
-    _scenario = _targetScenario.replace(/\_.+/i, "");
-
     Meteor.call("insertAnswers", allAnswers.get(), _scenario, (error, result) =>{
       console.log(error, result)
     }) 
@@ -137,7 +137,8 @@ Template.blockingBubble.events({
     // we need to put some answers on the side for consumption by the songs template.
     // we could have made a db query also but storing the data locally is faster.
     if (event.target.parentElement.dataset.save) {
-      savedAnswers.set(event.target.parentElement.dataset.name, event.target.innerHTML.trim()) 
+      _key = event.target.parentElement.dataset.name.replace(/.+\./i, "");
+      savedAnswers.set(_key, event.target.innerHTML.trim()) 
     }
 
     state.set("gettingMoreElements");
@@ -192,7 +193,8 @@ Template.blockingBubble.events({
     // we need to put some answers on the side for consumption by the songs template.
     // we could have made a db query also but storing the data locally is faster.
     if (event.target.parentElement.parentElement.dataset.save) {
-      savedAnswers.set(event.target.parentElement.parentElement.dataset.name, input) 
+      _key = event.target.parentElement.parentElement.dataset.name.replace(/.+\./i, "")
+      savedAnswers.set(_key, input) 
     }
 
     // and we also need to keep all answers to populate the database at 

@@ -118,7 +118,6 @@ addForm = function (data, _save) {
 };
 
 addQcm = function (data, _save) {
-  console.log(data)
   _name = data.name
   
   tempQcmOpts = [];
@@ -152,7 +151,7 @@ getRandomQuestion = function(_name){
   })
 
   if (result.length >1) {
-    console.error("getRandomQuestion error, maybe form name duplicates in dataset?", result);
+    console.log("getRandomQuestion error, maybe form name duplicates in dataset?", result);
   }
 
   obj = result[0]

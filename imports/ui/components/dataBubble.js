@@ -6,7 +6,7 @@ Template.dataBubble.onCreated(function(){
 
     if (this.data.name == "fillTheFridge") {
 
-        switch (savedAnswers.get("qcmForm.humeur")) {
+        switch (savedAnswers.get("humeur")) {
             case "d’humeur à vraiment crier sur les toits avec un mégaphone":
                 _targetScenario = _targetScenario + "rap"
                 break;
@@ -23,7 +23,7 @@ Template.dataBubble.onCreated(function(){
         Meteor.subscribe('answers', {scenario : _targetScenario});
         Answers = new Mongo.Collection('answers');
 
-        switch (savedAnswers.get("qcmForm.tutoie")) {
+        switch (savedAnswers.get("tutoie")) {
             case "le vouvoiement c'est bien":
                 _targetScenario = _targetScenario + "_vous"
                 break;
@@ -83,8 +83,6 @@ Template.dataBubble.helpers({
     getRandomAnswer(){
         // allAnswers = Answers.findOne({question:this.name})
         // var item = allAnswers[Math.floor(Math.random()*allAnswers.length)];
-        console.log(this.name)
-        console.log(Answers.findOne({question:this.name})._id)
-        return Answers.findOne({question:this.name}).answer
+        return Answers.findOne({question:this.name})?.answer || "personne d'autre n'a encore répondu à cette question! (ou alors il y a un bug)"
     }
   })

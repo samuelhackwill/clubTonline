@@ -1,5 +1,7 @@
 import "./berceuse.html"
 
+// import { Songs} from "../../../API/songs/songs.js";
+
 // METEOR --------------------------------------------------
 
 Template.berceuse.onCreated(function() {
@@ -10,12 +12,21 @@ Template.berceuse.onCreated(function() {
 	fileref.setAttribute("type", "text/css")
 	fileref.setAttribute("href", "/berceuse.css")
 	document.getElementsByTagName("head")[0].appendChild(fileref)
+
+
+	this.autorun(() => {
+		console.log(this)
+	  });
+	})
+
+
+Template.berceuse.helpers({
+	getString(option){
+		console.log(this.data.answers[option.hash.name])
+	}
+
 })
 
-Template.berceuse.onRendered(function() {
-	this.test = "coucou je teste les scopes";
-
-})
 
 // FONCTIONS --------------------------------------------------
 defilementTexte = function(v, phrases, i) {

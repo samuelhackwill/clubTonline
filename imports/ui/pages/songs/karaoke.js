@@ -12,9 +12,10 @@ Template.rap.onCreated(function() {
 	fileref.setAttribute("href", "/karaoke.css")
 	document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	Meteor.subscribe('songs', {uuid : this.data.uuid});
-	Songs = new Mongo.Collection('songs');
-})
+	this.autorun(() => {
+		this.subscribe('songs', this.data.uuid);
+	  });
+	})
 
 Template.rap.helpers({
 	getString(option){
