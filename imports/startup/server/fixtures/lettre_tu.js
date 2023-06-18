@@ -11,6 +11,7 @@ export const lettre_tu = [
     },
     {          
       type: "---BB---",
+      save:true,
       name: "card.lettre_où",
       size: "s",
       label:
@@ -143,24 +144,24 @@ export const lettre_tu = [
     label:
     "Qu’est- ce qu’il y a en trop dans cet espace ou dans l’espace où tu travailles habituellement ?",
 },
-  {          
-    type: "SB",
-    text:
-    "Je te propose de tirer maintenant une carte du tarot du travail qui apparait sous tes yeux.",
-},
-  {          
-    type: "SB",
-    text:
-    "<carte de tarot>",
-},
-{          
-  type: "---BB---",
-  save:true,
-  name: "card.lettre_tarot",
-  size: "s",
-  label:
-  "Que semble-t-elle t’indiquer par rapport à un espace rêvé futur?",
-},
+//   {          
+//     type: "SB",
+//     text:
+//     "Je te propose de tirer maintenant une carte du tarot du travail qui apparait sous tes yeux.",
+// },
+//   {          
+//     type: "SB",
+//     text:
+//     "<carte de tarot>",
+// },
+// {          
+//   type: "---BB---",
+//   save:true,
+//   name: "card.lettre_tarot",
+//   size: "s",
+//   label:
+//   "Que semble-t-elle t’indiquer par rapport à un espace rêvé futur?",
+// },
 {          
   type: "SB",
   text:

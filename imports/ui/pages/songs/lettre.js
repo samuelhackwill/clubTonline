@@ -7,7 +7,7 @@ Template.lettre.onCreated(function() {
     var fileref = document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
     fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", "lettre.css")
+    fileref.setAttribute("href", "/lettre.css")
     document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	this.autorun(() => {

@@ -158,20 +158,20 @@ export const berceuse_tu = [
     label:
     "Est-ce que tu pourrais donner deux mots qui résument ce souhait ?",
   },
+  // {
+  //   type: "SB",
+  //   text:
+  //   "<insect sounds>",
+  // },
   {
     type: "SB",
     text:
-    "<insect sounds>",
+    "Maintenant, tu vas pouvoir t’allonger là où tu trouves,",
   },
   {
     type: "SB",
     text:
-    "Maintenant, tu vas pouvoir t’allonger là où tu trouves, auprès des insectes",
-  },
-  {
-    type: "SB",
-    text:
-    "Mathilde : tu vas pouvoir souffler trois fois très profondément en t’allonger sur le sol en prenant ton ordinateur au- dessus de toi, si c’est possible. Et cliquez sur le bouton.",
+    "Mathilde : tu vas pouvoir souffler trois fois très profondément en t’allonger sur le sol en prenant ton ordinateur au- dessus de toi, si c’est possible. Et cliquer sur le bouton.",
   },  
   {
     type: "---BB---",
