@@ -114,6 +114,14 @@ export const lettre_tu = [
   {          
     type: "---BB---",
     save:true,
+    name: "card.lettre_changerTemps",
+    size: "s",
+    label:
+    "S’il était possible de changer quelque chose dans le rapport au temps, que proposerais-tu ?",
+},
+  {          
+    type: "---BB---",
+    save:true,
     name: "card.lettre_adjectifsEspace",
     size: "s",
     label:

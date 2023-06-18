@@ -13,14 +13,13 @@ Template.rap.onCreated(function() {
 	document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	this.autorun(() => {
-		this.subscribe('songs', this.data.uuid);
+		console.log(this)
 	  });
 	})
 
 Template.rap.helpers({
 	getString(option){
-		console.log(option.hash.name)
-		console.log(Songs.find({}).fetch())
+		return this.data.answers[option.hash.name]
 	}
 
 })

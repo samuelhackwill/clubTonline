@@ -10,12 +10,17 @@ Template.lettre.onCreated(function() {
     fileref.setAttribute("href", "lettre.css")
     document.getElementsByTagName("head")[0].appendChild(fileref)
 
-
 	this.autorun(() => {
-		this.subscribe('songs', this.data.uuid);
+		console.log(this)
 	  });
 	})
-    
+
+Template.lettre.helpers({
+	getString(option){
+		return this.data.answers[option.hash.name]
+	}
+
+})    
 Template.lettre.onRendered(function() {
     // DECLARATIONS ------------------------------------------------------------
     let today = new Date();

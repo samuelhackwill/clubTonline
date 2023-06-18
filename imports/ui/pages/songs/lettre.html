@@ -4,23 +4,20 @@
             <li class="type droite" id="lieu">"Houffalize"</li>
 
             <div class="adresse">
-                <li class="type">"audrey1180"</li>
-                <li class="type">"Houffalize"</li>
-                <li class="type">BELGIQUE</li>
+                <li class="type">"{{getString name="lettre_pseudo"}}"</li>
             </div>
 
             <div class="adresse droite">
-                <li class="type">SPF Emploi, Travail et Concertation sociale</li>
-                <li class="type">Rue Ernest Blerotstraat 1</li>
-                <li class="type">1070 Bruxelles / Brussel</li>
-                <li class="type">BELGIQUE</li>
+                <li class="type">{{getString name="lettre_boss"}}</li>
+                <li class="type">{{getString name="lettre_adresse"}}</li>
             </div>
 
-            <p class="type" id="objet">Objet&thinsp;: "le titre de la lettre"</p>
+            <p class="type" id="objet">Objet&thinsp;: {{getString name="lettre_troisMots"}}
+            </p>
         </div>
 
         <div id="part2" class="overlay">
-            <p class="type">Cher Monsieur Pierre-Yves Demargne,</p>
+            <p class="type">Cher.e {{getString name="lettre_boss"}},</p>
 
             <p class="type">
                 C’est avec un grand respect que je m’adresse à vous par la présente
@@ -28,45 +25,31 @@
                 l'emploi en Belgique.
             </p>
 
-            <p class="type">Voici mes propositions :</p>
+            <p class="type">Ce qui doit changer :</p>
 
             <p class="type proposition">
-                1. c'est plutôt une phrase. voilà une très longue phrase de quelqu'un
-                qui écrit beaucoup là voilà plein de texte sous forme de phrase.
+                1. {{getString name="lettre_agace"}}
             </p>
 
             <p class="type proposition">
-                2. en voici une autre que l'on peut considérer unanimement comme une
-                "pépite"en voici une autre que l'on peut considérer unanimement comme
-                une "pépite"..en voici une autre que l'on peut considérer unanimement
-                comme une "pépite".
+                2. {{getString name="changerTemps"}}
             </p>
 
             <p class="type proposition">
-                3. celle-là est visiblement vraiment plus longue, comme ça on a
-                l'impression que c'est un paragraphe et pas juste une idée balancée
-                comme ça. Un peu de sérieux bla bla bla.celle-là est visiblement
-                vraiment plus longue, comme ça on a l'impression que c'est un
-                paragraphe et pas juste une idée balancée comme ça. Un peu de sérieux
-                bla bla bla.celle-là est visiblement vraiment plus longue.
+                3. créer des espaces plus {{getString name="lettre_adjectifsEspace"}}
             </p>
 
             <p class="type proposition">
-                4. pas d'inspi mais la voipas d'inspi mais la voipas d'inspi mais la
-                voipas d'inspi mais la voipas d'inspi mais la voipas d'inspi mais la
-                voipas d'inspi mais la voipas d'inspi mais la voici pas d'inspi mais
-                la voici
+                4. avec plus de {{getString name="lettre_manqueEspace"}} et moins de {{getString name="lettre_tropEspace"}}
             </p>
         </div>
 
         <div id="part3">
             <p class="type">
-                Dans l’espoir d’obtenir une suite favorable de votre part, je vous
-                prie d’agréer, Monsieur le Ministre, l’expression de ma considération
-                la plus distinguée.
+                enfin je tiens à vous dire que nous NE VOULONS PLUS JAMAIS DE {{getString name="lettre_derriereToi"}}
             </p>
 
-            <p class="droite" id="signature">"audrey1180"</p>
+            <p class="droite" id="signature">"{{getString name="lettre_pseudo"}}"</p>
         </div>
     </article>
 
@@ -77,5 +60,5 @@
         Your browser does not support the audio element.
     </audio>
 
-    <button id="ceparti" onclick="lettre_startAnimation()">CÉPARTI</button>
+    <button id="ceparti" onclick="lettre_startAnimation()">Go</button>
 </template>

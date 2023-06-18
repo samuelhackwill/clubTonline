@@ -22,7 +22,7 @@ Template.berceuse.onCreated(function() {
 
 Template.berceuse.helpers({
 	getString(option){
-		console.log(this.data.answers[option.hash.name])
+		return this.data.answers[option.hash.name]
 	}
 
 })
