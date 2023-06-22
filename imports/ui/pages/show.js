@@ -7,6 +7,10 @@ import "../layouts/feed.js";
 
 const intro = [
   { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
+  {
+    type: "SB",
+    text: "le club travail vous propose une expérience interactive où vous allez pouvoir vous exprimer sur votre rapport au travail.",
+  },
   { type: "SB", text: "Qui que vous soyez, vous êtes la bonne personne." },
   {
     type: "SB",
@@ -14,24 +18,20 @@ const intro = [
   },
   {
     type: "SB",
-    text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes.",
+    text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes, à nous écrire.",
   },  
   {
     type: "SB",
-    text: "Nous n’allons pas nous voir, ni nous entendre, simplement nous parler. Installez-vous confortablement et si possible ouvrez cette page sur un ordinateur",
-  },
-  {
-    type: "SB",
-    text: "car les gsm c’est l’enfer sur terre.",
-  },
+    text: "Mettez vous à l'aise, et si possible ouvrez cette page sur un ordinateur.",
+  },  
   {
     type: "---BB---",
     name: "qcm.humeur",
     label: "Alors, dites-nous, de quelle humeur êtes-vous aujourd'hui?",
     qcmOptions: [
-      "d’humeur à vraiment crier sur les toits avec un mégaphone",
-      "plutôt d’humeur à la douceur et à aller me promener en forêt sans prévoir d’heure de retour ?",
-      "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi",
+      "d’humeur à mordre mon ordinateur",
+      "plutôt d’humeur à faire une sieste en forêt",
+      "d’humeur à écrire une lettre au ministre de l’emploi",
     ],
     save: true
   },

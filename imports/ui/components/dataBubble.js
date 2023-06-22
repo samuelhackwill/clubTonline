@@ -7,15 +7,15 @@ Template.dataBubble.onCreated(function(){
     if (this.data.name == "fillTheFridge") {
 
         switch (savedAnswers.get("humeur")) {
-            case "d’humeur à vraiment crier sur les toits avec un mégaphone":
+            case "d’humeur à mordre mon ordinateur":
                 _targetScenario = _targetScenario + "rap"
                 break;
 
-            case "plutôt d’humeur à la douceur et à aller me promener en forêt sans prévoir d’heure de retour ?":
+            case "plutôt d’humeur à faire une sieste en forêt":
                 _targetScenario = _targetScenario + "berceuse"
                 break;
 
-            case "d’humeur à écrire une lettre avec toutes mes idées géniales au ministre de l’emploi":
+            case "d’humeur à écrire une lettre au ministre de l’emploi":
             _targetScenario = _targetScenario + "lettre"
             break;
         }
