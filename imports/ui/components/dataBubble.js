@@ -28,7 +28,7 @@ Template.dataBubble.onCreated(function(){
                 _targetScenario = _targetScenario + "_vous"
                 break;
 
-            case "call me tu":
+            case "je préfère tu":
                 _targetScenario = _targetScenario + "_tu"
                 break;
         

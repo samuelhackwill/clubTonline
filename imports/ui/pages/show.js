@@ -42,7 +42,7 @@ const intro = [
       "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
     qcmOptions: [
       "le vouvoiement c'est bien",
-      "call me tu"
+      "je préfère tu"
     ],
     save: true
   },

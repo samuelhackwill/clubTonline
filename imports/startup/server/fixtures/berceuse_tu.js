@@ -9,6 +9,16 @@ export const berceuse_tu = [
       text:
         "Je te parle depuis la forêt de Soignes en lisière de Bruxelles. Il fait bon et ça sent presque le persil.",
     },
+    {
+      type: "SB",
+      text:
+        "Je vais te poser une série de questions auxquelles tu peux répondre librement.",
+    },
+    {
+      type: "SB",
+      text:
+        "voici ma première question :",
+    },
     {          
       type: "---BB---",
       name: "card.berceuse_où",
@@ -21,22 +31,25 @@ export const berceuse_tu = [
       name: "card.berceuse_posture",
       size: "s",
       label:
-      "Peux-tu nous décrire la posture dans laquelle tu te trouves maintenant ?",
+      "Peux-tu nous décrire la posture dans laquelle tu te trouves maintenant ? Tes pieds ? Tes bras ? Tes genoux ?",
   },
     {          
       type: "---BB---",
       name: "card.berceuse_posture2",
       size: "s",
       label:
-      "Est-ce que c’est la position dans laquelle tu te trouves au travail en général ?",
+      "Peux-tu nous décrire la posture dans laquelle tu te trouves au travail en général ?",
   },
-    {          
-      type: "---BB---",
-      name: "card.berceuse_posture3",
-      size: "s",
-      label:
-      "Si tu pouvais changer de posture, ce serait laquelle ?",
-  },
+
+  // tarot + "Je te propose maintenant de retourner cette carte tirée au hasard dans le tarot du travail, elle devrait t'éclaircir sur ton avenir postural. Où te situes-tu sur cette image ? Peux-tu décrire la posture de cet élément ?"
+
+  //   {          
+  //     type: "---BB---",
+  //     name: "card.berceuse_posture3",
+  //     size: "s",
+  //     label:
+  //     "Si tu pouvais changer de posture, ce serait laquelle ?",
+  // },
   {
     type: "SB",
     text:
@@ -54,7 +67,7 @@ export const berceuse_tu = [
     name: "card.berceuse_posture4",
     size: "s",
     label:
-    "Je me permets alors de te reposer la question :  si tu pouvais changer de posture, ce serait laquelle ? ",
+    "Je me permets alors de te reposer la question : si tu pouvais changer de posture, ce serait laquelle ? ",
   },
   {          
     type: "---BB---",
