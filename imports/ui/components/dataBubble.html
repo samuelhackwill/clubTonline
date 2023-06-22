@@ -7,7 +7,11 @@
   class="relative flex cursor-pointer items-center px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms] rotate-x-180"
   style="min-height:{{minHeight}}px" data-name="{{name}}"
   > 
-    {{getRandomAnswer}}
+  {{#if getRandomAnswer.status}}
+  « {{getRandomAnswer.content}} »
+  {{else}}
+   personne d'autre n'a encore répondu à cette question! (ou alors il y a un bug)
+  {{/if}}
   </div>
 
   {{/if}}

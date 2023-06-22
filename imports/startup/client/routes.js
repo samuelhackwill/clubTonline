@@ -8,17 +8,17 @@ import "../../ui/pages/songs/lettre.js";
 
 import {Songs} from "../../API/songs/songs.js";
 
-FlowRouter.route("/show", {
-  name: "show",
+FlowRouter.route("/waiting", {
+  name: "waiting",
   action() {
-    this.render("show");
+    this.render("waiting");
   },
 });
 
 FlowRouter.route("/", {
   name: "home",
   action() {
-    this.render("home");
+    this.render("show");
   },
 });
 

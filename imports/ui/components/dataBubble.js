@@ -83,6 +83,12 @@ Template.dataBubble.helpers({
     getRandomAnswer(){
         // allAnswers = Answers.findOne({question:this.name})
         // var item = allAnswers[Math.floor(Math.random()*allAnswers.length)];
-        return Answers.findOne({question:this.name})?.answer || "personne d'autre n'a encore répondu à cette question! (ou alors il y a un bug)"
+        console.log(this.name)
+        console.log(Answers.findOne({question:this.name})?.answer)
+        console.log(Answers.findOne({question:this.name})?.answer != undefined)
+        return {
+            status : Answers.findOne({question:this.name})?.answer != undefined,
+            content : Answers.findOne({question:this.name})?.answer
+        }
     }
   })
