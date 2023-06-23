@@ -10,15 +10,15 @@ Template.lettre.onCreated(function() {
     fileref.setAttribute("href", "/lettre.css")
     document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	this.autorun(() => {
-		console.log(this)
-	  });
-	})
+    this.autorun(() => {
+        console.log(this)
+    });
+})
 
 Template.lettre.helpers({
-	getString(option){
-		return this.data.answers[option.hash.name]
-	}
+    getString(option) {
+        return this.data.answers[option.hash.name]
+    }
 })
 
 Template.lettre.onRendered(function() {
@@ -33,11 +33,10 @@ Template.lettre.onRendered(function() {
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
 
-    window.onload = function() {
-        // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
-        const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
-        document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
-    }
+    // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
+    const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
+    console.log(rayon);
+    document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
 
 })
 
