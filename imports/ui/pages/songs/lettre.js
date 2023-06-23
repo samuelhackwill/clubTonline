@@ -112,8 +112,8 @@ lettre_startAnimation = function() {
             imprimer.style.opacity = "1"
         }, delay);
 
+        document.querySelector(".retour-maison").style.display = "block";
         setTimeout(() => {
-            document.querySelector(".retour-maison").style.color = "black";
             document.querySelector(".retour-maison").style.opacity = "1";
         }, delay + 1000);
 
