@@ -24,6 +24,8 @@ body {
   margin-top: 4em;
   background: var(--background);
   line-height: 1;
+
+  overflow-y: scroll !important;
 }
 
 ::selection {
@@ -32,9 +34,9 @@ body {
 }
 
 #page {
-  --radius: 0;
   --page-width: min(900px, 90vw);
   --page-height: calc(var(--page-width) * 297 / 210);
+  --radius: calc(--page-height / 6);
 
   color: transparent;
   /* color: black; */

@@ -22,11 +22,16 @@ Template.lettre.onRendered(function() {
     const ville = document.getElementById("lieu");
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
+    // // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
+    // const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
+    // document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+    // console.log("PAS ONLOAD", rayon);
 
     window.onload = function() {
         // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
         const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
         document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+        console.log("ONLOAD", rayon);
     }
 
 })
