@@ -32,15 +32,20 @@ Template.lettre.onRendered(function() {
     const ville = document.getElementById("lieu");
     ville.innerHTML = `${ville.innerHTML}, le ${today}`;
 
-
-    // Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
-    const rayon = document.getElementById("page").getBoundingClientRect().height / 6;
-    console.log(rayon);
-    document.getElementById('page').style.setProperty('--radius', `${rayon}px`);
+    const page = document.getElementById("page");// Recalculer la taille des parties en px pour l'utiliser dans les calculs de translate3d()
+    page.addEventListener("mouseover", () => {
+        calculateRadius(page);
+        page.removeEventListener("mouseover", calculateRadius(page));
+    });
 
 })
 
 // FUNCTIONS ------------------------------------------------
+calculateRadius = function() {
+    const rayon = page.getBoundingClientRect().height / 6;
+    page.style.setProperty('--radius', `${Math.ceil(rayon)}px`);
+}
+
 overflow = function(element) {
     if (element.scrollHeight > element.clientHeight) {
         return element.scrollHeight - element.clientHeight
@@ -75,7 +80,7 @@ lettre_startAnimation = function() {
     const lol = document.getElementById("ceparti");
     lol.style.opacity = "0";
 
-    const delay = 30;
+    const delay = 35;
     setTimeout(() => { lol.style.display = "none" }, delay);
 
 
@@ -85,7 +90,7 @@ lettre_startAnimation = function() {
         let contenu = el.innerText;
         el.innerHTML = " ";
         for (let i = 0; i < contenu.length; i++) {
-            const offset = randomNumber(-10, 20);
+            const offset = randomNumber(-15, 20);
             setTimeout(() => { el.innerHTML += contenu.charAt(i) }, (delay * j) + offset);
 
             j++;
@@ -108,6 +113,7 @@ lettre_startAnimation = function() {
         }, delay);
 
         setTimeout(() => {
+            document.querySelector(".retour-maison").style.color = "black";
             document.querySelector(".retour-maison").style.opacity = "1";
         }, delay + 1000);
 

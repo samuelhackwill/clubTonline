@@ -1,6 +1,7 @@
 <template name="lettre">
     <article id="page" style="color: transparent;">
         <div id="part1">
+            <img id="logo" src="/img/logo_xs.png" alt="Le logo du club travail"/>
             <li class="type droite" id="lieu">{{getString name="lettre_où"}}</li>
 
             <div class="adresse">
@@ -17,7 +18,7 @@
         </div>
 
         <div id="part2" class="overlay">
-            <p class="type">Cher.e {{getString name="lettre_boss"}},</p>
+            <p class="type">Chèr·e {{getString name="lettre_boss"}},</p>
 
             <p class="type">
                 C’est avec un grand respect que je m’adresse à vous par la présente
@@ -36,30 +37,34 @@
             </p>
 
             <p class="type proposition">
-                3. créer des espaces plus {{getString name="lettre_adjectifsEspace"}}
+                3. Créer des espaces plus {{getString name="lettre_adjectifsEspace"}}
             </p>
 
             <p class="type proposition">
-                4. avec plus de {{getString name="lettre_manqueEspace"}} et moins de {{getString name="lettre_tropEspace"}}
+                4. Avec plus de {{getString name="lettre_manqueEspace"}} et moins de {{getString
+                name="lettre_tropEspace"}}
             </p>
         </div>
 
         <div id="part3">
             <p class="type">
-                enfin je tiens à vous dire que nous NE VOULONS PLUS JAMAIS DE {{getString name="lettre_derriereToi"}}
+                Enfin je tiens à vous dire que nous NE VOULONS PLUS JAMAIS DE {{getString name="lettre_derriereToi"}}.
             </p>
+            <p class="type">
+                Bien à vous,
+            </p>
+            <p class="droite" id="signature">{{getString name="lettre_pseudo"}}</p>
 
-            <p class="droite" id="signature">"{{getString name="lettre_pseudo"}}"</p>
         </div>
     </article>
 
-    <button id="imprimer" onClick="imprimer()">IMPRIMER</button>
-    <button class="retour-maison">Retourner à la maison</button>
+    <button id="imprimer" class="qcmOption focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none" onClick="imprimer()">IMPRIMER</button>
+    <button class="retour-maison qcmOption focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none">Retourner à la maison</button>
 
     <audio id="typing-sound" preload="auto" loop>
         <source src="/sounds/keyboard_propre.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
 
-    <button id="ceparti" onclick="lettre_startAnimation()">Go</button>
+    <button id="ceparti" class="qcmOption focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none" onclick="lettre_startAnimation()">Go</button>
 </template>

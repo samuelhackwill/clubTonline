@@ -12,7 +12,7 @@
   /* ça marche pour 30deg, flemme de chercher après */
   --rotation: 30deg;
   --transition-time: .6s;
-  --font-size: 11;
+  --font-size: 12;
 }
 
 html {
@@ -20,11 +20,12 @@ html {
 }
 
 body {
-  overflow-y: scroll !important;
   font-family: "LiberationSans", sans-serif;
   margin-top: 4em;
   background: var(--background);
   line-height: 1;
+
+  overflow-y: scroll !important;
 }
 
 ::selection {
@@ -33,16 +34,16 @@ body {
 }
 
 #page {
-  --radius: 0;
   --page-width: min(900px, 90vw);
   --page-height: calc(var(--page-width) * 297 / 210);
+  --radius: calc(--page-height / 6);
 
   color: transparent;
   /* color: black; */
 
   width: var(--page-width);
   height: var(--page-height);
-  font-size: calc(25.4 / 297 / (72 / var(--font-size)) * var(--page-height)) !important;
+  font-size: calc(25.4 / 297 / (72pt / var(--font-size)) * var(--page-height)) !important;
   aspect-ratio: 210/297;
 
   margin: 0 auto;
@@ -72,6 +73,14 @@ body {
 #page ul {
   list-style-type: decimal;
   list-style-position: inside;
+}
+
+#logo {
+  position: absolute;
+  height: 2em;
+  width: 4em;
+  top: 7em;
+  margin-bottom: 2em;
 }
 
 /* ----------------------------------------- */
@@ -109,7 +118,7 @@ body {
 }
 
 #page #part3 {
-  gap: 8em;
+  gap: 4em;
   justify-content: start;
   box-shadow: inset rgba(0,0,0,.3) 0 0 10em, rgba(0,0,0,.4) 0 .4em 1em
 }
@@ -147,9 +156,9 @@ body {
 }
 
 #page .droite {
-  text-align: left;
-  margin-left: auto;
-  width: fit-content;
+  text-align: left !important;
+  margin-left: auto !important;
+  /* width: fit-content !important; */
 }
 
 #page .adresse > p,
@@ -202,6 +211,7 @@ button {
 
 .retour-maison {
   opacity: 0;
+  display: none;
   top: 4em;
 }
 
@@ -209,8 +219,15 @@ button {
   html,
   body,
   main {
+    margin: 0;
     padding: 0;
     background: white !important;
+  }
+
+  #page {
+    height: 99%;
+    width: 100%;
+    font-size: 12pt !important;
   }
 
  #page #part1,
@@ -222,6 +239,13 @@ button {
 
   button {
     display: none !important;
+  }
+
+  #page .droite {
+    text-align: left !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    width: fit-content !important;
   }
 
 }
