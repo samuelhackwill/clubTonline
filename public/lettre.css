@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  overflow-y: scroll!important;
+  overflow-y: scroll !important;
   font-family: "LiberationSans", sans-serif;
   margin-top: 4em;
   background: var(--background);

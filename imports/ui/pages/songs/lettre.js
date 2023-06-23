@@ -19,8 +19,8 @@ Template.lettre.helpers({
 	getString(option){
 		return this.data.answers[option.hash.name]
 	}
+})
 
-})    
 Template.lettre.onRendered(function() {
     // DECLARATIONS ------------------------------------------------------------
     let today = new Date();
