@@ -53,6 +53,14 @@ static bubbles are chain-added to the feed without waiting for user action.
 blocking bubbles are only added to the feed one at a time. User action is required before adding the next element to the feed.
 
 
+- getScenario bubble (loads the appropriate scenario after the intro. The label changes when the data is loaded)
+
+      {
+        type: "---BB---",
+        name: "getScenario",
+        label: "chargement..."
+      }
+
 - Card bubble (displays a "club travail" card, which in turn will add a "form" bubble to the feed when clicked)
 
       {
@@ -107,25 +115,11 @@ these bubbles should not be added to the data array. They are automatically adde
 
 ## DATA BUBBLES
 
-data bubbles are rendered inside bubbles which need to subscribe to data from the server (mongodb).
+data bubbles are rendered inside bubbles which need to subscribe to data from the server (mongodb). They do not exist in the feed.
 
-
-- getScenario bubble (rendered inside a blocking bubble, loads the appropriate scenario after the intro. The label changes when the data is loaded)
-
-      {
-        type: "---BB---",
-        name: "getScenario",
-        label: "chargement..."
-      }
+- getScenario bubble (which is rendered inside the getScenario blocking bubble)
 
 - spy bubble (rendered inside the form component, it's used to display what the last person on the website answered to the same question)
-
-      {
-        type: "---BB---",
-        name: "getScenario",
-        label: "chargement..."
-      }
-
 
 
 ## What needs refactoring
