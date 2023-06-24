@@ -14,8 +14,8 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  isFillTheFridge(){
-    if (this.name == "fillTheFridge") {
+  isGetScenario(){
+    if (this.name == "getScenario") {
         return true
     }else{
         return false

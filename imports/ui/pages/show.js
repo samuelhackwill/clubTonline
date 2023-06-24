@@ -1,10 +1,6 @@
 import "./show.html";
 import "../layouts/feed.js";
 
-// "SB" : static bubble. required attr : "text"
-// "---BB---" : blocking bubble. optionnal attrs : "name"(qcm.<name>/card.<name>), "label", "qcmOptions"
-// data bubbles are a sub-category of blocking bubbles. i guess
-
 const intro = [
   { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
   {
@@ -24,6 +20,11 @@ const intro = [
     type: "SB",
     text: "Mettez vous à l'aise, et si possible ouvrez cette page sur un ordinateur.",
   },  
+  
+  // ᕕ( ᐛ )ᕗ
+  // CAUTION : DO NOT change this bubble without also changing the dataBubble
+  // onCreated function. (the data bubble needs to check what was answered to this
+  // qcm to decide which collection to subscribe to).
   {
     type: "---BB---",
     name: "qcm.humeur",
@@ -35,7 +36,13 @@ const intro = [
     ],
     save: true
   },
-  { // none of this element must ever be changed if we want the scenarioGetter to work.
+
+  // ᕕ( ᐛ )ᕗ
+  // CAUTION : DO NOT change also this bubble without also changing the dataBubble
+  // onCreated function. (the data bubble needs to check what was answered to this
+  // qcm to decide which collection to subscribe to).
+
+  { 
     type: "---BB---",
     name: "qcm.tutoie", 
     label:
@@ -48,7 +55,7 @@ const intro = [
   },
   {
     type: "---BB---",
-    name: "fillTheFridge",
+    name: "getScenario",
     label: "chargement..."
   },
 ];
@@ -60,8 +67,8 @@ Template.show.helpers({
 });
 
 Template.show.onRendered(function(){
-// Call the function to replace Y scrolling with X scrolling
-replaceYScrollWithXScroll();
+  // Call the function to replace Y scrolling with X scrolling
+  replaceYScrollWithXScroll();
 })
 
 // scroll events :

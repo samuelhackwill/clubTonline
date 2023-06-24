@@ -4,7 +4,7 @@ import "./dataBubble.html";
 Template.dataBubble.onCreated(function(){  
     this.loaded = new ReactiveVar(null);
 
-    if (this.data.name == "fillTheFridge") {
+    if (this.data.name == "getScenario") {
 
         switch (savedAnswers.get("humeur")) {
             case "d’humeur à mordre mon ordinateur":
@@ -62,8 +62,8 @@ Template.dataBubble.helpers({
             return false
         }
     },
-    isFillTheFridge(){
-        if (this.name == "fillTheFridge") {
+    isGetScenario(){
+        if (this.name == "getScenario") {
             return true
         }else{
             return false
@@ -81,11 +81,6 @@ Template.dataBubble.helpers({
         }
     },
     getRandomAnswer(){
-        // allAnswers = Answers.findOne({question:this.name})
-        // var item = allAnswers[Math.floor(Math.random()*allAnswers.length)];
-        console.log(this.name)
-        console.log(Answers.findOne({question:this.name})?.answer)
-        console.log(Answers.findOne({question:this.name})?.answer != undefined)
         return {
             status : Answers.findOne({question:this.name})?.answer != undefined,
             content : Answers.findOne({question:this.name})?.answer
