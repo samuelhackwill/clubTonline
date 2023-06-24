@@ -19,14 +19,12 @@ Template.berceuse.onCreated(function() {
 	  });
 	})
 
-
 Template.berceuse.helpers({
 	getString(option){
 		return this.data.answers[option.hash.name]
 	}
 
 })
-
 
 // FONCTIONS --------------------------------------------------
 defilementTexte = function(v, phrases, i) {
@@ -82,7 +80,7 @@ berceuse_startAnimation = function() {
 	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
 	// Duration in seconds
-	a.DURATION = 1000 * 1; // secondes
+	a.DURATION = 1000 * 6; // secondes
 
 	a.BANDEAU = document.querySelector("#left .text-wrapper");
 	a.bandeauWidth = parseFloat(
