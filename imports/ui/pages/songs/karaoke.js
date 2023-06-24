@@ -180,7 +180,7 @@ karaoke_createAnimation = function(slide) {
 				displayAfter(el, 1000 * 2 * i);
 			}
 
-			emptySlide(slide, 3849);
+			emptySlide(slide, 3749);
 
 			break;
 
