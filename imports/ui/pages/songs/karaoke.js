@@ -40,7 +40,6 @@ Template.rap.helpers({
 })
 
 Template.rap.onRendered(function() {
-
 	// ------------ PRÉPARATION / VALIDATION
 	const couplets = document.querySelectorAll("div[id^=couplet]");
 	const nombreMotsMax = 10;

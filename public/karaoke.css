@@ -32,11 +32,11 @@ main {
 		opacity 2s linear;
 }
 
-#karaoke h1 {
+#rap h1 {
     text-transform: uppercase;
 }
 
-#karaoke h2 {
+#rap h2 {
     font-family: "Credible";
 }
 
@@ -45,14 +45,14 @@ p:not(.enchaine) {
     z-index: 5;
 }
 
-#karaoke #instru {
+#rap #instru {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
 }
 
-#karaoke #progress {
+#rap #progress {
     position: fixed;
     bottom: 1.5em;
     left: .5em;
@@ -132,14 +132,16 @@ audio {
 }
 
 /* ---------- ceparti ---------- */
-#karaoke #ceparti {
-    position: fixed;
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
+#ceparti {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
 
-    top: 0;
-    left: 0;
-    /* padding: .3em .5em; */
-    /* font-size: 3em; */
+.retour-maison {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-align: center;
+    font-size: 2rem;
 }
