@@ -1,4 +1,4 @@
-import "./home.html";
+import "./waiting.html";
 
 const waitingData = [
   {
@@ -24,7 +24,8 @@ const waitingData = [
   },
   { type: "SB", text: "comme le disait Thoreau." },
   { type: "SB", text: "Nous vous donnons rendez-vous ici bientôt" },
-  { type: "SB", text: "dès la fin juin" },
+  { type: "SB", text: "de l'autre côté de l'été," },
+  { type: "SB", text: "au mois de Septembre." },
   {
     type: "SB",
     text: "Si vous voulez être tenu au courant de l'ouverture du guichet en ligne, vous pouvez vous inscrire ci-dessous :",
@@ -33,8 +34,8 @@ const waitingData = [
   { type: "SB", name: "linkNoFuturs" },
 ];
 
-Template.home.helpers({
-  homeData() {
+Template.waiting.helpers({
+  waitingData() {
     return waitingData;
   },
 });

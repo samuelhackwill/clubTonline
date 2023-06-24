@@ -1,6 +1,6 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-import "../../ui/pages/home.js";
+import "../../ui/pages/waiting.js";
 import "../../ui/pages/show.js";
 import "../../ui/pages/songs/berceuse.js";
 import "../../ui/pages/songs/karaoke.js";
@@ -8,15 +8,15 @@ import "../../ui/pages/songs/lettre.js";
 
 import {Songs} from "../../API/songs/songs.js";
 
-FlowRouter.route("/waiting", {
+FlowRouter.route("/", {
   name: "waiting",
   action() {
     this.render("waiting");
   },
 });
 
-FlowRouter.route("/", {
-  name: "home",
+FlowRouter.route("/show", {
+  name: "show",
   action() {
     this.render("show");
   },
