@@ -14,40 +14,55 @@ Template.rap.onCreated(function() {
 
 	this.autorun(() => {
 		console.log(this)
-	  });
-	})
+	});
+})
 
 Template.rap.helpers({
-	getString(option){
+	getString(option) {
 		return this.data.answers[option.hash.name]
+	},
+
+	getQuote(option) {
+		const quote = this.data.answers[option.hash.name]
+		return quote.match(/« (.*?) »/)[1]
+	},
+
+	getAuthor(option) {
+		const author = this.data.answers[option.hash.name]
+		return author.match(/\((.*?)\)/)[1]
+	},
+
+	getLastWord(option) {
+		const refrain = this.data.answers[option.hash.name]
+		return refrain.split(" ").at(-1)
 	}
 
 })
 
 Template.rap.onRendered(function() {
-	window.onload = function() {
-		// ------------ PRÉPARATION / VALIDATION
-		const couplet1 = document.getElementById("couplet1");
-		const couplet2 = document.getElementById("couplet2");
-		const content = couplet1.children[0].innerHTML.split(" ");
-		console.log(content);
 
+	// ------------ PRÉPARATION / VALIDATION
+	const couplets = document.querySelectorAll("div[id^=couplet]");
+	const nombreMotsMax = 10;
 
-		// Reset element couplet
-		couplet1.innerHTML = "";
+	for (let couplet of couplets) {
+		const content = couplet.children[0].innerHTML.split(" ");
 
-		const nombreMots = 10;
-		const divider = content.length / nombreMots;
+		if (content.length > nombreMotsMax) {
+			couplet.removeChild(couplet.children[0]);
 
-		for (let i = 0; i <= Math.trunc(divider); i++) {
-			let el = document.createElement("p");
-			el.innerHTML = content.splice(0, nombreMots).join(" ");
+			const delimiter = Math.floor(content.length / 2);
+			const para1 = document.createElement("p");
 
-			if (i < Math.ceil(divider) / 2) {
-				couplet1.appendChild(el);
+			if (content[delimiter - 1].length <= 3) {
+				para1.innerHTML = content.splice(0, delimiter - 1).join(" ");
 			} else {
-				couplet2.appendChild(el);
+				para1.innerHTML = content.splice(0, delimiter).join(" ");
 			}
+
+			const para2 = document.createElement("p");
+			para2.innerHTML = content.join(" ");
+			couplet.prepend(para1, para2);
 		}
 	}
 

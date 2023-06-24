@@ -4,7 +4,7 @@
 
         <section id="slides">
             <div id="titre" data-slide="2">
-                <h1 id="chanson">"{{getString name="rap_titre"}}"</h1>
+                <h1 id="chanson"> {{getString name="rap_titre"}} </h1>
                 <p id="par">par</p>
                 <h2 id="nom">"{{getString name="rap_pseudo"}}"</h2>
             </div>
@@ -15,26 +15,25 @@
             </div>
 
             <div id="couplet1" data-slide="16">
-                <p>{{getString name="rap_rapportAuTravail"}}
-                    {{getString name="rap_colere"}}
-                    {{getString name="rap_colere2"}}
-                </p>
+                <p>{{getString name="rap_colere"}}</p>
 
                 <p class="enchaine">
-                    <span>ouais</span>
-                    <span>ouais</span>
-                    <span>ouais</span>
+                    <span>pas bien</span>
+                    <span>pas bien</span>
+                    <span>pas bien</span>
                 </p>
             </div>
 
-            <div id="couplet2" data-slide="20"></div>
+            <div id="couplet2" data-slide="20">
+                <p>{{getString name="rap_colere2"}}</p>
+            </div>
 
             <div id="refrain" class="refrain" data-slide="23.9">
-                <p>"refrain ouais ouais ouais c'est le refrain"</p>
+                <p>{{getString name="rap_rapportAuTravail"}}</p>
 
                 <p class="enchaine">
-                    <span>le refrain</span>
-                    <span>le refrain</span>
+                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
+                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
                 </p>
 
                 <p id="x2">(×2)</p>
@@ -52,19 +51,20 @@
             </div>
 
             <div id="refrain2" class="refrain" data-slide="36.3">
-                <p>"refrain ouais ouais ouais c'est le refrain"</p>
+                <p>{{getString name="rap_rapportAuTravail"}}</p>
 
                 <p class="enchaine">
-                    <span>le refrain</span>
-                    <span>le refrain</span>
+                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
+                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
                 </p>
             </div>
 
             <div id="conclusion" data-slide="41.4">
-                <p>{{getString name="rap_citation"}}</p>
+                <p>{{getQuote name="rap_citation"}}</p>
 
                 <p class="enchaine">
-                    <span>{{getString name="rap_titre"}}</span>
+                    <span>{{getAuthor name="rap_citation"}}</span>
+                    <span>le sang</span>
                 </p>
             </div>
 
@@ -75,23 +75,27 @@
 
             <div id="outro2" data-slide="48.5">
                 <p>Bientôt la mixtape</p>
-                <p>Vous êtes pas prêts</p>
+                <p>Vous êtes pas prêt·es</p>
             </div>
 
             <div id="outro2" data-slide="53">
-                <button class="retour-maison">Retourner à la maison</button>
+                <button
+                    class="retour-maison focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
+                    onClick="retourMaison()">Retourner à la maison</button>
             </div>
 
         </section>
+
+        <aside id="progress"></aside>
     </main>
 
-    <aside id="progress"></aside>
+    <button id="ceparti"
+        class="focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
+        onclick="karaoke_startAnimation()">CÉPARTI</button>
 
     <audio id="instru" preload="auto" controls>
         <source src="/sounds/instru-raccourci.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
-
-    <button id="ceparti" onclick="karaoke_startAnimation()">CÉPARTI</button>
 
 </template>
