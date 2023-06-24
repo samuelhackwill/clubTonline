@@ -52,17 +52,22 @@ boucleDefilement = function(v) {
 	}
 
 	defilementTexte(v, phrases, 0)
-		.then(anim => defilementTexte(v, phrases, 1))
-		.then(anim => defilementTexte(v, phrases, 2))
-		.then(anim => defilementTexte(v, phrases, 3))
-		.then(anim => defilementTexte(v, phrases, 4))
-		.then(anim => defilementTexte(v, phrases, 5))
-		.then(anim => defilementTexte(v, phrases, 6))
-		.then(anim => defilementTexte(v, phrases, 0))
-		.then(anim => {
+		.then(() => defilementTexte(v, phrases, 1))
+		.then(() => defilementTexte(v, phrases, 2))
+		.then(() => defilementTexte(v, phrases, 3))
+		.then(() => defilementTexte(v, phrases, 4))
+		.then(() => defilementTexte(v, phrases, 5))
+		.then(() => defilementTexte(v, phrases, 6))
+		.then(() => defilementTexte(v, phrases, 0))
+		.then(() => {
 			instru.pause();
+
 			// afficher bouton retour
 			document.querySelector(".retour-maison").style.display = "block";
+
+			setTimeout(() => {
+				document.querySelector(".retour-maison").style.opacity = "1";
+			}, 1000);
 
 		})
 		.catch(e => console.error(e, "J'ai déconné j'aurais pas dû"));
@@ -134,6 +139,7 @@ berceuse_startAnimation = function() {
 		setTimeout(() => {
 			document.querySelector("main").classList.toggle("nuit");
 			resolve("LUMIÈRE");
+			document.getElementById("instru").play();
 		}, 1000);
 	})
 
@@ -148,9 +154,7 @@ berceuse_startAnimation = function() {
 	}).then(() => {
 		return new Promise(function(resolve, reject) {
 			setTimeout(() => {
-				// document.querySelector("main").classList.add("visible");
 				boucleDefilement(v);
-				document.getElementById("instru").play();
 				resolve("BOUCLE");
 			}, 1000);
 		})

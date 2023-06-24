@@ -420,11 +420,10 @@ main {
   transition: opacity 1s;
   opacity: 1;
   cursor: pointer;
-
-  /* display: none; */
 }
 
 .retour-maison {
+  opacity: 0;
   display: none;
 }
 
