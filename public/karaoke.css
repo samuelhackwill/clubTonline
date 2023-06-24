@@ -95,7 +95,7 @@ p:not(.enchaine) {
 }
 
 #nom {
-    font-size: 2.5em;
+    font-size: 2em;
     line-height: 1;
     word-wrap: anywhere;
 }
@@ -133,10 +133,13 @@ audio {
 
 /* ---------- ceparti ---------- */
 #karaoke #ceparti {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: .3em .5em;
-    font-size: 3em;
+    position: fixed;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+
+    top: 0;
+    left: 0;
+    /* padding: .3em .5em; */
+    /* font-size: 3em; */
 }
