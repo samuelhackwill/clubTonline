@@ -14,8 +14,8 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  isGetScenario(){
-    if (this.name == "getScenario") {
+  isDataBubble(){
+    if (this.name == "getScenario" || this.name == "getTarot") {
         return true
     }else{
         return false
@@ -272,3 +272,12 @@ uuidv4 = function() {
     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   );
 }
+
+// getFile = function(){
+//   const testFolder = './';
+  
+//   fs.readdirSync(testFolder).forEach(file => {
+//     console.log(file);
+//   });
+  
+// }

@@ -10,6 +10,11 @@ export const berceuse_tu = [
         "Je te parle depuis la forêt de Soignes en lisière de Bruxelles. Il fait bon et ça sent presque le persil.",
     },
     {
+      type: "---BB---",
+      name: "getTarot",
+      label: "chargement..."
+    },  
+    {
       type: "SB",
       text:
         "Je vais te poser une série de questions auxquelles tu peux répondre librement.",

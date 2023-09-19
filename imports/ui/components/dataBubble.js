@@ -51,6 +51,10 @@ Template.dataBubble.onCreated(function(){
 
         })
     }
+
+    if (this.data.name == "getTarot") {
+        console.log("GET TAROT")
+    }
     
 })  
 
@@ -64,6 +68,14 @@ Template.dataBubble.helpers({
     },
     isGetScenario(){
         if (this.name == "getScenario") {
+            return true
+        }else{
+            return false
+        }
+    },
+    isGetTarot(){
+        console.log("is get tarot", this.name)
+        if (this.name == "getTarot") {
             return true
         }else{
             return false

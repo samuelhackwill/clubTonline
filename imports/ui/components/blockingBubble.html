@@ -10,8 +10,8 @@
       {{label}}
     </button>
   </div>
-
   {{/if}}
+
   {{#if isPlay}}
   <div
     class="col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
@@ -24,6 +24,7 @@
     </button>
   </div>
   {{/if}} 
+
   {{#if isCard}}
   <div
     class="card relative col-span-3 col-end-[-1] flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
@@ -38,6 +39,7 @@
     ></button>
   </div>
   {{/if}} 
+
   {{#if isForm}}
   <div
     class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180" id="container.{{name}}" data-name="{{name}}" data-clicked="false" data-save="{{save}}"
@@ -80,6 +82,7 @@
     {{/if}}  
   </div>
   {{/if}} 
+
   {{#if isQcmForm}}
   <div
     class="relative col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500" data-save="{{save}}" data-name="{{name}}"
@@ -93,7 +96,8 @@
     {{/each}}
   </div>
   {{/if}}
-  {{#if isGetScenario}}
+  
+  {{#if isDataBubble}}
     {{> dataBubble this}}
   {{/if}}
 </template>
