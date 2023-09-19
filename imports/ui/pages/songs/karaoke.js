@@ -70,10 +70,6 @@ Template.rap.onRendered(function() {
 		}
 	}
 
-	setTimeout(function(){
-		karaoke_startAnimation()
-	},1000)
-
 })
 
 // FUNCTIONS ------------------------------------------------
