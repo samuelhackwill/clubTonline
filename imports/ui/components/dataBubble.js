@@ -53,7 +53,15 @@ Template.dataBubble.onCreated(function(){
     }
 
     if (this.data.name == "getTarot") {
-        console.log("GET TAROT")
+        Meteor.call("getTarot", (error, result) =>{
+            if (!error) {         
+                console.log(result)   
+                // this.loaded.set(true)
+            }else{
+                // this.loaded.set(false)
+            }
+
+        })
     }
     
 })  

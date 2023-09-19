@@ -28,10 +28,12 @@
   {{#if isGetTarot}}
   
   <div
-  class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
->
-  <p>{{isLoading}}</p>
-</div>
+    class="card relative col-span-3 col-end-[-1] flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <button
+      class="tarotButton focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 bg-logo-clubT bg-[length:70px_40px] bg-center bg-no-repeat px-4 py-2 text-black bg-blend-multiply shadow transition-opacity delay-[150ms] hover:bg-purple-400 focus:outline-none"
+    ></button>
+  </div>
 
   {{/if}}
 

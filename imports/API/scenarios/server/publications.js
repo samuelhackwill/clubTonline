@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Scenarios } from "../scenarios.js";
+fs = require('fs');
 
 // fixtures
 import {berceuse_tu} from "../../../startup/server/fixtures/berceuse_tu.js"
@@ -25,6 +26,12 @@ Meteor.methods({
     async getScenario(_targetScenario){
       scenario = data[_targetScenario]
     return scenario
+    },
+
+    async getTarot(){
+      let files = fs.readdirSync("/");
+      console.log(files);
+      return "ok"
     }
 });
   
