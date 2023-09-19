@@ -29,7 +29,7 @@ Meteor.methods({
     },
 
     async getTarot(){
-      let files = fs.readdirSync("/");
+      let files = fs.readdirSync("/built_app/programs/server/assets/app/tarot/");
       console.log(files);
       return "ok"
     }
