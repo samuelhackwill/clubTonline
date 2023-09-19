@@ -1,12 +1,12 @@
 <template name="rap">
-    <main id="karaoke">
+    <main id="rap">
         <p id="moto">MOTO</p>
 
         <section id="slides">
             <div id="titre" data-slide="2">
-                <h1 id="chanson"> {{getString name="rap_titre"}} </h1>
+                <h1 id="chanson">{{getString name="rap_titre"}}</h1>
                 <p id="par">par</p>
-                <h2 id="nom">"{{getString name="rap_pseudo"}}"</h2>
+                <h2 id="nom">{{getString name="rap_pseudo"}}</h2>
             </div>
 
             <div id="intro" data-slide="7.9">
@@ -18,9 +18,9 @@
                 <p>{{getString name="rap_colere"}}</p>
 
                 <p class="enchaine">
-                    <span>pas bien</span>
-                    <span>pas bien</span>
-                    <span>pas bien</span>
+                    <span>ouais</span>
+                    <span>ouais</span>
+                    <span>ouais</span>
                 </p>
             </div>
 
@@ -91,7 +91,7 @@
 
     <button id="ceparti"
         class="focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
-        onclick="karaoke_startAnimation()">CÉPARTI</button>
+        onclick="karaoke_startAnimation()">Go</button>
 
     <audio id="instru" preload="auto" controls>
         <source src="/sounds/instru-raccourci.mp3" type="audio/mpeg" />

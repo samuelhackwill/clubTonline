@@ -45,7 +45,6 @@ Template.rap.helpers({
 })
 
 Template.rap.onRendered(function() {
-
 	// ------------ PRÉPARATION / VALIDATION
 	const couplets = document.querySelectorAll("div[id^=couplet]");
 	const nombreMotsMax = 10;
@@ -190,7 +189,7 @@ karaoke_createAnimation = function(slide) {
 				displayAfter(el, 1000 * 2 * i);
 			}
 
-			emptySlide(slide, 3849);
+			emptySlide(slide, 3749);
 
 			break;
 

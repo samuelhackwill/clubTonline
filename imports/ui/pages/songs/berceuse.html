@@ -1,20 +1,30 @@
 <template name="berceuse">
     <main id="berceuse">
-        <div id="ceiling" class="murs"></div>
+        <div id="ceiling" class="murs">
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+
+        </div>
         <div id="floor" class="murs"></div>
 
         <h1>{{ test }}</h1>
 
-        <!-- OSKOUR LES ÉTOILES -->
-        <!-- <span class="etoile">☄</span> -->
-        <!-- <span class="etoile">☁</span> -->
-        <!-- <span class="etoile">★</span> -->
-        <!-- <span class="etoile">☾</span> -->
+        <!-- <span class="filante">☄</span> -->
+        <!-- <span class="nuage">☁</span> -->
+        <!-- <span class="lune">☾</span> -->
 
         <div id="left" class="murs">
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+
             <div class="text-wrapper">
                 <p class="para1 short">
-                    Fais dodo PRÉNOM
+                    Fais dodo {{getString name="berceuse_pseudo"}}
                 </p>
 
                 <p class="para2 short">
@@ -22,16 +32,15 @@
                 </p>
 
                 <p class="para3">
-                    C'était un été en festival, je marchais seul et assez vite, j'avais l'impression de
-                    rebondir dans mes baskets en travesant la foule
+                    {{getString name="berceuse_retient"}}
                 </p>
 
                 <p class="para4">
-                    J'étais comme hypnotisé par la musique, dans ma bulle parmi les gens
+                    {{getString name="berceuse_mieuxDormir"}}
                 </p>
 
                 <p class="para5">
-                    Moins de chaleur et une légère brise
+                    {{getString name="berceuse_deuxMots"}}
                 </p>
 
                 <p class="para6 short">
@@ -41,15 +50,25 @@
                 <p class="para7 short">
                     Tout ira bien
                 </p>
-
 
             </div>
         </div>
 
         <div id="center" class="murs">
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+            <span class="etoile">★</span>
+
+            <span class="nuage">☁</span>
+            <span class="nuage">☁</span>
+            <span class="nuage">☁</span>
+
             <div class="text-wrapper">
                 <p class="para1 short">
-                    Fais dodo PRÉNOM
+                    Fais dodo {{getString name="berceuse_pseudo"}}
                 </p>
 
                 <p class="para2 short">
@@ -57,16 +76,15 @@
                 </p>
 
                 <p class="para3">
-                    C'était un été en festival, je marchais seul et assez vite, j'avais l'impression de
-                    rebondir dans mes baskets en travesant la foule
+                    {{getString name="berceuse_retient"}}
                 </p>
 
                 <p class="para4">
-                    J'étais comme hypnotisé par la musique, dans ma bulle parmi les gens
+                    {{getString name="berceuse_mieuxDormir"}}
                 </p>
 
                 <p class="para5">
-                    Moins de chaleur et une légère brise
+                    {{getString name="berceuse_deuxMots"}}
                 </p>
 
                 <p class="para6 short">
@@ -76,7 +94,6 @@
                 <p class="para7 short">
                     Tout ira bien
                 </p>
-
 
             </div>
         </div>
@@ -116,17 +133,14 @@
                     Tout ira bien
                 </p>
 
-
             </div>
 
         </div>
     </main>
 
-    <div id="nuit"></div>
+    <button id="ceparti" class="focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none" onclick="berceuse_startAnimation()">Go</button>
 
-    <button id="ceparti" onclick="berceuse_startAnimation()">Go</button>
-
-    <button class="retour-maison">Retourner à la maison</button>
+    <button class="retour-maison focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none">Retourner à la maison</button>
 
     <audio id="instru" preload="auto" controls>
         <source src="/sounds/berceuse_v1.mp3" type="audio/mpeg" />
