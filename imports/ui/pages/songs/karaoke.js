@@ -17,24 +17,29 @@ Template.rap.onCreated(function() {
 	});
 })
 
+
 Template.rap.helpers({
 	getString(option) {
-		return this.data.answers[option.hash.name]
+		return "blabla boububub"
+		// return this.data.answers[option.hash.name]
 	},
 
 	getQuote(option) {
-		const quote = this.data.answers[option.hash.name]
-		return quote.match(/« (.*?) »/)[1]
+		return "blabla boububub"
+		// const quote = this.data.answers[option.hash.name]
+		// return quote.match(/« (.*?) »/)[1]
 	},
 
 	getAuthor(option) {
-		const author = this.data.answers[option.hash.name]
-		return author.match(/\((.*?)\)/)[1]
+		return "blabla boububub"
+		// const author = this.data.answers[option.hash.name]
+		// return author.match(/\((.*?)\)/)[1]
 	},
 
 	getLastWord(option) {
-		const refrain = this.data.answers[option.hash.name]
-		return refrain.split(" ").at(-1)
+		return "blabla boububub"
+		// const refrain = this.data.answers[option.hash.name]
+		// return refrain.split(" ").at(-1)
 	}
 
 })
@@ -66,6 +71,10 @@ Template.rap.onRendered(function() {
 		}
 	}
 
+	setTimeout(function(){
+		karaoke_startAnimation()
+	},1000)
+
 })
 
 // FUNCTIONS ------------------------------------------------
@@ -78,8 +87,8 @@ karaoke_startAnimation = function() {
 	const INSTRU = document.getElementById("instru");
 	INSTRU.play();
 
-	document.querySelector("main").style.transform = "scale(1)";
-	document.querySelector("main").style.opacity = "1";
+	// document.querySelector("main").style.transform = "scale(1)";
+	// document.querySelector("main").style.opacity = "1";
 
 	// CAISSECLAIRE
 	setTimeout(() => {
