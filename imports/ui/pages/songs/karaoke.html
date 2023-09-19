@@ -6,16 +6,16 @@
             <div id="titre" data-slide="2">
                 <h1 id="chanson">{{getString name="rap_titre"}}</h1>
                 <p id="par">par</p>
-                <h2 id="nom">{{getString name="rap_pseudo"}}</h2>
+                <h2 id="nom">{{getString name="rap_blase"}}</h2>
             </div>
 
             <div id="intro" data-slide="7.9">
-                <p>Je viens de {{getString name="rap_departement"}}</p>
+                <p>Je viens de {{getString name="rap_ou"}}</p>
                 <p>Représente</p>
             </div>
 
             <div id="couplet1" data-slide="16">
-                <p>{{getString name="rap_colere"}}</p>
+                <p>{{getString name="rap_ennemidesc"}}</p>
 
                 <p class="enchaine">
                     <span>ouais</span>
@@ -25,63 +25,63 @@
             </div>
 
             <div id="couplet2" data-slide="20">
-                <p>{{getString name="rap_colere2"}}</p>
+                <p>{{getString name="rap_arme"}}</p>
             </div>
 
             <div id="refrain" class="refrain" data-slide="23.9">
-                <p>{{getString name="rap_rapportAuTravail"}}</p>
+                <p>{{getLastWord name="rap_ennemidesc"}}</p>
 
                 <p class="enchaine">
-                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
-                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
+                    <span>{{getLastWord name="rap_arme"}}</span>
+                    <span>{{getLastWord name="rap_arme"}}</span>
                 </p>
 
                 <p id="x2">(×2)</p>
             </div>
 
             <div id="bruitTravail" data-slide="30.9">
-                <p>Le travail ça fait <span>{{getString name="rap_bruit3"}}</span></p>
+                <p>Le travail ça fait <span>{{getString name="rap_bruit"}}</span></p>
 
                 <p class="enchaine">
-                    <span>{{getString name="rap_bruit3"}}</span>
-                    <span>{{getString name="rap_bruit3"}}</span>
+                    <span>{{getString name="rap_bruit"}}</span>
+                    <span>{{getString name="rap_bruit"}}</span>
                 </p>
 
-                <p><span>Ouais,</span> le travail ça fait <span>{{getString name="rap_bruit3"}}</span></p>
+                <p><span>Ouais,</span> le travail ça fait <span>{{getString name="rap_bruit"}}</span></p>
             </div>
 
             <div id="refrain2" class="refrain" data-slide="36.3">
-                <p>{{getString name="rap_rapportAuTravail"}}</p>
+                <p>{{getString name="rap_enneminame"}}</p>
 
                 <p class="enchaine">
-                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
-                    <span>{{getLastWord name="rap_rapportAuTravail"}}</span>
+                    <span>{{getLastWord name="rap_enneminame"}}</span>
+                    <span>{{getLastWord name="rap_enneminame"}}</span>
                 </p>
             </div>
 
             <div id="conclusion" data-slide="41.4">
-                <p>{{getQuote name="rap_citation"}}</p>
+                <p>{{getString name="rap_metier"}}</p>
 
                 <p class="enchaine">
-                    <span>{{getAuthor name="rap_citation"}}</span>
+                    <span>{{getString name="rap_metier"}}</span>
                     <span>le sang</span>
                 </p>
             </div>
 
             <div id="outro1" data-slide="44.4">
                 <p>Et ouais mon gars</p>
-                <p>C'était {{getString name="rap_pseudo"}}</p>
+                <p>C'était {{getString name="rap_blase"}}</p>
             </div>
 
             <div id="outro2" data-slide="48.5">
-                <p>Bientôt la mixtape</p>
-                <p>Vous êtes pas prêt·es</p>
+                <!-- <p>C'était Club travail</p>
+                <p>bisous</p> -->
             </div>
 
             <div id="outro2" data-slide="53">
                 <button
                     class="retour-maison focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
-                    onClick="retourMaison()">Retourner à la maison</button>
+                    onClick="retourMaison()">Retourner à la page d'accueil</button>
             </div>
 
         </section>
@@ -91,7 +91,7 @@
 
     <button id="ceparti"
         class="focus:shadow-outline mb-1 flex rounded bg-purple-500 px-4 py-2 text-left text-white shadow hover:bg-purple-400 focus:outline-none"
-        onclick="karaoke_startAnimation()">Go</button>
+        onclick="karaoke_startAnimation()">Play</button>
 
     <audio id="instru" preload="auto" controls>
         <source src="/sounds/instru-raccourci.mp3" type="audio/mpeg" />

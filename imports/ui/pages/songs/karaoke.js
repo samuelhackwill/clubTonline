@@ -20,26 +20,22 @@ Template.rap.onCreated(function() {
 
 Template.rap.helpers({
 	getString(option) {
-		return "blabla boububub"
-		// return this.data.answers[option.hash.name]
+		return this.data.answers[option.hash.name]
 	},
 
 	getQuote(option) {
-		return "blabla boububub"
-		// const quote = this.data.answers[option.hash.name]
-		// return quote.match(/« (.*?) »/)[1]
+		const quote = this.data.answers[option.hash.name]
+		return quote.match(/« (.*?) »/)[1]
 	},
 
 	getAuthor(option) {
-		return "blabla boububub"
-		// const author = this.data.answers[option.hash.name]
-		// return author.match(/\((.*?)\)/)[1]
+		const author = this.data.answers[option.hash.name]
+		return author.match(/\((.*?)\)/)[1]
 	},
 
 	getLastWord(option) {
-		return "blabla boububub"
-		// const refrain = this.data.answers[option.hash.name]
-		// return refrain.split(" ").at(-1)
+		const refrain = this.data.answers[option.hash.name]
+		return refrain.split(" ").at(-1)
 	}
 
 })

@@ -47,6 +47,25 @@ export const rap_tu = [
 {
   type: "---BB---",
   save: true,
+  name: "qcm.rap_bruit",
+  label: "Quel bruit fait ton travail?",
+  qcmOptions: [
+    "Scrrru",
+    "Vroum",
+    "Clac",
+    "Zzz",
+    "Tic tic",
+    "Bla bla"
+  ],
+},
+{
+  type: "SB",
+  text:
+    "OK",
+},
+{
+  type: "---BB---",
+  save: true,
   name: "qcm.rap_pqmordre",
   label: "Et alors qu'est ce qui fait que tu aurais envie de mordre ton ordinateur aujourd'hui?",
   qcmOptions: [
@@ -83,7 +102,6 @@ export const rap_tu = [
 },
 {          
   type: "---BB---",
-  save:true,
   name: "card.rap_plainte",
   size: "l",
   label:
@@ -97,7 +115,7 @@ export const rap_tu = [
 {          
   type: "---BB---",
   save:true,
-  name: "card.rap_nom",
+  name: "card.rap_enneminame",
   size: "s",
   label:
   "Si on devait identifier qui est l'ennemi numéro 1 dans ton histoire, ça serait qui-quoi? Trouve-lui un nom :",
@@ -105,7 +123,7 @@ export const rap_tu = [
 {          
   type: "---BB---",
   save:true,
-  name: "card.rap_probleme",
+  name: "card.rap_enenmidesc",
   size: "s",
   label:
   "Est ce que tu peux nous le décrire, décrire ce qu'il fait, comment il le fait?",
@@ -127,9 +145,81 @@ export const rap_tu = [
     "c'est bon j'ai identifié mon ennemi",
 },
 {
+  type: "SB",
+  text:
+    "Admettons maintenant que c'est la meilleure journée de travail de ta vie. Toutes les personnes avec qui tu aimes travailler sont réunies, tu dispose d'une assise ultra confortable, tu peux être fièr.e de toi, car tu as combattu ton ennemi numéro 1 grâce à une arme secrète qui t'appartient tout particulièrement.",
+},
+{
+  type: "SB",
+  text:
+    "C'est une arme qui te viens de l'enfance et que tu as su déployer au fil des années.",
+},
+{
+  type: "---BB---",
+  save:true,
+  name: "card.rap_arme",
+  size: "s",
+  label:
+    "Quelle est cette arme? Peux-tu nous la décrire, décrire la façon dont tu t'en es servi pour t'en sortir. Tu peux inventer, exagérer."
+},
+{
+  type: "SB",
+  text:
+    "Bravo",
+},
+{
+  type: "SB",
+  text:
+    "On peut dire que tu reviens de loin",
+},
+{
+  type: "---BB---",
+  save:true,
+  name: "card.rap_ou",
+  size: "s",
+  label:
+    "D'ailleurs, d'où viens-tu? (dis nous juste le nom de la ville ou du hameau)"
+},
+{
+  type: "---BB---",
+  save:true,
+  name: "card.rap_blase",
+  size: "s",
+  label:
+    "Et comment on t'appellait là bas?"
+},
+{
+  type: "SB",
+  text:
+    "Et alors figure-toi que je garde une collection d'armes secrètes du travail",
+},
+{
+  type: "SB",
+  text:
+    "Elles sont rangés dans un porte-CDs sur mon bureau",
+},
+{
+  type: "---BB---",
+  save:true,
+  name: "card.rap_titre",
+  size: "s",
+  label:
+    "J'aimerais savoir comment on pourrait appeller ton arme secrète pour que je l'écrive sur ton CD-ROM."
+},
+{
+  type: "SB",
+  text:
+    "OK super.",
+},
+{
+  type: "SB",
+  text:
+    "Tiens ben regarde si tu veux on peut regarder ce qu'il y a sur le CD-ROM si ça te dis",
+},
+{
   type: "---BB---",
   name: "end",
   label:
-  "conclure",
+  "lire le CD-ROM",
 }
 ]
