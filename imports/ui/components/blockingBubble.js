@@ -96,7 +96,8 @@ Template.blockingBubble.events({
   },
 
   "click .end"(event){
-    this._songUUID = crypto.randomUUID()
+    
+    this._songUUID = uuidv4()
     data = {}
     data.answers = savedAnswers.all()
     data.scenario = savedAnswers.get("qcmForm.humeur")
@@ -265,3 +266,9 @@ fadeQuestion = function (event) {
     previousCard.classList.add("bg-white");
   }
 };
+
+uuidv4 = function() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}

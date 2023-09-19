@@ -123,7 +123,7 @@ export const rap_tu = [
 {          
   type: "---BB---",
   save:true,
-  name: "card.rap_enenmidesc",
+  name: "card.rap_ennemidesc",
   size: "s",
   label:
   "Est ce que tu peux nous le décrire, décrire ce qu'il fait, comment il le fait?",
