@@ -75,6 +75,11 @@ export const lettre_tu = [
       text:
         "Tu vas pouvoir tirer une carte du tarot du travail. Cette carte évoque quelque chose que tu ne souhaites plus voir dans ton monde du travail à toi, en rapport avec ce « trop » que tu viens d’évoquer."
     },
+    {
+      type: "---BB---",
+      name: "getTarot",
+      label: "chargement..."
+    },  
     {          
       type: "---BB---",
       name: "card.lettre_tarot",
@@ -127,6 +132,11 @@ export const lettre_tu = [
       text:
       "Tu vas pouvoir tirer une seconde carte du tarot du travail du futur."
     },
+    {
+      type: "---BB---",
+      name: "getTarot",
+      label: "chargement..."
+    },  
     {          
       type: "---BB---",
       name: "card.lettre_tarot2",

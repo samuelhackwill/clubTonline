@@ -1,226 +1,225 @@
-export const rap_vous = [
+export const rap_vous = [    
   {
+    type: "SB",
+    text:
+      "Salut c’est moi, Samuel, je suis aussi l'ingénieur informaticien de ce guichet.",
+  },
+  {
+    type: "SB",
+    text:
+      "quand j'étais petit, j'ai fait un site web avec mon parrain Jeremy à l'aide du logiciel Dreamweaver.",
+  },
+  {
+    type: "SB",
+    text:
+      "Je conserve aujourd'hui ce site web que nous avons gravé sur un CD-Rom. Sur le CD-Rom, il y a écrit 'sam's website'",
+  },
+  {
+    type: "SB",
+    text:
+      "car mon parrain est anglais.",
+  },
+  {
+    type: "SB",
+    text:
+      "Aujourd'hui je fais des sites web, mais je fais aussi d'autres choses.",
+  },
+  {
+    type: "---BB---",
+    save: true,
+    name: "qcm.rap_metier",
+    label: "Et vous, qu'est ce que vous faites?",
+    qcmOptions: [
+      "Je travaille avec mes mains",
+      "Je travaille avec mes pieds",
+      "Je travaille avec ma tête",
+      "Je suis cadre",
+      "Je travaille avec ma famille",
+      "Je suis un enfant",
+      "Je fais semblant de travailler",
+    ],
+  },
+  {
+    type: "SB",
+    text:
+      "D'accord!",
+  },
+  {
+    type: "---BB---",
+    save: true,
+    name: "qcm.rap_bruit",
+    label: "Quel bruit fait votre travail?",
+    qcmOptions: [
+      "Scrrru",
+      "Vroum",
+      "Clac",
+      "Zzz",
+      "Tic tic",
+      "Bla bla"
+    ],
+  },
+  {
+    type: "SB",
+    text:
+      "OK",
+  },
+  {
+    type: "---BB---",
+    save: true,
+    name: "qcm.rap_pqmordre",
+    label: "Et alors qu'est ce qui fait que vous auriez envie de mordre votre ordinateur aujourd'hui?",
+    qcmOptions: [
+      "Je vis difficilement la compagnie d'une personne de mon entourage professionel",
+      "Mon horizon professionel est bloqué",
+      "Mon ordinateur est en mousse, je peux donc le mordre sans conséquences et je le fais régulièrement pour déstresser.",
+      "J'ai réussi à accomplir tout ce que je voulais faire et donc c'est plutôt une morsure de célébration"
+    ],
+  },
+  {
+    type: "SB",
+    text:
+      "Ah d'accord.",
+  },
+  {          
+    type: "SB",
+    text:
+    "Admettons que vous venez de passer la pire journée de votre vie au travail.",
+  },
+  {          
+    type: "SB",
+    text:
+    "vous avez été dépassé.e par les évenements",
+  },
+  {          
+    type: "SB",
+    text:
+    "Tout ce que vous détestez vous a été imposé,",
+  },
+  {          
+    type: "SB",
+    text:
+    "vos vieux démons ont ressurgi.",
+  },
+  {          
+    type: "---BB---",
+    name: "card.rap_plainte",
+    size: "l",
+    label:
+    "Est ce que vous voulez nous raconter? Si ça vous aide vous pouvez commencer par dire quel jour de la semaine c'était. Ne vous arrêtez pas avant d'avoir noirci le cadre, enfin si vous voulez.",
+  },
+  {          
+    type: "SB",
+    text:
+    "ah oui olala.",
+  },
+  {          
+    type: "---BB---",
+    save:true,
+    name: "card.rap_enneminame",
+    size: "s",
+    label:
+    "Si on devait identifier qui est l'ennemi numéro 1 dans votre histoire, ça serait qui-quoi? Trouvez-lui un nom :",
+  },
+  {          
+    type: "---BB---",
+    save:true,
+    name: "card.rap_ennemidesc",
+    size: "s",
+    label:
+    "Est ce que vous pouvez nous le décrire, décrire ce qu'il fait, comment il le fait?",
+  },
+  {
+    type: "SB",
+    text:
+      "Quand vous vous sentez prêt.e, vous pouvez aller à votre fenêtre, l'ouvrir, prendre une respiration, redresser vos épaules, et crier avec votre voix la plus grave ou la plus aigüe le nom de l'ennemi.",
+  },
+  {
+    type: "SB",
+    text:
+      "Bon si vous voulez rester assis.e vous pouvez aussi le faire sur place.",
+  },
+  {
+    type: "---BB---",
+    name:"play",
+    label:
+      "c'est bon j'ai identifié mon ennemi",
+  },
+  {
+    type: "SB",
+    text:
+      "Admettons maintenant que c'est la meilleure journée de travail de votre vie. Toutes les personnes avec qui vous aimez travailler sont réunies, vous disposez d'une assise ultra confortable, vous pouvez être fièr.e de vous, car vous avez combattu votre ennemi numéro 1 grâce à une arme secrète qui vous appartient tout particulièrement.",
+  },
+  {
+    type: "SB",
+    text:
+      "C'est une arme qui vous vient de l'enfance et que vous avez su déployer au fil des années.",
+  },
+  {
+    type: "---BB---",
+    save:true,
+    name: "card.rap_arme",
+    size: "s",
+    label:
+      "Quelle est cette arme? Pouvez-vous nous la décrire, décrire la façon dont vous vous en êtes servi pour vous en sortir. Vous pouvez inventer, exagérer."
+  },
+  {
+    type: "SB",
+    text:
+      "Bravo",
+  },
+  {
+    type: "SB",
+    text:
+      "On peut dire que vous revenez de loin",
+  },
+  {
+    type: "---BB---",
+    save:true,
+    name: "card.rap_ou",
+    size: "s",
+    label:
+      "D'ailleurs, d'où venez-vous? (dites-nous juste le nom de la ville ou du hameau)"
+  },
+  {
+    type: "---BB---",
+    save:true,
+    name: "card.rap_blase",
+    size: "s",
+    label:
+      "Et comment on vous appelait là-bas?"
+  },
+  {
+    type: "SB",
+    text:
+      "Et alors figurez-vous que je garde une collection d'armes secrètes du travail",
+},
+{
   type: "SB",
   text:
-  "Bonjour, c’est moi Samuel, je suis également ingénieur informaticien de ce guichet.",
-  },
-  {
-  type: "SB",
-  text:
-  "Je l'avoue, il m'est déjà arrivé d'avoir envie de crier sur les toits avec un mégaphone lorsque j'écrivais du code pour ce site web",
-  },
-  {
-  type: "SB",
-  text:
-  "Je vous parle depuis le co-working space d’une galerie commerciale en plein centre de Lille. Il fait bon la clim’ et ça sent presque le coca-cola.",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_où",
-  size: "s",
-  label:
-  "Pouvez-vous me dire où vous vous trouvez vous-même ?",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_rapportAuTravail",
-  size: "s",
-  label:
-  "Et alors, comment définiriez-vous votre rapport au travail en ce moment ? (ex : en recherche, perdu, en questionnement, en surcharge, content, etc)",
-  },
-  {
-  type: "SB",
-  text:
-  "Bravo de prendre ce petit moment là pour vous aujourd’hui en tout cas.",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_etat",
-  size: "s",
-  label:
-  "Dans quel état émotionnel vous met votre travail en ce moment ? (si vous ne travaillez pas/pas encore/plus/plus jamais/ne voulez/pouvez pas travailler, vous pouvez me dire dans quel état vous êtes, tout simplement)",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_colere",
-  size: "s",
-  label:
-  "Pourriez-vous nous raconter quelque chose qui vous a mis particulièrement en colère dernièrement en lien avec le travail ? Ou qui vous a forcément agacé, ou peiné ?",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_colere2",
-  size: "s",
-  label:
-  "Pouvez-vous nous donner un peu plus de détails ? les émotions qui vous ont envahi… le contexte, le décor. Prenez votre temps, je suis là pour vous écouter.",
-  },
-  {
+    "Elles sont rangés dans un porte-CDs sur mon bureau",
+},
+{
   type: "---BB---",
   save:true,
   name: "card.rap_titre",
   size: "s",
   label:
-  "Quel titre donneriez-vous à cette histoire / anecdote ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_typeDeColere",
-  size: "s",
-  label:
-  "De quelle façon avez-vous tendance à vous mettre en colère ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_conflit",
-  size: "s",
-  label:
-  "Est-ce que ça reflète votre rapport au conflit en général ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_intinct",
-  size: "s",
-  label:
-  "J’ai tendance à séparer les gens en deux catégories : ceux qui ont l'instinct du conflit et ceux qui en ont peur, êtes-vous d’accord avec ça ? ",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_colleg",
-  size: "s",
-  label:
-  "Il paraît qu’une personne sur deux ne supporte pas un-e de ses collègues, est-ce votre cas ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_collegues",
-  size: "s",
-  label:
-  "Dans le fond, qui sont vos collègues ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_milieu",
-  size: "s",
-  label:
-  "Et tiens je me demandais, dans quel milieu avez-vous grandi ? ",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_departement",
-  size: "s",
-  label:
-  "C’est dans quelle région ? département ? ",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_10ans",
-  size: "s",
-  label:
-  "Vous avez le souvenir de ce qui vous mettait le plus en colère, quand vous aviez, quoi, 10 ans ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_bruit",
-  size: "s",
-  label:
-  "Est-ce que là où vous avez grandi, vous avez le souvenir d’un son ou un bruit agréable, particulier, qui pouvait vous environner ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_bruit2",
-  size: "s",
-  label:
-  "Quel bruit faisait ce bruit ?",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_bruit3",
-  size: "s",
-  label:
-  " Quel bruit fait votre travail aujourd’hui ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_bruit4",
-  size: "s",
-  label:
-  "C’est agréable, désagréable ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_bruit4",
-  size: "s",
-  label:
-  "Ça vous fait quoi de comparer ces deux bruits ?",
-  },
-  {
+    "J'aimerais savoir comment on pourrait appeller votre arme secrète pour que je l'écrive sur votre CD-ROM."
+},
+{
   type: "SB",
   text:
-  "Fermez un instant les yeux en essayant de voir si vous ne pourriez pas autoriser votre cerveau à remplacer votre vieux bruit agréable par votre bruit d’aujourd’hui.",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_inegalites",
-  size: "s",
-  label:
-  "Je me demandais, quelles sont les inégalités et/ou les discriminations qui vous mettent le plus en colère au travail ?",
-  },
-  {
-  type: "---BB---",
-  name: "card.rap_bouger",
-  size: "s",
-  label:
-  "Sentez-vous que ça pourrait bouger ? Comment ?",
-  },
-  {
-  type: "---BB---",
-  save: true,
-  name: "qcm.rap_citation",
-  label: "Laquelle de ces citations est votre préférée ?",
-  qcmOptions: [
-  "« L’argent est un très mauvais conseiller » (Jules Renard)",
-  "« Nous irons tous et toutes en enfer, quand l’argent sera dépensé, quand l’argent aura disparu » (CocoRosie)",
-  "« L'argent est bien, mais l'homme est meilleur, parce qu'il répond quand on l'appelle. » (proverbe africain)",
-  "« L'argent n'fait pas l'bonheur, bonheur remplit pas l'assiette. » (Booba)",
-  "« Nul n'est si pauvre qu'il ne doive s'asseoir sur une citrouille. » (Thoreau)",
-  "« Tu jauges aujourd’hui la réussite d’une vie à combien gagne la personne » (Titiou Lecoq)",
-  ],
-  },
-  {
+    "OK super.",
+},
+{
   type: "SB",
   text:
-  "Prenez une minute pour réfléchir à votre propre citation sur l’argent. N’hésitez pas à relire nos échanges si ça vous aide, vous avez des choses très pertinentes jusqu'à présent.",
-  },
-  {
-  type: "SB",
-  text:
-  "Quand vous êtes prêt-e, vous allez pouvoir souffler un grand coup, redresser vos épaules, et vous diriger vers l’une des fenêtres (ou une porte s’il n’y a pas de fenêtres), l’ouvrir et crier avec votre voix la plus grave votre citation, suivi du prénom de la dernière personne que vous avez vexé. Je vous attends.",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_pseudo",
-  size: "s",
-  label:
-  "Avant de vous laisser profiter de la dernière étape du guichet du travail, je voulais savoir : quel surnom souhaitez-vous vous donner dans cette plate-forme ?",
-  },
-  {
-  type: "---BB---",
-  save:true,
-  name: "card.rap_citationPerso",
-  size: "s",
-  label:
-  "Pouvez-vous nous partager votre citation ?",
-  },
-  {
+    "Tenez, si vous voulez on peut regarder ce qu'il y a sur le CD-ROM si ça vous dis",
+},
+{
   type: "---BB---",
   name: "end",
   label:
-  "conclure",
-  }
-  ]
+  "lire le CD-ROM",
+}
+]
