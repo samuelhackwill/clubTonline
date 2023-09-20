@@ -123,5 +123,13 @@ Template.dataBubble.events({
         "pointer-events-none"
     );
     event.target.classList.add("opacity-0");
-    }
+    // state.set("gettingMoreElements");
+
+    setTimeout(function(){
+        addNextItem();
+    },2000)
+
+}
+
+
 })    
