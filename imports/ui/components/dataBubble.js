@@ -53,9 +53,13 @@ Template.dataBubble.onCreated(function(){
     }
 
     if (this.data.name == "getTarot") {
+        this.src = new ReactiveVar(null);
+
         Meteor.call("getTarot", (error, result) =>{
-            if (!error) {         
+            console.log("THIS" , this)     
+            if (!error) {    
                 console.log(result)   
+                this.src.set(result)
                 // this.loaded.set(true)
             }else{
                 // this.loaded.set(false)
@@ -82,7 +86,6 @@ Template.dataBubble.helpers({
         }
     },
     isGetTarot(){
-        console.log("is get tarot", this.name)
         if (this.name == "getTarot") {
             return true
         }else{
@@ -105,5 +108,20 @@ Template.dataBubble.helpers({
             status : Answers.findOne({question:this.name})?.answer != undefined,
             content : Answers.findOne({question:this.name})?.answer
         }
+    },
+    getTarotSRC(){
+        console.log("get tarot src ", Template.instance().src.get())
+        return Template.instance().src.get()
     }
   })
+
+Template.dataBubble.events({
+
+    "click .tarotButton"(event) {
+    event.target.parentElement.classList.add(
+        "rotate-y-180",
+        "pointer-events-none"
+    );
+    event.target.classList.add("opacity-0");
+    }
+})    

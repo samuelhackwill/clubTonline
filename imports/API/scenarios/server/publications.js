@@ -29,9 +29,19 @@ Meteor.methods({
     },
 
     async getTarot(){
-      let files = fs.readdirSync("/built_app/programs/server/assets/app/tarot/");
-      console.log(files);
-      return "ok"
+      // LOCAL
+      const files = fs.readdirSync("/Users/samuel/htdocs/clubTonline/public/img/tarot/futur_verticales/");
+
+      // HOSTED (via mup & docker)
+      // const files = fs.readdirSync("/built_app/programs/web.browser/app/img/tarot/");     
+
+      const file = files[Math.floor(Math.random() * files.length)];
+      console.log(files, file);
+      
+      // LOCAL
+      return "/img/tarot/futur_verticales/"+file
+      
+      // HOSTED
+      // return "/built_app/programs/web.browser/app/img/tarot/"+file
     }
 });
-  
