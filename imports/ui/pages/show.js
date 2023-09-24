@@ -1,5 +1,6 @@
 import "./show.html";
 import "../layouts/feed.js";
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 const intro = [
   { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
@@ -76,7 +77,7 @@ Template.show.onRendered(function(){
 // some peeps will be on their computer, with a keyboard and mouse
 // some peeps will be on their phone / tablet, with touch events
 // some peeps will be disabled and won't be able to use this website.
-function replaceYScrollWithXScroll() {
+replaceYScrollWithXScroll = function() {
   let accumulatedDeltaY = 0;
   let lastTimestamp = 0;
 
@@ -136,4 +137,8 @@ function replaceYScrollWithXScroll() {
   }
 
   document.addEventListener("wheel", wheel, { passive: false });
+}
+
+goToSongs = function(){
+  FlowRouter.go("/bibliotheque")
 }

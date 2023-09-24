@@ -15,7 +15,7 @@ Template.blockingBubble.helpers({
     }
   },
   isDataBubble(){
-    if (this.name == "getScenario" || this.name == "getTarot") {
+    if (this.name == "getScenario" || this.name == "getTarot" || this.name == "getAllSongs") {
         return true
     }else{
         return false

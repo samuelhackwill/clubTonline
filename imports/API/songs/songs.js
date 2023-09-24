@@ -12,6 +12,9 @@ schemas.Songs = new SimpleSchema({
     label: 'unique URL to get the song',
     max: 200,
   },
+  title:{
+    type: String,
+  },
   timestamp: {
     type: Date,
     label: 'When was the song created',

@@ -1,5 +1,6 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
+import "../../ui/pages/completed.js";
 import "../../ui/pages/waiting.js";
 import "../../ui/pages/show.js";
 import "../../ui/pages/songs/berceuse.js";
@@ -19,6 +20,13 @@ FlowRouter.route("/show", {
   name: "show",
   action() {
     this.render("show");
+  },
+});
+
+FlowRouter.route("/bibliotheque", {
+  name: "completed",
+  action() {
+    this.render("completed");
   },
 });
 

@@ -9,12 +9,37 @@ Meteor.publish("songs", function (_params) {
 Meteor.methods({
   async makeSong(_uuid, _data, _scenario){
     // Meteor.setTimeout(function(){return "zobbbb"},1000)
+    _title = null
+
+    switch (_scenario) {
+      case "lettre":
+        _title = _data.answers?.lettre_adresse
+        break;
+    
+      case "rap":
+        _title = _data.answers?.rap_titre
+        break;
+    
+      case "berceuse":
+        _title = "berseuze"
+        break;
+    
+      default:
+        _title = "Chanson sans titre"
+        break;
+    }
+
     console.log(_uuid, _data)
-    Songs.insert({uuid:_uuid, timestamp:new Date(), private:false, scenario:_scenario, answers:_data.answers})
+    Songs.insert({uuid:_uuid, title:_title, timestamp:new Date(), private:false, scenario:_scenario, answers:_data.answers})
   },
 
   getSong(_uuid){
     console.log("get song ", _uuid)
     return Songs.find({uuid : _uuid}).fetch()
+  },
+
+  getAllSongs(){
+    console.log("get all songs")
+    return Songs.find({}).fetch()
   }
 });

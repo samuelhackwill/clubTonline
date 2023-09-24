@@ -67,6 +67,25 @@ Template.dataBubble.onCreated(function(){
 
         })
     }
+
+    if (this.data.name == "getAllSongs") {
+        Meteor.call("getAllSongs", (error, result) =>{
+            if (!error) {            
+                for (let index = 0; index < result.length; index++) {
+                    url = "/song/"+result[index].uuid+"?scenario="+result[index].scenario
+                    console.log("ADD link ", url);
+                    dataFridge.push({type:"SB", text:result[index].title, src:url});
+                }
+                this.loaded.set(true)
+                addNextItem()
+
+            }else{
+                
+                this.loaded.set(false)
+            }
+
+        })
+    }
     
 })  
 
@@ -92,12 +111,19 @@ Template.dataBubble.helpers({
             return false
         }
     },
-    isLoading(){
+    isGetAllSongs(){
+        if (this.name == "getAllSongs") {
+            return true
+        }else{
+            return false
+        }
+    },
+    isLoading(arg){
         if (Template.instance().loaded.get() == false) {
             return "il y a eu une erreur pendant le chargement :("
         }else{
             if (Template.instance().loaded.get() == true) {
-                return "ok, c'est noté!"
+                return arg.hash.success
             }else{
                 return "chargement ..."
             }
