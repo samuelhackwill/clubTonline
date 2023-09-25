@@ -28,7 +28,7 @@ FlowRouter.route("/bibliotheque", {
   name: "completed",
   action() {
     this.render("completed");
-  },
+  }
 });
 
 FlowRouter.route('/song/:_uuid/', {

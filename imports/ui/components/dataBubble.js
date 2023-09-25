@@ -69,22 +69,26 @@ Template.dataBubble.onCreated(function(){
     }
 
     if (this.data.name == "getAllSongs") {
-        Meteor.call("getAllSongs", (error, result) =>{
-            if (!error) {            
-                for (let index = 0; index < result.length; index++) {
-                    url = "/song/"+result[index].uuid+"?scenario="+result[index].scenario
-                    console.log("ADD link ", url);
-                    dataFridge.push({type:"SB", name:"link", linkPrev:result[index].title, link:url});
+        Meteor.setTimeout(() => {
+            Meteor.call("getAllSongs", (error, result) =>{
+                if (!error) {    
+                    for (let index = 0; index < result.length; index++) {
+                        url = "/song/"+result[index].uuid+"?scenario="+result[index].scenario
+                        console.log("ADD link ", url);
+                        dataFridge.push({type:"SB", name:"link", linkPrev:result[index].title, link:url});
+                    }
+                    dataFridge.push({type:"---BB---", name:"play", label:"commencer une nouvelle partie"});
+
+                    this.loaded.set(true)
+                    addNextItem()
+    
+                }else{
+                    
+                    this.loaded.set(false)
                 }
-                this.loaded.set(true)
-                addNextItem()
-
-            }else{
-                
-                this.loaded.set(false)
-            }
-
-        })
+    
+            })            
+        }, 100);
     }
     
 })  

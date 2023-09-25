@@ -4,6 +4,7 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 // METEOR ------------------------------------------------
 Template.rap.onCreated(function() {
+	dataFridge = []
 	// we need to add the css file dynamically cause we don't want to mess up
 	// our namespace ou quoi.
 	var fileref = document.createElement("link")

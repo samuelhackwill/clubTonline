@@ -46,13 +46,10 @@ Template.feed.events({
 Template.feed.onCreated(function(){
   feedIndex = new ReactiveVar(0);
   dataFeed = new ReactiveVar();
-  dataFridge = []
 })
 
-Template.feed.onRendered(function () {  
-  console.log("TEMPLATE FEED rendered.", this.data)
-
-  // the data fridge contains all the data necessary for the game (cards, text, etc).
+Template.feed.onRendered(function () {    
+    // the data fridge contains all the data necessary for the game (cards, text, etc).
   dataFridge = this.data;
 
   // initiate the first bubbles here!
@@ -66,7 +63,6 @@ Template.feed.onRendered(function () {
     insertElement: (node, next) => {
       next.parentNode.appendChild(node);
       setTimeout(function () {
-        console.log(next.parentNode.lastChild)
         next.parentNode.lastChild.style.opacity = 1;
       }, 0);
     },
