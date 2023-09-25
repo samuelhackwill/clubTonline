@@ -31,7 +31,7 @@ Template.completed.onRendered(function(){
   // Call the function to replace Y scrolling with X scrolling
   replaceYScrollWithXScroll();
   setTimeout(function(){
-    document.body.classList.add("bg-blue-100")
-    // document.body.classList.remove("bg-yellow-clubT")
+    document.body.classList.remove("bg-yellow-clubT")
+    document.body.classList.add("bg-indigo-200")
   },0)
 })

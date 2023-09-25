@@ -9,6 +9,11 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
+  isNewGame() {
+    if (this.name != undefined && this.name.startsWith("newGame")) {
+      return true;
+    }
+  },
   isEnd() {
     if (this.name != undefined && this.name.startsWith("end")) {
       return true;
@@ -95,8 +100,11 @@ Template.blockingBubble.events({
     return;
   },
 
+  "click .newGame"() {
+    FlowRouter.go("/show")
+  },
+
   "click .end"(event){
-    
     this._songUUID = uuidv4()
     data = {}
     data.answers = savedAnswers.all()
@@ -212,7 +220,7 @@ Template.blockingBubble.events({
 
 
   "click .formCard"(event){
-    
+
     card = document.getElementById("container."+event.target.dataset.name)
     // the formCard first holds a form object with which the user needs to interact, so 
     // we don't want to start animating the div before it's been transformed in a place to store

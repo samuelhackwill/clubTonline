@@ -25,6 +25,19 @@
   </div>
   {{/if}} 
 
+  {{#if isNewGame}}
+  <div
+    class="col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <button
+      class="{{name}} focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 text-white shadow hover:bg-purple-400 focus:outline-none"
+      id="{{name}}"
+    >
+      {{label}}
+    </button>
+  </div>
+  {{/if}} 
+
   {{#if isCard}}
   <div
     class="card relative col-span-3 col-end-[-1] flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"

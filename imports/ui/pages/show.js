@@ -70,6 +70,9 @@ Template.show.helpers({
 Template.show.onRendered(function(){
   // Call the function to replace Y scrolling with X scrolling
   replaceYScrollWithXScroll();
+  document.body.classList.add("bg-yellow-clubT")
+  document.body.classList.remove("bg-indigo-200")
+
 })
 
 // scroll events :

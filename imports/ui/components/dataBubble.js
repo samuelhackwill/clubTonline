@@ -77,7 +77,7 @@ Template.dataBubble.onCreated(function(){
                         console.log("ADD link ", url);
                         dataFridge.push({type:"SB", name:"link", linkPrev:result[index].title, link:url});
                     }
-                    dataFridge.push({type:"---BB---", name:"play", label:"commencer une nouvelle partie"});
+                    dataFridge.push({type:"---BB---", name:"newGame", label:"commencer une nouvelle partie"});
 
                     this.loaded.set(true)
                     addNextItem()
