@@ -6,12 +6,9 @@ import "../components/dataBubble.js";
 
 import { ReactiveDict } from 'meteor/reactive-dict'
 
-dataFeed = new ReactiveVar();
-dataFridge = []
 export const savedAnswers = new ReactiveDict();
 export const allAnswers = new ReactiveVar([]);
 export const state = new ReactiveVar("gettingMoreElements");
-export let feedIndex = new ReactiveVar(0);
 _targetScenario = ""
 
 
@@ -46,7 +43,15 @@ Template.feed.events({
   },
 });
 
-Template.feed.onRendered(function () {
+Template.feed.onCreated(function(){
+  feedIndex = new ReactiveVar(0);
+  dataFeed = new ReactiveVar();
+  dataFridge = []
+})
+
+Template.feed.onRendered(function () {  
+  console.log("TEMPLATE FEED rendered.", this.data)
+
   // the data fridge contains all the data necessary for the game (cards, text, etc).
   dataFridge = this.data;
 
@@ -61,16 +66,16 @@ Template.feed.onRendered(function () {
     insertElement: (node, next) => {
       next.parentNode.appendChild(node);
       setTimeout(function () {
+        console.log(next.parentNode.lastChild)
         next.parentNode.lastChild.style.opacity = 1;
       }, 0);
     },
   };
 });
 
-addNextItem = function () {
+addNextItem = function (Template) {
   // we need to initialize a tempFeed to hold the previous items of the feed in order not to erase them,
   // or to initialize an empty tempFeed to prevent errors.
-
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 

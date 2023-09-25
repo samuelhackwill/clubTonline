@@ -1,7 +1,7 @@
 import "./blockingBubble.html";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-import { allAnswers, feedIndex, savedAnswers, state } from "../layouts/feed.js";
+import { allAnswers, savedAnswers, state } from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
   isPlay() {

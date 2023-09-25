@@ -9,6 +9,7 @@ import "../../ui/pages/songs/lettre.js";
 
 import {Songs} from "../../API/songs/songs.js";
 
+
 FlowRouter.route("/", {
   name: "waiting",
   action() {
@@ -32,16 +33,21 @@ FlowRouter.route("/bibliotheque", {
 
 FlowRouter.route('/song/:_uuid/', {
   name: 'song',
-    action(params, queryParams, _song) {
-      // console.log(queryParams.scenario, params.uuid, _song)
-      this.render(queryParams.scenario, { uuid: params.uuid, data: _song });
-      // this.render(queryParams.scenario, {uuid: params.uuid, song:_song});
-    },
-    waitOn(params) {
-      console.log(params._uuid)
-      return Meteor.subscribe('songs', {uuid : params._uuid});
-    },
-    data(params, queryParams, qs) {
-      return _song = Songs.findOne()
-    }
+  action(params, queryParams, _song) {
+    // console.log(queryParams.scenario, params.uuid, _song)
+    this.render(queryParams.scenario, { uuid: params.uuid, data: _song });
+    // this.render(queryParams.scenario, {uuid: params.uuid, song:_song});
+  },
+  waitOn(params) {
+    console.log(params._uuid)
+    return Meteor.subscribe('songs', {uuid : params._uuid});
+  },
+  data(params, queryParams, qs) {
+    return _song = Songs.findOne()
+  },  
+  triggersExit: [
+    trackRouteClose = function(){
+    	document.getElementsByTagName("head")[0].lastElementChild.remove()
+  }]
 });
+
