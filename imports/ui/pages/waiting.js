@@ -31,7 +31,7 @@ const waitingData = [
     text: "Si vous voulez être tenu au courant de l'ouverture du guichet en ligne, vous pouvez vous inscrire ci-dessous :",
   },
   { type: "SB", name: "mailForm" },
-  { type: "SB", name: "linkNoFuturs" },
+  { type: "SB", name: "link", text: "En attendant, on vous recommande chaudement d'aller compulser le site de nos partenaires du Centre Vidéo de Bruxelles : ", link:"http://www.nosfuturs.net", linkPrev:"nosfuturs.net" },
 ];
 
 Template.waiting.helpers({

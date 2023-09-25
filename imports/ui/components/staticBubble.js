@@ -31,7 +31,7 @@ Template.staticBubble.helpers({
     }
   },
   isLink() {
-    if (this.name != undefined && this.name == "linkNoFuturs") {
+    if (this.name != undefined && this.name == "link") {
       return true;
     }
   },
