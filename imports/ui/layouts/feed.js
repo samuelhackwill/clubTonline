@@ -33,9 +33,11 @@ Template.feed.helpers({
 Template.feed.events({
   "click #footer"() {
     footer = document.getElementById("footer");
+    offset = footer.offsetHeight + "px"
     if (footer.classList.contains("translate-y-[-25vh]")) {
       footer.classList.remove("translate-y-[-25vh]");
       footer.dataset.clicked = true;
+      document.getElementById("footer").scrollTop=0
     } else {
       footer.classList.add("translate-y-[-25vh]");
       footer.dataset.clicked = false;

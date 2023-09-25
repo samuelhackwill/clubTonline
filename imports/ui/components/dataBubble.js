@@ -77,6 +77,9 @@ Template.dataBubble.onCreated(function(){
                         console.log("ADD link ", url);
                         dataFridge.push({type:"SB", name:"link", linkPrev:result[index].title, link:url});
                     }
+                    dataFridge.push({type:"SB", text:"Club travail, 2023 (Mathilde Maillard, Thomas Bris et Samuel Hackwill"});
+                    dataFridge.push({type:"SB", text:"autres crédits blablabla"});
+
                     dataFridge.push({type:"---BB---", name:"newGame", label:"commencer une nouvelle partie"});
 
                     this.loaded.set(true)

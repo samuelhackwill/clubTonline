@@ -4,6 +4,14 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { allAnswers, savedAnswers, state } from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
+  // isGold(){
+  //   if(this.save == true && !this.name.startsWith("qcm")){
+  //     return "border-solid border-4 border-white outline-offset-[-5px]"
+  //   }else{
+  //     return
+  //   }
+  // },
+
   isPlay() {
     if (this.name != undefined && this.name.startsWith("play")) {
       return true;
