@@ -3,15 +3,23 @@ import "./completed.html";
 const outro = [
   {
     type: "SB",
-    text: "Wah super merci d'avoir participé à club travail online!.",
+    text: "Merci d'avoir pris du temps sur le guichet du Club Travail.",
   },
   {
     type: "SB",
-    text: "c'était super, ben dites-donc on s'est bien amusey",
+    text: "Quelles que furent vos réponses, c'était les bonnes.",
   },
   {
     type: "SB",
-    text: "tenez regardez ça c'est toutes les autres chansons qui ont été écrites par les autres pélos:",
+    text: "Vous faites maintenant partie de la compilothèque du Club Travail.",
+  },
+  {
+    type: "SB",
+    text: "Si vous voulez profiter des textes et poésies fabriqués par d'autres internautes, cliquez sur les titres.",
+  },
+  {
+    type: "SB",
+    text: "Pour nous contacter: clubtravaille@gmail.com",
   },
   {
     type: "---BB---",

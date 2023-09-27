@@ -1,8 +1,7 @@
 <template name="feed">
   <div
     class="flex h-full flex-col flex-wrap content-start items-start gap-x-3 transition-all duration-500 after:h-full after:w-1/3"
-    id="feed"
-  >
+    id="feed">
     {{#each feedItems}} {{> blockingBubble this}} {{> staticBubble this}}
     {{/each}}
   </div>
@@ -12,13 +11,31 @@
     id="footer"
   >
     <div class="ml-3 text-start text-[1.1rem] italic hover:bg-purple-100">
-      <div class="mb-3">Club Travail, 2023.</div>
-      <div class="p-2 mb-32">
-        Le Club Travail est un petit gang crypto-syndicaliste bruxellois défiant la souffrance au travail. A la manière des cercles de rencontres anonymes, le gang déploie des dispositifs de rencontres drôles et sérieux à la fois, où il va s’agir d’imaginer ensemble comment nos vulnérabilités et nos existences fragiles peuvent se frayer un chemin dans un monde du travail et de l’art aliéné par le capitalisme patriarcal et les inégalités sociales.
-
-        Le slogan du Club ? « Le travail, notre métier ! ».
+      <div class="p-3 mb-3">Club Travail, 2023.</div>
+      <div class="p-3 mb-32">
+        <div class="mb-3">
+          Le Club Travail est un petit gang crypto-syndicaliste bruxellois défiant la souffrance au travail. Le guichet du Club Travail invite les internautes à venir parler en ligne d'un ou plusieurs aspects du rapport au travail. <a class="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" href=http://clubtravail.be>clubtravail.be</a> ; En collaboration avec <a class="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" href="https://www.nosfuturs.net">nosfuturs.net</a> et le Centre Vidéo de Bruxelles. 
+        </div>
+        <div class="mb-3">
+          <p>Conception web et design : Samuel&nbsp;Hackwill / Caverne des poésies: Thomas&nbsp;Bris</p>
+          <p>Ecriture : Mathilde&nbsp;Maillard </p>
+          <p>Logo : Lucie&nbsp;Caouder </p>
+          <p>Musique trap : Clément&nbsp;Thiry / Musique berceuse : Mathilde&nbsp;Maillard.</p>
         
-        Créé en 2017 par Mathilde Maillard, Anna Czapski et Yvonne Harder et conçu comme une cellule d’entraides entre travailleuses de l’art, Mathilde Maillard poursuit depuis les expériences du Club Travail in good company.
+        </div>
+        <div class="mb-3">
+          Production : Entropie Production et Club Travail
+          en partenariat avec le Centre Vidéo de Bruxelles et nosfuturs.net, réalisé grâce à l'aide à la conception Arts numériques de la Fédération Wallonie-Bruxelles
+          Merci à Anna&nbsp;Czapski, Pattiplus Studio.
+        </div>
+
+        <div>
+          Pour contacter le Club&nbsp;:&nbsp;<a class="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" href = "mailto: clubtravaille@gmail.com">clubtravaille@gmail.com</a>
+          .
+
+        </div>
+
+
       </div>
       <!-- <img src="/img/logo_xs.png" class="h-[30px] w-[50px] mb-32 mx-auto"> -->
     </div>

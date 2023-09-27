@@ -1,200 +1,201 @@
-export const berceuse_tu = [    
-    {
-      type: "SB",
-      text:
-        "hello, je suis Mathilde, ta conseillère du club travail pour aujourd’hui.",
-    },
-    {
-      type: "SB",
-      text:
-        "Je te parle depuis la forêt de Soignes en lisière de Bruxelles. Il fait bon et ça sent presque le persil.",
-    },
-    {
-      type: "---BB---",
-      name: "getTarot",
-      label: "chargement..."
-    },  
-    {
-      type: "SB",
-      text:
-        "Je vais te poser une série de questions auxquelles tu peux répondre librement.",
-    },
-    {
-      type: "SB",
-      text:
-        "voici ma première question :",
-    },
-    {          
-      type: "---BB---",
-      name: "card.berceuse_où",
-      size: "s",
-      label:
-      "Peux-tu me dire où tu te trouves toi-même ?",
-  },
-    {          
-      type: "---BB---",
-      name: "card.berceuse_posture",
-      size: "s",
-      label:
-      "Peux-tu nous décrire la posture dans laquelle tu te trouves maintenant ? Tes pieds ? Tes bras ? Tes genoux ?",
-  },
-    {          
-      type: "---BB---",
-      name: "card.berceuse_posture2",
-      size: "s",
-      label:
-      "Peux-tu nous décrire la posture dans laquelle tu te trouves au travail en général ?",
-  },
-
-  // tarot + "Je te propose maintenant de retourner cette carte tirée au hasard dans le tarot du travail, elle devrait t'éclaircir sur ton avenir postural. Où te situes-tu sur cette image ? Peux-tu décrire la posture de cet élément ?"
-
-  //   {          
-  //     type: "---BB---",
-  //     name: "card.berceuse_posture3",
-  //     size: "s",
-  //     label:
-  //     "Si tu pouvais changer de posture, ce serait laquelle ?",
-  // },
+export const berceuse_tu = [
   {
     type: "SB",
-    text:
-      "« La posture professionnelle se façonne à partir de l'intention de satisfaire aux normes professionnelles. C'est un processus d'ajustement permanent, une recherche de cohérence, d'équilibre entre des éléments personnels et les attentes de la sphère professionnelle. »",
+    text: "Hello, je suis Mathilde, ta conseillère du club travail pour aujourd’hui.",
   },
-  {          
+  {
+    type: "SB",
+    text: "En tant que conseillère indépendante, je fais régulièrement ce rêve :",
+  },
+  {
+    type: "SB",
+    text: "j’ai un « chef » mais je ne sais plus qui c’est. Il a une forme, une existence, mais impossible de remettre la main dessus.",
+  },
+  {
+    type: "SB",
+    text: "J’ai beau le chercher, essayer de le contacter, par email, par téléphone, il semble injoignable, insaisissable.",
+  },
+  {
     type: "---BB---",
-    name: "card.berceuse_proPosture",
-    size: "s",
-    label:
-    "Est-ce que tu penses que ta posture professionnelle influence ta posture corporelle ?",
+    name: "qcm.berceuse_reve",
+    label: "Est-ce que ça t’arrive souvent de rêver du travail ? ",
+    qcmOptions: [
+      "Quand je dors, je travaille.",
+      "Quand je travaille, je dors.",
+      "Je ne me souviens pas de mes rêves.",
+      "Je ne me souviens pas de mon travail.",
+    ],
   },
-  {          
+  {
+    type: "SB",
+    text: "Il m’arrive aussi parfois de résoudre des problèmes du travail dans mes rêves, que j’avais pourtant déjà résolu la veille.",
+  },
+  {
+    type: "SB",
+    text: "Le matin, j’ai alors tendance à me lever d’un bond, des deux pieds, pour me jeter dans la journée.",
+  },
+  {
+    type: "SB",
+    text: "Parfois, je me dis que c’est une mauvaise habitude et qu’il serait bon de rester un peu plus longtemps au lit pour digérer un peu mieux ces rêves, afin de les écrire, et qu’un jour, ça pourrait devenir mon travail.",
+  },
+  {
     type: "---BB---",
-    name: "card.berceuse_posture4",
-    size: "s",
-    label:
-    "Je me permets alors de te reposer la question : si tu pouvais changer de posture, ce serait laquelle ? ",
+    name: "qcm.berceuse_pied",
+    label: "T’es-tu levé du bon pied ce matin ?",
+    qcmOptions: ["Oui", "Non", "Je ne me suis pas levé.e"],
   },
-  {          
+  {
     type: "---BB---",
-    name: "card.berceuse_legere",
-    size: "s",
-    label:
-    "Peux-tu maintenant nous décrire en une phrase une fois où tu t’es senti.e Léger (Légère) dans tes mouvements? Décris-moi cette sensation.",
+    name: "qcm.berceuse_autrepied",
+    label: "Que ce serait-il passé si tu t’étais levé de l’autre pied ?",
+    qcmOptions: [
+      "La vie aurait été différente",
+      "Je serais tombé.e",
+      "Je ne me suis pas levé.e",
+    ],
   },
-  {          
+  {
+    type: "SB",
+    text: "Je te propose que nous prenions justement nos pieds et que nous partions faire une petite promenade tous.tes les deux.",
+  },
+  {
+    type: "SB",
+    text: "Tu disais vouloir aller te promener en forêt, allons-y. ",
+  },
+  {
+    type: "SB",
+    text: "Nous prenons le premier bus et nous nous arrêtons dès que nous apercevons une communauté d’arbres. Nous descendons du bus et nous dirigeons vers la forêt.",
+  },
+  {
     type: "---BB---",
-    name: "card.berceuse_legere",
-    size: "s",
-    label:
-    "Tiens, je me demandais, ça t’es déjà arrivé de partir, sans savoir si tu allais revenir ? De monter dans un bus sans connaitre sa destination ?",
+    name: "qcm.berceuse_foret",
+    label: "De quoi est remplie cette forêt ?",
+    qcmOptions: [
+      "Des grands chênes majestueux",
+      "De champignons un peu dégueu qui sentent bon la vieille moisissure",
+      "D’ouvrier-ère-s du bâtiment qui se reposent à l’orée des bois.",
+      "De philosophes qui se reposent à l’orée des bois",
+      "De tas de trottinettes électriques usagées empilées le long des sentiers boisés.",
+    ],
   },
-  {          
+  {
+    type: "SB",
+    text: "Bien. Nous marchons donc maintenant depuis des heures dans cette forêt que tu as choisie.",
+  },
+  {
     type: "---BB---",
-    name: "card.berceuse_quitter",
-    size: "s",
-    label:
-    "Qu’est-ce qui t’empêche de te lever là maintenant et de tout quitter ?",
+    name: "qcm.berceuse_climat",
+    label: "Il fait :",
+    qcmOptions: [
+      "Bon",
+      "Chaud",
+      "Super chaud",
+      "Ultra ultra chaud",
+      "Trop chaud",
+    ],
   },
-  {          
+  {
+    type: "---BB---",
+    name: "qcm.berceuse_habit",
+    label: "Aussi, nous portons :",
+    qcmOptions: [
+      "Des combinaisons de travail ultra-moulantes matière orange cheddar recyclé",
+      "Des shorts de basketeurices extra-larges ",
+      "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier-ère-s du bâtiment de notre présence.",
+      "Des dberceuses blancs qui nous font avancer tels des fantômes",
+      "Rien",
+    ],
+  },
+  {
+    type: "---BB---",
+    name: "qcm.berceuse_odeur",
+    label: "On peut dire qu’autour de nous ça sent bon :",
+    qcmOptions: ["Le sapin", "Le travail", "L’amour", "Le cheddar"],
+  },
+  {
+    type: "SB",
+    text: "Dans nos sacs à dos nous transportons de quoi travailler en extérieur.",
+  },
+  {
+    type: "SB",
+    text: "Je connais un endroit secret dans ta forêt où il est possible de se vautrer tranquillement, une sorte d’abri. Je t’y emmène.",
+  },
+  {
+    type: "---BB---",
+    name: "qcm.berceuse_abri",
+    label: "Cet abri ressemble à :",
+    qcmOptions: [
+      "Une cabane de feuillages et de mousse",
+      "La caverne de Platon",
+      "La grotte d’archives de Gaston Lagaffe",
+      "Un marais qui fait sauna",
+      "Un co-working space ultra-luxe",
+    ],
+  },
+  {
+    type: "SB",
+    text: "Nous nous installons dans l’abri.",
+  },
+  {
+    type: "---BB---",
+    name: "qcm.berceuse_matos",
+    label: "Nous sortons de nos sacs à dos:",
+    qcmOptions: [
+      "des crayons de toutes les couleurs",
+      "des haches, des marteaux, des clous et du fromage",
+      "un micro et des enceintes",
+      "un tas de cailloux de différentes tailles",
+    ],
+  },
+  {
+    type: "SB",
+    text: "que je dispose sur le sol de notre abri ainsi que des fruits secs.",
+  },
+  {
+    type: "SB",
+    text: "Puis, je t’explique qu’il est temps pour moi de te laisser travailler et je te laisse seul.e dans l’abri.",
+  },
+  {
+    type: "---BB---",
+    name: "card.berceuse_decris",
+    size: "l",
+    label:
+      "Prends ton temps pour décrire ta journée, ce qui s’y passe, ce que tu y fais… Tu peux commencer ton récit en décrivant les bruits autour de toi et la sensation qui t’envahit, la position dans laquelle tu te trouves :",
+  },
+  {
     type: "---BB---",
     save: true,
-    name: "card.berceuse_retient",
+    name: "card.berceuse_nom",
     size: "s",
-    label:
-    "Quelle est la principale chose qui te retient ?",
+    label: "Comment t’appelais-tu, pendant cette journée dans la forêt ?",
   },
   {
-    type: "---BB---",
-    save:true,
-    name: "card.berceuse_pseudo",
-    size: "s",
-    label:
-    "Tiens, au fait, comment souhaites-tu qu’on t’appelle ici ?",
+    type: "SB",
+    text: "Bien. Maintenant, la nuit est en train de tomber et je reviens te chercher dans l’abri.",
   },
   {
-    type: "---BB---",
-    name: "card.berceuse_identite",
-    size: "s",
-    label:
-    "Est-ce que tu penses que ton prénom contient toute ton identité ?",
+    type: "SB",
+    text: "Avant de partir, je te propose de déposer dans un petit sac, une chose qui te pèse.",
   },
   {
-    type: "---BB---",
-    name: "card.berceuse_aptonyme2",
-    size: "s",
-    label:
-    "Est-ce que ton prénom ou ton nom ont un lien quelconque avec ton travail ? ",
-  },
-  {
-    type: "---BB---",
-    name: "card.berceuse_sommeil",
-    size: "s",
-    label:
-    "Comment est ton sommeil ?",
-  },
-  {
-    type: "---BB---",
-    name: "card.berceuse_insomnia",
-    size: "s",
-    label:
-    "Est-ce que ton travail t’empêche de dormir ?",
-  },
-  {
-    type: "---BB---",
-    name: "card.berceuse_travailleDodo",
-    size: "s",
-    label:
-    "Est-ce que tu travailles en dormant ?",
-  },
-  {
-    type: "---BB---",
-    name: "card.berceuse_dormirTravailler",
-    size: "s",
-    label:
-    "Est-ce que dormir c’est travailler ?",
-  },
-  {
-    type: "---BB---",
-    name: "card.berceuse_reveRecent",
-    size: "s",
-    label:
-    "Raconte nous un rêve récent.",
+    type: "SB",
+    text: "Avant de partir, je te propose de déposer dans un petit sac, une chose qui te pèse.",
   },
   {
     type: "---BB---",
     save: true,
-    name: "card.berceuse_mieuxDormir",
+    name: "card.berceuse_sac",
     size: "s",
     label:
-    "Prends un petit temps pour réfléchir et écrire ce que tu te souhaites pour mieux dormir.",
-  },
-  {
-    type: "---BB---",
-    save:true,
-    name: "card.berceuse_deuxMots",
-    size: "s",
-    label:
-    "Est-ce que tu pourrais donner deux mots qui résument ce souhait ?",
-  },
-  // {
-  //   type: "SB",
-  //   text:
-  //   "<insect sounds>",
-  // },
-  {
-    type: "SB",
-    text:
-    "Maintenant, tu vas pouvoir t’allonger là où tu trouves,",
+      "C’est quelque chose que tu trimbales depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ?",
   },
   {
     type: "SB",
-    text:
-    "Mathilde : tu vas pouvoir souffler trois fois très profondément en t’allonger sur le sol en prenant ton ordinateur au- dessus de toi, si c’est possible. Et cliquer sur le bouton.",
-  },  
+    text: "Et maintenant tu peux t’allonger là où tu te trouves ou prendre ta position la plus confortable, souffler trois fois profondément, prendre ton ordinateur au-dessus de toi comme un livre et profiter encore un peu de la douceur de cet abri avant que nous retournions prendre le bus.",
+  },
   {
     type: "---BB---",
     name: "end",
-    label:
-    "conclure",
+    label: "conclure",
   },
-]
+];
