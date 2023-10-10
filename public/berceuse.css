@@ -107,15 +107,15 @@ span {
   display: none;
 }
 
-.nuit .etoile{
-  animation: 4s ease-in-out infinite reverse both clignote;
-}
+/* .nuit .etoile{ */
+/*   animation: 4s ease-in-out infinite reverse both clignote; */
+/* } */
 
-.nuit .nuage {
-  display: block;
-  animation: 4s linear infinite both defile;
-  animation-delay: 2s;
-}
+/* .nuit .nuage { */
+/*   display: block; */
+/*   animation: 4s linear infinite both defile; */
+/*   animation-delay: 2s; */
+/* } */
 
 .etoile:nth-of-type(2n) {
   font-size: 2rem;

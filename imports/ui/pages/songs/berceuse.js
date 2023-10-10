@@ -13,15 +13,27 @@ Template.berceuse.onCreated(function() {
 	fileref.setAttribute("href", "/berceuse.css")
 	document.getElementsByTagName("head")[0].appendChild(fileref)
 
-
 	this.autorun(() => {
-		console.log(this)
+		console.info(this)
 	  });
-	})
+})
 
 Template.berceuse.helpers({
 	getString(option){
-		return this.data.answers[option.hash.name]
+		const pasMajuscule = [
+			"berceuse_abri",
+			"berceuse_foret",
+			"berceuse_sac",
+			"berceuse_odeur"
+		];
+
+		if (pasMajuscule.includes(option.hash.name)) {
+			let string = this.data.answers[option.hash.name];
+			return string.charAt(0).toLowerCase() + string.slice(1);
+
+		} else {
+			return this.data.answers[option.hash.name];
+		}
 	}
 
 })
@@ -37,13 +49,12 @@ defilementTexte = function(v, phrases, i) {
 	//   () => elem.remove()
 	// );
 
-	console.log(i);
-
+	console.info(i);
 	return Promise.all(phrases.right[i].getAnimations().map((animation) => animation.finished))
 }
 
 boucleDefilement = function(v) {
-	console.log("DEFILEMENT");
+	console.info("DEFILEMENT");
 
 	const phrases = {
 		right: v.right.querySelectorAll("p[class^=para]"),
@@ -60,7 +71,7 @@ boucleDefilement = function(v) {
 		.then(() => defilementTexte(v, phrases, 6))
 		.then(() => defilementTexte(v, phrases, 0))
 		.then(() => {
-			instru.pause();
+			instru.pause(); // Fade out de la musique ?
 
 			// afficher bouton retour
 			document.querySelector(".retour-maison").style.display = "block";
@@ -70,7 +81,7 @@ boucleDefilement = function(v) {
 			}, 1000);
 
 		})
-		.catch(e => console.error(e, "J'ai déconné j'aurais pas dû"));
+		.catch(e => console.error(e, "J'ai déconné"));
 
 }
 
@@ -85,13 +96,14 @@ berceuse_startAnimation = function() {
 	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
 	// Duration in seconds
-	a.DURATION = 1000 * 6; // secondes
+	a.DURATION = 9 * 1000; // secondes
 
 	a.BANDEAU = document.querySelector("#left .text-wrapper");
 	a.bandeauWidth = parseFloat(
 		getComputedStyle(a.BANDEAU).getPropertyValue("width")
 	);
 
+	// Lots of math
 	a.distanceCote = a.profondeurPiece * a.vw1 + a.bandeauWidth;
 	a.distanceCentre = 100 * a.vw1 + a.bandeauWidth;
 	a.durationCentre = (a.distanceCentre * a.DURATION) / a.distanceCote;

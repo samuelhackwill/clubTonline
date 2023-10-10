@@ -18,6 +18,7 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_reve",
+    save: true,
     label: "Est-ce que ça t’arrive souvent de rêver du travail ? ",
     qcmOptions: [
       "Quand je dors, je travaille.",
@@ -69,6 +70,7 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_foret",
+    save: true,
     label: "De quoi est remplie cette forêt ?",
     qcmOptions: [
       "Des grands chênes majestueux",
@@ -109,6 +111,7 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_odeur",
+    save: true,
     label: "On peut dire qu’autour de nous ça sent bon :",
     qcmOptions: ["Le sapin", "Le travail", "L’amour", "Le cheddar"],
   },
@@ -123,6 +126,7 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_abri",
+    save: true,
     label: "Cet abri ressemble à :",
     qcmOptions: [
       "Une cabane de feuillages et de mousse",
