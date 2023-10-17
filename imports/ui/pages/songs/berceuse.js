@@ -71,7 +71,7 @@ boucleDefilement = function(v) {
 		.then(() => defilementTexte(v, phrases, 6))
 		.then(() => defilementTexte(v, phrases, 0))
 		.then(() => {
-			instru.pause(); // Fade out de la musique ?
+			instru.pause(); // Fade out de la musique en option ?
 
 			// afficher bouton retour
 			document.querySelector(".retour-maison").style.display = "block";
