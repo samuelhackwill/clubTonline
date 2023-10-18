@@ -103,35 +103,27 @@ span {
   text-shadow: 0 0 0.1em var(--glow), 0 0 0.15em var(--glow);
 }
 
-.nuage {
-  display: none;
-}
-
 .nuit .etoile{
   animation: 6s ease-in-out infinite reverse both clignote;
 }
-
-/* .nuit .nuage { */
-/*   display: block; */
-/*   animation: 4s linear infinite both defile; */
-/*   animation-delay: 2s; */
-/* } */
 
 .etoile:nth-of-type(2n) {
   font-size: 2rem;
   transform: rotate(30deg);
   animation-delay: 5s;
   animation-duration: 8s;
-
-  display: none;
 }
 
 .etoile:nth-of-type(3n) {
-  font-size: 3rem;
-  transform: rotate(80deg);
-  animation-delay: 7s;
+  animation-delay: 4s;
+  transform: rotate(50deg);
+  animation-duration: 4.5s;
+}
 
-  display: none;
+.etoile:nth-of-type(4n) {
+  font-size: 3rem;
+  transform: rotate(90deg);
+  animation-delay: 6s;
 }
 
 .etoile:nth-of-type(5n) {
@@ -142,8 +134,8 @@ span {
 
 /*__________________ left __*/
 #left .etoile:nth-of-type(1) {
-  top: 0%;
-  right: 5%;
+  top: 80%;
+  right: 75%;
 }
 
 #left .etoile:nth-of-type(2) {
@@ -161,38 +153,7 @@ span {
   right: 80%;
 }
 
-#left .etoile:nth-of-type(5) {
-  top: 20%;
-  right: 23%;
-}
-
-#left .etoile:nth-of-type(6) {
-  top: 55%;
-  right: 57%;
-}
-
-#left .etoile:nth-of-type(7) {
-  top: 90%;
-  right: 68%;
-}
-
-#left .etoile:nth-of-type(8) {
-  top: 90%;
-  right: 52%;
-}
-
-#left .etoile:nth-of-type(9) {
-  top: 75%;
-  right: 35%;
-}
-
-#left .etoile:nth-of-type(10) {
-  top: 3%;
-  left: 5%;
-}
-
 /*__________________ center __*/
-/*__ etoile __*/
 #center .etoile:nth-of-type(1) {
   top: 10%;
   left: 5%;
@@ -200,104 +161,27 @@ span {
 
 #center .etoile:nth-of-type(2) {
   top: 4%;
-  left: 44%;
+  left: 84%;
 }
 
 #center .etoile:nth-of-type(3) {
-  top: 51%;
+  top: 75%;
   left: 28%;
 }
 
 #center .etoile:nth-of-type(4) {
-  top: 80%;
+  top: 89%;
   left: 82%;
 }
 
 #center .etoile:nth-of-type(5) {
-  top: 40%;
-  left: 56%;
+  top: 52%;
+  left: 64%;
 }
 
 #center .etoile:nth-of-type(6) {
   top: 29%;
   left: 35%;
-}
-
-#center .etoile:nth-of-type(7) {
-  top: 68%;
-  left: 88%;
-}
-
-#center .etoile:nth-of-type(8) {
-  top: 30%;
-  left: 91%;
-}
-
-#center .etoile:nth-of-type(9) {
-  top: 91%;
-  left: 55%;
-}
-
-#center .etoile:nth-of-type(10) {
-  top: 40%;
-  left: 21%;
-}
-
-#center .etoile:nth-of-type(11) {
-  top: 74%;
-  left: 31%;
-}
-
-#center .etoile:nth-of-type(12) {
-  top: 24%;
-  left: 71%;
-}
-
-#center .etoile:nth-of-type(13) {
-  top: 4%;
-  left: 61%;
-}
-
-#center .etoile:nth-of-type(14) {
-  top: 24%;
-  left: 41%;
-}
-
-#center .etoile:nth-of-type(15) {
-  top: 64%;
-  left: 7%;
-}
-
-#center .etoile:nth-of-type(16) {
-  top: 54%;
-  left: 51%;
-}
-
-/*__ nuage __*/
-#center .nuage:nth-of-type(7) {
-  right: 14rem;
-  bottom: 1rem;
-  font-size: 6rem;
-  animation-delay: 3s;
-}
-
-#center .nuage:nth-of-type(8) {
-  right: 5rem;
-  bottom: 2rem;
-  font-size: 8rem;
-  animation-delay: 4s;
-  animation-duration: 6s;
-}
-
-#center .nuage:nth-of-type(9) {
-  right: 0rem;
-  bottom: 0rem;
-  font-size: 10rem;
-  -webkit-text-stroke: hsl(var(--murs), 70%, 60%) .2rem;
-}
-
-.nuit #center .nuage:nth-of-type(9) {
-  -webkit-text-stroke: var(--glow) .1rem;
 }
 
 /*__________________ right __*/
@@ -312,7 +196,7 @@ span {
 }
 
 #right .etoile:nth-of-type(3) {
-  top: 40%;
+  top: 80%;
   left: 36%;
 }
 
@@ -323,108 +207,38 @@ span {
 
 #right .etoile:nth-of-type(5) {
   top: 25%;
-  left: 52%;
-}
-
-#right .etoile:nth-of-type(6) {
-  top: 90%;
-  left: 47%;
-}
-
-#right .etoile:nth-of-type(7) {
-  top: 50%;
-  left: 68%;
-}
-
-#right .etoile:nth-of-type(8) {
-  top: 10%;
-  left: 23%;
-}
-
-#right .etoile:nth-of-type(9) {
-  top: 80%;
-  left: 35%;
-}
-
-#right .etoile:nth-of-type(10) {
-  top: 50%;
-  left: 10%;
+  left: 72%;
 }
 
 /*__________________ ceiling __*/
 #ceiling .etoile:nth-of-type(1) {
   bottom: 12%;
-  left: 1%;
+  left: 7%;
 }
 
 #ceiling .etoile:nth-of-type(2) {
-  bottom: 20%;
-  left: 9%;
+  bottom: 42%;
+  left: 45%;
 }
 
 #ceiling .etoile:nth-of-type(3) {
-  bottom: 77%;
-  left: 8%;
+  bottom: 69%;
+  left: 23%;
 }
 
 #ceiling .etoile:nth-of-type(4) {
-  bottom: 85%;
-  left: 25%;
+  bottom: 79%;
+  left: 90%;
 }
 
 #ceiling .etoile:nth-of-type(5) {
-  bottom: 36%;
-  left: 11%;
+  bottom: 51%;
+  left: 81%;
 }
 
 #ceiling .etoile:nth-of-type(6) {
   bottom: 15%;
-  left: 50%;
-}
-
-#ceiling .etoile:nth-of-type(7) {
-  bottom: 65%;
-  left: 42%;
-}
-
-#ceiling .etoile:nth-of-type(8) {
-  bottom: 45%;
-  left: 80%;
-}
-
-#ceiling .etoile:nth-of-type(9) {
-  bottom: 11%;
-  left: 57%;
-}
-
-#ceiling .etoile:nth-of-type(10) {
-  bottom: 18%;
-  left: 89%;
-}
-
-#ceiling .etoile:nth-of-type(11) {
-  bottom: 20%;
-  left: 21%;
-}
-
-#ceiling .etoile:nth-of-type(12) {
-  bottom: 43%;
-  left: 64%;
-}
-
-#ceiling .etoile:nth-of-type(13) {
-  bottom: 74%;
-  left: 73%;
-}
-
-#ceiling .etoile:nth-of-type(14) {
-  bottom: 80%;
-  left: 54%;
-}
-
-#ceiling .etoile:nth-of-type(15) {
-  bottom: 34%;
-  left: 31%;
+  left: 60%;
 }
 
 /*____________________________________________ LES MURS __*/
