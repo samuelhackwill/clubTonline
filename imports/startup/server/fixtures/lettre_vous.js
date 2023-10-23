@@ -124,6 +124,7 @@ export const lettre_vous = [
     type: "---BB---",
     name: "card.lettre_espaces",
     size: "s",
+    save: true,
     label:
       "Et vous, que souhaiteriez-vous améliorer par rapport à vos espaces de travail ?",
   },
