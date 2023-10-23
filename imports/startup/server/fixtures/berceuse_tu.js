@@ -88,6 +88,7 @@ export const berceuse_tu = [
     type: "---BB---",
     name: "qcm.berceuse_climat",
     label: "Il fait :",
+    save: true,
     qcmOptions: [
       "Bon",
       "Chaud",
@@ -126,7 +127,6 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_abri",
-    save: true,
     label: "Cet abri ressemble à :",
     qcmOptions: [
       "Une cabane de feuillages et de mousse",

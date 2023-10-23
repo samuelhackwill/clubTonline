@@ -68,7 +68,11 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: "Tu vas pouvoir tirer une carte du tarot du travail. Cette carte évoque quelque chose que tu ne souhaites plus voir dans ton monde du travail à toi, en rapport avec ce « trop » ou ce « rien » que tu viens d’évoquer.",
+    text: "Tu vas bientôt voir apparaître une carte du tarot du travail.",
+  },
+  {
+    type: "SB",
+    text: "Cette carte évoque quelque chose que tu ne souhaites plus voir dans ton monde du travail à toi, en rapport avec ce « trop » ou ce « rien ».",
   },
   {
     type: "---BB---",
@@ -81,14 +85,14 @@ export const lettre_tu = [
     name: "card.lettre_tarot",
     size: "l",
     label:
-      "Prends un temps pour « décrire » la carte, ce que tu y vois, ce qui t’apparait. Il n’y a pas de bonnes réponses, tu peux dire tout ce qui te passe par la tête.",
+      "Prends un temps pour « décrire » la carte, ce que tu y vois, ce qui t’apparaît. Il n’y a pas de bonnes réponses, tu peux dire tout ce qui te passe par la tête.",
   },
   {
     type: "---BB---",
     save: true,
     name: "card.lettre_tarotsmall",
     size: "s",
-    label: "Comment résumerais-tu ton souhait?",
+    label: "Comment résumerais-tu alors ce que tu souhaites en terme de trop ou de rien ?",
   },
   {
     type: "---BB---",
@@ -97,10 +101,18 @@ export const lettre_tu = [
     label: "De manière générale, que faudrait-il mettre dans les épinards ?",
     qcmOptions: [
       "Plus de beurre",
-      "plus l’huile",
+      "plus d’huile",
       "plus d’ail",
       "plus de sésame",
     ],
+  },
+  {
+    type: "SB",
+    text: "Peut-être as-tu déjà remarqué que quand tu cliquais sur les cartes réponses, tu pouvais voir d'autres réponses apparaître? Il s'agit de la dernière personne connectée au guichet avant toi.",
+  },
+  {
+    type: "SB",
+    text: "N'hésite pas à t'inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur ton chemin aujourd'hui",
   },
   {
     type: "---BB---",
@@ -115,14 +127,6 @@ export const lettre_tu = [
     text: "En Allemagne, le code du travail stipule que les travailleur.se.s doivent pouvoir voir le ciel depuis leur espace de travail.",
   },
   {
-    type: "SB",
-    text: "Peut-être as-tu déjà remarqué que quand tu cliquais sur les cartes réponses, tu pouvais voir d'autres réponses apparaître? Il s'agit de la dernière personne connectée au guichet avant toi.",
-  },
-  {
-    type: "SB",
-    text: "N'hésite pas à t'inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur ton chemin aujourd'hui",
-  },
-  {
     type: "---BB---",
     name: "card.lettre_espaces",
     size: "s",
@@ -132,7 +136,7 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: "Tu vas pouvoir tirer une seconde carte du tarot du travail du futur.",
+    text: "Tu vas maintenant voir apparaître une seconde carte du tarot du travail du futur.",
   },
   {
     type: "---BB---",
@@ -164,8 +168,9 @@ export const lettre_tu = [
   {
     type: "---BB---",
     name: "card.lettre_ennemi",
+    save: true,
     size: "s",
-    label: "Donne un nom à cette chose/personne .",
+    label: "Donne un nom ou un surnom à cette chose/personne .",
   },
   {
     type: "SB",
@@ -198,7 +203,7 @@ export const lettre_tu = [
     name: "card.lettre_turn",
     size: "s",
     label:
-      "Fort-e de cette expérience, peux-tu me dire ce que tu aimerais mettre derrière toi, pour de bon ?",
+      "Fort·e de cette expérience, peux-tu me dire ce que tu aimerais vraiment vraiment mettre derrière toi, pour de bon ?",
   },
   {
     type: "SB",

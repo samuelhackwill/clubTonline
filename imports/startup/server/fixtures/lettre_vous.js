@@ -67,7 +67,11 @@ export const lettre_vous = [
   },
   {
     type: "SB",
-    text: "Vous allez pouvoir tirer une carte du tarot du travail. Cette carte évoque quelque chose que vous ne souhaitez plus voir dans votre monde du travail à vous, en rapport avec ce « trop » que vous venez d’évoquer.",
+    text: "Vous allez bientôt voir apparaître une carte du tarot du travail.",
+  },
+  {
+    type: "SB",
+    text: "Cette carte évoque quelque chose que vous ne souhaitez plus voir dans votre monde du travail à vous, en rapport avec ce « trop » ou ce « rien ».",
   },
   {
     type: "---BB---",
@@ -86,7 +90,7 @@ export const lettre_vous = [
     save: true,
     name: "card.lettre_tarotsmall",
     size: "s",
-    label: "Comment résumeriez-vous votre souhait ?",
+    label: "Comment résumeriez-vous alors ce que vous souhaitez en terme de trop ou de rien ?",
   },
   {
     type: "---BB---",
@@ -101,6 +105,14 @@ export const lettre_vous = [
     ],
   },
   {
+    type: "SB",
+    text: "Peut-être avez-vous déjà remarqué que quand vous cliquez sur les cartes réponses, vous pouviez voir d'autres réponses apparaître? Il s'agit de la dernière personne connectée au guichet avant vous.",
+  },
+  {
+    type: "SB",
+    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur votre chemin aujourd'hui",
+  },
+  {
     type: "---BB---",
     save: true,
     name: "card.lettre_ou",
@@ -112,14 +124,7 @@ export const lettre_vous = [
     type: "SB",
     text: "En Allemagne, le code du travail stipule que les travailleur.se.s doivent pouvoir voir le ciel depuis leur espace de travail.",
   },
-  {
-    type: "SB",
-    text: "Peut-être avez-vous déjà remarqué que quand vous cliquez sur les cartes réponses, vous pouviez voir d'autres réponses apparaître? Il s'agit de la dernière personne connectée au guichet avant vous.",
-  },
-  {
-    type: "SB",
-    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur votre chemin aujourd'hui",
-  },
+
   {
     type: "---BB---",
     name: "card.lettre_espaces",
@@ -130,7 +135,7 @@ export const lettre_vous = [
   },
   {
     type: "SB",
-    text: "Vous allez pouvoir tirer une seconde carte du tarot du travail du futur.",
+    text: "Vous allez maintenant voir apparaître une seconde carte du tarot du travail du futur.",
   },
   {
     type: "---BB---",
@@ -163,7 +168,8 @@ export const lettre_vous = [
     type: "---BB---",
     name: "card.lettre_ennemi",
     size: "s",
-    label: "Donnez un nom à cette chose/personne .",
+    save: true,
+    label: "Donnez un nom ou un surnom à cette chose/personne .",
   },
   {
     type: "SB",
@@ -196,7 +202,7 @@ export const lettre_vous = [
     name: "card.lettre_turn",
     size: "s",
     label:
-      "Fort-e de cette expérience, pouvez-vous me dire ce que vous aimeriez mettre derrière vous, pour de bon ?",
+      "Fort·e de cette expérience, pouvez-vous me dire ce que vous aimeriez vraiment vraiment mettre derrière vous, pour de bon ?",
   },
   {
     type: "SB",
