@@ -183,10 +183,10 @@ body {
 
 #page #signature {
   font-family: "Signature";
-  font-size: 1.8em;
+  font-size: 1.2em;
 
   transition: opacity 1s;
-  opacity: 1;
+  opacity: 0;
 }
 
 #page #signature:hover {
