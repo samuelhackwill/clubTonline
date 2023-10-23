@@ -119,11 +119,11 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "Peut-être avez-vous déjà remarqué que quand vous cliquiez sur les cartes réponses, vous pouviez voir d'autres réponses apparaître? Il s'agit de la dernière personne connectée au guichet avant vous.",
+    text: "Peut-être avez-vous déjà remarqué que quand vous cliquiez sur les cartes réponses, vous pouviez voir d'autres réponses apparaître ?",
   },
   {
     type: "SB",
-    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur votre chemin aujourd'hui.",
+    text: "Il s'agit d'une réponse choisie au hasard parmi toutes les réponses reçues par le guichet.",
   },
   {
     type: "---BB---",
