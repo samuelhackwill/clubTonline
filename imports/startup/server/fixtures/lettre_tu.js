@@ -1,11 +1,11 @@
 export const lettre_tu = [
   {
     type: "SB",
-    text: "Bonjour ! Je suis Thomas, ton conseiller du club du travail pour aujourd’hui.",
+    text: "Bonjour ! Je suis Thomas, ton conseiller du Club Travail pour aujourd’hui.",
   },
   {
     type: "SB",
-    text: "Vers l’âge de 7 ans, j’ai écrit une lettre au roi de mon pays pour leur demander de transformer les semaines en des semaines de 2 jours en alternance : lundi-dimanche.",
+    text: "Vers l’âge de 7 ans, j’ai écrit une lettre au roi de mon pays pour lui demander de transformer les semaines en des semaines de 2 jours uniquement composées de lundis et de dimanches.",
   },
   {
     type: "SB",
@@ -17,7 +17,7 @@ export const lettre_tu = [
     name: "qcm.lettre_semaine",
     label: "Que penses-tu de cette proposition ?",
     qcmOptions: [
-      "Je proposerai plutôt des semaines vendredi-samedi",
+      "Je proposerais plutôt des semaines vendredi-samedi",
       "J’aime pas le lundi",
       "J’aime pas le dimanche",
       "J’aime travailler tous les jours de la semaine",
@@ -36,7 +36,7 @@ export const lettre_tu = [
     save: true,
     name: "qcm.lettre_soluce",
     label:
-      "Penses-tu que pour ma revendication se fasse entendre, j’aurais dû :",
+      "Penses-tu que pour que ma revendication se fasse entendre, j’aurais dû :",
     qcmOptions: [
       "Lancer une pétition en ligne",
       "Poster la lettre moi-même",
