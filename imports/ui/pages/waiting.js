@@ -3,7 +3,7 @@ import "./waiting.html";
 const waitingData = [
   {
     type: "SB",
-    text: "Bonjour, bienvenue sur le guichet online du club travail.",
+    text: "Bonjour, bienvenue sur le guichet online du Club Travail.",
   },
   {
     type: "SB",
@@ -31,7 +31,13 @@ const waitingData = [
     text: "Si vous voulez être tenu au courant de l'ouverture du guichet en ligne, vous pouvez vous inscrire ci-dessous :",
   },
   { type: "SB", name: "mailForm" },
-  { type: "SB", name: "link", text: "En attendant, on vous recommande chaudement d'aller compulser le site de nos partenaires du Centre Vidéo de Bruxelles : ", link:"http://www.nosfuturs.net", linkPrev:"nosfuturs.net" },
+  {
+    type: "SB",
+    name: "link",
+    text: "En attendant, on vous recommande chaudement d'aller compulser le site de nos partenaires du Centre Vidéo de Bruxelles : ",
+    link: "http://www.nosfuturs.net",
+    linkPrev: "nosfuturs.net",
+  },
 ];
 
 Template.waiting.helpers({

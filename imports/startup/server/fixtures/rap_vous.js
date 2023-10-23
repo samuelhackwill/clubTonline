@@ -47,7 +47,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "OK",
+    text: "Ok.",
   },
   {
     type: "---BB---",
@@ -57,7 +57,7 @@ export const rap_vous = [
       "Et alors qu'est ce qui fait que vous auriez envie de mordre votre ordinateur aujourd'hui?",
     qcmOptions: [
       "Je vis difficilement la compagnie d'une personne de mon entourage professionel",
-      "Mon horizon professionel est bloqué",
+      "Mon horizon professionnel est bloqué",
       "Mon ordinateur est en mousse, je peux donc le mordre sans conséquences et je le fais régulièrement pour déstresser.",
       "J'ai réussi à accomplir tout ce que je voulais faire et donc c'est plutôt une morsure de célébration",
     ],
@@ -68,11 +68,11 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "Admettons que vous venez de passer la pire journée de votre vie au travail.",
+    text: "Admettons que vous veniez de passer la pire journée de votre vie au travail.",
   },
   {
     type: "SB",
-    text: "vous avez été dépassé·e par les évenements",
+    text: "vous avez été dépassé·e par les évènements",
   },
   {
     type: "SB",
@@ -87,7 +87,7 @@ export const rap_vous = [
     name: "card.rap_plainte",
     size: "l",
     label:
-      "Est ce que vous voulez nous raconter ? Si ça vous aide vous pouvez commencer par dire quel jour de la semaine c'était. Ne vous arrêtez pas avant d'avoir noirci le cadre, enfin si vous voulez.",
+      "Est-ce que vous voulez nous raconter ? Si ça vous aide vous pouvez commencer par dire quel jour de la semaine c'était. Ne vous arrêtez pas avant d'avoir noirci le cadre, enfin si vous voulez.",
   },
   {
     type: "SB",
@@ -107,7 +107,7 @@ export const rap_vous = [
     name: "card.rap_ennemidesc",
     size: "s",
     label:
-      "Est ce que vous pouvez nous le décrire, décrire ce qu'il fait, comment il le fait?",
+      "Est-ce que vous pouvez nous le décrire, décrire ce qu'il fait, comment il le fait?",
   },
   {
     type: "SB",
@@ -123,7 +123,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur votre chemin aujourd'hui",
+    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur votre chemin aujourd'hui.",
   },
   {
     type: "---BB---",
@@ -144,15 +144,15 @@ export const rap_vous = [
     name: "card.rap_arme",
     size: "s",
     label:
-      "Quelle est cette arme ? Pouvez-vous nous la décrire, décrire la façon dont vous vous en êtes servi pour vous en sortir. Vous pouvez inventer, exagérer.",
+      "Quelle est cette arme ? Pouvez-vous nous la décrire, décrire la façon dont vous vous en êtes servie pour vous en sortir. Vous pouvez inventer, exagérer.",
   },
   {
     type: "SB",
-    text: "Bravo",
+    text: "Bravo!",
   },
   {
     type: "SB",
-    text: "On peut dire que vous revenez de loin",
+    text: "On peut dire que vous revenez de loin.",
   },
   {
     type: "---BB---",

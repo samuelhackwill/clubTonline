@@ -47,7 +47,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "OK",
+    text: "Ok.",
   },
   {
     type: "---BB---",
@@ -57,7 +57,7 @@ export const rap_tu = [
       "Et alors qu'est ce qui fait que tu aurais envie de mordre ton ordinateur aujourd'hui ?",
     qcmOptions: [
       "Je vis difficilement la compagnie d'une personne de mon entourage professionel",
-      "Mon horizon professionel est bloqué",
+      "Mon horizon professionnel est bloqué",
       "Mon ordinateur est en mousse, je peux donc le mordre sans conséquences et je le fais régulièrement pour déstresser.",
       "J'ai réussi à accomplir tout ce que je voulais faire et donc c'est plutôt une morsure de célébration",
     ],
@@ -68,15 +68,15 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "Admettons que tu viens de passer la pire journée de ta vie au travail.",
+    text: "Admettons que tu viennes de passer la pire journée de ta vie au travail.",
   },
   {
     type: "SB",
-    text: "tu as été dépassé·e par les évenements",
+    text: "tu as été dépassé·e par les évènements",
   },
   {
     type: "SB",
-    text: "Tout ce que tu déteste t'a été imposé,",
+    text: "Tout ce que tu détestes t'a été imposé,",
   },
   {
     type: "SB",
@@ -87,7 +87,7 @@ export const rap_tu = [
     name: "card.rap_plainte",
     size: "l",
     label:
-      "Est ce que tu veux nous raconter? Si ça t'aide tu peux commencer par dire quel jour de la semaine c'était. Ne t'arrête pas avant d'avoir noirci le cadre, enfin si tu veux.",
+      "Est-ce que tu veux nous raconter? Si ça t'aide tu peux commencer par dire quel jour de la semaine c'était. Ne t'arrête pas avant d'avoir noirci le cadre, enfin si tu veux.",
   },
   {
     type: "SB",
@@ -107,7 +107,7 @@ export const rap_tu = [
     name: "card.rap_ennemidesc",
     size: "s",
     label:
-      "Est ce que tu peux nous le décrire, décrire ce qu'il fait, comment il le fait ?",
+      "Est-ce que tu peux nous le décrire, décrire ce qu'il fait, comment il le fait ?",
   },
   {
     type: "SB",
@@ -123,7 +123,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "N'hésite pas à t'inspirer de ces réponses à tout moment. C'est une espèce d'ange-gardien·ne sur ton chemin aujourd'hui",
+    text: "N'hésite pas à t'inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur ton chemin aujourd'hui.",
   },
   {
     type: "---BB---",
@@ -136,7 +136,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "C'est une arme qui te viens de l'enfance et que tu as su déployer au fil des années.",
+    text: "C'est une arme qui te vient de l'enfance et que tu as su déployer au fil des années.",
   },
   {
     type: "---BB---",
@@ -148,11 +148,11 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "Bravo",
+    text: "Bravo!",
   },
   {
     type: "SB",
-    text: "On peut dire que tu reviens de loin",
+    text: "On peut dire que tu reviens de loin.",
   },
   {
     type: "---BB---",

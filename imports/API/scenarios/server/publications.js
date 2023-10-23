@@ -29,17 +29,15 @@ Meteor.methods({
   },
 
   async getTarot(tirage) {
-    console.log(tirage);
-
     // LOCAL
-    const files = fs.readdirSync(
-      "/Users/samuel/htdocs/clubTonline/public/img/tarot/" + tirage
-    );
+    // const files = fs.readdirSync(
+    //   "/Users/samuel/htdocs/clubTonline/public/img/tarot/" + tirage
+    // );
 
     // HOSTED (via mup & docker)
-    // const files = fs.readdirSync(
-    //   "/built_app/programs/web.browser/app/img/tarot/"+ tirage
-    // );
+    const files = fs.readdirSync(
+      "/built_app/programs/web.browser/app/img/tarot/" + tirage
+    );
 
     const file = files[Math.floor(Math.random() * files.length)];
     console.log(files, file);

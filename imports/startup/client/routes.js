@@ -7,17 +7,16 @@ import "../../ui/pages/songs/berceuse.js";
 import "../../ui/pages/songs/karaoke.js";
 import "../../ui/pages/songs/lettre.js";
 
-import {Songs} from "../../API/songs/songs.js";
+import { Songs } from "../../API/songs/songs.js";
 
-
-FlowRouter.route("/", {
+FlowRouter.route("/waiting", {
   name: "waiting",
   action() {
     this.render("waiting");
   },
 });
 
-FlowRouter.route("/show", {
+FlowRouter.route("/", {
   name: "show",
   action() {
     this.render("show");
@@ -28,26 +27,26 @@ FlowRouter.route("/bibliotheque", {
   name: "completed",
   action() {
     this.render("completed");
-  }
+  },
 });
 
-FlowRouter.route('/song/:_uuid/', {
-  name: 'song',
+FlowRouter.route("/song/:_uuid/", {
+  name: "song",
   action(params, queryParams, _song) {
     // console.log(queryParams.scenario, params.uuid, _song)
     this.render(queryParams.scenario, { uuid: params.uuid, data: _song });
     // this.render(queryParams.scenario, {uuid: params.uuid, song:_song});
   },
   waitOn(params) {
-    console.log(params._uuid)
-    return Meteor.subscribe('songs', {uuid : params._uuid});
+    console.log(params._uuid);
+    return Meteor.subscribe("songs", { uuid: params._uuid });
   },
   data(params, queryParams, qs) {
-    return _song = Songs.findOne()
-  },  
+    return (_song = Songs.findOne());
+  },
   triggersExit: [
-    trackRouteClose = function(){
-    	document.getElementsByTagName("head")[0].lastElementChild.remove()
-  }]
+    (trackRouteClose = function () {
+      document.getElementsByTagName("head")[0].lastElementChild.remove();
+    }),
+  ],
 });
-
