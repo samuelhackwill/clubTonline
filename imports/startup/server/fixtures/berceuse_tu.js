@@ -195,7 +195,7 @@ export const berceuse_tu = [
     name: "card.berceuse_sac",
     size: "s",
     label:
-      "C’est quelque chose que tu trimbales depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ?",
+      "C’est quelque chose que tu trimballes depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ?",
   },
   {
     type: "SB",
@@ -208,6 +208,6 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "end",
-    label: "bonne nuit!",
+    label: "J'y suis!",
   },
 ];

@@ -17,21 +17,20 @@ Template.blockingBubble.helpers({
       return true;
     }
   },
-  isNewGame() {
-    if (this.name != undefined && this.name.startsWith("newGame")) {
-      return true;
-    }
-  },
   isEnd() {
     if (this.name != undefined && this.name.startsWith("end")) {
       return true;
     }
   },
-  isDataBubble(){
-    if (this.name == "getScenario" || this.name == "getTarot" || this.name == "getAllSongs") {
-        return true
-    }else{
-        return false
+  isDataBubble() {
+    if (
+      this.name == "getScenario" ||
+      this.name == "getTarot" ||
+      this.name == "getAllSongs"
+    ) {
+      return true;
+    } else {
+      return false;
     }
   },
   isCard() {
@@ -107,39 +106,51 @@ Template.blockingBubble.events({
     }
     return;
   },
+  "click .end"(event) {
+    this._songUUID = uuidv4();
+    data = {};
+    data.answers = savedAnswers.all();
+    data.scenario = savedAnswers.get("qcmForm.humeur");
 
-  "click .newGame"() {
-    FlowRouter.go("/show")
-  },
-
-  "click .end"(event){
-    this._songUUID = uuidv4()
-    data = {}
-    data.answers = savedAnswers.all()
-    data.scenario = savedAnswers.get("qcmForm.humeur")
-    
     _scenario = _targetScenario.replace(/\_.+/i, "");
-    
 
-    Meteor.call("makeSong", this._songUUID, data, _scenario, (error, result) =>{
-      console.log(error, result)
-    }) 
-    Meteor.call("insertAnswers", allAnswers.get(), _scenario, (error, result) =>{
-      console.log(error, result)
-    }) 
+    Meteor.call(
+      "makeSong",
+      this._songUUID,
+      data,
+      _scenario,
+      (error, result) => {
+        console.log(error, result);
+      }
+    );
+    Meteor.call(
+      "insertAnswers",
+      allAnswers.get(),
+      _scenario,
+      (error, result) => {
+        console.log(error, result);
+      }
+    );
 
-    event.target.classList.remove("bg-purple-500", "text-white", "hover:bg-purple-400")
-    event.target.classList.add("bg-green-500", "text-black", "pointer-events-none")
-    event.target.innerHTML = "chargement ..."
+    event.target.classList.remove(
+      "bg-purple-500",
+      "text-white",
+      "hover:bg-purple-400"
+    );
+    event.target.classList.add(
+      "bg-green-500",
+      "text-black",
+      "pointer-events-none"
+    );
+    event.target.innerHTML = "chargement ...";
 
     setTimeout(() => {
-      document.getElementById("feed").classList.add("opacity-0")
+      document.getElementById("feed").classList.add("opacity-0");
     }, 500);
 
     setTimeout(() => {
-      FlowRouter.go('song', { _uuid: this._songUUID}, {scenario : _scenario });
+      FlowRouter.go("song", { _uuid: this._songUUID }, { scenario: _scenario });
     }, 1000);
-
   },
 
   "click .qcmOption"(event) {
@@ -155,7 +166,7 @@ Template.blockingBubble.events({
     // we could have made a db query also but storing the data locally is faster.
     if (event.target.parentElement.dataset.save) {
       _key = event.target.parentElement.dataset.name.replace(/.+\./i, "");
-      savedAnswers.set(_key, event.target.innerHTML.trim()) 
+      savedAnswers.set(_key, event.target.innerHTML.trim());
     }
 
     state.set("gettingMoreElements");
@@ -170,7 +181,7 @@ Template.blockingBubble.events({
     );
     event.target.classList.add("opacity-0");
 
-    save = event.target.dataset.save
+    save = event.target.dataset.save;
 
     if (event.target.dataset.name.startsWith("qcm")) {
       addQcm(event.target.dataset, save);
@@ -184,7 +195,7 @@ Template.blockingBubble.events({
     input = event.currentTarget[0].value.trim();
 
     event.target.parentElement.parentElement.firstElementChild.innerHTML =
-      input
+      input;
 
     event.target.classList.add("pointer-events-none");
 
@@ -197,7 +208,7 @@ Template.blockingBubble.events({
 
     // hide the form container
     event.target.parentElement.classList.add("opacity-0");
-    event.target.parentElement.parentElement.dataset.answered = true
+    event.target.parentElement.parentElement.dataset.answered = true;
 
     // show the card's back (with the answer)
     event.target.parentElement.parentElement.firstElementChild.classList.add(
@@ -210,67 +221,59 @@ Template.blockingBubble.events({
     // we need to put some answers on the side for consumption by the songs template.
     // we could have made a db query also but storing the data locally is faster.
     if (event.target.parentElement.parentElement.dataset.save) {
-      _key = event.target.parentElement.parentElement.dataset.name.replace(/.+\./i, "")
-      savedAnswers.set(_key, input) 
+      _key = event.target.parentElement.parentElement.dataset.name.replace(
+        /.+\./i,
+        ""
+      );
+      savedAnswers.set(_key, input);
     }
 
-    // and we also need to keep all answers to populate the database at 
+    // and we also need to keep all answers to populate the database at
     // the end of the experience.
-    _allAnswers = allAnswers.get()
-    _allAnswers.push({name:event.target.parentElement.parentElement.dataset.name, answer : input})
-    allAnswers.set(_allAnswers)
+    _allAnswers = allAnswers.get();
+    _allAnswers.push({
+      name: event.target.parentElement.parentElement.dataset.name,
+      answer: input,
+    });
+    allAnswers.set(_allAnswers);
 
     state.set("gettingMoreElements");
     addNextItem();
     fadeQuestion(event);
-    getRandomQuestion(event.target.id)
+    getRandomQuestion(event.target.id);
   },
 
-
-  "click .formCard"(event){
-
-    card = document.getElementById("container."+event.target.dataset.name)
-    // the formCard first holds a form object with which the user needs to interact, so 
+  "click .formCard"(event) {
+    card = document.getElementById("container." + event.target.dataset.name);
+    // the formCard first holds a form object with which the user needs to interact, so
     // we don't want to start animating the div before it's been transformed in a place to store
     // other player's answers
-    if(!card || !card.dataset.answered){return}
-    
-    if (card.dataset.clicked=="false") {
-      card.classList.add(
-        "rotate-x-180"
-      );
-      card.classList.remove("bg-purple-200")
-      card.classList.add(
-        "bg-indigo-200"
-      );  
+    if (!card || !card.dataset.answered) {
+      return;
+    }
+
+    if (card.dataset.clicked == "false") {
+      card.classList.add("rotate-x-180");
+      card.classList.remove("bg-purple-200");
+      card.classList.add("bg-indigo-200");
       card.firstElementChild.classList.add("opacity-0");
       card.firstElementChild.classList.remove("opacity-1");
-      card.lastElementChild.classList.add(
-      "opacity-1"
-      );
-      card.lastElementChild.classList.remove("opacity-0");    
+      card.lastElementChild.classList.add("opacity-1");
+      card.lastElementChild.classList.remove("opacity-0");
 
-      card.dataset.clicked="true"
-    }else{
-      card.classList.remove(
-        "rotate-x-180"
-      );
-      card.classList.add("bg-purple-200")
-      card.classList.remove(
-        "bg-indigo-200"
-        );  
-        card.lastElementChild.classList.add("opacity-0");
-        card.lastElementChild.classList.remove("opacity-1");
-        card.firstElementChild.classList.add(
-        "opacity-1"
-        );
-        card.firstElementChild.classList.remove("opacity-0");    
-  
+      card.dataset.clicked = "true";
+    } else {
+      card.classList.remove("rotate-x-180");
+      card.classList.add("bg-purple-200");
+      card.classList.remove("bg-indigo-200");
+      card.lastElementChild.classList.add("opacity-0");
+      card.lastElementChild.classList.remove("opacity-1");
+      card.firstElementChild.classList.add("opacity-1");
+      card.firstElementChild.classList.remove("opacity-0");
 
-        card.dataset.clicked="false"
-      }
-  } 
-
+      card.dataset.clicked = "false";
+    }
+  },
 });
 
 fadeQuestion = function (event) {
@@ -283,17 +286,20 @@ fadeQuestion = function (event) {
   }
 };
 
-uuidv4 = function() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+uuidv4 = function () {
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
   );
-}
+};
 
 // getFile = function(){
 //   const testFolder = './';
-  
+
 //   fs.readdirSync(testFolder).forEach(file => {
 //     console.log(file);
 //   });
-  
+
 // }

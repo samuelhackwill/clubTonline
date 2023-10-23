@@ -1,5 +1,6 @@
 import "./staticBubble.html";
 import { Mailing } from "../../API/mailing/mailing.js";
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 Template.staticBubble.onCreated(function () {});
 
@@ -22,6 +23,10 @@ Template.staticBubble.events({
       .getElementById("subscriptionButton")
       .classList.remove("bg-purple-500", "hover:bg-purple-400");
   },
+
+  "click .newGame"() {
+    FlowRouter.go("/");
+  },
 });
 
 Template.staticBubble.helpers({
@@ -42,6 +47,11 @@ Template.staticBubble.helpers({
   },
   isTextOnly() {
     if (this.name == undefined && this.text != undefined) {
+      return true;
+    }
+  },
+  isNewGame() {
+    if (this.name != undefined && this.name.startsWith("newGame")) {
       return true;
     }
   },

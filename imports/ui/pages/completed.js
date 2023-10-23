@@ -22,6 +22,11 @@ const outro = [
     text: "Pour nous contacter: clubtravaille@gmail.com",
   },
   {
+    type: "SB",
+    name: "newGame",
+    label: "commencer une nouvelle partie",
+  },
+  {
     type: "---BB---",
     name: "getAllSongs",
     label: "Chargement de toutes les chansons...",

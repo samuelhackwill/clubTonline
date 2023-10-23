@@ -10,9 +10,7 @@
       {{label}}
     </button>
   </div>
-  {{/if}}
-
-  {{#if isPlay}}
+  {{/if}} {{#if isPlay}}
   <div
     class="col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
@@ -23,22 +21,7 @@
       {{label}}
     </button>
   </div>
-  {{/if}} 
-
-  {{#if isNewGame}}
-  <div
-    class="col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] items-center justify-center rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
-  >
-    <button
-      class="{{name}} focus:shadow-outline select-none rounded bg-purple-500 px-4 py-2 text-white shadow hover:bg-purple-400 focus:outline-none"
-      id="{{name}}"
-    >
-      {{label}}
-    </button>
-  </div>
-  {{/if}} 
-
-  {{#if isCard}}
+  {{/if}} {{#if isCard}}
   <div
     class="card relative col-span-3 col-end-[-1] flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
@@ -51,28 +34,27 @@
       data-save="{{save}}"
     ></button>
   </div>
-  {{/if}} 
-
-  {{#if isForm}}
+  {{/if}} {{#if isForm}}
   <div
-    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180" id="container.{{name}}" data-name="{{name}}" data-clicked="false" data-save="{{save}}"
+    class="formCard relative col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] flex-col items-center justify-center rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500 rotate-x-180"
+    id="container.{{name}}"
+    data-name="{{name}}"
+    data-clicked="false"
+    data-save="{{save}}"
   >
     <!-- dos -->
     <div
-      class="absolute cursor-pointer flex-1 px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms]"
-    >
-    </div>
+      class="absolute flex-1 cursor-pointer px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms]"
+    ></div>
 
     <!-- face -->
-    {{#if answered}}
-    {{> dataBubble this}}
-    {{else}}
+    {{#if answered}} {{> dataBubble this}} {{else}}
     <div class="transition-opacity delay-[150ms] rotate-x-180">
-      <form class="form w-full max-w-sm" id="{{name}}"
-      >
+      <form class="form w-full max-w-sm" id="{{name}}">
         <div class="mb-6 md:flex md:items-center">
           <textarea
-            {{getFormSize true}}
+            {{getFormSize
+            true}}
             class="w-full appearance-none rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 leading-tight text-gray-700 focus:border-purple-500 focus:bg-white focus:outline-none"
             type="text"
             placeholder="hmm laissez-moi réfléchir un moment"
@@ -92,13 +74,13 @@
         </div>
       </form>
     </div>
-    {{/if}}  
+    {{/if}}
   </div>
-  {{/if}} 
-
-  {{#if isQcmForm}}
+  {{/if}} {{#if isQcmForm}}
   <div
-    class="relative col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500" data-save="{{save}}" data-name="{{name}}"
+    class="relative col-span-3 col-end-[-1] mb-5 flex w-[29%] basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+    data-save="{{save}}"
+    data-name="{{name}}"
   >
     {{#each qcmOptions}}
     <button
@@ -108,9 +90,5 @@
     </button>
     {{/each}}
   </div>
-  {{/if}}
-  
-  {{#if isDataBubble}}
-    {{> dataBubble this}}
-  {{/if}}
+  {{/if}} {{#if isDataBubble}} {{> dataBubble this}} {{/if}}
 </template>
