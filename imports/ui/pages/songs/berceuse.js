@@ -44,13 +44,22 @@ defilementTexte = function(v, phrases, i) {
 	phrases.center[i].animate(v.keyframesCentre, v.optionsCenter);
 	phrases.left[i].animate(v.keyframes, v.optionsLeft);
 
-	// PROMISE ANIMATION ONFINISHED (éventuellement)
-	// Promise.all(elem.getAnimations().map((animation) => animation.finished)).then(
-	//   () => elem.remove()
-	// );
-
 	console.info(i);
 	return Promise.all(phrases.right[i].getAnimations().map((animation) => animation.finished))
+}
+
+fadeOut = function(instru) {
+    var fadeAudio = setInterval(function () {
+        // Only fade if volume not at zero already
+	if (instru.volume === 0.0) {
+		clearInterval(fadeAudio);
+		instru.pause();
+        } else if (instru.volume >= 0.1) {
+		instru.volume -= 0.1;
+        }
+
+    }, 300);
+
 }
 
 boucleDefilement = function(v) {
@@ -71,7 +80,7 @@ boucleDefilement = function(v) {
 		.then(() => defilementTexte(v, phrases, 6))
 		.then(() => defilementTexte(v, phrases, 0))
 		.then(() => {
-			instru.pause(); // Fade out de la musique en option ?
+			fadeOut(instru);
 
 			// afficher bouton retour
 			document.querySelector(".retour-maison").style.display = "block";
@@ -96,7 +105,7 @@ berceuse_startAnimation = function() {
 	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
 	// Duration in seconds
-	a.DURATION = 13 * 1000;
+	a.DURATION = 11.5 * 1000;
 
 	a.BANDEAU = document.querySelector("#left .text-wrapper");
 	a.bandeauWidth = parseFloat(
@@ -171,6 +180,6 @@ berceuse_startAnimation = function() {
 			}, 1000);
 		})
 
-	}).catch(err => console.log("OUPSI", err))
+	}).catch(err => console.log("OUPSI", err));
 
 }
