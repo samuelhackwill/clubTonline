@@ -79,9 +79,6 @@ karaoke_startAnimation = function() {
 	const INSTRU = document.getElementById("instru");
 	INSTRU.play();
 
-	// document.querySelector("main").style.transform = "scale(1)";
-	// document.querySelector("main").style.opacity = "1";
-
 	// CAISSECLAIRE
 	setTimeout(() => {
 		// repeat toutes les 2 secondes 16 fois
@@ -154,7 +151,6 @@ karaoke_createAnimation = function(slide) {
 				const el = slide.children[i];
 				displayAfter(el, 1000 * 2 * i);
 			}
-
 
 			break;
 

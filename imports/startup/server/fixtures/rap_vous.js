@@ -36,7 +36,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "D'accord!",
+    text: "D'accord !",
   },
   {
     type: "---BB---",
@@ -72,7 +72,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "vous avez été dépassé.e par les évenements",
+    text: "vous avez été dépassé·e par les évenements",
   },
   {
     type: "SB",
@@ -87,7 +87,7 @@ export const rap_vous = [
     name: "card.rap_plainte",
     size: "l",
     label:
-      "Est ce que vous voulez nous raconter? Si ça vous aide vous pouvez commencer par dire quel jour de la semaine c'était. Ne vous arrêtez pas avant d'avoir noirci le cadre, enfin si vous voulez.",
+      "Est ce que vous voulez nous raconter ? Si ça vous aide vous pouvez commencer par dire quel jour de la semaine c'était. Ne vous arrêtez pas avant d'avoir noirci le cadre, enfin si vous voulez.",
   },
   {
     type: "SB",
@@ -99,7 +99,7 @@ export const rap_vous = [
     name: "card.rap_enneminame",
     size: "s",
     label:
-      "Si on devait identifier qui est l'ennemi numéro 1 dans votre histoire, ça serait qui-quoi? Trouvez-lui un nom :",
+      "Si on devait identifier qui est l'ennemi numéro 1 dans votre histoire, ça serait qui/quoi? Trouvez-lui un nom :",
   },
   {
     type: "---BB---",
@@ -111,11 +111,11 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "Quand vous vous sentez prêt.e, vous pouvez aller à votre fenêtre, l'ouvrir, prendre une respiration, redresser vos épaules, et crier avec votre voix la plus grave ou la plus aigüe le nom de l'ennemi.",
+    text: "Quand vous vous sentez prêt·e, vous pouvez aller à votre fenêtre, l'ouvrir, prendre une respiration, redresser vos épaules, et crier avec votre voix la plus aigüe le nom de l'ennemi.",
   },
   {
     type: "SB",
-    text: "Bon si vous voulez rester assis.e vous pouvez aussi le faire sur place.",
+    text: "Bon si vous voulez rester assis·e vous pouvez aussi le faire sur place.",
   },
   {
     type: "SB",
@@ -123,7 +123,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur votre chemin aujourd'hui",
+    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur votre chemin aujourd'hui",
   },
   {
     type: "---BB---",
@@ -132,7 +132,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "Admettons maintenant que c'est la meilleure journée de travail de votre vie. Toutes les personnes avec qui vous aimez travailler sont réunies, vous disposez d'une assise ultra confortable, vous pouvez être fièr.e de vous, car vous avez combattu votre ennemi numéro 1 grâce à une arme secrète qui vous appartient tout particulièrement.",
+    text: "Admettons maintenant que c'est la meilleure journée de travail de votre vie. Toutes les personnes avec qui vous aimez travailler sont réunies, vous disposez d'une assise ultra confortable, vous pouvez être fièr·e de vous, car vous avez combattu votre ennemi numéro 1 grâce à une arme secrète qui vous appartient tout particulièrement.",
   },
   {
     type: "SB",
@@ -144,7 +144,7 @@ export const rap_vous = [
     name: "card.rap_arme",
     size: "s",
     label:
-      "Quelle est cette arme? Pouvez-vous nous la décrire, décrire la façon dont vous vous en êtes servi pour vous en sortir. Vous pouvez inventer, exagérer.",
+      "Quelle est cette arme ? Pouvez-vous nous la décrire, décrire la façon dont vous vous en êtes servi pour vous en sortir. Vous pouvez inventer, exagérer.",
   },
   {
     type: "SB",
@@ -160,14 +160,14 @@ export const rap_vous = [
     name: "card.rap_ou",
     size: "s",
     label:
-      "D'ailleurs, d'où venez-vous? (dites-nous juste le nom de la ville ou du hameau)",
+      "D'ailleurs, d'où venez-vous ? (dites-nous juste le nom de la ville ou du hameau)",
   },
   {
     type: "---BB---",
     save: true,
     name: "card.rap_blase",
     size: "s",
-    label: "Et comment on vous appelait là-bas?",
+    label: "Et comment on vous appelait là-bas ?",
   },
   {
     type: "SB",
@@ -191,7 +191,7 @@ export const rap_vous = [
   },
   {
     type: "SB",
-    text: "Tenez, si vous voulez on peut regarder ce qu'il y a sur le CD-ROM si ça vous dis",
+    text: "Tenez, si vous voulez on peut regarder ce qu'il y a sur le CD-ROM si ça vous dit",
   },
   {
     type: "---BB---",

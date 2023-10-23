@@ -36,7 +36,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "D'accord!",
+    text: "D'accord !",
   },
   {
     type: "---BB---",
@@ -54,7 +54,7 @@ export const rap_tu = [
     save: true,
     name: "qcm.rap_pqmordre",
     label:
-      "Et alors qu'est ce qui fait que tu aurais envie de mordre ton ordinateur aujourd'hui?",
+      "Et alors qu'est ce qui fait que tu aurais envie de mordre ton ordinateur aujourd'hui ?",
     qcmOptions: [
       "Je vis difficilement la compagnie d'une personne de mon entourage professionel",
       "Mon horizon professionel est bloqué",
@@ -72,7 +72,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "tu as été dépassé.e par les évenements",
+    text: "tu as été dépassé·e par les évenements",
   },
   {
     type: "SB",
@@ -99,7 +99,7 @@ export const rap_tu = [
     name: "card.rap_enneminame",
     size: "s",
     label:
-      "Si on devait identifier qui est l'ennemi numéro 1 dans ton histoire, ça serait qui-quoi? Trouve-lui un nom :",
+      "Si on devait identifier qui est l'ennemi numéro 1 dans ton histoire, ça serait qui/quoi? Trouve-lui un nom :",
   },
   {
     type: "---BB---",
@@ -107,23 +107,23 @@ export const rap_tu = [
     name: "card.rap_ennemidesc",
     size: "s",
     label:
-      "Est ce que tu peux nous le décrire, décrire ce qu'il fait, comment il le fait?",
+      "Est ce que tu peux nous le décrire, décrire ce qu'il fait, comment il le fait ?",
   },
   {
     type: "SB",
-    text: "Quand tu te sens prêt.e, tu peux aller à ta fenêtre, l'ouvrir, prendre une respiration, redresser tes épaules, et crier avec ta voix la plus grave ou la plus aigüe le nom de l'ennemi.",
+    text: "Quand tu te sens prêt·e, tu peux aller à ta fenêtre, l'ouvrir, prendre une respiration, redresser tes épaules, et crier avec ta voix la plus aigüe le nom de l'ennemi.",
   },
   {
     type: "SB",
-    text: "Bon si tu veux rester assis.e tu peux aussi le faire sur place.",
+    text: "Bon si tu veux rester assis·e tu peux aussi le faire sur place.",
   },
   {
     type: "SB",
-    text: "Peut-être as-tu déjà remarqué que quand tu cliquais sur les cartes réponses, tu pouvais voir d'autres réponses apparaître? Il s'agit de la dernière personne connectée au guichet avant toi.",
+    text: "Peut-être as-tu déjà remarqué que quand tu cliquais sur les cartes réponses, tu pouvais voir d'autres réponses apparaître ? Il s'agit de la dernière personne connectée au guichet avant toi.",
   },
   {
     type: "SB",
-    text: "N'hésite pas à t'inspirer de ces réponses à tout moment. C'est une espèce d'ange-gardien.ne sur ton chemin aujourd'hui",
+    text: "N'hésite pas à t'inspirer de ces réponses à tout moment. C'est une espèce d'ange-gardien·ne sur ton chemin aujourd'hui",
   },
   {
     type: "---BB---",
@@ -132,7 +132,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "Admettons maintenant que c'est la meilleure journée de travail de ta vie. Toutes les personnes avec qui tu aimes travailler sont réunies, tu dispose d'une assise ultra confortable, tu peux être fièr.e de toi, car tu as combattu ton ennemi numéro 1 grâce à une arme secrète qui t'appartient tout particulièrement.",
+    text: "Admettons maintenant que c'est la meilleure journée de travail de ta vie. Toutes les personnes avec qui tu aimes travailler sont réunies, tu dispose d'une assise ultra confortable, tu peux être fièr·e de toi, car tu as combattu ton ennemi numéro 1 grâce à une arme secrète qui t'appartient tout particulièrement.",
   },
   {
     type: "SB",
@@ -144,7 +144,7 @@ export const rap_tu = [
     name: "card.rap_arme",
     size: "s",
     label:
-      "Quelle est cette arme? Peux-tu nous la décrire, décrire la façon dont tu t'en es servi pour t'en sortir. Tu peux inventer, exagérer.",
+      "Quelle est cette arme ? Peux-tu nous la décrire, décrire la façon dont tu t'en es servie pour t'en sortir. Tu peux inventer, exagérer.",
   },
   {
     type: "SB",
@@ -160,14 +160,14 @@ export const rap_tu = [
     name: "card.rap_ou",
     size: "s",
     label:
-      "D'ailleurs, d'où viens-tu? (dis nous juste le nom de la ville ou du hameau)",
+      "D'ailleurs, d'où viens-tu ? (dis nous juste le nom de la ville ou du hameau)",
   },
   {
     type: "---BB---",
     save: true,
     name: "card.rap_blase",
     size: "s",
-    label: "Et comment on t'appellait là bas?",
+    label: "Et comment on t'appellait là bas ?",
   },
   {
     type: "SB",
@@ -175,7 +175,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "Elles sont rangés dans un porte-CDs sur mon bureau",
+    text: "Elles sont rangées dans un porte-CDs sur mon bureau",
   },
   {
     type: "---BB---",
@@ -191,7 +191,7 @@ export const rap_tu = [
   },
   {
     type: "SB",
-    text: "Tiens ben regarde si tu veux on peut regarder ce qu'il y a sur le CD-ROM si ça te dis",
+    text: "Tiens ben regarde si tu veux on peut regarder ce qu'il y a sur le CD-ROM si ça te dit",
   },
   {
     type: "---BB---",
