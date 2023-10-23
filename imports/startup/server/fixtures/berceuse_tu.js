@@ -1,7 +1,7 @@
 export const berceuse_tu = [
   {
     type: "SB",
-    text: "Hello, je suis Mathilde, ta conseillère du club travail pour aujourd’hui.",
+    text: "Hello, je suis Mathilde, ta conseillère du Club Travail pour aujourd’hui.",
   },
   {
     type: "SB",
@@ -19,7 +19,7 @@ export const berceuse_tu = [
     type: "---BB---",
     name: "qcm.berceuse_reve",
     save: true,
-    label: "Est-ce que ça t’arrive souvent de rêver du travail ? ",
+    label: "Est-ce que ça t’arrive souvent de rêver du travail ?",
     qcmOptions: [
       "Quand je dors, je travaille.",
       "Quand je travaille, je dors.",
@@ -29,7 +29,7 @@ export const berceuse_tu = [
   },
   {
     type: "SB",
-    text: "Il m’arrive aussi parfois de résoudre des problèmes du travail dans mes rêves, que j’avais pourtant déjà résolu la veille.",
+    text: "Il m’arrive aussi parfois de résoudre des problèmes du travail dans mes rêves, que j’avais pourtant déjà résolus la veille.",
   },
   {
     type: "SB",
@@ -42,22 +42,22 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_pied",
-    label: "T’es-tu levé du bon pied ce matin ?",
-    qcmOptions: ["Oui", "Non", "Je ne me suis pas levé.e"],
+    label: "T’es-tu levé·e du bon pied ce matin ?",
+    qcmOptions: ["Oui", "Non", "Je ne me suis pas levé·e"],
   },
   {
     type: "---BB---",
     name: "qcm.berceuse_autrepied",
-    label: "Que ce serait-il passé si tu t’étais levé de l’autre pied ?",
+    label: "Que ce serait-il passé si tu t’étais levé·e de l’autre pied ?",
     qcmOptions: [
       "La vie aurait été différente",
-      "Je serais tombé.e",
-      "Je ne me suis pas levé.e",
+      "Je serais tombé·e",
+      "Je ne me suis pas levé·e",
     ],
   },
   {
     type: "SB",
-    text: "Je te propose que nous prenions justement nos pieds et que nous partions faire une petite promenade tous.tes les deux.",
+    text: "Je te propose que nous prenions justement nos pieds et que nous partions faire une petite promenade tous·tes les deux.",
   },
   {
     type: "SB",
@@ -75,7 +75,7 @@ export const berceuse_tu = [
     qcmOptions: [
       "Des grands chênes majestueux",
       "De champignons un peu dégueu qui sentent bon la vieille moisissure",
-      "D’ouvrier-ère-s du bâtiment qui se reposent à l’orée des bois.",
+      "D’ouvrier·ère·s du bâtiment qui se reposent à l’orée des bois.",
       "De philosophes qui se reposent à l’orée des bois",
       "De tas de trottinettes électriques usagées empilées le long des sentiers boisés.",
     ],
@@ -103,10 +103,11 @@ export const berceuse_tu = [
     label: "Aussi, nous portons :",
     qcmOptions: [
       "Des combinaisons de travail ultra-moulantes matière orange cheddar recyclé",
-      "Des shorts de basketeurices extra-larges ",
-      "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier-ère-s du bâtiment de notre présence.",
+      "Des shorts de basket extra-larges ",
+      "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier·ère·s du bâtiment de notre présence.",
       "Des draps blancs qui nous font avancer tels des fantômes",
       "Rien",
+      "Mes vêtements normaux",
     ],
   },
   {
@@ -114,7 +115,13 @@ export const berceuse_tu = [
     name: "qcm.berceuse_odeur",
     save: true,
     label: "On peut dire qu’autour de nous ça sent bon :",
-    qcmOptions: ["Le sapin", "Le travail", "L’amour", "Le cheddar"],
+    qcmOptions: [
+      "Le sapin",
+      "Le travail",
+      "L’amour",
+      "Le cheddar",
+      "Le sapin, le travail, l'amour et le cheddar",
+    ],
   },
   {
     type: "SB",
@@ -143,12 +150,13 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "qcm.berceuse_matos",
-    label: "Nous sortons de nos sacs à dos:",
+    label: "Nous sortons de nos sacs à dos :",
     qcmOptions: [
-      "des crayons de toutes les couleurs",
-      "des haches, des marteaux, des clous et du fromage",
-      "un micro et des enceintes",
-      "un tas de cailloux de différentes tailles",
+      "Des crayons de toutes les couleurs",
+      "Des haches, des marteaux, des clous et du fromage",
+      "Un micro et des enceintes",
+      "Un tas de cailloux de différentes tailles",
+      "Des figurines de politicien·ne·s",
     ],
   },
   {
@@ -157,14 +165,14 @@ export const berceuse_tu = [
   },
   {
     type: "SB",
-    text: "Puis, je t’explique qu’il est temps pour moi de te laisser travailler et je te laisse seul.e dans l’abri.",
+    text: "Puis, je t’explique qu’il est temps pour moi de te laisser travailler et je te laisse seul·e dans l’abri.",
   },
   {
     type: "---BB---",
     name: "card.berceuse_decris",
     size: "l",
     label:
-      "Prends ton temps pour décrire ta journée, à quoi ressemble ton travail dans cet abri, avec les objets qui t'entourent, que se passe t-il, que fais-tu… Tu peux commencer ton récit en décrivant les bruits autour de toi et la sensation qui t’envahit, la position dans laquelle tu te trouves… ",
+      "Prends ton temps pour décrire ta journée, à quoi ressemble ton travail dans cet abri, avec les objets qui t'entourent, que se passe t-il, que fais-tu… Tu peux commencer ton récit en décrivant les bruits autour de toi et les sensations qui t’envahissent, la position dans laquelle tu te trouves… ",
   },
   {
     type: "---BB---",
@@ -187,7 +195,11 @@ export const berceuse_tu = [
     name: "card.berceuse_sac",
     size: "s",
     label:
-      "C’est quelque chose que tu trimbales depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ? puis, ajouter: 'nous enterrons ensemble le petit sac dans le sol, avec nos mains et nos ongles'",
+      "C’est quelque chose que tu trimbales depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ?",
+  },
+  {
+    type: "SB",
+    text: "Nous enterrons ensemble le petit sac dans le sol, avec nos mains et nos ongles",
   },
   {
     type: "SB",

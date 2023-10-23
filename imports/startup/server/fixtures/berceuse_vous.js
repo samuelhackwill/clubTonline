@@ -1,7 +1,7 @@
 export const berceuse_vous = [
   {
     type: "SB",
-    text: "Hello, je suis Mathilde, votre conseillère du club travail pour aujourd’hui.",
+    text: "Hello, je suis Mathilde, votre conseillère du Club Travail pour aujourd’hui.",
   },
   {
     type: "SB",
@@ -42,22 +42,22 @@ export const berceuse_vous = [
   {
     type: "---BB---",
     name: "qcm.berceuse_pied",
-    label: "Vous êtes-vous levé du bon pied ce matin ?",
-    qcmOptions: ["Oui", "Non", "Je ne me suis pas levé(e)"],
+    label: "Vous êtes-vous levé·e du bon pied ce matin ?",
+    qcmOptions: ["Oui", "Non", "Je ne me suis pas levé·e"],
   },
   {
     type: "---BB---",
     name: "qcm.berceuse_autrepied",
-    label: "Que se serait-il passé si vous vous étiez levé de l'autre pied ?",
+    label: "Que se serait-il passé si vous vous étiez levé·e de l'autre pied ?",
     qcmOptions: [
       "La vie aurait été différente",
-      "Je serais tombé(e)",
-      "Je ne me suis pas levé(e)",
+      "Je serais tombé·e",
+      "Je ne me suis pas levé·e",
     ],
   },
   {
     type: "SB",
-    text: "Je vous propose que nous prenions justement nos pieds et que nous partions faire une petite promenade tous les deux.",
+    text: "Je vous propose que nous prenions justement nos pieds et que nous partions faire une petite promenade tous·tes les deux.",
   },
   {
     type: "SB",
@@ -75,7 +75,7 @@ export const berceuse_vous = [
     qcmOptions: [
       "Des grands chênes majestueux",
       "De champignons un peu dégueux qui sentent bon la vieille moisissure",
-      "D'ouvrier(e)s du bâtiment qui se reposent à l'orée des bois.",
+      "D'ouvrier·ère·s du bâtiment qui se reposent à l'orée des bois.",
       "De philosophes qui se reposent à l'orée des bois",
       "De tas de trottinettes électriques usagées empilées le long des sentiers boisés.",
     ],
@@ -103,10 +103,11 @@ export const berceuse_vous = [
     label: "Aussi, nous portons :",
     qcmOptions: [
       "Des combinaisons de travail ultra-moulantes matière orange cheddar recyclé",
-      "Des shorts de basketteur(ices) extra-larges",
-      "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier(e)s du bâtiment de notre présence.",
+      "Des shorts de basket extra-larges",
+      "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier·e·s du bâtiment de notre présence.",
       "Des draps blancs qui nous font avancer tels des fantômes",
       "Rien",
+      "Mes vêtements normaux",
     ],
   },
   {
@@ -114,7 +115,13 @@ export const berceuse_vous = [
     name: "qcm.berceuse_odeur",
     save: true,
     label: "On peut dire qu'autour de nous ça sent bon :",
-    qcmOptions: ["Le sapin", "Le travail", "L'amour", "Le cheddar"],
+    qcmOptions: [
+      "Le sapin",
+      "Le travail",
+      "L'amour",
+      "Le cheddar",
+      "Le sapin, le travail, l'amour et le cheddar",
+    ],
   },
   {
     type: "SB",
@@ -149,6 +156,7 @@ export const berceuse_vous = [
       "Des haches, des marteaux, des clous et du fromage",
       "Un micro et des enceintes",
       "Un tas de cailloux de différentes tailles",
+      "Des figurines de politicien·ne·s",
     ],
   },
   {
@@ -157,14 +165,14 @@ export const berceuse_vous = [
   },
   {
     type: "SB",
-    text: "Puis, je vous explique qu'il est temps pour moi de vous laisser travailler et je vous laisse seul(e) dans l'abri.",
+    text: "Puis, je vous explique qu'il est temps pour moi de vous laisser travailler et je vous laisse seul·e dans l'abri.",
   },
   {
     type: "---BB---",
     name: "card.berceuse_decris",
     size: "l",
     label:
-      "Prenez votre temps pour décrire votre journée, ce qui s'y passe, ce que vous y faites… Vous pouvez commencer votre récit en décrivant les bruits autour de vous et la sensation qui vous envahit, la position dans laquelle vous vous trouvez :",
+      "Prenez votre temps pour décrire votre journée, ce qui s'y passe, ce que vous y faites… Vous pouvez commencer votre récit en décrivant les bruits autour de vous et les sensations qui vous envhaissent, la position dans laquelle vous vous trouvez :",
   },
   {
     type: "---BB---",
@@ -188,6 +196,10 @@ export const berceuse_vous = [
     size: "s",
     label:
       "C'est quelque chose que vous trimbalez depuis longtemps. On va la laisser là, dans le petit sac. Pouvez-vous nous dire ce que vous avez déposé ?",
+  },
+  {
+    type: "SB",
+    text: "Nous enterrons ensemble le petit sac dans le sol, avec nos mains et nos ongles",
   },
   {
     type: "SB",
