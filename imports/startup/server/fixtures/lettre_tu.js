@@ -92,7 +92,8 @@ export const lettre_tu = [
     save: true,
     name: "card.lettre_tarotsmall",
     size: "s",
-    label: "Comment résumerais-tu alors ce que tu souhaites en terme de trop ou de rien ?",
+    label:
+      "Comment résumerais-tu alors ce que tu souhaites en terme de trop ou de rien ?",
   },
   {
     type: "---BB---",
@@ -112,7 +113,7 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: "N'hésite pas à t'inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur ton chemin aujourd'hui",
+    text: "N'hésite pas à t'inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur ton chemin aujourd'hui",
   },
   {
     type: "---BB---",
@@ -124,7 +125,7 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: "En Allemagne, le code du travail stipule que les travailleur.se.s doivent pouvoir voir le ciel depuis leur espace de travail.",
+    text: "En Allemagne, le code du travail stipule que les travailleur·se·s doivent pouvoir voir le ciel depuis leur espace de travail.",
   },
   {
     type: "---BB---",
@@ -155,7 +156,7 @@ export const lettre_tu = [
     save: true,
     name: "card.lettre_tarot3",
     size: "s",
-    label: "résume en une phrase ce que tu te souhaites pour un espace futur",
+    label: "Résume en une phrase ce que tu te souhaites pour un espace futur",
   },
   {
     type: "SB",
@@ -170,7 +171,7 @@ export const lettre_tu = [
     name: "card.lettre_ennemi",
     save: true,
     size: "s",
-    label: "Donne un nom ou un surnom à cette chose/personne .",
+    label: "Donne un nom ou un surnom à cette chose/personne.",
   },
   {
     type: "SB",
@@ -190,12 +191,12 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: " Allez, C’est parti, quand tu veux, on y va et quand tu le sens, tu pourras revenir par ici, en te retournant le plus lentement possible jusqu’à me faire face à nouveau. Je suis prêt.",
+    text: " Allez, C’est parti, quand tu veux, on y va et quand tu le sens, tu pourras revenir par ici, en te retournant le plus lentement possible jusqu’à me faire face à nouveau. Je suis prêt·e.",
   },
   {
     type: "---BB---",
     name: "play",
-    label: "je suis de retour!",
+    label: "Je suis de retour!",
   },
   {
     type: "---BB---",
@@ -207,7 +208,7 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: "J'ai trois dernières petites questions de rien du tout!",
+    text: "J'ai trois dernières petites questions",
   },
   {
     type: "---BB---",
@@ -221,7 +222,7 @@ export const lettre_tu = [
     save: true,
     name: "card.lettre_blase",
     size: "s",
-    label: "Et qui es-tu, pour ton boss ?",
+    label: "Et qui es-tu, pour ton/ta boss ?",
   },
   {
     type: "---BB---",
@@ -229,7 +230,7 @@ export const lettre_tu = [
     name: "card.lettre_adresse",
     size: "s",
     label:
-      "Où se situe ton boss (tu peux donner sa véritable adresse si tu veux) :",
+      "Où se situe ton/ta boss (tu peux donner sa véritable adresse si tu veux) :",
   },
   {
     type: "---BB---",

@@ -91,7 +91,8 @@ export const lettre_vous = [
     save: true,
     name: "card.lettre_tarotsmall",
     size: "s",
-    label: "Comment résumeriez-vous alors ce que vous souhaitez en terme de trop ou de rien ?",
+    label:
+      "Comment résumeriez-vous alors ce que vous souhaitez en terme de trop ou de rien ?",
   },
   {
     type: "---BB---",
@@ -111,7 +112,7 @@ export const lettre_vous = [
   },
   {
     type: "SB",
-    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien.ne sur votre chemin aujourd'hui",
+    text: "N'hésitez pas à vous inspirer de ses réponses à tout moment. C'est une espèce d'ange-gardien·ne sur votre chemin aujourd'hui",
   },
   {
     type: "---BB---",
@@ -123,7 +124,7 @@ export const lettre_vous = [
   },
   {
     type: "SB",
-    text: "En Allemagne, le code du travail stipule que les travailleur.se.s doivent pouvoir voir le ciel depuis leur espace de travail.",
+    text: "En Allemagne, le code du travail stipule que les travailleur·se·s doivent pouvoir voir le ciel depuis leur espace de travail.",
   },
 
   {
@@ -155,7 +156,7 @@ export const lettre_vous = [
     save: true,
     name: "card.lettre_tarot3",
     size: "s",
-    label: "Qu’est-ce qui vous donne envie dans cette vision ?",
+    label: "Résumez en une phrase ce que tu te souhaites pour un espace futur",
   },
   {
     type: "SB",
@@ -170,7 +171,7 @@ export const lettre_vous = [
     name: "card.lettre_ennemi",
     size: "s",
     save: true,
-    label: "Donnez un nom ou un surnom à cette chose/personne .",
+    label: "Donnez un nom ou un surnom à cette chose/personne.",
   },
   {
     type: "SB",
@@ -186,16 +187,16 @@ export const lettre_vous = [
   },
   {
     type: "SB",
-    text: "Ça s’appelle « tourner le dos à ce qui fait écran ». Je vais m’occuper de tout balancer dans un vortex numérique. Si ça vous aide, vous pouvez imaginer que des milliers de serveurs informatiques dispersés dans le monde entier vont découper votre chose en des milliers de petits morceaux.",
+    text: "Ça s’appelle « tourner le dos à ce qui fait écran ». Je vais m’occuper de tout jeter dans un vortex numérique. Si ça vous aide, vous pouvez imaginer que des milliers de serveurs informatiques dispersés dans le monde entier vont découper votre chose en des milliers de petits morceaux.",
   },
   {
     type: "SB",
-    text: "Allez, c’est parti, quand vous voulez, on y va et quand vous le sentez, vous pourrez revenir par ici, en vous retournant le plus lentement possible jusqu’à me faire face à nouveau. Je suis prêt.",
+    text: "Allez, c’est parti, quand vous voulez, on y va et quand vous le sentez, vous pourrez revenir par ici, en vous retournant le plus lentement possible jusqu’à me faire face à nouveau. Je suis prêt·e.",
   },
   {
     type: "---BB---",
     name: "play",
-    label: "Je suis de retour !",
+    label: "Je suis de retour!",
   },
   {
     type: "---BB---",
@@ -207,7 +208,7 @@ export const lettre_vous = [
   },
   {
     type: "SB",
-    text: "J'ai trois dernières petites questions de rien du tout!",
+    text: "J'ai trois dernières petites questions",
   },
   {
     type: "---BB---",
