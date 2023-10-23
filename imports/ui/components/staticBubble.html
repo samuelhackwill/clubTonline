@@ -36,29 +36,24 @@
       </div>
     </form>
   </div>
-  {{/if}} 
-  {{#if isLink}}
+  {{/if}} {{#if isLink}}
   <div
-    class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] text-center opacity-0 transition-all duration-500"
+    class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-center text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
-    <span>
-      {{text}}
-    </span>
+    <span> {{text}} </span>
     <a
       href="{{link}}"
       class="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
       >{{linkPrev}}</a
     >
   </div>
-  {{/if}} 
-  {{#if isTextOnly}}
+  {{/if}} {{#if isTextOnly}}
   <div
     class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
     <p>{{text}}</p>
   </div>
-  {{/if}}
-  {{#if isSticker}}
+  {{/if}} {{#if isSticker}}
   <div
     class="relative col-span-3 col-end-[-1] mb-5 flex w-1/6 basis-[content] flex-col rounded-lg bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >

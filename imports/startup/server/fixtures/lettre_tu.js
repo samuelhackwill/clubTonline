@@ -68,11 +68,12 @@ export const lettre_tu = [
   },
   {
     type: "SB",
-    text: "Tu vas pouvoir tirer une carte du tarot du travail. Cette carte évoque quelque chose que tu ne souhaites plus voir dans ton monde du travail à toi, en rapport avec ce « trop » que tu viens d’évoquer.",
+    text: "Tu vas pouvoir tirer une carte du tarot du travail. Cette carte évoque quelque chose que tu ne souhaites plus voir dans ton monde du travail à toi, en rapport avec ce « trop » ou ce « rien » que tu viens d’évoquer.",
   },
   {
     type: "---BB---",
     name: "getTarot",
+    tirage: "present",
     label: "chargement...",
   },
   {
@@ -80,7 +81,7 @@ export const lettre_tu = [
     name: "card.lettre_tarot",
     size: "l",
     label:
-      "Prends un temps pour « lire » la carte et décris-nous ce que tu y vois, ce qui t’apparait. Il n’y a pas de bonnes réponses, tu peux dire tout ce qui te passe par la tête.",
+      "Prends un temps pour « décrire » la carte, ce que tu y vois, ce qui t’apparait. Il n’y a pas de bonnes réponses, tu peux dire tout ce qui te passe par la tête.",
   },
   {
     type: "---BB---",
@@ -135,6 +136,7 @@ export const lettre_tu = [
   {
     type: "---BB---",
     name: "getTarot",
+    tirage: "futur",
     label: "chargement...",
   },
   {

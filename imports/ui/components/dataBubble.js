@@ -51,7 +51,7 @@ Template.dataBubble.onCreated(function () {
   if (this.data.name == "getTarot") {
     this.src = new ReactiveVar(null);
 
-    Meteor.call("getTarot", (error, result) => {
+    Meteor.call("getTarot", this.data.tirage, (error, result) => {
       console.log("THIS", this);
       if (!error) {
         console.log(result);
@@ -147,7 +147,7 @@ Template.dataBubble.helpers({
     };
   },
   getTarotSRC() {
-    console.log("get tarot src ", Template.instance().src.get());
+    // console.log("get tarot src ", Template.instance().src.get());
     return Template.instance().src.get();
   },
 });

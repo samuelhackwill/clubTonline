@@ -28,18 +28,22 @@ Meteor.methods({
     return scenario;
   },
 
-  async getTarot() {
+  async getTarot(tirage) {
+    console.log(tirage);
+
     // LOCAL
-    // const files = fs.readdirSync("/Users/samuel/htdocs/clubTonline/public/img/tarot/futur_verticales/");
+    const files = fs.readdirSync(
+      "/Users/samuel/htdocs/clubTonline/public/img/tarot/" + tirage
+    );
 
     // HOSTED (via mup & docker)
-    const files = fs.readdirSync(
-      "/built_app/programs/web.browser/app/img/tarot/futur_verticales/"
-    );
+    // const files = fs.readdirSync(
+    //   "/built_app/programs/web.browser/app/img/tarot/"+ tirage
+    // );
 
     const file = files[Math.floor(Math.random() * files.length)];
     console.log(files, file);
 
-    return "/img/tarot/futur_verticales/" + file;
+    return "/img/tarot/" + tirage + "/" + file;
   },
 });
