@@ -16,12 +16,12 @@ const intro = [
   {
     type: "SB",
     text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes, à nous écrire.",
-  },  
+  },
   {
     type: "SB",
     text: "Mettez vous à l'aise, et si possible ouvrez cette page sur un ordinateur.",
-  },  
-  
+  },
+
   // ᕕ( ᐛ )ᕗ
   // CAUTION : DO NOT change this bubble without also changing the dataBubble
   // onCreated function. (the data bubble needs to check what was answered to this
@@ -35,7 +35,7 @@ const intro = [
       "plutôt d’humeur à faire une sieste en forêt",
       "d’humeur à écrire une lettre au ministre de l’emploi",
     ],
-    save: true
+    save: true,
   },
 
   // ᕕ( ᐛ )ᕗ
@@ -43,21 +43,18 @@ const intro = [
   // onCreated function. (the data bubble needs to check what was answered to this
   // qcm to decide which collection to subscribe to).
 
-  { 
+  {
     type: "---BB---",
-    name: "qcm.tutoie", 
+    name: "qcm.tutoie",
     label:
       "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
-    qcmOptions: [
-      "le vouvoiement c'est bien",
-      "je préfère tu"
-    ],
-    save: true
+    qcmOptions: ["le vouvoiement c'est bien", "je préfère tu"],
+    save: true,
   },
   {
     type: "---BB---",
     name: "getScenario",
-    label: "chargement..."
+    label: "chargement...",
   },
 ];
 
@@ -67,20 +64,19 @@ Template.show.helpers({
   },
 });
 
-Template.show.onRendered(function(){
+Template.show.onRendered(function () {
   // Call the function to replace Y scrolling with X scrolling
   replaceYScrollWithXScroll();
-  document.body.classList.add("bg-yellow-clubT")
-  document.body.classList.remove("bg-indigo-200")
-
-})
+  document.body.classList.add("bg-yellow-clubT");
+  document.body.classList.remove("bg-indigo-200");
+});
 
 // scroll events :
 // some peeps will be on their laptop, with a trackpad
 // some peeps will be on their computer, with a keyboard and mouse
 // some peeps will be on their phone / tablet, with touch events
 // some peeps will be disabled and won't be able to use this website.
-replaceYScrollWithXScroll = function() {
+replaceYScrollWithXScroll = function () {
   let accumulatedDeltaY = 0;
   let lastTimestamp = 0;
 
@@ -140,8 +136,16 @@ replaceYScrollWithXScroll = function() {
   }
 
   document.addEventListener("wheel", wheel, { passive: false });
-}
+};
 
-goToSongs = function(){
-  FlowRouter.go("/bibliotheque")
-}
+goToSongs = function () {
+  FlowRouter.go("/bibliotheque");
+};
+
+goToShow = function () {
+  FlowRouter.go("/");
+};
+
+reload = function () {
+  FlowRouter.reload();
+};

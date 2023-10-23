@@ -1,51 +1,45 @@
 <template name="dataBubble">
-
   {{#if isSpy}}
   <!-- i'm kind of sad that blaze doesn't play well with tailwind here, generating class names on the fly 
   for the h-min- and arbitrary value didn't work. -->
   <div
-  class="relative flex cursor-pointer items-center px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms] rotate-x-180"
-  style="min-height:{{minHeight}}px" data-name="{{name}}"
-  > 
-  {{#if getRandomAnswer.status}}
-  « {{getRandomAnswer.content}} »
-  {{else}}
-   personne d'autre n'a encore répondu à cette question! (ou alors il y a un bug)
-  {{/if}}
+    class="relative flex cursor-pointer items-center px-4 py-2 text-center opacity-0 transition-opacity delay-[150ms] rotate-x-180"
+    style="min-height:{{minHeight}}px"
+    data-name="{{name}}"
+  >
+    {{#if getRandomAnswer.status}} « {{getRandomAnswer.content}} » {{else}}
+    personne d'autre n'a encore répondu à cette question! (ou alors il y a un
+    bug) {{/if}}
   </div>
 
-  {{/if}}
-  {{#if isGetScenario}}
-  
+  {{/if}} {{#if isGetScenario}}
+
   <div
-  class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
->
-  <p>{{isLoading success="Ok, c'est noté."}}</p>
-</div>
-
-  {{/if}}
-
-  {{#if isGetAllSongs}}
-  
-  <div
-  class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
->
-  <p>{{isLoading success="chargement terminé!"}}</p>
-</div>
-
-  {{/if}}
-
-  {{#if isGetTarot}}
-  
-  <div
-    class="card relative col-span-3 col-end-[-1] aspect-[0.66] flex w-[29%] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-1000"
+    class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
   >
-    <img class="relative flex-1 px-4 py-2 rotate-y-180" src={{getTarotSRC}}>
+    <p>{{isLoading success="Ok, c'est noté."}}</p>
+  </div>
+
+  {{/if}} {{#if isGetAllSongs}}
+
+  <div
+    class="col-span-3 col-end-[-1] mb-5 w-[29%] basis-[content] rounded-3xl bg-white p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-500"
+  >
+    <p>
+      {{isLoading success="voici la compilothèque de nos membres adhérents : "}}
+    </p>
+  </div>
+
+  {{/if}} {{#if isGetTarot}}
+
+  <div
+    class="card relative col-span-3 col-end-[-1] flex aspect-[0.66] w-[29%] flex-col items-center justify-center rounded-lg bg-purple-200 p-5 text-[1.3rem] leading-[1.5rem] opacity-0 transition-all duration-1000"
+  >
+    <img class="relative flex-1 px-4 py-2 rotate-y-180" src="{{getTarotSRC}}" />
     <button
       class="tarotButton focus:shadow-outline absolute h-full w-full rounded-lg bg-purple-100 bg-logo-clubT bg-[length:70px_40px] bg-center bg-no-repeat px-4 py-2 text-black bg-blend-multiply shadow transition-opacity delay-[300ms] hover:bg-purple-400 focus:outline-none"
     ></button>
   </div>
 
   {{/if}}
-
 </template>
