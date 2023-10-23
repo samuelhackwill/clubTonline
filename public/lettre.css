@@ -183,7 +183,7 @@ body {
 
 #page #signature {
   font-family: "Signature";
-  font-size: 1.2em;
+  font-size: 2em;
 
   transition: opacity 1s;
   opacity: 0;
