@@ -73,7 +73,7 @@ export const berceuse_tu = [
     save: true,
     label: "De quoi est remplie cette forêt ?",
     qcmOptions: [
-      "Des grands chênes majestueux",
+      "De grands chênes majestueux",
       "De champignons un peu dégueu qui sentent bon la vieille moisissure",
       "D’ouvrier·ère·s du bâtiment qui se reposent à l’orée des bois.",
       "De philosophes qui se reposent à l’orée des bois",
