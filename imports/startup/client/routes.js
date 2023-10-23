@@ -9,6 +9,8 @@ import "../../ui/pages/songs/lettre.js";
 
 import { Songs } from "../../API/songs/songs.js";
 
+let fireReload = false;
+
 FlowRouter.route("/waiting", {
   name: "waiting",
   action() {
@@ -18,9 +20,11 @@ FlowRouter.route("/waiting", {
 
 FlowRouter.route("/", {
   name: "show",
+  triggersEnter: [reloadCheck],
   action() {
     this.render("show");
   },
+  triggersExit: [routeCleanup],
 });
 
 FlowRouter.route("/bibliotheque", {
@@ -50,3 +54,15 @@ FlowRouter.route("/song/:_uuid/", {
     }),
   ],
 });
+
+function reloadCheck(context, redirect, stop) {
+  if (fireReload) {
+    console.log("Reloading ...");
+    FlowRouter.reload();
+    stop();
+  }
+}
+
+function routeCleanup() {
+  fireReload = !fireReload;
+}
