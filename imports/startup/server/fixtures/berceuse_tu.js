@@ -104,7 +104,7 @@ export const berceuse_tu = [
       "Des combinaisons de travail ultra-moulantes matière orange cheddar recyclé",
       "Des shorts de basketeurices extra-larges ",
       "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier-ère-s du bâtiment de notre présence.",
-      "Des dberceuses blancs qui nous font avancer tels des fantômes",
+      "Des draps blancs qui nous font avancer tels des fantômes",
       "Rien",
     ],
   },
@@ -164,22 +164,18 @@ export const berceuse_tu = [
     name: "card.berceuse_decris",
     size: "l",
     label:
-      "Prends ton temps pour décrire ta journée, ce qui s’y passe, ce que tu y fais… Tu peux commencer ton récit en décrivant les bruits autour de toi et la sensation qui t’envahit, la position dans laquelle tu te trouves :",
+      "Prends ton temps pour décrire ta journée, à quoi ressemble ton travail dans cet abri, avec les objets qui t'entourent, que se passe t-il, que fais-tu… Tu peux commencer ton récit en décrivant les bruits autour de toi et la sensation qui t’envahit, la position dans laquelle tu te trouves… ",
   },
   {
     type: "---BB---",
     save: true,
     name: "card.berceuse_nom",
     size: "s",
-    label: "Comment t’appelais-tu, pendant cette journée dans la forêt ?",
+    label: "Comment t’appelles-tu, pendant cette journée dans la forêt ?",
   },
   {
     type: "SB",
     text: "Bien. Maintenant, la nuit est en train de tomber et je reviens te chercher dans l’abri.",
-  },
-  {
-    type: "SB",
-    text: "Avant de partir, je te propose de déposer dans un petit sac, une chose qui te pèse.",
   },
   {
     type: "SB",
@@ -191,7 +187,7 @@ export const berceuse_tu = [
     name: "card.berceuse_sac",
     size: "s",
     label:
-      "C’est quelque chose que tu trimbales depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ?",
+      "C’est quelque chose que tu trimbales depuis longtemps. On va la laisser là, dans le petit sac. Peux-tu nous dire ce que tu as déposé ? puis, ajouter: 'nous enterrons ensemble le petit sac dans le sol, avec nos mains et nos ongles'",
   },
   {
     type: "SB",
@@ -200,6 +196,6 @@ export const berceuse_tu = [
   {
     type: "---BB---",
     name: "end",
-    label: "conclure",
+    label: "bonne nuit!",
   },
 ];

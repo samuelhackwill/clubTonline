@@ -104,7 +104,7 @@ export const berceuse_vous = [
       "Des combinaisons de travail ultra-moulantes matière orange cheddar recyclé",
       "Des shorts de basketteur(ices) extra-larges",
       "Des chaussettes hautes avec des petites clochettes pour prévenir les ouvrier(e)s du bâtiment de notre présence.",
-      "Des dberceuses blancs qui nous font avancer tels des fantômes",
+      "Des draps blancs qui nous font avancer tels des fantômes",
       "Rien",
     ],
   },
@@ -171,15 +171,11 @@ export const berceuse_vous = [
     save: true,
     name: "card.berceuse_nom",
     size: "s",
-    label: "Comment vous appeliez-vous pendant cette journée dans la forêt ?",
+    label: "Comment vous appellez-vous pendant cette journée dans la forêt ?",
   },
   {
     type: "SB",
     text: "Bien. Maintenant, la nuit est en train de tomber et je reviens vous chercher dans l'abri.",
-  },
-  {
-    type: "SB",
-    text: "Avant de partir, je vous propose de déposer dans un petit sac, une chose qui vous pèse.",
   },
   {
     type: "SB",
@@ -200,6 +196,6 @@ export const berceuse_vous = [
   {
     type: "---BB---",
     name: "end",
-    label: "Conclure",
+    label: "bonne nuit!",
   },
 ];
