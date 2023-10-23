@@ -1,7 +1,12 @@
 import "./blockingBubble.html";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-import { allAnswers, savedAnswers, state } from "../layouts/feed.js";
+import {
+  otherAnswers,
+  allAnswers,
+  savedAnswers,
+  state,
+} from "../layouts/feed.js";
 
 Template.blockingBubble.helpers({
   // isGold(){
@@ -241,6 +246,15 @@ Template.blockingBubble.events({
     addNextItem();
     fadeQuestion(event);
     getRandomQuestion(event.target.id);
+
+    Meteor.call("getAnswers", this, (error, result) => {
+      if (!error) {
+        otherAnswers.set(this.name, result.answer);
+        console.log(this.name, "getting random answer from db", result.answer);
+      } else {
+        console.log(error);
+      }
+    });
   },
 
   "click .formCard"(event) {

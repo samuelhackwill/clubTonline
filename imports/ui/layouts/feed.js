@@ -4,13 +4,13 @@ import "../components/staticBubble.js";
 import "../components/blockingBubble.js";
 import "../components/dataBubble.js";
 
-import { ReactiveDict } from 'meteor/reactive-dict'
+import { ReactiveDict } from "meteor/reactive-dict";
 
 export const savedAnswers = new ReactiveDict();
 export const allAnswers = new ReactiveVar([]);
+export const otherAnswers = new ReactiveDict();
 export const state = new ReactiveVar("gettingMoreElements");
-_targetScenario = ""
-
+_targetScenario = "";
 
 // data : the feed doesn't need to subscribe to answers, but the blocking bubbles do.
 // the feed needs to subscribe to scenarios.
@@ -33,11 +33,11 @@ Template.feed.helpers({
 Template.feed.events({
   "click #footer"() {
     footer = document.getElementById("footer");
-    offset = footer.offsetHeight + "px"
+    offset = footer.offsetHeight + "px";
     if (footer.classList.contains("translate-y-[-25vh]")) {
       footer.classList.remove("translate-y-[-25vh]");
       footer.dataset.clicked = true;
-      document.getElementById("footer").scrollTop=0
+      document.getElementById("footer").scrollTop = 0;
     } else {
       footer.classList.add("translate-y-[-25vh]");
       footer.dataset.clicked = false;
@@ -45,15 +45,14 @@ Template.feed.events({
   },
 });
 
-Template.feed.onCreated(function(){
+Template.feed.onCreated(function () {
   feedIndex = new ReactiveVar(0);
   dataFeed = new ReactiveVar();
-})
+});
 
-Template.feed.onRendered(function () {    
-    // the data fridge contains all the data necessary for the game (cards, text, etc).
+Template.feed.onRendered(function () {
+  // the data fridge contains all the data necessary for the game (cards, text, etc).
   dataFridge = this.data;
-
   // initiate the first bubbles here!
   setTimeout(() => {
     addNextItem();
@@ -114,19 +113,27 @@ addForm = function (data, _save) {
 
   _name = data.name.replace(/.+\./i, "");
 
-  nextItem = { type: "---BB---", name: "form." + _name, size: _formSize, save:_save};
+  nextItem = {
+    type: "---BB---",
+    name: "form." + _name,
+    size: _formSize,
+    save: _save,
+  };
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
 
 addQcm = function (data, _save) {
-  _name = data.name
-  
+  _name = data.name;
+
   tempQcmOpts = [];
 
   for (var prop in data) {
-    if (Object.prototype.hasOwnProperty.call(data, prop) && prop.startsWith("qcm")) {
+    if (
+      Object.prototype.hasOwnProperty.call(data, prop) &&
+      prop.startsWith("qcm")
+    ) {
       tempQcmOpts.push(data[prop]);
     }
   }
@@ -134,36 +141,39 @@ addQcm = function (data, _save) {
   tempFeed = dataFeed.get() || [];
   tempFeedIndex = feedIndex.get();
 
-   __name = _name.replace(/.+\./i, "");
+  __name = _name.replace(/.+\./i, "");
 
   nextItem = {
     type: "---BB---",
     name: "qcmForm." + __name,
     qcmOptions: tempQcmOpts,
-    save: _save
+    save: _save,
   };
 
   tempFeed.push(nextItem);
   dataFeed.set(tempFeed);
 };
 
-getRandomQuestion = function(_name){
+getRandomQuestion = function (_name) {
   tempFeed = dataFeed.get() || [];
-  var result = tempFeed.filter(obj => {
-  return obj.name === _name
-  })
+  var result = tempFeed.filter((obj) => {
+    return obj.name === _name;
+  });
 
-  if (result.length >1) {
-    console.log("getRandomQuestion error, maybe form name duplicates in dataset?", result);
+  if (result.length > 1) {
+    console.log(
+      "getRandomQuestion error, maybe form name duplicates in dataset?",
+      result
+    );
   }
 
-  obj = result[0]
+  obj = result[0];
 
-  stabilizeHeight(obj)
-  obj.answered = true
-}
+  stabilizeHeight(obj);
+  obj.answered = true;
+};
 
-stabilizeHeight = function(obj){
-  domObj = document.getElementById(obj.name)
-  obj.minHeight = domObj.offsetHeight
-}
+stabilizeHeight = function (obj) {
+  domObj = document.getElementById(obj.name);
+  obj.minHeight = domObj.offsetHeight;
+};

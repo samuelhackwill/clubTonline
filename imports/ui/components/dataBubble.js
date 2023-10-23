@@ -1,7 +1,8 @@
-import { savedAnswers } from "../layouts/feed";
+import { allAnswers, otherAnswers, savedAnswers } from "../layouts/feed";
 import "./dataBubble.html";
 
 Template.dataBubble.onCreated(function () {
+  _targetScenario = "";
   this.loaded = new ReactiveVar(null);
 
   if (this.data.name == "getScenario") {
@@ -19,9 +20,6 @@ Template.dataBubble.onCreated(function () {
         break;
     }
 
-    Meteor.subscribe("answers", { scenario: _targetScenario });
-    Answers = new Mongo.Collection("answers");
-
     switch (savedAnswers.get("tutoie")) {
       case "le vouvoiement c'est bien":
         _targetScenario = _targetScenario + "_vous";
@@ -37,6 +35,7 @@ Template.dataBubble.onCreated(function () {
 
     Meteor.call("getScenario", _targetScenario, (error, result) => {
       if (!error) {
+        console.log(_targetScenario);
         for (let index = 0; index < result.length; index++) {
           dataFridge.push(result[index]);
         }
@@ -135,10 +134,10 @@ Template.dataBubble.helpers({
     }
   },
   getRandomAnswer() {
-    return {
-      status: Answers.findOne({ question: this.name })?.answer != undefined,
-      content: Answers.findOne({ question: this.name })?.answer,
-    };
+    // get reactive variable associée avec le nom
+    _content = otherAnswers.get(this.name);
+    console.log(this.name, otherAnswers.get(this.name));
+    return { status: _content != undefined, content: _content };
   },
   getTarotSRC() {
     // console.log("get tarot src ", Template.instance().src.get());
