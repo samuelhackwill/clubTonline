@@ -21,7 +21,21 @@ Template.rap.onCreated(function() {
 
 Template.rap.helpers({
 	getString(option) {
-		return this.data.answers[option.hash.name]
+		let string = this.data.answers[option.hash.name];
+
+		if (option.hash.name == "rap_ou") {
+			// test to avoid double determinant before city name
+			const pat1 = /^d[eu] /i;
+			const pat2 = /^d'/i;
+			if (pat1.test(string) || pat2.test(string)) {
+				return string
+			} else {
+				return "de " + string
+			}
+
+		} else {
+			return string
+		}
 	},
 
 	getQuote(option) {
@@ -164,6 +178,7 @@ karaoke_createAnimation = function(slide) {
 
 		case "couplet1":
 			console.log("couplet1");
+
 			for (let i = 0; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
 				displayAfter(el, 1000 * 2 * i);
