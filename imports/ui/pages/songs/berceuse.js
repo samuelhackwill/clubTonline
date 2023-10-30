@@ -21,10 +21,10 @@ Template.berceuse.onCreated(function() {
 Template.berceuse.helpers({
 	getString(option){
 		const pasMajuscule = [
-			"berceuse_abri",
 			"berceuse_foret",
 			"berceuse_sac",
-			"berceuse_odeur"
+			"berceuse_odeur",
+			"berceuse_climat"
 		];
 
 		if (pasMajuscule.includes(option.hash.name)) {
