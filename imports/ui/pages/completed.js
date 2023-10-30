@@ -1,37 +1,39 @@
 import "./completed.html";
 
-const outro = [
-  {
-    type: "SB",
-    text: "Merci d'avoir pris du temps sur le guichet du Club Travail.",
-  },
-  {
-    type: "SB",
-    text: "Quelles que furent vos réponses, c'était les bonnes.",
-  },
-  {
-    type: "SB",
-    text: "Vous faites maintenant partie de la compilothèque du Club Travail.",
-  },
-  {
-    type: "SB",
-    text: "Si vous voulez profiter des textes et poésies fabriqués par d'autres internautes, cliquez sur les titres.",
-  },
-  {
-    type: "SB",
-    text: "Pour nous contacter: clubtravaille@gmail.com",
-  },
-  {
-    type: "SB",
-    name: "newGame",
-    label: "commencer une nouvelle partie",
-  },
-  {
-    type: "---BB---",
-    name: "getAllSongs",
-    label: "Chargement de toutes les chansons...",
-  },
-];
+Template.completed.onCreated(function () {
+  outro = [
+    {
+      type: "SB",
+      text: "Merci d'avoir pris du temps sur le guichet du Club Travail.",
+    },
+    {
+      type: "SB",
+      text: "Quelles que furent vos réponses, c'était les bonnes.",
+    },
+    {
+      type: "SB",
+      text: "Vous faites maintenant partie de la compilothèque du Club Travail.",
+    },
+    {
+      type: "SB",
+      text: "Si vous voulez profiter des textes et poésies fabriqués par d'autres internautes, cliquez sur les titres.",
+    },
+    {
+      type: "SB",
+      text: "Pour nous contacter: clubtravaille@gmail.com",
+    },
+    {
+      type: "SB",
+      name: "newGame",
+      label: "commencer une nouvelle partie",
+    },
+    {
+      type: "---BB---",
+      name: "getAllSongs",
+      label: "Chargement de toutes les chansons...",
+    },
+  ];
+});
 
 Template.completed.helpers({
   endData() {

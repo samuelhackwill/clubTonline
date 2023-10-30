@@ -125,7 +125,7 @@ Template.blockingBubble.events({
       data,
       _scenario,
       (error, result) => {
-        console.log(error, result);
+        // console.log(error, result);
       }
     );
     Meteor.call(
@@ -133,7 +133,7 @@ Template.blockingBubble.events({
       allAnswers.get(),
       _scenario,
       (error, result) => {
-        console.log(error, result);
+        // console.log(error, result);
       }
     );
 
@@ -250,9 +250,9 @@ Template.blockingBubble.events({
     Meteor.call("getAnswers", this, (error, result) => {
       if (!error) {
         otherAnswers.set(this.name, result.answer);
-        console.log(this.name, "getting random answer from db", result.answer);
+        // console.log(this.name, "getting random answer from db", result.answer);
       } else {
-        console.log(error);
+        // console.log(error);
       }
     });
   },

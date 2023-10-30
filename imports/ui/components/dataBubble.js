@@ -2,10 +2,12 @@ import { allAnswers, otherAnswers, savedAnswers } from "../layouts/feed";
 import "./dataBubble.html";
 
 Template.dataBubble.onCreated(function () {
-  _targetScenario = "";
   this.loaded = new ReactiveVar(null);
+  // //console.log("ONCREATED DATABUBL");
 
   if (this.data.name == "getScenario") {
+    _targetScenario = "";
+    // //console.log("kiki", savedAnswers.all());
     switch (savedAnswers.get("humeur")) {
       case "d’humeur à mordre mon ordinateur":
         _targetScenario = _targetScenario + "rap";
@@ -33,9 +35,10 @@ Template.dataBubble.onCreated(function () {
         break;
     }
 
+    //console.log("kiki", _targetScenario);
+
     Meteor.call("getScenario", _targetScenario, (error, result) => {
       if (!error) {
-        console.log(_targetScenario);
         for (let index = 0; index < result.length; index++) {
           dataFridge.push(result[index]);
         }
@@ -51,9 +54,9 @@ Template.dataBubble.onCreated(function () {
     this.src = new ReactiveVar(null);
 
     Meteor.call("getTarot", this.data.tirage, (error, result) => {
-      console.log("THIS", this);
+      //console.log("THIS", this);
       if (!error) {
-        console.log(result);
+        //console.log(result);
         this.src.set(result);
         // this.loaded.set(true)
       } else {
@@ -72,7 +75,7 @@ Template.dataBubble.onCreated(function () {
               result[index].uuid +
               "?scenario=" +
               result[index].scenario;
-            console.log("ADD link ", url);
+            //console.log("ADD link ", url);
             dataFridge.push({
               type: "SB",
               name: "link",
@@ -136,11 +139,11 @@ Template.dataBubble.helpers({
   getRandomAnswer() {
     // get reactive variable associée avec le nom
     _content = otherAnswers.get(this.name);
-    console.log(this.name, otherAnswers.get(this.name));
+    //console.log(this.name, otherAnswers.get(this.name));
     return { status: _content != undefined, content: _content };
   },
   getTarotSRC() {
-    // console.log("get tarot src ", Template.instance().src.get());
+    //console.log("get tarot src ", Template.instance().src.get());
     return Template.instance().src.get();
   },
 });

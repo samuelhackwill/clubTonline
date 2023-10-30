@@ -40,7 +40,7 @@ Meteor.methods({
     );
 
     const file = files[Math.floor(Math.random() * files.length)];
-    console.log(files, file);
+    // console.log(files, file);
 
     return "/img/tarot/" + tirage + "/" + file;
   },

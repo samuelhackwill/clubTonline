@@ -11,12 +11,12 @@ Meteor.methods({
   // },
 
   insertMail(obj) {
-    console.log(obj);
+    // console.log(obj);
     Mailing.insert({ mail: obj });
   },
 
   // 'updateStat'(obj){
-  //   console.log("update ", obj)
+  // console.log("update ", obj)
   //   Stats.update({story: obj.story, date : obj.date}, {$set : {timeToFinish : obj.timeToFinish}})
   // }
 });

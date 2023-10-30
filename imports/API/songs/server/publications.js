@@ -2,7 +2,7 @@ import { Meteor } from "meteor/meteor";
 import { Songs } from "../songs.js";
 
 Meteor.publish("songs", function (_params) {
-  console.log("publishing song ", _params.uuid);
+  // console.log("publishing song ", _params.uuid);
   return Songs.find({ uuid: _params.uuid });
 });
 
@@ -29,7 +29,7 @@ Meteor.methods({
         break;
     }
 
-    console.log(_uuid, _data);
+    // console.log(_uuid, _data);
     Songs.insert({
       uuid: _uuid,
       title: _title,
@@ -41,12 +41,12 @@ Meteor.methods({
   },
 
   getSong(_uuid) {
-    console.log("get song ", _uuid);
+    // console.log("get song ", _uuid);
     return Songs.find({ uuid: _uuid }).fetch();
   },
 
   getAllSongs() {
-    console.log("get all songs");
+    // console.log("get all songs");
     return Songs.find({}).fetch();
   },
 });

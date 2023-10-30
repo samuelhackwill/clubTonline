@@ -42,7 +42,7 @@ FlowRouter.route("/song/:_uuid/", {
     // this.render(queryParams.scenario, {uuid: params.uuid, song:_song});
   },
   waitOn(params) {
-    console.log(params._uuid);
+    // console.log(params._uuid);
     return Meteor.subscribe("songs", { uuid: params._uuid });
   },
   data(params, queryParams, qs) {
@@ -57,9 +57,12 @@ FlowRouter.route("/song/:_uuid/", {
 
 function reloadCheck(context, redirect, stop) {
   if (fireReload) {
-    console.log("Reloading ...");
-    FlowRouter.reload();
-    stop();
+    // console.log(dataFridge);
+    dataFridge = [];
+    // console.log("Reloading ...");
+    // console.log(dataFridge);
+    // FlowRouter.reload();
+    // stop();
   }
 }
 

@@ -52,6 +52,7 @@ Template.feed.onCreated(function () {
 
 Template.feed.onRendered(function () {
   // the data fridge contains all the data necessary for the game (cards, text, etc).
+  // console.log("feed onrendered ", this);
   dataFridge = this.data;
   // initiate the first bubbles here!
   setTimeout(() => {
@@ -161,10 +162,10 @@ getRandomQuestion = function (_name) {
   });
 
   if (result.length > 1) {
-    console.log(
-      "getRandomQuestion error, maybe form name duplicates in dataset?",
-      result
-    );
+    // console.log(
+    //   "getRandomQuestion error, maybe form name duplicates in dataset?",
+    //   result
+    // );
   }
 
   obj = result[0];

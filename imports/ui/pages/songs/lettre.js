@@ -11,7 +11,7 @@ Template.lettre.onCreated(function() {
     document.getElementsByTagName("head")[0].appendChild(fileref)
 
     this.autorun(() => {
-        console.log(this)
+        //console.log(this)
     });
 })
 
@@ -59,7 +59,7 @@ randomNumber = function(min, max) {
 }
 
 imprimer = function() {
-    console.log("Ça part à l'impression");
+    //console.log("Ça part à l'impression");
     document.getElementById("imprimer").style.opacity = "0";
     window.print();
 }

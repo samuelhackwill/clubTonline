@@ -4,7 +4,6 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 // METEOR ------------------------------------------------
 Template.rap.onCreated(function() {
-	dataFridge = []
 	// we need to add the css file dynamically cause we don't want to mess up
 	// our namespace ou quoi.
 	var fileref = document.createElement("link")
@@ -14,7 +13,7 @@ Template.rap.onCreated(function() {
 	document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	this.autorun(() => {
-		console.log(this)
+		// console.log(this)
 	});
 })
 
@@ -159,7 +158,7 @@ karaoke_createAnimation = function(slide) {
 
 	switch (slide.id) {
 		case "titre":
-			console.log("titre");
+			//console.log("titre");
 
 			for (let i = 1; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
@@ -169,7 +168,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "intro":
-			console.log("intro");
+			//console.log("intro");
 			displayAfter(slide.children[0], 1000 * 1);
 			displayAfter(slide.children[1], 1000 * 2);
 			emptySlide(slide, 3000);
@@ -177,7 +176,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "couplet1":
-			console.log("couplet1");
+			//console.log("couplet1");
 
 			for (let i = 0; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
@@ -187,7 +186,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "couplet2":
-			console.log("couplet2");
+			//console.log("couplet2");
 			for (let i = 0; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
 				displayAfter(el, 1000 * 2 * i);
@@ -198,7 +197,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "refrain":
-			console.log("refrain");
+			//console.log("refrain");
 			displayAfter(slide.querySelector(".enchaine"), 1300 * 1);
 			displayAfter(document.getElementById("x2"), 1000 * 2.5);
 			emptySlide(slide, 6000);
@@ -206,7 +205,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "bruitTravail":
-			console.log("bruitTravail");
+			//console.log("bruitTravail");
 			for (let i = 0; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
 				displayAfter(el, 1000 * 2 * i);
@@ -215,20 +214,20 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "refrain2":
-			console.log("refrain2");
+			//console.log("refrain2");
 			displayAfter(slide.querySelector(".enchaine"), 1000 * 1);
 
 			break;
 
 		case "conclusion":
-			console.log("conclusion");
+			//console.log("conclusion");
 			emptySlide(slide, 3000);
 			displayAfter(slide.querySelector(".enchaine"), 2000);
 
 			break;
 
 		case "outro1":
-			console.log("outro1");
+			//console.log("outro1");
 			for (let i = 0; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
 				displayAfter(el, 1000 * 1 * i);
@@ -239,7 +238,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		case "outro2":
-			console.log("outro2");
+			//console.log("outro2");
 			for (let i = 0; i <= slide.children.length - 1; i++) {
 				const el = slide.children[i];
 				displayAfter(el, 1000 * 2 * i);
@@ -250,7 +249,7 @@ karaoke_createAnimation = function(slide) {
 			break;
 
 		default:
-			console.log("default");
+			//console.log("default");
 
 			break;
 	}

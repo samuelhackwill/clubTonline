@@ -2,64 +2,67 @@ import "./show.html";
 import "../layouts/feed.js";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-const intro = [
-  { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
-  {
-    type: "SB",
-    text: "le club travail vous propose une expérience interactive où vous allez pouvoir vous exprimer sur votre rapport au travail.",
-  },
-  { type: "SB", text: "Qui que vous soyez, vous êtes la bonne personne." },
-  {
-    type: "SB",
-    text: "Et nous aussi, derrière votre écran, nous sommes la bonne personne.",
-  },
-  {
-    type: "SB",
-    text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes, à nous écrire.",
-  },
-  {
-    type: "SB",
-    text: "Mettez vous à l'aise, et si possible ouvrez cette page sur un ordinateur.",
-  },
+Template.show.onCreated(function () {
+  intro = [
+    { type: "SB", text: "Bonjour, bienvenue sur le guichet du club travail." },
+    {
+      type: "SB",
+      text: "le club travail vous propose une expérience interactive où vous allez pouvoir vous exprimer sur votre rapport au travail.",
+    },
+    { type: "SB", text: "Qui que vous soyez, vous êtes la bonne personne." },
+    {
+      type: "SB",
+      text: "Et nous aussi, derrière votre écran, nous sommes la bonne personne.",
+    },
+    {
+      type: "SB",
+      text: "Nous allons passer un petit temps ensemble, une quinzaine de minutes, à nous écrire.",
+    },
+    {
+      type: "SB",
+      text: "Mettez vous à l'aise, et si possible ouvrez cette page sur un ordinateur.",
+    },
 
-  // ᕕ( ᐛ )ᕗ
-  // CAUTION : DO NOT change this bubble without also changing the dataBubble
-  // onCreated function. (the data bubble needs to check what was answered to this
-  // qcm to decide which collection to subscribe to).
-  {
-    type: "---BB---",
-    name: "qcm.humeur",
-    label: "Alors, dites-nous, de quelle humeur êtes-vous aujourd'hui?",
-    qcmOptions: [
-      "d’humeur à mordre mon ordinateur",
-      "plutôt d’humeur à faire une sieste en forêt",
-      "d’humeur à écrire une lettre au ministre de l’emploi",
-    ],
-    save: true,
-  },
+    // ᕕ( ᐛ )ᕗ
+    // CAUTION : DO NOT change this bubble without also changing the dataBubble
+    // onCreated function. (the data bubble needs to check what was answered to this
+    // qcm to decide which collection to subscribe to).
+    {
+      type: "---BB---",
+      name: "qcm.humeur",
+      label: "Alors, dites-nous, de quelle humeur êtes-vous aujourd'hui?",
+      qcmOptions: [
+        "d’humeur à mordre mon ordinateur",
+        "plutôt d’humeur à faire une sieste en forêt",
+        "d’humeur à écrire une lettre au ministre de l’emploi",
+      ],
+      save: true,
+    },
 
-  // ᕕ( ᐛ )ᕗ
-  // CAUTION : DO NOT change also this bubble without also changing the dataBubble
-  // onCreated function. (the data bubble needs to check what was answered to this
-  // qcm to decide which collection to subscribe to).
+    // ᕕ( ᐛ )ᕗ
+    // CAUTION : DO NOT change also this bubble without also changing the dataBubble
+    // onCreated function. (the data bubble needs to check what was answered to this
+    // qcm to decide which collection to subscribe to).
 
-  {
-    type: "---BB---",
-    name: "qcm.tutoie",
-    label:
-      "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
-    qcmOptions: ["le vouvoiement c'est bien", "je préfère tu"],
-    save: true,
-  },
-  {
-    type: "---BB---",
-    name: "getScenario",
-    label: "chargement...",
-  },
-];
+    {
+      type: "---BB---",
+      name: "qcm.tutoie",
+      label:
+        "en fait, est-ce que ça va qu’on vous tutoie ou tu préfères qu’on vous vouvoie ?",
+      qcmOptions: ["le vouvoiement c'est bien", "je préfère tu"],
+      save: true,
+    },
+    {
+      type: "---BB---",
+      name: "getScenario",
+      label: "chargement...",
+    },
+  ];
+});
 
 Template.show.helpers({
   showData() {
+    //console.log("FEED showData", intro);
     return intro;
   },
 });
