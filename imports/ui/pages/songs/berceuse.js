@@ -1,5 +1,4 @@
 import "./berceuse.html"
-
 // import { Songs} from "../../../API/songs/songs.js";
 
 // METEOR --------------------------------------------------
@@ -24,7 +23,7 @@ Template.berceuse.helpers({
 			"berceuse_foret",
 			"berceuse_sac",
 			"berceuse_odeur",
-			"berceuse_climat"
+			"berceuse_climat",
 		];
 
 		if (pasMajuscule.includes(option.hash.name)) {
@@ -104,8 +103,7 @@ berceuse_startAnimation = function() {
 
 	a.vw1 = parseFloat(document.documentElement.clientWidth / 100);
 
-	// Duration in seconds
-	a.DURATION = 11.5 * 1000;
+	a.DURATION = 12 * 1000;
 
 	a.BANDEAU = document.querySelector("#left .text-wrapper");
 	a.bandeauWidth = parseFloat(
@@ -113,10 +111,12 @@ berceuse_startAnimation = function() {
 	);
 
 	// Lots of math
+	a.VITESSE = 0.41528999999999994; // en pixels par seconde ou qqch comme ça
+
 	a.distanceCote = a.profondeurPiece * a.vw1 + a.bandeauWidth;
 	a.distanceCentre = 100 * a.vw1 + a.bandeauWidth;
 	a.durationCentre = (a.distanceCentre * a.DURATION) / a.distanceCote;
-	a.VITESSE = a.distanceCote / a.DURATION; // En pixels par seconde
+	a.DURATION = a.distanceCote / a.VITESSE;
 	a.delayCentre = (a.profondeurPiece * a.vw1) / a.VITESSE;
 	a.delayCote = (100 * a.vw1) / a.VITESSE;
 
