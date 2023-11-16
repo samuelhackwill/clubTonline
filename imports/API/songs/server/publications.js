@@ -47,6 +47,6 @@ Meteor.methods({
 
   getAllSongs() {
     // console.log("get all songs");
-    return Songs.find({}).fetch();
+    return Songs.find({}, { sort: { timestamp: -1 } }).fetch();
   },
 });
