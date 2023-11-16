@@ -126,6 +126,10 @@ export const rap_vous = [
     text: "Il s'agit d'une réponse choisie au hasard parmi toutes les réponses reçues par le guichet.",
   },
   {
+    type: "SB",
+    text: "N'hésitez pas à vous inspirer de leurs réponses à tout moment. Ce sont d'espèces d'ange-gardien·ne·s sur votre chemin aujourd'hui",
+  },
+  {
     type: "---BB---",
     name: "play",
     label: "c'est bon j'ai identifié mon ennemi",

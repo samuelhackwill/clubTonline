@@ -116,6 +116,10 @@ export const lettre_tu = [
     text: "Il s'agit d'une réponse choisie au hasard parmi toutes les réponses reçues par le guichet.",
   },
   {
+    type: "SB",
+    text: "N'hésite pas à t'inspirer de leurs réponses à tout moment. Ce sont d'espèces d'ange-gardien·ne·s sur ton chemin aujourd'hui",
+  },
+  {
     type: "---BB---",
     save: true,
     name: "card.lettre_ou",
